@@ -39,7 +39,7 @@ body {
 }
 
 .nom {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .nom a {
@@ -515,5 +515,9 @@ nav .fa-solid {
   }
   */ #projects h1 {
     margin-bottom: 45px;
+  }
+  .nom {
+    font-size: 15px;
+    margin: 20px;
   }
 }
