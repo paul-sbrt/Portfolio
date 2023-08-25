@@ -450,12 +450,13 @@ nav .fa-solid {
 
   .header-sticky {
     width: 100%;
+    left: 0;
   }
 
   nav .fa-solid {
     position: absolute;
     top: 25px;
-    left: 75%;
+    left: 85%;
     cursor: pointer;
   }
 
