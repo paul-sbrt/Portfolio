@@ -403,7 +403,7 @@ nav .fa-solid {
 
 @media only screen and (max-width: 600px) {
   .header {
-    background-image: url("./images/image\ mobile2.png");
+    background-image: url(./images/image\ mobile2.png);
   }
 
   .header-text {
