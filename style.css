@@ -131,6 +131,10 @@ nav ul li a:hover:after {
   margin-bottom: 30px;
 }
 
+.btn.btn2.btn3 {
+  margin-bottom: 20px;
+}
+
 .tab-title {
   display: flex;
   margin-bottom: 25px;
@@ -408,9 +412,9 @@ nav .fa-solid {
     margin-bottom: 0px;
     margin-top: 55px;
   }
-.row {
-  margin-top:30px;
-}
+  .row {
+    margin-top: 30px;
+  }
   .header-text {
     margin-top: 25%;
     font-size: 16px;
@@ -490,7 +494,7 @@ nav .fa-solid {
   }
 
   .box {
-    margin: 20px 12px;
+    margin: 20px 6px;
   }
 
   .work-list {
@@ -516,11 +520,15 @@ nav .fa-solid {
     width: 30px;
     height: 30px;
   }
-  */ #projects h1 {
+  #projects h1 {
     margin-bottom: 45px;
   }
   .nom {
     font-size: 15px;
     margin: 20px;
+  }
+
+  .social-icons {
+    margin-bottom: 30px;
   }
 }
