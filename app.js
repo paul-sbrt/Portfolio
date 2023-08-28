@@ -45,14 +45,21 @@ var swiper = new Swiper(".mySwiper", {
 // ------ menu mobile ------
 
 let sideMenu = document.getElementById("sidemenu");
+let openIcon = document.querySelector(".fa-solid.fa-bars");
 
 function openMenu() {
   sideMenu.style.right = "0";
+  openIcon.style.display = "none";
 }
 
 function closeMenu() {
   sideMenu.style.right = "-200px";
+  openIcon.style.display = "block";
 }
+
+sideMenu.addEventListener("click", () => {
+  closeMenu();
+});
 
 // ---- responsive slide ----
 
