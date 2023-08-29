@@ -535,3 +535,9 @@ nav .fa-solid {
     margin-bottom: 30px;
   }
 }
+
+@media only screen and (max-width: 372px) {
+  .box {
+    margin: 20px 3px;
+  }
+}
