@@ -54,12 +54,18 @@ function openMenu() {
 
 function closeMenu() {
   sideMenu.style.right = "-200px";
-  openIcon.style.display = "block";
+  if (window.innerWidth <= 600) {
+    openIcon.style.display = "block";
+  } else {
+    openIcon.style.display = "none";
+  }
 }
 
 sideMenu.addEventListener("click", () => {
   closeMenu();
 });
+
+window.addEventListener("resize", closeMenu);
 
 // ---- responsive slide ----
 

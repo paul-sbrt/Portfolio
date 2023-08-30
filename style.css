@@ -21,11 +21,16 @@ body {
 }
 
 .header-sticky {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
   position: fixed;
   width: 100%;
   height: 69px;
   background-color: #080808;
   top: 0;
+  left: 0;
   z-index: 200;
 }
 
@@ -53,13 +58,7 @@ span {
 }
 
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
   font-size: 25px;
-  margin-left: 644px;
-  margin-top: -49px;
 }
 
 nav ul li {
@@ -417,18 +416,17 @@ nav .fa-solid {
     margin-top: 30px;
   }
   .header-text {
-    margin-top: 25%;
-    font-size: 16px;
     display: none;
-  }
-  .header-text h1 {
-    font-size: 30px;
   }
 
   nav .fa-solid {
     display: block;
     font-size: 25px;
     font-size: 25px;
+    position: absolute;
+    top: 25px;
+    left: 85%;
+    cursor: pointer;
   }
 
   nav ul {
@@ -453,18 +451,6 @@ nav .fa-solid {
     position: absolute;
     top: 25px;
     left: 25px;
-    cursor: pointer;
-  }
-
-  .header-sticky {
-    width: 100%;
-    left: 0;
-  }
-
-  nav .fa-solid {
-    position: absolute;
-    top: 25px;
-    left: 85%;
     cursor: pointer;
   }
 
