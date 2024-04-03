@@ -198,6 +198,28 @@ nav ul li a:hover:after {
   margin-bottom: 3px;
 }
 
+.box-2 {
+  text-align: center;
+  margin: 30px 20px;
+  display: inline-block;
+  width: 165px;
+  height: 112px;
+}
+
+.box-2 span {
+  color: #fff;
+}
+
+.box-2 p {
+  font-size: 15px;
+}
+
+.box-2 img {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 3px;
+}
+
 .rond {
   border-radius: 15px;
 }

@@ -29,6 +29,7 @@
     <!--JS-->
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="./display.js" defer></script>
 
     <script src="./app.js" defer></script>
   </head>
@@ -80,179 +81,28 @@
               in my mind.
             </p>
 
-            <a class="btn btn2 btn3" href="./images/CV.pdf" download
+            <a class="btn btn2 btn3" href="./images/CV CDA.pdf" download
               >Download CV</a
             >
 
             <div class="tab-title">
-              <p class="tab-links active-link">Skills</p>
-              <p class="tab-links">Experience</p>
-              <p class="tab-links">Studies</p>
-            </div>
-
-            <div class="tab-content active-tab">
-              <div class="box">
-                <img src="./images/css-3.png" /> <br /><span>CSS</span><br />
-                <p>Intermediate</p>
-              </div>
-
-              <div class="box">
-                <img src="./images/html-5.png" /> <br /><span>HTML</span>
-                <br />
-                <p>Intermediate</p>
-              </div>
-
-              <div class="box">
-                <img src="./images/js.png" /> <br /><span>JavaScript</span
-                ><br />
-                <p>Intermediate</p>
-              </div>
-
-              <div class="box">
-                <img src="./images/photoshop.png" /> <br /><span>Photoshop</span
-                ><br />
-                <p>Basic</p>
-              </div>
-
-              <div class="box">
-                <img src="./images/figma.png" /> <br /><span class="figma"
-                  >Figma</span
-                ><br />
-                <p>Novice</p>
-              </div>
-
-              <div class="box">
-                <img src="./images/react.png" /> <br /><span>React</span><br />
-                <p>Novice</p>
-              </div>
-
-              <div class="box">
-                <img src="./images/php.png" /> <br /><span>PHP</span><br />
-                <p>Novice</p>
-              </div>
-
-              <div class="box">
-                <img class="rond" src="./images/sql.png" /> <br /><span
-                  >SQL</span
-                ><br />
-                <p>Novice</p>
-              </div>
-
-              <div class="box">
-                <img src="./images/symfony.png" /> <br /><span>Symfony</span
-                ><br />
-                <p>Novice</p>
-              </div>
-            </div>
-
-            <div class="tab-content">
-              <div class="box">
-                <img src="./images/evolution gaming .png" alt="" />
-                <br />
-                <span>Online Dealer</span>
-                <br />
-                <span>Evolution Gaming</span>
-                <p>Vancouver</p>
-                <p>jan 2023- apr 2023</p>
-              </div>
-
-              <div class="box">
-                <img class="rond" src="./images/napoleon.png" alt="" />
-                <br />
-                <span>Tobacconist</span>
-                <br />
-                <span>Napoleon </span><br />
-                <p>Tours</p>
-                <p>oct 2021- feb 2022</p>
-              </div>
-
-              <div class="box">
-                <img src="./images/O'gorille.jpeg" alt="" />
-                <br />
-                <span>Bartender</span>
-                <br />
-                <span>O'Gorille </span><br />
-                <p>Tours</p>
-                <p>oct 2021- nov 2021</p>
-              </div>
-
-              <div class="box">
-                <img src="./images/lys.png" alt="" />
-                <br />
-                <span>Cook</span>
-                <br />
-                <span>Le Lys d'Or </span><br />
-                <p>Tours</p>
-                <p>may 2021- oct 2021</p>
-              </div>
-
-              <div class="box">
-                <img src="./images/speed rabbit.png" alt="" />
-                <br />
-                <span>Delivery Driver</span>
-                <br />
-                <span>Speed Rabbit </span><br />
-                <p>Tours</p>
-                <p>jun 2020-may 2021</p>
-              </div>
-
-              <div class="box">
-                <img class="rond" src="./images/affranchi.png" alt="" />
-                <br />
-                <span>Cook</span>
-                <br />
-                <span>L'affranchi</span><br />
-                <p>Tours</p>
-                <p>apr 2019- aug 2020</p>
-              </div>
-            </div>
-
-            <div class="tab-content">
-              <div class="box">
-                <img class="rond" src="./images/cefim.jpeg" />
-                <br /><span
-                  >CEFIM <br />
-                  D.W.W.M</span
-                >
-                <br />
-                <p>2023-2024</p>
-              </div>
-
-              <div class="box">
-                <img class="rond" src="./images/kaplan.png" />
-                <br /><span
-                  >Kaplan, Vancouver<br />
-                  English School</span
-                >
-                <br />
-
-                <p>End 2022</p>
-              </div>
-
-              <div class="box">
-                <img class="rond" src="./images/CFA.jpeg" />
-                <br /><span
-                  >CFA <br />
-                  CAP cuisine
-                </span>
-                <br />
-                <p>2019-2020</p>
-              </div>
-
-              <div class="box">
-                <img class="descartes" src="./images/descartes.png" />
-                <br /><span
-                  >Lycee Descartes <br />
-                  Filiere Scientifique
-                </span>
-                <br />
-                <p>2016-2019</p>
-              </div>
-            </div>
+              <p class="tab-links active-link" data-tab="skills">Skills</p>
+              <p class="tab-links" data-tab="experience">Experience</p>
+              <p class="tab-links" data-tab="studies">Studies</p>
+          </div>
+          
+          <div class="tab-content active-tab skills">
+              <!-- Contenu des compétences -->
+          </div>
+          
+          <div class="tab-content experience">
+              <!-- Contenu de l'expérience -->
+          </div>
+          
+          <div class="tab-content studies">
+              <!-- Contenu des études -->
           </div>
         </div>
-      </div>
-    </div>
 
     <!-- ------PORTFOLIIO------ -->
     <div id="projects">

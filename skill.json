@@ -1,0 +1,77 @@
+[
+  {
+    "name": "CSS",
+    "image": "./images/css-3.png",
+    "level": "Intermediate"
+  },
+  {
+    "name": "HTML",
+    "image": "./images/html-5.png",
+    "level": "Intermediate"
+  },
+  {
+    "name": "JavaScript",
+    "image": "./images/js.png",
+    "level": "Intermediate"
+  },
+  {
+    "name": "Photoshop",
+    "image": "./images/photoshop.png",
+    "level": "Basic"
+  },
+  {
+    "name": "Figma",
+    "image": "./images/figma.png",
+    "level": "Basic"
+  },
+  {
+    "name": "React",
+    "image": "./images/react.png",
+    "level": "Intermediate"
+  },
+  {
+    "name": "PHP",
+    "image": "./images/php.png",
+    "level": "Intermediate"
+  },
+  {
+    "name": "SQL",
+    "image": "./images/sql.png",
+    "level": "Intermediate"
+  },
+  {
+    "name": "Symfony",
+    "image": "./images/symfony.png",
+    "level": "Intermediate"
+  },
+  {
+    "name": "Power App",
+    "image": "./images/power-app-removebg-preview.png",
+    "level": "Intermediate"
+  },
+  {
+    "name": "Power BI",
+    "image": "./images/powerBI.png",
+    "level": "Intermediate"
+  },
+  {
+    "name": "Power Automate",
+    "image": "./images/power-automate-removebg-preview.png",
+    "level": "Intermediate"
+  },
+  {
+    "name": "Excel",
+    "image": "./images/excel-removebg-preview.png",
+    "level": "Intermediate"
+  },
+  {
+    "name": "Sharepoint",
+    "image": "./images/sharepoint.png",
+    "level": "Intermediate"
+  },
+  {
+    "name": "Azure Devops",
+    "image": "./images/azure.webp",
+    "level": "Basic"
+  }
+]

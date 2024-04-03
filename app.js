@@ -1,6 +1,7 @@
 let tabLinks = document.querySelectorAll(".tab-links");
 let tabContent = document.querySelectorAll(".tab-content");
 
+// Gestionnaire d'événements de clic pour les liens des onglets
 tabLinks.forEach((link, i) => {
   link.addEventListener("click", () => {
     // Ajouter la classe "active-link" au lien cliqué
@@ -9,17 +10,28 @@ tabLinks.forEach((link, i) => {
     });
     link.classList.add("active-link");
 
-    // Faire de même avec le contenu des onglets
+    // Afficher le contenu correspondant en fonction de l'onglet cliqué
     tabContent.forEach((content) => {
       content.classList.remove("active-tab");
     });
     tabContent[i].classList.add("active-tab");
+
+    // Appeler la fonction correspondante pour charger et afficher les données
+    if (i === 0) {
+      displaySkills();
+    } else if (i === 1) {
+      displayExperience();
+    } else if (i === 2) {
+      displayStudies();
+    }
   });
 });
 
+displaySkills();
+
 // -----Slide projects----
 
-var swiper = new Swiper(".mySwiper", {
+let swiper = new Swiper(".mySwiper", {
   slidesPerView: 2,
   spaceBetween: 55,
   slidesPerGroup: 1,

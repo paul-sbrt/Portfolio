@@ -1,0 +1,32 @@
+[
+  {
+    "institution": "CEFIM C.D.A",
+    "dates": "2024-2025",
+    "place": "Tours",
+    "image": "./images/cefim.jpeg"
+  },
+  {
+    "institution": "CEFIM D.W.W.M",
+    "dates": "2023-2024",
+    "place": "Tours",
+    "image": "./images/cefim.jpeg"
+  },
+  {
+    "institution": "Kaplan English School",
+    "dates": "End 2022",
+    "place": "Vancouver",
+    "image": "./images/kaplan.png"
+  },
+  {
+    "institution": "CFA CAP cuisine",
+    "dates": "2019-2020",
+    "place": "Tours",
+    "image": "./images/CFA.jpeg"
+  },
+  {
+    "institution": "Lycee Descartes Filiere Scientifique",
+    "dates": "2016-2019",
+    "place": "Tours",
+    "image": "./images/descartes.png"
+  }
+]
