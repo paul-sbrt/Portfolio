@@ -30,6 +30,19 @@ tabLinks.forEach((link, i) => {
 displaySkills();
 displayProjects();
 
+// scroll nav
+const nomDiv = document.querySelector(".nom");
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY === 0) {
+    // Scroll is at the top of the page
+    nomDiv.style.visibility = "visible";
+  } else {
+    // Scroll is not at the top of the page
+    nomDiv.style.visibility = "hidden";
+  }
+});
+
 // -----Slide projects----
 
 let swiper = new Swiper(".mySwiper", {
