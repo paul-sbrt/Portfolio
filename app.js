@@ -28,7 +28,6 @@ tabLinks.forEach((link, i) => {
 });
 
 displaySkills();
-displayProjects();
 
 // scroll nav
 const nomDiv = document.querySelector(".nom");
@@ -67,7 +66,7 @@ let swiper = new Swiper(".mySwiper", {
     nextEl: ".swiper-button-next",
   },
 });
-
+displayProjects();
 // ------ menu mobile ------
 
 let sideMenu = document.getElementById("sidemenu");

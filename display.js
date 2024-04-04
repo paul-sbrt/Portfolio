@@ -140,6 +140,7 @@ function displayProjects() {
 
         const linkElement = document.createElement("a");
         linkElement.href = project.link;
+        linkElement.target = "_blank";
         const arrowIcon = document.createElement("i");
         arrowIcon.classList.add("fa-solid", "fa-arrow-up-right-from-square");
         linkElement.appendChild(arrowIcon);
