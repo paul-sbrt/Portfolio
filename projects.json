@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Newsletter Sign Up",
+    "image": "./images/newsletter sign up .png",
+    "description": "I developed an interactive newsletter signup form from a given design. Users can input their email, receiving a confirmation message upon successful submission, along with responsive design for various screens.",
+    "link": "./images/newsletter sign up .png"
+  },
+  {
+    "title": "Interactive Rating",
+    "image": "./images/interactive rating.png",
+    "description": "I created a responsive rating component with hover effects based on a design, encouraging user interaction. After rating, a 'Thank you' card boosts engagement.",
+    "link": "./images/interactive rating.png"
+  },
+  {
+    "title": "Taxifood",
+    "image": "./images/taxifood.png",
+    "description": "Group project for training assessment (CEFIM). I designed the team page to showcase store members with photos and roles, enabling their information to be editable for administrative purposes.",
+    "link": "./images/taxifood.png"
+  },
+  {
+    "title": "SuperApp",
+    "image": "./images/superapp.png",
+    "description": "Successful integration of the 'Super App' landing page designed in Adobe XD. Demonstration of development skills and highlighting the attractive interface of the application.",
+    "link": "./images/superapp.png"
+  },
+  {
+    "title": "Excursion Site",
+    "image": "./images/excursion.jpg",
+    "description": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
+    "link": "./images/excursion.jpg"
+  },
+  {
+    "title": "Tea Cozy",
+    "image": "./images/tea.jpg",
+    "description": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
+    "link": "./images/tea.jpg"
+  }
+]

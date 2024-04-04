@@ -28,6 +28,7 @@ tabLinks.forEach((link, i) => {
 });
 
 displaySkills();
+displayProjects();
 
 // -----Slide projects----
 

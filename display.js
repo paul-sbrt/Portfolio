@@ -113,3 +113,46 @@ function displayStudies() {
     })
     .catch((error) => console.error("Error loading studies data:", error));
 }
+
+function displayProjects() {
+  fetch("projects.json")
+    .then((response) => response.json())
+    .then((projectData) => {
+      const projectsContainer = document.querySelector(".swiper-wrapper");
+
+      projectData.forEach((project) => {
+        // Remplacement de 'projects' par 'projectData.projects'
+        const projectElement = document.createElement("div");
+        projectElement.classList.add("work", "swiper-slide");
+
+        const imgElement = document.createElement("img");
+        imgElement.src = project.image;
+        imgElement.alt = project.title;
+
+        const layerElement = document.createElement("div");
+        layerElement.classList.add("layer");
+
+        const titleElement = document.createElement("h3");
+        titleElement.textContent = project.title;
+
+        const descriptionElement = document.createElement("p");
+        descriptionElement.textContent = project.description;
+
+        const linkElement = document.createElement("a");
+        linkElement.href = project.link;
+        const arrowIcon = document.createElement("i");
+        arrowIcon.classList.add("fa-solid", "fa-arrow-up-right-from-square");
+        linkElement.appendChild(arrowIcon);
+
+        layerElement.appendChild(titleElement);
+        layerElement.appendChild(descriptionElement);
+        layerElement.appendChild(linkElement);
+
+        projectElement.appendChild(imgElement);
+        projectElement.appendChild(layerElement);
+
+        projectsContainer.appendChild(projectElement);
+      });
+    })
+    .catch((error) => console.error("Error fetching projects:", error));
+}

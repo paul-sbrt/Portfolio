@@ -246,7 +246,7 @@ nav ul li a:hover:after {
   margin-top: 50px;
   gap: 40px;
   padding: 55px;
-  margin: 0px 80px;
+  margin: 0px -90px;
 }
 
 .work {
@@ -444,7 +444,6 @@ nav .fa-solid {
   nav .fa-solid {
     display: block;
     font-size: 25px;
-    font-size: 25px;
     position: absolute;
     top: 25px;
     left: 85%;
@@ -508,13 +507,17 @@ nav .fa-solid {
     margin: 20px 6px;
   }
 
+  .box-2 {
+    margin: 20px -8px;
+  }
+
   .work-list {
     padding: 41px;
     margin: -40px;
   }
 
   .layer p {
-    font-size: 11px;
+    font-size: 9px;
   }
   /* 
   .layer h3 {
@@ -546,6 +549,10 @@ nav .fa-solid {
 
 @media only screen and (max-width: 372px) {
   .box {
+    margin: 20px 3px;
+  }
+
+  .box-2 {
     margin: 20px 3px;
   }
 }
