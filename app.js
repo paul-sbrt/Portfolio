@@ -59,6 +59,7 @@ let swiper = new Swiper(".mySwiper", {
     el: ".swiper-pagination",
     clickable: false,
     dynamicBullets: true,
+    loop: true,
   },
 
   navigation: {
@@ -66,8 +67,6 @@ let swiper = new Swiper(".mySwiper", {
     nextEl: ".swiper-button-next",
   },
 });
-
-// displayProjects();
 
 // ------ menu mobile ------
 
