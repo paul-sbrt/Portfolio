@@ -1,5 +1,11 @@
 [
   {
+    "title": "FavFilm",
+    "image": "./images/FavFilm.png",
+    "description": "I created a website to learn React for school. The website allows users to explore a collection of films, displaying them and providing sorting options. It serves as a practical exercise in React development and user interface design.",
+    "link": "https://paul-sbrt.github.io/React-FavFilm/"
+  },
+  {
     "title": "New Home Page",
     "image": "./images/newsHomePage.png",
     "description": "This project entails building a responsive news website homepage, focusing on HTML, CSS, and basic JavaScript skills. Participants are tasked with replicating the design as closely as possible, ensuring responsiveness across different screen sizes and incorporating hover and focus states for interactive elements.",

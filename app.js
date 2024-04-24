@@ -66,6 +66,7 @@ let swiper = new Swiper(".mySwiper", {
     nextEl: ".swiper-button-next",
   },
 });
+
 displayProjects();
 // ------ menu mobile ------
 
