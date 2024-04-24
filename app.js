@@ -43,6 +43,7 @@ window.addEventListener("scroll", function () {
 });
 
 // -----Slide projects----
+displayProjects();
 
 let swiper = new Swiper(".mySwiper", {
   slidesPerView: 2,
@@ -57,7 +58,7 @@ let swiper = new Swiper(".mySwiper", {
 
   pagination: {
     el: ".swiper-pagination",
-    clickable: true,
+    clickable: false,
     dynamicBullets: true,
   },
 
@@ -67,7 +68,6 @@ let swiper = new Swiper(".mySwiper", {
   },
 });
 
-displayProjects();
 // ------ menu mobile ------
 
 let sideMenu = document.getElementById("sidemenu");
