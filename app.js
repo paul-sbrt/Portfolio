@@ -43,7 +43,6 @@ window.addEventListener("scroll", function () {
 });
 
 // -----Slide projects----
-displayProjects();
 
 let swiper = new Swiper(".mySwiper", {
   slidesPerView: 2,
@@ -67,6 +66,8 @@ let swiper = new Swiper(".mySwiper", {
     nextEl: ".swiper-button-next",
   },
 });
+
+// displayProjects();
 
 // ------ menu mobile ------
 

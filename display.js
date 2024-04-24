@@ -157,3 +157,5 @@ function displayProjects() {
     })
     .catch((error) => console.error("Error fetching projects:", error));
 }
+
+displayProjects();
