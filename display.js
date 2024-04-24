@@ -115,7 +115,7 @@ function displayStudies() {
 }
 
 function displayProjects() {
-  fetch("projects.json")
+  fetch("./projects.json")
     .then((response) => response.json())
     .then((projectData) => {
       const projectsContainer = document.querySelector(".swiper-wrapper");
