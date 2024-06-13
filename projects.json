@@ -1,5 +1,11 @@
 [
   {
+    "title": "Wish Project",
+    "image": "./images/wish-project.png",
+    "description": "The Wish Project is a course project to learn the basics of the Symfony framework: controller, entity, form, repository, adding, deleting, editing in the database",
+    "link": "https://wish.portfolio-sbrt.com/"
+  },
+  {
     "title": "TwitThor",
     "image": "./images/twithor.png",
     "description": "The Twitter project is a course project developed using React. This project is designed to provide a experience with the fundamental concepts of the React framework. It covers various aspects such as components, props, and other core features of React. The aim is to provide a practical understanding of how these elements work together to build a dynamic web application.",
