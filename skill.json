@@ -73,5 +73,10 @@
     "name": "Azure Devops",
     "image": "./images/azure.webp",
     "level": "Basic"
+  },
+  {
+    "name": "Wordpress",
+    "image": "./images/wordpressLogo.webp",
+    "level": "Intermediate"
   }
 ]

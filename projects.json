@@ -1,5 +1,11 @@
 [
   {
+    "title": "Banana Design",
+    "image": "./images/BananaDesign.png",
+    "description": "Create a simple WordPress website to learn the basics of WordPress, including installation, theme customization, page creation, and plugin management. Ideal for beginners to understand core WordPress functionalities.",
+    "link": "https://bananadesign.portfolio-sbrt.com/"
+  },
+  {
     "title": "Wish Project",
     "image": "./images/wish-project.png",
     "description": "The Wish Project is a course project to learn the basics of the Symfony framework: controller, entity, form, repository, adding, deleting, editing in the database",
