@@ -1,5 +1,11 @@
 [
   {
+    "title": "Bricotips",
+    "image": "./images/bricotips.png",
+    "description": "In this project, I deepened my WordPress skills by exploring developer documentation, creating a child theme, and customizing its CSS. I built pages with Gutenberg, created custom widgets and shortcodes, modified theme templates, and developed custom page templates. I also added features using hooks, customized post pages, debugged the site, and implemented security measures to prevent hacking.",
+    "link": "https://bricotips.portfolio-sbrt.com/"
+  },
+  {
     "title": "Banana Design",
     "image": "./images/BananaDesign.png",
     "description": "Create a simple WordPress website to learn the basics of WordPress, including installation, theme customization, page creation, and plugin management. Ideal for beginners to understand core WordPress functionalities.",
