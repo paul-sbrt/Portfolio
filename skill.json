@@ -78,5 +78,10 @@
     "name": "Wordpress",
     "image": "./images/wordpressLogo.webp",
     "level": "Intermediate"
+  },
+  {
+    "name": "Python",
+    "image": "./images/python.png",
+    "level": "Basic"
   }
 ]
