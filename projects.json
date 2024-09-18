@@ -1,5 +1,11 @@
 [
   {
+    "title": "Age Calculator",
+    "image": "./images/age-calcul.png",
+    "description": "This web application calculates and displays a user's age based on their date of birth. Using JavaScript, the app computes the age in years, months, and days. Users enter their date of birth, and upon clicking a button, the application performs the calculation and presents the result. The project emphasizes JavaScript for accurate date calculations and an engaging, interactive user experience.",
+    "link": "https://paul-sbrt.github.io/age-calculator/"
+  },
+  {
     "title": "Bricotips",
     "image": "./images/bricotips.png",
     "description": "In this project, I deepened my WordPress skills by exploring developer documentation, creating a child theme, and customizing its CSS. I built pages with Gutenberg, created custom widgets and shortcodes, modified theme templates, and developed custom page templates. I also added features using hooks, customized post pages, debugged the site, and implemented security measures to prevent hacking.",
@@ -10,6 +16,12 @@
     "image": "./images/BananaDesign.png",
     "description": "Create a simple WordPress website to learn the basics of WordPress, including installation, theme customization, page creation, and plugin management. Ideal for beginners to understand core WordPress functionalities.",
     "link": "https://bananadesign.portfolio-sbrt.com/"
+  },
+  {
+    "title": "Advice Generator",
+    "image": "./images/advice-generator.png",
+    "description": "This front-end project focuses on building a web application that interacts with an API to generate and display advice. Users can click a button to fetch advice from the API and view it on the screen. The project emphasizes API integration, asynchronous data handling, and creating a user-friendly interface.",
+    "link": "https://paul-sbrt.github.io/Advice-generator-app/"
   },
   {
     "title": "Wish Project",
