@@ -1,5 +1,11 @@
 [
   {
+    "title": "Password Generator",
+    "image": "./images/passwordGen.png",
+    "description": "A JavaScript project to create secure, customizable passwords. It strengthens my skills in JavaScript functions, DOM manipulation, and input validation while practicing arrays, loops, and conditional logic.",
+    "link": "https://paul-sbrt.github.io/Password-Generator/"
+  },
+  {
     "title": "Age Calculator",
     "image": "./images/age-calcul.png",
     "description": "This web application calculates and displays a user's age based on their date of birth. Using JavaScript, the app computes the age in years, months, and days. Users enter their date of birth, and upon clicking a button, the application performs the calculation and presents the result. The project emphasizes JavaScript for accurate date calculations and an engaging, interactive user experience.",
