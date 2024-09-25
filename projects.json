@@ -1,5 +1,11 @@
 [
   {
+    "title": "WhereToWatch",
+    "image": "./images/wheretowatch2.png",
+    "description": "WhereToWatch is a React application that lets users search for movies and find where to watch them. It uses the TMDB API to display movie details like genres, ratings, main actors, and streaming platforms. Built with React, React Router, and Bootstrap, it's deployed on GitHub Pages",
+    "link": "https://paul-sbrt.github.io/WhereToWatch/"
+  },
+  {
     "title": "Password Generator",
     "image": "./images/passwordGen.png",
     "description": "A JavaScript project to create secure, customizable passwords. It strengthens my skills in JavaScript functions, DOM manipulation, and input validation while practicing arrays, loops, and conditional logic.",
