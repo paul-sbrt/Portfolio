@@ -12,6 +12,12 @@
     "link": "https://paul-sbrt.github.io/Password-Generator/"
   },
   {
+    "title": "To Do List",
+    "image": "./images/todo.png",
+    "description": "The goal is to build a To-Do List web application that allows users to add, manage, and delete tasks. It helps in practicing JavaScript concepts like DOM manipulation, event handling, local storage, and form validation.",
+    "link": "https://paul-sbrt.github.io/ToDoList/"
+  },
+  {
     "title": "Age Calculator",
     "image": "./images/age-calcul.png",
     "description": "This web application calculates and displays a user's age based on their date of birth. Using JavaScript, the app computes the age in years, months, and days. Users enter their date of birth, and upon clicking a button, the application performs the calculation and presents the result. The project emphasizes JavaScript for accurate date calculations and an engaging, interactive user experience.",
