@@ -1,5 +1,11 @@
 [
   {
+    "title": "Professional Wordpress Website",
+    "image": "./images/Site anne guillien.png",
+    "description": "Delivered a custom WordPress business website focused on showcasing services and enhancing client engagement. Integrated essential features such as online appointment booking, SEO optimization, and responsive design to ensure a seamless user experience and ease of management for the client.",
+    "link": "https://anneguillien.fr"
+  },
+  {
     "title": "WhereToWatch",
     "image": "./images/wheretowatch2.png",
     "description": "WhereToWatch is a React application that lets users search for movies and find where to watch them. It uses the TMDB API to display movie details like genres, ratings, main actors, and streaming platforms. Built with React, React Router, and Bootstrap, it's deployed on GitHub Pages",
