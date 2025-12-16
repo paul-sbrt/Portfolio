@@ -1,0 +1,37 @@
+[
+  {
+    "title": "SUEZ — Power BI Certification Progress Dashboard",
+    "type": "Dashboard",
+    "year": 2023,
+    "certification": "",
+    "tech": ["Power BI", "Power Query", "DAX"],
+    "context": "Power BI dashboard built for a SUEZ project to help stakeholders track certification progress across teams and support decision-making.",
+    "impact": [
+      "Centralized certification progress tracking for multiple teams",
+      "Improved visibility for managers with clear KPIs and drill-down views",
+      "Reduced manual reporting by consolidating data into a single dashboard"
+    ],
+    "image": "./images/powerBI.png",
+    "link": "/suez-dashboard.html",
+    "openInSameTab": true,
+    "status": "Internal project developed at Avanade — live access no longer available"
+  },
+  {
+    "title": "MSCD — Internal Contract & Quality Management Application",
+    "type": "Business Application",
+    "year": 2023,
+    "certification": "",
+    "tech": ["Power Apps", "SharePoint", "Power Automate"],
+    "context": "Internal application built during my time at Avanade to track signed contracts end-to-end. The solution covered all required processes and validation steps to ensure consistent follow-up and support long-term quality management.",
+    "impact": [
+      "Centralized contract tracking from signature to delivery",
+      "Standardized processes and validation steps across teams",
+      "Improved visibility and traceability for quality management",
+      "Reduced manual follow-up through automated workflows"
+    ],
+    "image": "./images/power-app-removebg-preview.png",
+    "link": "/mscd-application.html",
+    "openInSameTab": true,
+    "status": "Internal project developed at Avanade — live access no longer available. Presented through screenshots for confidentiality reasons."
+  }
+]

@@ -1,33 +1,43 @@
 let tabLinks = document.querySelectorAll(".tab-links");
 let tabContent = document.querySelectorAll(".tab-content");
+const hasTabData =
+  typeof displaySkills === "function" ||
+  typeof displayExperience === "function" ||
+  typeof displayStudies === "function";
 
-// Gestionnaire d'événements de clic pour les liens des onglets
-tabLinks.forEach((link, i) => {
-  link.addEventListener("click", () => {
-    // Ajouter la classe "active-link" au lien cliqué
-    tabLinks.forEach((otherLink) => {
-      otherLink.classList.remove("active-link");
+if (tabLinks.length && hasTabData) {
+  // Gestionnaire d'événements de clic pour les liens des onglets
+  tabLinks.forEach((link, i) => {
+    link.addEventListener("click", () => {
+      // Ajouter la classe "active-link" au lien cliqué
+      tabLinks.forEach((otherLink) => {
+        otherLink.classList.remove("active-link");
+      });
+      link.classList.add("active-link");
+
+      // Afficher le contenu correspondant en fonction de l'onglet cliqué
+      tabContent.forEach((content) => {
+        content.classList.remove("active-tab");
+      });
+      if (tabContent[i]) {
+        tabContent[i].classList.add("active-tab");
+      }
+
+      // Appeler la fonction correspondante pour charger et afficher les données
+      if (i === 0 && typeof displaySkills === "function") {
+        displaySkills();
+      } else if (i === 1 && typeof displayExperience === "function") {
+        displayExperience();
+      } else if (i === 2 && typeof displayStudies === "function") {
+        displayStudies();
+      }
     });
-    link.classList.add("active-link");
-
-    // Afficher le contenu correspondant en fonction de l'onglet cliqué
-    tabContent.forEach((content) => {
-      content.classList.remove("active-tab");
-    });
-    tabContent[i].classList.add("active-tab");
-
-    // Appeler la fonction correspondante pour charger et afficher les données
-    if (i === 0) {
-      displaySkills();
-    } else if (i === 1) {
-      displayExperience();
-    } else if (i === 2) {
-      displayStudies();
-    }
   });
-});
 
-displaySkills();
+  if (typeof displaySkills === "function") {
+    displaySkills();
+  }
+}
 
 // scroll nav
 const nomDiv = document.querySelector(".nom");
@@ -44,69 +54,88 @@ window.addEventListener("scroll", function () {
 
 // -----Slide projects----
 
-let swiper = new Swiper(".mySwiper", {
-  slidesPerView: 2,
-  spaceBetween: 55,
-  slidesPerGroup: 1,
-  loop: true,
-  loopFillGroupWithBlank: true,
-  keyboard: {
-    enabled: true,
-  },
-  mousewheel: true,
+const swiperContainer = document.querySelector(".mySwiper");
+let swiper = null;
 
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: false,
-    dynamicBullets: true,
+if (typeof Swiper !== "undefined" && swiperContainer) {
+  swiper = new Swiper(".mySwiper", {
+    slidesPerView: 2,
+    spaceBetween: 55,
+    slidesPerGroup: 1,
     loop: true,
-  },
+    loopFillGroupWithBlank: true,
+    keyboard: {
+      enabled: true,
+    },
+    mousewheel: true,
 
-  navigation: {
-    prevEl: ".swiper-button-prev",
-    nextEl: ".swiper-button-next",
-  },
-});
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: false,
+      dynamicBullets: true,
+      loop: true,
+    },
+
+    navigation: {
+      prevEl: ".swiper-button-prev",
+      nextEl: ".swiper-button-next",
+    },
+  });
+}
 
 // ------ menu mobile ------
 
 let sideMenu = document.getElementById("sidemenu");
 let openIcon = document.querySelector(".fa-solid.fa-bars");
+let closeIcon = document.querySelector("#sidemenu .fa-solid.fa-xmark");
 
 function openMenu() {
+  if (!sideMenu) return;
   sideMenu.style.right = "0";
-  openIcon.style.display = "none";
-}
-
-function closeMenu() {
-  sideMenu.style.right = "-200px";
-  if (window.innerWidth <= 600) {
-    openIcon.style.display = "block";
-  } else {
+  if (openIcon && window.innerWidth <= 600) {
     openIcon.style.display = "none";
   }
 }
 
-sideMenu.addEventListener("click", () => {
-  closeMenu();
-});
+function closeMenu() {
+  if (!sideMenu) return;
+  sideMenu.style.right = "-200px";
+  if (openIcon) {
+    openIcon.style.display = window.innerWidth <= 600 ? "block" : "none";
+  }
+}
+
+if (openIcon) {
+  openIcon.addEventListener("click", (event) => {
+    event.stopPropagation();
+    openMenu();
+  });
+}
+
+if (closeIcon) {
+  closeIcon.addEventListener("click", (event) => {
+    event.stopPropagation();
+    closeMenu();
+  });
+}
+
+if (sideMenu) {
+  sideMenu.addEventListener("click", () => {
+    closeMenu();
+  });
+}
 
 window.addEventListener("resize", closeMenu);
+closeMenu();
 
 // ---- responsive slide ----
 
-window.addEventListener("resize", function () {
-  if (window.innerWidth < 600) {
-    swiper.params.slidesPerView = 1;
-    swiper.update(); // Mettre à jour le Swiper avec la nouvelle configuration
-  } else {
-    swiper.params.slidesPerView = 2; // Revenir à la configuration par défaut
+if (swiper) {
+  const updateSlidesPerView = () => {
+    swiper.params.slidesPerView = window.innerWidth < 600 ? 1 : 2;
     swiper.update();
-  }
-});
+  };
 
-// Appeler la fonction de mise à jour une fois au chargement initial
-if (window.innerWidth < 600) {
-  swiper.params.slidesPerView = 1;
-  swiper.update();
+  window.addEventListener("resize", updateSlidesPerView);
+  updateSlidesPerView(); // initial sync
 }

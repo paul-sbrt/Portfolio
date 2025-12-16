@@ -12,6 +12,7 @@ body {
   background: #080808;
   color: #fff;
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
 /*HEADER*/
@@ -71,6 +72,25 @@ nav a {
   text-decoration: none;
   color: #fff;
   position: relative;
+}
+
+.nav-microsoft-highlight {
+  border: 2px solid #f7c948;
+  border-radius: 0;
+  padding: 6px 18px;
+  color: #f7c948;
+  display: inline-block;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.nav-microsoft-highlight::after {
+  display: none;
+}
+
+.nav-microsoft-highlight:hover {
+  background: rgba(247, 201, 72, 0.12);
 }
 
 nav ul li a::after {
@@ -244,10 +264,11 @@ nav ul li a:hover:after {
 .work-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  margin-top: 50px;
+  margin: 50px auto 0;
   gap: 40px;
-  padding: 55px;
-  margin: 0px -90px;
+  padding: 55px 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 .work {
@@ -458,8 +479,12 @@ nav .fa-solid {
     right: -200px;
     top: 0;
     width: 200px;
-    height: 100vh;
+    bottom: 0;
+    height: auto;
+    min-height: 100vh;
     padding-top: 50px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
     z-index: 2;
     transition: right 0.5s;
   }
@@ -467,6 +492,11 @@ nav .fa-solid {
   nav ul li {
     display: block;
     margin: 30px;
+  }
+
+  nav ul li a {
+    display: block;
+    width: 100%;
   }
 
   nav ul .fa-solid {
@@ -513,8 +543,9 @@ nav .fa-solid {
   }
 
   .work-list {
-    padding: 41px;
-    margin: -40px;
+    padding: 24px 0 32px;
+    margin: 20px auto 0;
+    gap: 24px;
   }
 
   .layer p {
@@ -549,6 +580,48 @@ nav .fa-solid {
   .tab-content.active-tab {
     margin-right: 0px;
   }
+
+  nav ul li a.nav-microsoft-highlight {
+    display: inline-block;
+    width: auto;
+    padding: 6px 18px;
+    margin: 0 auto;
+    border-radius: 0;
+  }
+
+  .tab-content.certifications {
+    margin-right: 0;
+  }
+
+  .cert-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .cert-main {
+    width: 100%;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .cert-copy {
+    gap: 2px;
+  }
+
+  .cert-name {
+    font-size: 16px;
+  }
+
+  .cert-meta-block {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .cert-year {
+    font-size: 13px;
+  }
 }
 
 @media only screen and (max-width: 372px) {
@@ -559,4 +632,90 @@ nav .fa-solid {
   .box-2 {
     margin: 20px 3px;
   }
+
+  .cert-card {
+    padding: 12px;
+  }
+
+  .cert-name {
+    font-size: 15px;
+  }
+
+  .cert-code,
+  .cert-year,
+  .cert-issuer {
+    font-size: 12px;
+  }
+}
+
+
+
+/* --- Certifications tab --- */
+.cert-card {
+  border-left: 4px solid #f7c948;
+  border-radius: 0 16px 16px 0;
+  padding: 16px 20px;
+  margin: 12px 0;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.cert-card:hover {
+  background: rgba(247, 201, 72, 0.08);
+  border-color: #ffd861;
+  transform: translateX(4px);
+}
+
+.cert-main {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.cert-code {
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #f7c948;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.cert-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cert-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cert-issuer {
+  color: #9f9f9f;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.cert-meta-block {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.cert-year {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.cert-arrow {
+  color: #f7c948;
+  font-size: 14px;
 }

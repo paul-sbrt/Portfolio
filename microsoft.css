@@ -1,0 +1,694 @@
+/* Microsoft page additions — keeps the global portfolio style */
+.ms-section { margin-top: 60px; }
+
+.ms-lead {
+  margin-top: 14px;
+  color: #ababab;
+  line-height: 1.7;
+  max-width: 900px;
+}
+
+.ms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+  justify-items: center;
+}
+
+.ms-card {
+  background: #262626;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform .2s ease, border-color .2s ease;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  width: clamp(260px, 100%, 480px);
+}
+
+.ms-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.14); }
+
+.ms-card-thumb{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), transparent 55%), rgba(0,0,0,0.3);
+}
+
+.ms-card-thumb img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+}
+
+.ms-card-body { padding: 18px 18px 20px; }
+
+.ms-card h3 { font-size: 18px; margin-bottom: 8px; }
+
+.ms-meta { color: #ababab; font-size: 13px; margin-bottom: 12px; }
+
+.ms-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 12px; }
+
+.ms-tag {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.suez-gallery,
+.mscd-gallery{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.suez-shot,
+.mscd-shot{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #f4f4f4;
+}
+
+.suez-shot-frame,
+.mscd-shot-frame{
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.4);
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+.suez-shot-frame img,
+.mscd-shot-frame img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.suez-shot figcaption,
+.mscd-shot figcaption{
+  font-size: 14px;
+  color: #bdbdbd;
+}
+
+.suez-cta,
+.mscd-cta{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.suez-cta-actions,
+.mscd-cta-actions{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.suez-back-btn,
+.mscd-back-btn{
+  border-color: rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 14px 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.suez-back-btn i,
+.mscd-back-btn i{
+  font-size: 14px;
+}
+
+.suez-back-btn:hover,
+.mscd-back-btn:hover{
+  background: rgba(255,255,255,0.08);
+}
+
+.suez-lightbox,
+.mscd-lightbox{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 999;
+}
+
+.suez-lightbox.is-visible,
+.mscd-lightbox.is-visible{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.suez-lightbox-media,
+.mscd-lightbox-media{
+  max-width: min(1100px, 100%);
+  width: 100%;
+  text-align: center;
+}
+
+.suez-lightbox-media img,
+.mscd-lightbox-media img{
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.suez-lightbox-media p,
+.mscd-lightbox-media p{
+  margin-top: 14px;
+  color: #e0e0e0;
+  font-size: 15px;
+}
+
+.suez-lightbox-close,
+.mscd-lightbox-close{
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  border: none;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: background 0.2s ease;
+}
+
+.suez-lightbox-close:hover,
+.mscd-lightbox-close:hover{
+  background: rgba(255,255,255,0.2);
+}
+
+body.suez-lightbox-open,
+body.mscd-lightbox-open{
+  overflow: hidden;
+}
+
+.ms-impact { margin-top: 10px; color: #ddd; }
+.ms-impact li { margin-left: 18px; margin-top: 6px; color: #d7d7d7; }
+
+.ms-cert-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 24px; }
+
+.ms-cert{
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.ms-cert a{
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ms-cert a:hover{
+  text-decoration: underline;
+}
+
+.ms-cert .ms-cert-year{
+  color: #ababab;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.ms-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+  align-items: center;
+}
+
+.ms-contact .btn.btn2{
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.2);
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.ms-contact .btn.btn2:hover{
+  background: rgba(247,201,72,0.15);
+  border-color: rgba(247,201,72,0.6);
+}
+
+.ms-contact .btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.ms-contact .btn i{
+  font-size: 16px;
+  width: 18px;
+  text-align: center;
+  color: rgba(247,201,72,0.85);
+}
+
+.ms-contact .btn span{
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #f7f7f7;
+}
+
+.ms-contact-note{
+  margin-top: 10px;
+  color: #ababab;
+  font-size: 14px;
+}
+
+
+.ms-panel-label{
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(247,201,72,0.9);
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+.ms-lead--compact{
+  margin-top: 0;
+  font-size: 16px;
+  color: #cfcfcf;
+}
+
+/* Power BI "report" feel while keeping the global dark portfolio look */
+.ms-highlight{
+  display:inline-block;
+  padding: 2px 10px;
+  border: 2px solid #f7c948; /* yellow frame */
+  border-radius: 10px;
+  line-height: 1.2;
+  color: #f7c948;
+}
+
+.ms-report-shell{
+  margin-top: 90px; /* account for sticky header */
+  padding-bottom: 60px;
+}
+
+.ms-panel{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 18px;
+  padding: 18px;
+  margin-top: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle grid like a report canvas */
+.ms-panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.35;
+  pointer-events:none;
+}
+
+.ms-panel > *{
+  position: relative;
+  z-index: 1;
+}
+
+.ms-projects-return{
+  margin-top: 28px;
+  text-align: center;
+}
+
+/* Make project cards look like report visuals */
+.ms-card{
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.ms-card:hover{
+  border-color: rgba(247,201,72,0.6);
+  transform: translateY(-2px);
+}
+
+/* Hero / KPI layout */
+.ms-hero{
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 0.9fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.ms-hero-copy{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ms-hero-side{
+  width: 100%;
+  display: flex;
+}
+
+.ms-tagline{
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+.ms-note-card{
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 16px 20px;
+  margin-top: 8px;
+}
+
+.ms-note-card h3{
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.ms-note-card p{
+  margin: 0;
+  color: #dcdcdc;
+  line-height: 1.5;
+}
+
+.ms-kpi-row{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.ms-kpi-card{
+  border: 1px solid rgba(247,201,72,0.4);
+  border-radius: 14px;
+  padding: 16px;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.ms-kpi-label{
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(247,201,72,0.85);
+}
+
+.ms-kpi-card strong{
+  font-size: 26px;
+  color: #fff;
+}
+
+.ms-kpi-card p{
+  margin: 0;
+  color: #c9c9c9;
+  font-size: 13px;
+}
+
+.ms-kpi-card:hover{
+  border-color: rgba(247,201,72,0.8);
+  transform: translateY(-3px);
+}
+
+.suez-hero--simple,
+.mscd-hero--simple{
+  display: block;
+}
+
+.ms-demo-inline{
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 85%;
+  margin-top: 60px;
+}
+
+.ms-demo-body{
+  width: 80%;
+  padding: 10% 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.ms-demo-header{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+}
+
+.ms-demo-header .ms-panel-label{
+  font-size: 16px;
+  letter-spacing: 1.4px;
+}
+
+.ms-demo-note{
+  margin: 0;
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+}
+
+.ms-demo-actions{
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+.ms-demo-btn{
+  border: 1px solid rgba(247,201,72,0.4);
+  border-radius: 8px;
+  padding: 12px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+.ms-demo-btn span{
+  color: #fff;
+}
+
+.ms-demo-btn i{
+  font-size: 15px;
+  color: rgba(247,201,72,0.85);
+}
+
+.ms-demo-btn:hover{
+  background: rgba(247,201,72,0.15);
+  border-color: rgba(247,201,72,0.8);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px){
+  .ms-report-shell{
+    margin-top: 80px;
+    padding-bottom: 40px;
+  }
+  .ms-section{
+    margin-top: 45px;
+  }
+  .ms-hero{
+    gap: 22px;
+  }
+  .ms-panel{
+    padding: 16px;
+  }
+  .ms-note-card{
+    padding: 14px 16px;
+  }
+}
+
+@media (max-width: 900px){
+  .ms-hero{
+    grid-template-columns: 1fr;
+  }
+  .ms-hero-side{
+    width: 100%;
+  }
+  .ms-demo-inline{
+    height: auto;
+    margin-top: 20px;
+  }
+  .ms-demo-body{
+    width: 100%;
+    padding: 12% 0;
+  }
+  .ms-kpi-row{
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 720px){
+  .ms-section{
+    margin-top: 35px;
+  }
+  .ms-lead{
+    font-size: 16px;
+  }
+  .ms-panel{
+    padding: 14px;
+  }
+  .ms-demo-body{
+    padding: 10% 0;
+  }
+  .ms-demo-inline{
+    width: 100%;
+    padding: 14px;
+  }
+  .ms-demo-actions{
+    flex-direction: column;
+    gap: 16px;
+  }
+  .ms-demo-btn{
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px){
+  .suez-shell .ms-hero,
+  .mscd-shell .ms-hero{
+    grid-template-columns: 1fr;
+  }
+  .suez-shell .ms-hero-side,
+  .mscd-shell .ms-hero-side{
+    width: 100%;
+  }
+  .suez-shell .ms-demo-inline,
+  .mscd-shell .ms-demo-inline{
+    margin-top: 10px;
+    height: auto;
+  }
+  .suez-shell .suez-gallery,
+  .mscd-shell .mscd-gallery{
+    grid-template-columns: 1fr;
+  }
+  .suez-shell .suez-cta,
+  .mscd-shell .mscd-cta{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .suez-shell .suez-cta-actions,
+  .mscd-shell .mscd-cta-actions{
+    width: 100%;
+    flex-direction: column;
+  }
+  .suez-shell .suez-cta-actions .btn,
+  .mscd-shell .mscd-cta-actions .btn{
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 540px){
+  .ms-report-shell{
+    margin-top: 70px;
+  }
+  .ms-section{
+    margin-top: 30px;
+  }
+  .ms-hero{
+    gap: 18px;
+  }
+  .ms-kpi-row{
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .ms-card{
+    border-radius: 14px;
+  }
+  .ms-card-body{
+    padding: 16px;
+  }
+  .ms-lead{
+    line-height: 1.6;
+  }
+  .ms-grid,
+  .ms-cert-list{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .suez-gallery,
+  .mscd-gallery{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .suez-cta,
+  .mscd-cta{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 372px){
+  .ms-demo-btn{
+    font-size: 13px;
+  }
+  .ms-cert{
+    padding: 14px;
+  }
+  .ms-card-body{
+    padding: 14px;
+  }
+  .ms-card h3{
+    font-size: 16px;
+  }
+}

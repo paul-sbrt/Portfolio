@@ -1,0 +1,16 @@
+[
+  {
+    "code": "PL-900",
+    "name": "Microsoft Power Platform Fundamentals",
+    "issuer": "Microsoft",
+    "date": "2025",
+    "skills": [
+      "Power Apps",
+      "Power Automate",
+      "Power BI basics",
+      "Dataverse basics"
+    ],
+    "credentialUrl": "",
+    "officialUrl": "https://learn.microsoft.com/api/credentials/share/en-us/PaulSabourault-8053/95034692C7F11F51?sharingId=2EAFB87FFBC14C01"
+  }
+]

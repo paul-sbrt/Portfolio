@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MSCD Application Showcase — Power Platform</title>
+    <link rel="icon" href="./images/IMG_8167.JPG" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./microsoft.css" />
+    <script
+      src="https://kit.fontawesome.com/5d10eb0d43.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="ms-nav-shell">
+      <div class="container">
+        <div class="header-sticky">
+          <div class="nom">
+            <a href="index.html#header"
+              ><h1><span>P</span>aul <span>S</span>abourault</h1></a
+            >
+          </div>
+          <nav>
+            <ul id="sidemenu">
+              <li><a href="index.html#header">Home</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#projects">Projects</a></li>
+              <li>
+                <a class="nav-microsoft-highlight" href="power-platform.html"
+                  >Microsoft</a
+                >
+              </li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <i class="fa-solid fa-xmark"></i>
+            </ul>
+            <i class="fa-solid fa-bars"></i>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <main class="ms-report-shell mscd-shell">
+      <header
+        class="container ms-section ms-hero mscd-hero--simple"
+        id="mscd-top"
+      >
+        <div class="ms-hero-copy">
+          <p class="ms-tagline">Internal case study</p>
+          <h1 class="sub-title">
+            <span class="ms-highlight">MSCD</span> Contract Management App
+          </h1>
+          <p class="ms-lead">
+            A Power Apps solution deployed at Avanade to control every contract
+            milestone — from intake to quality monitoring. This page compiles
+            the UI states shared with stakeholders to explain the app story
+            while keeping client data confidential.
+          </p>
+
+          <div class="ms-note-card">
+            <h3>Project context</h3>
+            <p>
+              MSCD orchestrates SharePoint, Dataverse and Power Automate flows
+              so delivery teams can trace approvals, trigger alerts and update
+              executive KPIs without switching tools. The canvas mirrors the
+              Microsoft Design System for familiarity and fast adoption.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <section class="container ms-section" id="mscd-gallery">
+        <h1 class="sub-title">Application gallery</h1>
+        <p class="ms-lead ms-lead--compact">
+          Seven walkthrough captures covering overview metrics, approval
+          pipeline, automation logs and mobile responsive states.
+        </p>
+
+        <div class="ms-panel">
+          <div class="mscd-gallery">
+            <figure class="mscd-shot">
+              <div class="mscd-shot-frame">
+                <img
+                  src="./images/MSDC1.png"
+                  alt="MSCD overview dashboard"
+                  loading="lazy"
+                  data-full="./images/MSDC1.png"
+                />
+              </div>
+              <figcaption>
+                Overview — global KPIs pulling quality, delivery and SLA data.
+              </figcaption>
+            </figure>
+            <figure class="mscd-shot">
+              <div class="mscd-shot-frame">
+                <img
+                  src="./images/MSDC2.png"
+                  alt="Approval queue"
+                  loading="lazy"
+                  data-full="./images/MSDC2.png"
+                />
+              </div>
+              <figcaption>
+                Approvals — queue prioritizing validations with SLA timers and
+                reminders.
+              </figcaption>
+            </figure>
+            <figure class="mscd-shot">
+              <div class="mscd-shot-frame">
+                <img
+                  src="./images/MSDC3.png"
+                  alt="Quality and automation KPIs"
+                  loading="lazy"
+                  data-full="./images/MSDC3.png"
+                />
+              </div>
+              <figcaption>
+                Quality — consolidated KPIs with a live feed from Power
+                Automate.
+              </figcaption>
+            </figure>
+            <figure class="mscd-shot">
+              <div class="mscd-shot-frame">
+                <img
+                  src="./images/MSDC4.png"
+                  alt="Delivery pipeline visualization"
+                  loading="lazy"
+                  data-full="./images/MSDC4.png"
+                />
+              </div>
+              <figcaption>
+                Pipeline — stage progression indicators highlight potential
+                bottlenecks.
+              </figcaption>
+            </figure>
+            <figure class="mscd-shot">
+              <div class="mscd-shot-frame">
+                <img
+                  src="./images/MSDC5.png"
+                  alt="SLA heatmap"
+                  loading="lazy"
+                  data-full="./images/MSDC5.png"
+                />
+              </div>
+              <figcaption>
+                SLA heatmap — surfacing overdue validations by entity.
+              </figcaption>
+            </figure>
+            <figure class="mscd-shot">
+              <div class="mscd-shot-frame">
+                <img
+                  src="./images/MSDC6.png"
+                  alt="Process flow map"
+                  loading="lazy"
+                  data-full="./images/MSDC6.png"
+                />
+              </div>
+              <figcaption>
+                Process — the canonical flow from intake to delivery monitoring.
+              </figcaption>
+            </figure>
+            <figure class="mscd-shot">
+              <div class="mscd-shot-frame">
+                <img
+                  src="./images/MSDC7.png"
+                  alt="Mobile layout and quick actions"
+                  loading="lazy"
+                  data-full="./images/MSDC7.png"
+                />
+              </div>
+              <figcaption>
+                Mobile — responsive canvas with quick actions for field users.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <div class="mscd-lightbox" id="mscdLightbox" aria-hidden="true">
+        <button
+          class="mscd-lightbox-close"
+          id="mscdLightboxClose"
+          aria-label="Close gallery view"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="mscd-lightbox-media">
+          <img id="mscdLightboxImg" src="" alt="" />
+          <p id="mscdLightboxCaption"></p>
+        </div>
+      </div>
+
+      <section class="container ms-section">
+        <div class="ms-panel mscd-cta">
+          <div>
+            <h2 class="sub-title">Want to see the data model?</h2>
+            <p class="ms-lead ms-lead--compact">
+              I can walk you through the governance approach, automation steps
+              and UX patterns that made MSCD a reliable internal tool.
+            </p>
+          </div>
+          <div class="mscd-cta-actions">
+            <a class="btn btn2" href="index.html#contact">Book a walkthrough</a>
+            <a class="btn mscd-back-btn" href="power-platform.html"
+              ><i class="fa-solid fa-arrow-left"></i> Back to Microsoft page</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
+      </footer>
+    </main>
+
+    <script src="./app.js"></script>
+    <script src="./lightbox.js"></script>
+  </body>
+</html>

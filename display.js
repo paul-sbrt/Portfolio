@@ -114,6 +114,88 @@ function displayStudies() {
     .catch((error) => console.error("Error loading studies data:", error));
 }
 
+
+// Fonction pour charger et afficher les certifications (minimal: nom + année + lien officiel)
+function displayCertifications() {
+  fetch("certifications.json")
+    .then((response) => response.json())
+    .then((certData) => {
+      const certContainer = document.querySelector(".tab-content.certifications");
+      if (!certContainer) return;
+
+      certContainer.innerHTML = "";
+
+      certData.forEach((cert) => {
+        const name = cert.name || cert.title || "Certification";
+        const issuer = cert.issuer || "Microsoft";
+        const year = cert.date ? String(cert.date) : "";
+        const url =
+          (cert.officialUrl && cert.officialUrl.trim()) ||
+          (cert.credentialUrl && cert.credentialUrl.trim()) ||
+          `https://learn.microsoft.com/credentials/certifications/search/?terms=${encodeURIComponent(
+            cert.code || name
+          )}`;
+
+        const card = document.createElement("a");
+        card.classList.add("cert-card");
+        card.href = url;
+        card.target = "_blank";
+        card.rel = "noopener noreferrer";
+        card.title = `Voir le détail ${name}`;
+
+        const main = document.createElement("div");
+        main.classList.add("cert-main");
+
+        if (cert.code) {
+          const codeEl = document.createElement("span");
+          codeEl.classList.add("cert-code");
+          codeEl.textContent = cert.code;
+          main.appendChild(codeEl);
+        }
+
+        const copy = document.createElement("div");
+        copy.classList.add("cert-copy");
+
+        const nameEl = document.createElement("div");
+        nameEl.classList.add("cert-name");
+        nameEl.textContent = name;
+        copy.appendChild(nameEl);
+
+        if (issuer) {
+          const issuerEl = document.createElement("div");
+          issuerEl.classList.add("cert-issuer");
+          issuerEl.textContent = issuer;
+          copy.appendChild(issuerEl);
+        }
+
+        main.appendChild(copy);
+
+        const meta = document.createElement("div");
+        meta.classList.add("cert-meta-block");
+
+        if (year) {
+          const yearEl = document.createElement("span");
+          yearEl.classList.add("cert-year");
+          yearEl.textContent = year;
+          meta.appendChild(yearEl);
+        }
+
+        const arrow = document.createElement("span");
+        arrow.classList.add("cert-arrow");
+        arrow.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i>';
+        meta.appendChild(arrow);
+
+        card.appendChild(main);
+        card.appendChild(meta);
+        certContainer.appendChild(card);
+      });
+    })
+    .catch((error) => console.error("Error loading certifications:", error));
+}
+
+displayCertifications();
+
+
 function displayProjects() {
   fetch("projects.json")
     .then((response) => response.json())

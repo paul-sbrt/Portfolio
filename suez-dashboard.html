@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUEZ Dashboard Showcase — Power Platform</title>
+    <link rel="icon" href="./images/IMG_8167.JPG" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./microsoft.css" />
+    <script
+      src="https://kit.fontawesome.com/5d10eb0d43.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="ms-nav-shell">
+      <div class="container">
+        <div class="header-sticky">
+          <div class="nom">
+            <a href="index.html#header"
+              ><h1><span>P</span>aul <span>S</span>abourault</h1></a
+            >
+          </div>
+          <nav>
+            <ul id="sidemenu">
+              <li><a href="index.html#header">Home</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#projects">Projects</a></li>
+              <li>
+                <a class="nav-microsoft-highlight" href="power-platform.html"
+                  >Microsoft</a
+                >
+              </li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <i class="fa-solid fa-xmark"></i>
+            </ul>
+            <i class="fa-solid fa-bars"></i>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <main class="ms-report-shell suez-shell">
+      <header class="container ms-section ms-hero suez-hero--simple" id="suez-top">
+        <div class="ms-hero-copy">
+          <p class="ms-tagline">Client case study</p>
+          <h1 class="sub-title">
+            <span class="ms-highlight">SUEZ</span> Certification Dashboard
+          </h1>
+          <p class="ms-lead">
+            Dashboard created at Avanade for SUEZ to monitor Power Platform
+            certifications across teams. This page highlights the key views used
+            to track progress, spot gaps and prepare leadership reviews.
+          </p>
+
+          <div class="ms-note-card">
+            <h3>Project context</h3>
+            <p>
+              The report blends Power BI, Power Query and DAX measures to expose
+              KPIs in a modern Microsoft look-and-feel. It consolidates
+              pipelines and training data so managers can act before deadlines.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <section class="container ms-section" id="suez-gallery">
+        <h1 class="sub-title">Report gallery</h1>
+        <p class="ms-lead ms-lead--compact">
+          Four snapshots covering the executive summary, certification details,
+          completion timelines and mobile-ready canvas.
+        </p>
+
+        <div class="ms-panel">
+          <div class="suez-gallery">
+            <figure class="suez-shot">
+              <div class="suez-shot-frame">
+                <img
+                  src="./images/Screenshot 2025-10-01 210737.png"
+                  alt="SUEZ overview page with KPIs"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption>
+                Overview — global KPIs and segment filters.
+              </figcaption>
+            </figure>
+            <figure class="suez-shot">
+              <div class="suez-shot-frame">
+                <img
+                  src="./images/Screenshot 2025-10-01 210750.png"
+                  alt="Team comparison view"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption>
+                Teams — focus on completion rate by business unit.
+              </figcaption>
+            </figure>
+            <figure class="suez-shot">
+              <div class="suez-shot-frame">
+                <img
+                  src="./images/Screenshot 2025-10-01 210802.png"
+                  alt="Certification breakdown cards"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption>
+                Certifications — status cards filtered by product.
+              </figcaption>
+            </figure>
+            <figure class="suez-shot">
+              <div class="suez-shot-frame">
+                <img
+                  src="./images/Screenshot 2025-10-01 210814.png"
+                  alt="Mobile responsive page"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption>
+                Mobile — responsive view for managers on-the-go.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <div class="suez-lightbox" id="suezLightbox" aria-hidden="true">
+        <button class="suez-lightbox-close" id="suezLightboxClose" aria-label="Close gallery view">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="suez-lightbox-media">
+          <img id="suezLightboxImg" src="" alt="" />
+          <p id="suezLightboxCaption"></p>
+        </div>
+      </div>
+
+      <section class="container ms-section">
+        <div class="ms-panel suez-cta">
+          <div>
+            <h2 class="sub-title">Need a similar dashboard?</h2>
+            <p class="ms-lead ms-lead--compact">
+              I can walk you through the data model, KPIs and UX choices that
+              made this project successful, then adapt them to your context.
+            </p>
+          </div>
+          <div class="suez-cta-actions">
+            <a class="btn btn2" href="index.html#contact">Book a walkthrough</a>
+            <a class="btn suez-back-btn" href="power-platform.html"
+              ><i class="fa-solid fa-arrow-left"></i> Back to Microsoft page</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
+      </footer>
+    </main>
+
+    <script src="./app.js"></script>
+    <script src="./lightbox.js"></script>
+  </body>
+</html>
