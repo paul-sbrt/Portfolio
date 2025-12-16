@@ -12,7 +12,7 @@
       "Reduced manual reporting by consolidating data into a single dashboard"
     ],
     "image": "./images/powerBI.png",
-    "link": "./suez-dashboard.html",
+    "link": "/Portfolio/suez-dashboard.html",
     "openInSameTab": true,
     "status": "Internal project developed at Avanade — live access no longer available"
   },
@@ -30,7 +30,7 @@
       "Reduced manual follow-up through automated workflows"
     ],
     "image": "./images/power-app-removebg-preview.png",
-    "link": "./mscd-application.html",
+    "link": "/Portfolio/mscd-application.html",
     "openInSameTab": true,
     "status": "Internal project developed at Avanade — live access no longer available. Presented through screenshots for confidentiality reasons."
   }
