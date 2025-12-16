@@ -197,6 +197,16 @@ nav ul li a:hover:after {
   margin-right: -65px;
 }
 
+.tab-panels {
+  position: relative;
+  width: 100%;
+  transition: height 0.35s ease;
+}
+
+.tab-panels-track {
+  width: 100%;
+}
+
 .box {
   text-align: center;
   margin: 30px 20px;
@@ -524,9 +534,23 @@ nav .fa-solid {
     font-size: 14px;
   }
 
+  .tab-title {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
   .tab-links {
-    font-size: 16px;
-    margin-right: 8px;
+    font-size: 15px;
+    padding: 10px 16px;
+    margin: 0 4px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+  }
+
+  .tab-links::after {
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .contact-left,
@@ -591,6 +615,24 @@ nav .fa-solid {
 
   .tab-content.certifications {
     margin-right: 0;
+  }
+
+  .tab-panels {
+    overflow: hidden;
+    margin-right: 0;
+  }
+
+  .tab-panels-track {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s ease;
+    will-change: transform;
+  }
+
+  .tab-panels-track .tab-content {
+    display: block;
+    margin-right: 0;
+    width: 100%;
   }
 
   .cert-card {

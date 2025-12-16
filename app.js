@@ -1,43 +1,109 @@
-let tabLinks = document.querySelectorAll(".tab-links");
-let tabContent = document.querySelectorAll(".tab-content");
-const hasTabData =
-  typeof displaySkills === "function" ||
-  typeof displayExperience === "function" ||
-  typeof displayStudies === "function";
+const tabLinks = Array.from(document.querySelectorAll(".tab-links"));
+const tabContent = Array.from(document.querySelectorAll(".tab-content"));
+const tabSlider = document.querySelector("[data-tab-slider]");
+const tabTrack = tabSlider
+  ? tabSlider.querySelector(".tab-panels-track")
+  : null;
+let activeTabIndex = 0;
+
+const tabDataLoaders = [
+  typeof displaySkills === "function" ? displaySkills : null,
+  typeof displayExperience === "function" ? displayExperience : null,
+  typeof displayStudies === "function" ? displayStudies : null,
+  typeof displayCertifications === "function" ? displayCertifications : null,
+];
+
+const hasTabData = tabDataLoaders.some((loader) => typeof loader === "function");
+const loadedTabs = new Set();
+
+const loadTabData = (index) => {
+  const loader = tabDataLoaders[index];
+  if (typeof loader !== "function" || loadedTabs.has(index)) {
+    return;
+  }
+  loader();
+  loadedTabs.add(index);
+};
+
+const syncPanelHeight = () => {
+  if (!tabSlider) return;
+  if (window.innerWidth > 600) {
+    tabSlider.style.height = "";
+    return;
+  }
+
+  const activePanel = tabContent[activeTabIndex];
+  tabSlider.style.height = activePanel ? `${activePanel.offsetHeight}px` : "auto";
+};
+
+const getSlideOffset = (index) => {
+  if (window.innerWidth > 600) {
+    return 0;
+  }
+
+  let offset = 0;
+  for (let i = 0; i < index; i += 1) {
+    offset += tabContent[i] ? tabContent[i].offsetHeight : 0;
+  }
+  return offset;
+};
+
+const syncTabSlider = (animate = true) => {
+  if (!tabTrack) return;
+  if (window.innerWidth > 600) {
+    tabTrack.style.transition = "";
+    tabTrack.style.transform = "";
+    syncPanelHeight();
+    return;
+  }
+
+  const offset = getSlideOffset(activeTabIndex);
+  tabTrack.style.transition = animate ? "transform 0.35s ease" : "none";
+  tabTrack.style.transform = `translateY(-${offset}px)`;
+  syncPanelHeight();
+};
+
+const ensurePanelsBefore = (index) => {
+  for (let i = 0; i <= index; i += 1) {
+    loadTabData(i);
+  }
+};
+
+const setActiveTab = (index, options = {}) => {
+  if (!tabLinks.length || typeof index !== "number") return;
+  const targetIndex = Math.max(0, Math.min(index, tabLinks.length - 1));
+
+  if (targetIndex === activeTabIndex && !options.force) {
+    syncTabSlider(options.animate !== false);
+    return;
+  }
+
+  activeTabIndex = targetIndex;
+
+  tabLinks.forEach((link) => link.classList.remove("active-link"));
+  tabLinks[targetIndex].classList.add("active-link");
+
+  tabContent.forEach((content) => content.classList.remove("active-tab"));
+  if (tabContent[targetIndex]) {
+    tabContent[targetIndex].classList.add("active-tab");
+  }
+
+  ensurePanelsBefore(targetIndex);
+  syncTabSlider(options.animate !== false);
+};
 
 if (tabLinks.length && hasTabData) {
-  // Gestionnaire d'événements de clic pour les liens des onglets
-  tabLinks.forEach((link, i) => {
-    link.addEventListener("click", () => {
-      // Ajouter la classe "active-link" au lien cliqué
-      tabLinks.forEach((otherLink) => {
-        otherLink.classList.remove("active-link");
-      });
-      link.classList.add("active-link");
-
-      // Afficher le contenu correspondant en fonction de l'onglet cliqué
-      tabContent.forEach((content) => {
-        content.classList.remove("active-tab");
-      });
-      if (tabContent[i]) {
-        tabContent[i].classList.add("active-tab");
-      }
-
-      // Appeler la fonction correspondante pour charger et afficher les données
-      if (i === 0 && typeof displaySkills === "function") {
-        displaySkills();
-      } else if (i === 1 && typeof displayExperience === "function") {
-        displayExperience();
-      } else if (i === 2 && typeof displayStudies === "function") {
-        displayStudies();
-      }
-    });
+  tabLinks.forEach((link, index) => {
+    link.addEventListener("click", () => setActiveTab(index));
   });
 
-  if (typeof displaySkills === "function") {
-    displaySkills();
-  }
+  setActiveTab(0, { animate: false, force: true });
 }
+
+window.addEventListener("resize", () => syncTabSlider(false));
+window.addEventListener("tabContentUpdated", () => {
+  syncTabSlider(false);
+});
 
 // scroll nav
 const nomDiv = document.querySelector(".nom");

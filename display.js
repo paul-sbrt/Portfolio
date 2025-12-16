@@ -1,3 +1,12 @@
+function emitTabContentUpdated() {
+  if (
+    typeof window !== "undefined" &&
+    typeof window.dispatchEvent === "function"
+  ) {
+    window.dispatchEvent(new CustomEvent("tabContentUpdated"));
+  }
+}
+
 // Fonction pour charger et afficher les compétences
 function displaySkills() {
   fetch("skill.json")
@@ -28,6 +37,7 @@ function displaySkills() {
 
         skillsContent.appendChild(skillBox);
       });
+      emitTabContentUpdated();
     })
     .catch((error) => console.error("Error loading skills data:", error));
 }
@@ -72,6 +82,7 @@ function displayExperience() {
 
         experienceContent.appendChild(experienceBox);
       });
+      emitTabContentUpdated();
     })
     .catch((error) => console.error("Error loading experience data:", error));
 }
@@ -110,6 +121,7 @@ function displayStudies() {
 
         studiesContent.appendChild(studyBox);
       });
+      emitTabContentUpdated();
     })
     .catch((error) => console.error("Error loading studies data:", error));
 }
@@ -189,12 +201,10 @@ function displayCertifications() {
         card.appendChild(meta);
         certContainer.appendChild(card);
       });
+      emitTabContentUpdated();
     })
     .catch((error) => console.error("Error loading certifications:", error));
 }
-
-displayCertifications();
-
 
 function displayProjects() {
   fetch("projects.json")
