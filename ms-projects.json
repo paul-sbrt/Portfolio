@@ -13,7 +13,7 @@
       "Improved data readability and insights through clean UX and structured report pages"
     ],
     "image": "./images/powerBI.png",
-    "link": "../video-game-sales-powerbi.html",
+    "link": "video-game-sales-powerbi.html",
     "openInSameTab": true,
     "status": "Personal portfolio project — interactive demo available via screenshots and video"
   },
@@ -31,7 +31,7 @@
       "Reduced manual follow-up through automated workflows"
     ],
     "image": "./images/power-app-removebg-preview.png",
-    "link": "../mscd-application.html",
+    "link": "mscd-application.html",
     "openInSameTab": true,
     "status": "Internal project developed at Avanade — live access no longer available. Presented through screenshots for confidentiality reasons."
   },
@@ -48,7 +48,7 @@
       "Reduced manual reporting by consolidating data into a single dashboard"
     ],
     "image": "./images/powerBI.png",
-    "link": "../suez-dashboard.html",
+    "link": "suez-dashboard.html",
     "openInSameTab": true,
     "status": "Internal project developed at Avanade — live access no longer available"
   }
