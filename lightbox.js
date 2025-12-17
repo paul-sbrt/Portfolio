@@ -86,6 +86,14 @@
         closeBtnId: "mscdLightboxClose",
         bodyClass: "mscd-lightbox-open",
       },
+      {
+        shotSelector: ".vg-shot",
+        lightboxId: "vgLightbox",
+        lightboxImgId: "vgLightboxImg",
+        captionId: "vgLightboxCaption",
+        closeBtnId: "vgLightboxClose",
+        bodyClass: "vg-lightbox-open",
+      },
     ].forEach(initLightbox);
   });
 })();

@@ -1,20 +1,21 @@
 [
   {
-    "title": "SUEZ — Power BI Certification Progress Dashboard",
+    "title": "Video Game Sales Analysis — Power BI",
     "type": "Dashboard",
-    "year": 2023,
-    "certification": "",
-    "tech": ["Power BI", "Power Query", "DAX"],
-    "context": "Power BI dashboard built for a SUEZ project to help stakeholders track certification progress across teams and support decision-making.",
+    "year": 2025,
+    "certification": "PL-300 (Power BI Data Analyst Associate) — preparation project",
+    "tech": ["Power BI", "Power Query", "DAX", "Data Modeling"],
+    "context": "Interactive Power BI report built from a public Kaggle dataset to analyze global video game sales. The project was designed both as a portfolio case study and as hands-on preparation for the PL-300 certification, covering data modeling, DAX measures, and interactive reporting.",
     "impact": [
-      "Centralized certification progress tracking for multiple teams",
-      "Improved visibility for managers with clear KPIs and drill-down views",
-      "Reduced manual reporting by consolidating data into a single dashboard"
+      "Built a star schema model with fact and dimension tables (Date, Genre, Platform, Publisher, Game)",
+      "Created dynamic KPIs, time-based analysis, and Top N rankings using DAX",
+      "Designed interactive pages with slicers, drill-down exploration, and intelligent tooltips",
+      "Improved data readability and insights through clean UX and structured report pages"
     ],
     "image": "./images/powerBI.png",
-    "link": "/Portfolio/suez-dashboard.html",
+    "link": "../video-game-sales-powerbi.html",
     "openInSameTab": true,
-    "status": "Internal project developed at Avanade — live access no longer available"
+    "status": "Personal portfolio project — interactive demo available via screenshots and video"
   },
   {
     "title": "MSCD — Internal Contract & Quality Management Application",
@@ -30,8 +31,25 @@
       "Reduced manual follow-up through automated workflows"
     ],
     "image": "./images/power-app-removebg-preview.png",
-    "link": "/Portfolio/mscd-application.html",
+    "link": "../mscd-application.html",
     "openInSameTab": true,
     "status": "Internal project developed at Avanade — live access no longer available. Presented through screenshots for confidentiality reasons."
+  },
+  {
+    "title": "SUEZ — Power BI Certification Progress Dashboard",
+    "type": "Dashboard",
+    "year": 2023,
+    "certification": "",
+    "tech": ["Power BI", "Power Query", "DAX"],
+    "context": "Power BI dashboard built for a SUEZ project to help stakeholders track certification progress across teams and support decision-making.",
+    "impact": [
+      "Centralized certification progress tracking for multiple teams",
+      "Improved visibility for managers with clear KPIs and drill-down views",
+      "Reduced manual reporting by consolidating data into a single dashboard"
+    ],
+    "image": "./images/powerBI.png",
+    "link": "../suez-dashboard.html",
+    "openInSameTab": true,
+    "status": "Internal project developed at Avanade — live access no longer available"
   }
 ]

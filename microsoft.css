@@ -66,14 +66,16 @@
 }
 
 .suez-gallery,
-.mscd-gallery{
+.mscd-gallery,
+.vg-gallery{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
 }
 
 .suez-shot,
-.mscd-shot{
+.mscd-shot,
+.vg-shot{
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -81,7 +83,8 @@
 }
 
 .suez-shot-frame,
-.mscd-shot-frame{
+.mscd-shot-frame,
+.vg-shot-frame{
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   overflow: hidden;
@@ -91,7 +94,8 @@
 }
 
 .suez-shot-frame img,
-.mscd-shot-frame img{
+.mscd-shot-frame img,
+.vg-shot-frame img{
   position: absolute;
   inset: 0;
   width: 100%;
@@ -100,13 +104,16 @@
 }
 
 .suez-shot figcaption,
-.mscd-shot figcaption{
+.mscd-shot figcaption,
+.vg-shot figcaption{
   font-size: 14px;
   color: #bdbdbd;
 }
 
 .suez-cta,
-.mscd-cta{
+.mscd-cta,
+.vg-cta,
+.vg-video-panel{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -114,15 +121,23 @@
   gap: 20px;
 }
 
+.vg-video-copy{
+  flex: 1;
+  min-width: 240px;
+}
+
 .suez-cta-actions,
-.mscd-cta-actions{
+.mscd-cta-actions,
+.vg-cta-actions{
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
 }
 
 .suez-back-btn,
-.mscd-back-btn{
+.mscd-back-btn,
+.vg-back-btn,
+.vg-video-btn{
   border-color: rgba(255,255,255,0.2);
   color: #fff;
   padding: 14px 32px;
@@ -134,17 +149,22 @@
 }
 
 .suez-back-btn i,
-.mscd-back-btn i{
+.mscd-back-btn i,
+.vg-back-btn i,
+.vg-video-btn i{
   font-size: 14px;
 }
 
 .suez-back-btn:hover,
-.mscd-back-btn:hover{
+.mscd-back-btn:hover,
+.vg-back-btn:hover,
+.vg-video-btn:hover{
   background: rgba(255,255,255,0.08);
 }
 
 .suez-lightbox,
-.mscd-lightbox{
+.mscd-lightbox,
+.vg-lightbox{
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.85);
@@ -159,20 +179,23 @@
 }
 
 .suez-lightbox.is-visible,
-.mscd-lightbox.is-visible{
+.mscd-lightbox.is-visible,
+.vg-lightbox.is-visible{
   opacity: 1;
   pointer-events: auto;
 }
 
 .suez-lightbox-media,
-.mscd-lightbox-media{
+.mscd-lightbox-media,
+.vg-lightbox-media{
   max-width: min(1100px, 100%);
   width: 100%;
   text-align: center;
 }
 
 .suez-lightbox-media img,
-.mscd-lightbox-media img{
+.mscd-lightbox-media img,
+.vg-lightbox-media img{
   width: 100%;
   height: auto;
   border-radius: 18px;
@@ -181,14 +204,16 @@
 }
 
 .suez-lightbox-media p,
-.mscd-lightbox-media p{
+.mscd-lightbox-media p,
+.vg-lightbox-media p{
   margin-top: 14px;
   color: #e0e0e0;
   font-size: 15px;
 }
 
 .suez-lightbox-close,
-.mscd-lightbox-close{
+.mscd-lightbox-close,
+.vg-lightbox-close{
   position: absolute;
   top: 24px;
   right: 24px;
@@ -204,12 +229,14 @@
 }
 
 .suez-lightbox-close:hover,
-.mscd-lightbox-close:hover{
+.mscd-lightbox-close:hover,
+.vg-lightbox-close:hover{
   background: rgba(255,255,255,0.2);
 }
 
 body.suez-lightbox-open,
-body.mscd-lightbox-open{
+body.mscd-lightbox-open,
+body.vg-lightbox-open{
   overflow: hidden;
 }
 
@@ -454,7 +481,8 @@ body.mscd-lightbox-open{
 }
 
 .suez-hero--simple,
-.mscd-hero--simple{
+.mscd-hero--simple,
+.vg-hero--simple{
   display: block;
 }
 
@@ -604,34 +632,43 @@ body.mscd-lightbox-open{
 
 @media (max-width: 768px){
   .suez-shell .ms-hero,
-  .mscd-shell .ms-hero{
+  .mscd-shell .ms-hero,
+  .vg-shell .ms-hero{
     grid-template-columns: 1fr;
   }
   .suez-shell .ms-hero-side,
-  .mscd-shell .ms-hero-side{
+  .mscd-shell .ms-hero-side,
+  .vg-shell .ms-hero-side{
     width: 100%;
   }
   .suez-shell .ms-demo-inline,
-  .mscd-shell .ms-demo-inline{
+  .mscd-shell .ms-demo-inline,
+  .vg-shell .ms-demo-inline{
     margin-top: 10px;
     height: auto;
   }
   .suez-shell .suez-gallery,
-  .mscd-shell .mscd-gallery{
+  .mscd-shell .mscd-gallery,
+  .vg-shell .vg-gallery{
     grid-template-columns: 1fr;
   }
   .suez-shell .suez-cta,
-  .mscd-shell .mscd-cta{
+  .mscd-shell .mscd-cta,
+  .vg-shell .vg-cta,
+  .vg-shell .vg-video-panel{
     flex-direction: column;
     align-items: flex-start;
   }
   .suez-shell .suez-cta-actions,
-  .mscd-shell .mscd-cta-actions{
+  .mscd-shell .mscd-cta-actions,
+  .vg-shell .vg-cta-actions{
     width: 100%;
     flex-direction: column;
   }
   .suez-shell .suez-cta-actions .btn,
-  .mscd-shell .mscd-cta-actions .btn{
+  .mscd-shell .mscd-cta-actions .btn,
+  .vg-shell .vg-cta-actions .btn,
+  .vg-shell .vg-video-panel .btn{
     width: 100%;
     justify-content: center;
     text-align: center;
@@ -667,12 +704,15 @@ body.mscd-lightbox-open{
     gap: 14px;
   }
   .suez-gallery,
-  .mscd-gallery{
+  .mscd-gallery,
+  .vg-gallery{
     grid-template-columns: 1fr;
     gap: 16px;
   }
   .suez-cta,
-  .mscd-cta{
+  .mscd-cta,
+  .vg-cta,
+  .vg-video-panel{
     flex-direction: column;
     align-items: flex-start;
   }

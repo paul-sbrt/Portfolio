@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Game Sales Power BI Report — Power Platform</title>
+    <link rel="icon" href="./images/IMG_8167.JPG" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./microsoft.css" />
+    <script
+      src="https://kit.fontawesome.com/5d10eb0d43.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="ms-nav-shell">
+      <div class="container">
+        <div class="header-sticky">
+          <div class="nom">
+            <a href="index.html#header"
+              ><h1><span>P</span>aul <span>S</span>abourault</h1></a
+            >
+          </div>
+          <nav>
+            <ul id="sidemenu">
+              <li><a href="index.html#header">Home</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#projects">Projects</a></li>
+              <li>
+                <a class="nav-microsoft-highlight" href="power-platform.html"
+                  >Microsoft</a
+                >
+              </li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <i class="fa-solid fa-xmark"></i>
+            </ul>
+            <i class="fa-solid fa-bars"></i>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <main class="ms-report-shell vg-shell">
+      <header class="container ms-section ms-hero vg-hero--simple" id="vg-top">
+        <div class="ms-hero-copy">
+          <p class="ms-tagline">Portfolio case study</p>
+          <h1 class="sub-title">
+            <span class="ms-highlight">Video Game Sales</span> Power BI Report
+          </h1>
+          <p class="ms-lead">
+            Interactive dashboard created from the Kaggle video game sales data
+            set. I used it as a sandbox to rehearse PL-300 skills: data
+            modelling, DAX measures, dynamic tooltips and responsive layouts.
+            This page summarizes the report story and the insights surfaced in
+            each tab.
+          </p>
+
+          <div class="ms-note-card">
+            <h3>Project context</h3>
+            <p>
+              The model combines five dimensions (Genre, Platform, Publisher,
+              Region and Calendar) around a sales fact table. From there I built
+              KPI cards, drill-through journeys and a narrative layout inspired
+              by Microsoft's Fluent design language.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <section class="container ms-section" id="vg-gallery">
+        <h1 class="sub-title">Report gallery</h1>
+        <p class="ms-lead ms-lead--compact">
+          Highlights from the overview, regional drilldowns, franchise scorecard
+          and mobile canvas used throughout demos.
+        </p>
+
+        <div class="ms-panel">
+          <div class="vg-gallery">
+            <figure class="vg-shot">
+              <div class="vg-shot-frame">
+                <img
+                  src="./images/screen sale1 - Copie.png"
+                  alt="Overview KPIs for the video game sales dashboard"
+                  loading="lazy"
+                  data-full="./images/screen sale1 - Copie.png"
+                />
+              </div>
+              <figcaption>
+                Overview — revenue KPIs, growth indicators and a genre filter
+                bar to steer the story.
+              </figcaption>
+            </figure>
+            <figure class="vg-shot">
+              <div class="vg-shot-frame">
+                <img
+                  src="./images/screen sale1.5 - Copie.png"
+                  alt="Regional performance heatmap"
+                  loading="lazy"
+                  data-full="./images/screen sale1.5 - Copie.png"
+                />
+              </div>
+              <figcaption>
+                Regions — synchronized map + column charts compare North
+                America, Europe, Japan and ROW.
+              </figcaption>
+            </figure>
+            <figure class="vg-shot">
+              <div class="vg-shot-frame">
+                <img
+                  src="./images/screen sale2 - Copie.png"
+                  alt="Franchise ranking leaderboard"
+                  loading="lazy"
+                  data-full="./images/screen sale2 - Copie.png"
+                />
+              </div>
+              <figcaption>
+                Franchises — Top N selector powered by DAX ranking measures with
+                tooltips for long-tail titles.
+              </figcaption>
+            </figure>
+            <figure class="vg-shot">
+              <div class="vg-shot-frame">
+                <img
+                  src="./images/screen sale2.5 - Copie.png"
+                  alt="Platform lifecycle timeline"
+                  loading="lazy"
+                  data-full="./images/screen sale2.5 - Copie.png"
+                />
+              </div>
+              <figcaption>
+                Platforms — lifecycle chart showing launches vs. revenue
+                maturity to guide platform bets.
+              </figcaption>
+            </figure>
+            <figure class="vg-shot">
+              <div class="vg-shot-frame">
+                <img
+                  src="./images/screen sale3 - Copie.png"
+                  alt="Datamodel view showing fact and dimension tables"
+                  loading="lazy"
+                  data-full="./images/screen sale3 - Copie.png"
+                />
+              </div>
+              <figcaption>
+                Data model — star schema built in Power BI Desktop with fact
+                Sales and Date/Genre/Platform/Publisher dims.
+              </figcaption>
+            </figure>
+            <figure class="vg-shot">
+              <div class="vg-shot-frame">
+                <img
+                  src="./images/screen sale3.5 - Copie.png"
+                  alt="Mobile-ready layout"
+                  loading="lazy"
+                  data-full="./images/screen sale3.5 - Copie.png"
+                />
+              </div>
+              <figcaption>
+                Mobile — responsive canvas with simplified KPIs for handheld
+                consumption during demos.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="ms-panel vg-video-panel">
+          <div class="vg-video-copy">
+            <h2 class="sub-title">Video walkthrough</h2>
+            <p class="ms-lead ms-lead--compact">
+              Short demo recording showing navigation between tabs, slicer
+              interactions and how the insights are presented live.
+            </p>
+          </div>
+          <a
+            class="btn vg-video-btn"
+            href="https://youtu.be/wg360XzBvso"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fa-solid fa-circle-play"></i> Watch the video</a
+          >
+        </div>
+      </section>
+
+      <div class="vg-lightbox" id="vgLightbox" aria-hidden="true">
+        <button
+          class="vg-lightbox-close"
+          id="vgLightboxClose"
+          aria-label="Close gallery view"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="vg-lightbox-media">
+          <img id="vgLightboxImg" src="" alt="" />
+          <p id="vgLightboxCaption"></p>
+        </div>
+      </div>
+
+      <section class="container ms-section">
+        <div class="ms-panel vg-cta">
+          <div>
+            <h2 class="sub-title">Need a PL-300 style walkthrough?</h2>
+            <p class="ms-lead ms-lead--compact">
+              Let me demo the model, DAX techniques and UX guidelines I used
+              here so we can replicate them for your dataset.
+            </p>
+          </div>
+          <div class="vg-cta-actions">
+            <a class="btn btn2" href="index.html#contact">Book a walkthrough</a>
+            <a class="btn vg-back-btn" href="power-platform.html"
+              ><i class="fa-solid fa-arrow-left"></i> Back to Microsoft page</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
+      </footer>
+    </main>
+
+    <script src="./app.js"></script>
+    <script src="./lightbox.js"></script>
+  </body>
+</html>
