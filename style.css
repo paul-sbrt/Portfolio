@@ -55,18 +55,18 @@
 
 /* ===== Light theme — overrides only the theme tokens (accents stay constant) ===== */
 [data-theme="light"] {
-  --bg: #f4f5f7;
-  --text: #15171c;
-  --text-muted: #586070;
+  --bg: #eef0f4;
+  --text: #14161b;
+  --text-muted: #4b5563; /* ~7:1 on --bg, AA on white surfaces */
   --surface: #ffffff;
-  --surface-raised: rgba(0, 0, 0, 0.035);
-  --surface-sunken: rgba(0, 0, 0, 0.05);
-  --border: rgba(0, 0, 0, 0.12);
-  --border-soft: rgba(0, 0, 0, 0.08);
-  --border-line: rgba(0, 0, 0, 0.1);
+  --surface-raised: rgba(0, 0, 0, 0.04);
+  --surface-sunken: rgba(0, 0, 0, 0.06);
+  --border: rgba(0, 0, 0, 0.16);
+  --border-soft: rgba(0, 0, 0, 0.1);
+  --border-line: rgba(0, 0, 0, 0.12);
   --grid-line: rgba(0, 0, 0, 0.06);
-  --img-outline: rgba(0, 0, 0, 0.15);
-  --accent-ms-text: #8a6a00; /* darkened amber: AA-readable on light */
+  --img-outline: rgba(0, 0, 0, 0.18);
+  --accent-ms-text: #7a5e00; /* darkened amber: AA-readable on light */
 }
 
 * {
@@ -151,6 +151,8 @@ span {
 
 nav {
   font-size: 25px;
+  display: flex;
+  align-items: center;
 }
 
 nav ul li {
@@ -204,6 +206,9 @@ nav ul li a:hover:after {
   font-size: 35px;
   padding: 10px 10%;
   max-width: 720px;
+  /* Always sits over the header photo -> keep light text in both themes */
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
 }
 
 /*ABOUT*/
@@ -512,19 +517,26 @@ h1.sub-title {
 
 /* Theme toggle (header) */
 .theme-toggle {
-  margin-left: 12px;
-  width: 40px;
-  height: 40px;
+  flex: 0 0 auto;
+  margin-left: 16px;
+  width: 42px;
+  height: 42px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
+  background: var(--surface-raised);
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
   font-size: 18px;
+  line-height: 1;
   cursor: pointer;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+/* Override the burger rule (nav .fa-solid { display:none }) so the icon shows */
+.theme-toggle .fa-solid {
+  display: inline-block;
 }
 
 .theme-toggle:hover {
@@ -539,7 +551,7 @@ h1.sub-title {
 form input,
 form textarea {
   width: 100%;
-  border: 0;
+  border: 1px solid var(--border);
   outline: none;
   background-color: var(--surface);
   padding: 15px;
@@ -547,6 +559,11 @@ form textarea {
   color: var(--text);
   font-size: 18px;
   border-radius: var(--radius-xs);
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: var(--text-muted);
 }
 
 form .btn2 {
