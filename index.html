@@ -170,12 +170,15 @@
                 </div>
                 <div class="contact-right">
                   <form action="https://formspree.io/f/xleybonk" method="POST">
+                    <label class="sr-only" for="name">Your Name</label>
                     <input
+                      id="name"
                       name="name"
                       placeholder="Your Name"
                       required=""
                       type="text"
                     />
+                    <label class="sr-only" for="email">Your Email</label>
                     <input
                       id="email"
                       name="email"
@@ -183,7 +186,9 @@
                       required=""
                       type="email"
                     />
+                    <label class="sr-only" for="message">Your Message</label>
                     <textarea
+                      id="message"
                       name="message"
                       placeholder="Your Message"
                       required=""
