@@ -1,0 +1,13 @@
+# OS
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Editor / tooling
+.vscode/
+.claude/
+.idea/
+
+# Dependencies / build
+node_modules/
+dist/
