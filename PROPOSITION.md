@@ -1,7 +1,7 @@
 # PROPOSITION — Refonte du portfolio de Paul Sabourault
 
 > **Document de décision** (aucun code à ce stade).
-> **Cadrage** : la base est **ce que Paul EST aujourd'hui — développeur (mobile + web), IA, technologies Microsoft/Power Platform**, présenté **à parité, sans hiérarchie artificielle**. Le **Product Management est un OBJECTIF** (recherche d'**alternance produit**), affiché comme une **direction assumée**, **jamais comme un titre acquis**. → On n'écrit nulle part « Product Manager ».
+> **Cadrage** : le portfolio est une **VITRINE de qui Paul EST** — un **builder polyvalent** qui **conçoit, développe et déploie de vrais produits** (mobile + web), avec **IA** et **Microsoft/Power Platform**, **à parité, sans hiérarchie artificielle**. Fil rouge : *« je construis de vrais trucs et j'apprends »*. **Ce n'est PAS un outil de candidature** : l'angle **produit / alternance est porté par le CV**, et n'apparaît ici que comme une **touche légère** (une ligne « en recherche d'alternance »), jamais un fil structurant. → On n'écrit **nulle part** « Product Manager ».
 > **Zéro fabrication** : toute donnée manquante est notée `[[À COMPLÉTER]]` et listée en questions à la fin.
 
 ## Pool de projets (verrouillé)
@@ -15,25 +15,27 @@
 
 ## 1. POSITIONNEMENT
 
-**Idée-force** : *un profil qui **conçoit, développe ET déploie de vraies applications** — mobile et web — en mobilisant l'**IA** et l'écosystème **Microsoft/Power Platform**.* Ce n'est pas un junior qui empile des exercices : les **4 projets vedette le prouvent déjà** (une app sur l'App Store, une app sur TestFlight avec IA, deux apps web en production).
+**Idée-force** : *un **builder polyvalent** qui **conçoit, développe ET déploie de vrais produits** — mobile et web — en mobilisant l'**IA** et l'écosystème **Microsoft/Power Platform**, et qui **apprend en construisant**.* Ce n'est pas un junior qui empile des exercices : les **4 projets vedette le prouvent déjà** — une app **sur l'App Store** (STOW), une app **TestFlight boostée à l'IA** avec un **vrai modèle freemium** (DUMP), une **plateforme web en ligne** (EXTRALIMO) et un **site de vente** d'une offre Microsoft chiffrée (paulsabourault.fr).
+
+Le portfolio est une **vitrine de ce savoir-faire**, **pas une candidature** : il montre **ce que Paul fait et sait faire**, point.
 
 Trois piliers **à parité** :
 1. **Dev** — applications mobiles (Flutter, Swift/SwiftUI) et web (Laravel, Next.js, React, Symfony, WordPress), de la conception au déploiement.
 2. **IA** — intégration de modèles dans de vrais produits (Claude, Whisper) via proxys/services (Cloudflare Workers).
 3. **Microsoft & Power Platform** — Power Apps, Power BI, Power Automate, SharePoint ; 2 ans chez Avanade + freelance.
 
-**Couche d'orientation (direction, pas titre)** : une ligne assumée du type *« En route vers le produit — en recherche d'une alternance en Product Management »*, posée dans le hero et rappelée dans l'About. La **sensibilité produit se démontre** par la façon de raconter les projets (problème → pour qui → solution → résultat), **pas** par un titre.
+**Touche d'orientation (légère, pas un fil structurant)** : **une seule ligne** du type *« en recherche d'une alternance »*, posée discrètement (hero/about) — **pas plus**. L'angle produit/alternance est **détaillé dans le CV**, pas dans le portfolio. La **sensibilité produit se démontre** par la façon de raconter les projets (problème → pour qui → solution → résultat), **jamais par un titre** — on n'écrit pas « Product Manager ».
 
 ---
 
 ## 2. STRUCTURE DES SECTIONS (ordre)
 
-1. **Hero** — nom + headline hybride (dev/IA/Microsoft) + ligne « cap produit / alternance » + CTA (Projets, CV, Contact).
-2. **À propos** — parcours (reconversion → dev → Avanade/Microsoft → freelance), angle hybride + objectif produit.
+1. **Hero** — nom + headline hybride (dev/IA/Microsoft) + **une ligne légère** « en recherche d'alternance » + CTA (Projets, CV, Contact).
+2. **À propos** — parcours (reconversion → dev → Avanade/Microsoft → freelance), angle **builder polyvalent qui construit et apprend** (le cap produit reste une simple mention, non un thème).
 3. **Expériences** — timeline pro (Acteo, Avanade en tête ; restauration condensée en fin).
 4. **Projets vedette** — 4 **cas détaillés** (DUMP, STOW, EXTRALIMO, Site Microsoft) au format problème → pour qui → solution → stack → résultat.
 5. **Autres réalisations** — grille des projets du site (niveau 2), filtrable/condensée.
-6. **Skills** — 4 groupes **à parité** : **Dev** · **IA** · **Microsoft & Power Platform** · **Produit**.
+6. **Skills** — 3 groupes **à parité** : **Dev** · **IA** · **Microsoft & Power Platform** (pas de groupe « Produit » dédié — la sensibilité produit se lit dans les cas projet, pas dans un bloc de skills).
 7. **Certifications** — PL-900 (+ PL-300 en préparation).
 8. **Contact** — email + formulaire + LinkedIn/GitHub.
 
@@ -60,51 +62,67 @@ Trois piliers **à parité** :
 - **Résultat / statut** : **sur TestFlight** (build 2), projet le plus actif (503 commits, maj juin 2026), design system v2, widgets « production ready ». `[[À COMPLÉTER: nb de testeurs, retours, date de sortie App Store visée]]`
 - **Visuels** : screenshots simulateur dispo. **Lien** : `[[À COMPLÉTER: lien TestFlight public ? page testeurs ?]]`
 
-### 3.2 STOW — app de voyage publiée
-- **Problème** : `[[À COMPLÉTER: le pain point voyageur exact — “voyagez serein” = quoi concrètement ? organisation ? stress ? checklist ?]]`
-- **Pour qui** : voyageurs (grand public). `[[À COMPLÉTER: segment précis]]`
-- **Solution** : app **mobile multiplateforme** (iOS/Android) avec backend temps réel. `[[À COMPLÉTER: 2-3 fonctionnalités phares]]`
-- **Stack** : **Flutter/Dart** (FlutterFlow) · **Firebase/Firestore** · site marketing HTML/CSS/JS.
-- **Résultat / statut** : **publié sur l'App Store** — *« Stow — Voyagez serein »* (v1.2). `[[À COMPLÉTER: nb téléchargements, note, dispo Android ?]]`
+### 3.2 STOW — « le coffre-fort de vos voyages en groupe »
+> *Source : site marketing `Stow Site Marketing/index.html`.*
+- **Problème** : en **voyage de groupe**, les documents (billets, réservations, photos de passeport) sont **éparpillés dans WhatsApp** et **introuvables au mauvais moment** (« un PDF perdu entre un meme et un vocal de 4 minutes »), **sans accès hors ligne** à la douane / à l'arrivée. « **Voyagez serein** » = transformer le stress du départ en zénitude.
+- **Pour qui** : **voyageurs en groupe** (bandes d'amis qui partent ensemble — chacun contribue ses documents).
+- **Solution** : app mobile, **un coffre-fort de documents de voyage partagé** :
+  - **Voyage partagé** : on crée un voyage, on **invite ses amis**, **chacun ajoute ses documents** (PDF, captures, photos de passeport).
+  - **Accès hors ligne** : documents importants accessibles **même sans réseau** (douane, sous-sol d'aéroport…).
+  - **Organisation** : chaque document a sa place (fini le mélange avec les memes du chat de groupe).
+  - **Simplicité** : **login rapide Apple ou Google**, fichiers disponibles en deux clics.
+- **Stack** : **Flutter/Dart** (FlutterFlow) · **Firebase/Firestore** · site marketing HTML/CSS/Tailwind/JS.
+- **Modèle éco** : **gratuit** (site marketing : offre à 0 €).
+- **Résultat / statut** : **publié sur l'App Store** — *« Stow — Voyagez serein »* (v1.2). Le site annonce **iOS + Android**, mais le bouton **Google Play n'est pas encore actif** (lien `#`) → **Android pas encore publié à confirmer**. `[[À COMPLÉTER: nb téléchargements, note App Store, statut réel Android]]`
 - **Visuels** : screenshots + pubs vidéo (IA). **Lien** : App Store `apps.apple.com/us/app/stow-voyagez-serein/id6758451337`.
 
-### 3.3 EXTRALIMO — marketplace de mise en relation (restauration)
-- **Problème** : la restauration/hôtellerie peine à trouver des **extras** rapidement ; les candidats manquent de visibilité. Mise en relation avec **intermédiation humaine**.
-- **Pour qui** : établissements HCR **et** candidats (extras/saisonniers).
-- **Solution** : plateforme web — profils, recherche, **déblocage de contact / « mise en relation »**, intermédiation humaine. `[[À COMPLÉTER: modèle éco — gratuit ? commission ? abonnement ?]]`
-- **Stack** : **Laravel + Blade + MySQL** (PHP) · déploiement O2switch (assets compilés en local).
+### 3.3 EXTRALIMO — mise en relation à intermédiation humaine (hôtellerie-restauration)
+> *Source : `EXTRALIMO/CLAUDE.md`.* — Slogan : **« On trouve, vous brillez. »**
+- **Problème** : l'**hôtellerie-restauration** peine à trouver les bons **candidats / extras** ; les candidats manquent de visibilité. EXTRALIMO les relie — mais **ce n'est PAS un job board en libre-service** : la valeur, c'est l'**intermédiation humaine**, une petite équipe d'admins qui **sélectionne, propose et accompagne** (souvent depuis un simple coup de fil).
+- **Pour qui** : **candidats** (extras / saisonniers HCR) **et entreprises** HCR (hôtels, restaurants, bars, traiteurs).
+- **Solution** : plateforme web articulée autour de **3 rôles** (candidat / entreprise / admin) et d'un objet central, le **« match »** (statuts : *suggéré → en cours → contact débloqué → placé / abandonné*) :
+  - **Confidentialité by design** : les coordonnées des deux parties **restent masquées** tant qu'un admin n'a pas passé le match en « contact débloqué » (avant : prénom + initiale côté candidat, nom commercial + ville côté entreprise).
+  - **Matchs créés manuellement** par les admins (l'offre est **optionnelle** : un match peut naître d'un appel téléphonique), suivi du canal de contact et des notes, déblocage du contact, mise en relation.
+  - Inscriptions publiques **mobile-first** (formulaires partagés sur Instagram), consentement **RGPD**.
+- **Stack** : **Laravel** (LTS) + **Blade** + **MySQL/MariaDB**, auth **Laravel Breeze**, un peu d'**Alpine.js** · déploiement **O2switch** (assets compilés en local).
+- **Modèle éco** : `[[À COMPLÉTER: introuvable dans le repo — la doc ne décrit aucun prix (gratuit ? commission au placement ? abonnement entreprise ?). Seule indication technique : « pas de service payant externe ».]]`
 - **Résultat / statut** : **en ligne** → `extralimo.portfolio-sbrt.com` (52 commits, maj juin 2026). `[[À COMPLÉTER: nb d'inscrits, de mises en relation, retours terrain]]`
 - **Atout récit** : ton **vécu en restauration** (cuisinier, livreur…) rend ce produit crédible. **Lien** : `https://extralimo.portfolio-sbrt.com`.
 
-### 3.4 Site solutions Microsoft — vitrine orientée vente
-- **Problème** : les **PME** ont besoin de solutions sur mesure (Power Platform) mais manquent d'une offre lisible et d'un interlocuteur.
-- **Pour qui** : dirigeants/PME cherchant à digitaliser des process (apps métier, dashboards, automatisations).
-- **Solution** : **site vitrine orienté vente** présentant l'offre Power Platform + prise de contact (Formspree). `[[À COMPLÉTER: pages/offres clés mises en avant]]`
-- **Stack** : **Next.js 14** (App Router, TS) · **Tailwind** · Framer Motion.
-- **Résultat / statut** : `[[À COMPLÉTER: réellement en ligne sur paulsabourault.fr ? leads générés ?]]`
-- **Lien** : `[[À COMPLÉTER: URL de prod confirmée]]`.
+### 3.4 Site solutions Microsoft — vitrine « Solutions IT sur mesure pour PME »
+> *Source : `SITE SOLUTION MICROSOFT/` (`src/data/site.ts`, `solutions.ts`, `layout.tsx`).* — Positionnement : **« Solutions IT sur mesure pour PME »** (Paul Sabourault, **auto-entrepreneur**, Tours).
+- **Problème** (3 angles affichés) : les PME ont des **outils Microsoft 365 sous-exploités** (la Power Platform est déjà dans leur licence), des **process manuels** (emails, Excel, relances) et **aucune visibilité** (pas de dashboard / KPI).
+- **Pour qui** : **dirigeants / PME** qui veulent digitaliser des process (apps métier, automatisations, dashboards) **sans nouvel outil à apprendre**.
+- **Solution** : **site vitrine orienté vente** d'une offre **Power Platform**, avec prise de contact (**Formspree**). **Offre phare mise en avant : « Ticketing IT »** — *« Votre support IT, simplifié »* : système de ticketing **intégré à Microsoft 365** (portail utilisateur en 30 s, dashboard admin, **SLA temps réel**, notifications **email + Teams**, **reporting Power BI**, gestion **multi-clients**, rôles, pièces jointes). **Déployé en ½ journée, formation incluse.**
+  - **2 packs** : **Pack Essentiel à 2 000 €** · **Pack Complet à 3 500 €** (recommandé, +Power BI 4 pages + multi-clients). **Investissement unique, pas d'abonnement** ; maintenance **optionnelle dès 39 €/mois**. Données hébergées **chez le client (SharePoint, France)**.
+  - **Process** affiché : Échange → Démo → Déploiement → Formation. Autres solutions = emplacements *« coming soon »* (seul **Ticketing IT** est `available`).
+- **Stack** : **Next.js 14** (App Router, TS) · **Tailwind** · Framer Motion · **Formspree**. Brique métier vendue = **SharePoint, Power Apps, Power Automate, Power BI, Teams**.
+- **Résultat / statut** : **en ligne**, URL de prod confirmée dans le code (`layout.tsx` / `sitemap.ts` / `robots.ts`). `[[À COMPLÉTER: leads / clients générés — non présents dans le repo]]`
+- **Lien** : **`https://paulsabourault.fr`**.
 
 ---
 
 ## 4. HEADLINE + ABOUT (2 variantes chacun)
 
+> Esprit : le **savoir-faire en vitrine** d'abord ; le mot « alternance » apparaît **une seule fois**, en sous-ligne discrète. Aucune des variantes n'écrit « Product Manager ».
+
 ### Headlines (hero)
 **Variante A — orientée preuve/action**
-> **Je conçois, développe et déploie de vraies applications — mobile, web, IA et Microsoft.**
-> *Développeur en route vers le produit · en recherche d'une alternance Product `[[À COMPLÉTER: rythme + dates de l'alternance]]`*
+> **Je conçois, développe et déploie de vrais produits — mobile, web, IA et Microsoft.**
+> *Builder polyvalent qui construit et apprend · en recherche d'alternance `[[À COMPLÉTER: rythme + dates]]`*
 
 **Variante B — orientée hybride/positionnement**
-> **Développeur applicatif & Power Platform — du besoin métier à l'app livrée (iOS, web, IA).**
-> *Cap sur le Product Management · ouvert à une alternance `[[À COMPLÉTER: dates / type d'entreprise visée]]`*
+> **Du besoin métier à l'app livrée — mobile, web, IA & Power Platform.**
+> *Je construis de vrais trucs et j'apprends · ouvert à une alternance `[[À COMPLÉTER: dates / rythme]]`*
 
 ### About (2 variantes)
 **Variante A — concise**
-> Développeur passé par une **reconversion** (CEFIM, CDA & DWWM) puis **2 ans d'alternance chez Avanade** sur les technologies **Microsoft / Power Platform**, aujourd'hui **freelance** (Acteo). Je conçois et **déploie de vrais produits** : une app de voyage **publiée sur l'App Store** (STOW), un « second cerveau » **iOS boosté à l'IA** (DUMP, Claude + Whisper), une **marketplace** pour la restauration (EXTRALIMO), un **site de vente** de solutions Microsoft. J'aime partir d'un **problème concret** et aller jusqu'à la mise en ligne — c'est ce qui me pousse aujourd'hui **vers le produit**, et je cherche une **alternance en Product Management** `[[À COMPLÉTER: rythme/dates/secteur visé]]`.
+> Développeur passé par une **reconversion** (CEFIM, CDA & DWWM) puis **2 ans d'alternance chez Avanade** sur les technologies **Microsoft / Power Platform**, aujourd'hui **freelance** (Acteo). Je conçois et **déploie de vrais produits, de A à Z** : une app de voyage **publiée sur l'App Store** (STOW, le coffre-fort des voyages en groupe), un « deuxième cerveau » **iOS boosté à l'IA** avec un modèle **freemium** (DUMP — Claude + Whisper), une **plateforme de mise en relation à intermédiation humaine** pour l'hôtellerie-restauration (EXTRALIMO), un **site de vente** d'une offre Microsoft chiffrée (Ticketing IT, dès 2 000 €). Mon truc : partir d'un **problème concret** et aller **jusqu'à la mise en ligne** — et apprendre une techno de plus à chaque projet. *En recherche d'alternance* `[[À COMPLÉTER: rythme/dates]]`.
 
 **Variante B — narrative**
-> Je viens de la **restauration**, et c'est en voulant **résoudre des problèmes réels** que je suis devenu développeur. Depuis, je construis des applis de bout en bout : **mobile** (Flutter, Swift/SwiftUI), **web** (Laravel, Next.js, React) et **Microsoft/Power Platform**, en intégrant de l'**IA** quand elle apporte vraiment de la valeur. Mon fil rouge : **comprendre l'utilisateur, livrer, itérer**. Après **2 ans chez Avanade** et une activité **freelance**, je veux pousser cette **logique produit** plus loin et vise une **alternance en Product Management** `[[À COMPLÉTER: détails de l'alternance]]`.
+> Je viens de la **restauration**, et c'est en voulant **résoudre des problèmes réels** que je suis devenu développeur. Depuis, je construis des produits de bout en bout : **mobile** (Flutter, Swift/SwiftUI), **web** (Laravel, Next.js, React) et **Microsoft/Power Platform**, en intégrant de l'**IA** quand elle apporte vraiment de la valeur (DUMP : transcription Whisper + classification Claude). Mon fil rouge : **comprendre l'utilisateur, livrer, itérer — et apprendre en construisant**. Après **2 ans chez Avanade** et une activité **freelance**, je continue à empiler les vrais projets. *Ouvert à une alternance* `[[À COMPLÉTER: détails]]`.
 
-> Les deux variantes restent factuelles ; aucun chiffre inventé. `[[À COMPLÉTER]]` = angle produit précis + détails alternance.
+> Les deux variantes restent factuelles ; aucun chiffre inventé. `[[À COMPLÉTER]]` = uniquement le rythme/les dates de l'alternance (le reste est porté par le CV).
 
 ---
 
@@ -139,6 +157,25 @@ Objectif : enrichir **sans casser** le rendu actuel. Le `display.js` du Swiper n
 
 ---
 
-## QUESTIONS À COMPLÉTER (récap)
+## QUESTIONS À COMPLÉTER — à demander à Paul
 
-Voir la liste numérotée renvoyée dans le chat. Chaque `[[À COMPLÉTER]]` ci-dessus y correspond.
+> Après extraction du contenu factuel des repos (DUMP, STOW, EXTRALIMO, site Microsoft), voici **tout ce qui reste introuvable dans le code/docs** et qu'il faut demander à Paul. Tout le reste des fiches ci-dessus est sourcé du repo correspondant.
+
+**DUMP**
+- **Cible / persona** : non précisée dans `Dump_Build_Plan.md` (toi d'abord ? étudiants ? créatifs ? pro débordés ?).
+- **Chiffres & preuves** : nb de testeurs TestFlight, retours, **date de sortie App Store** visée.
+- **Lien public** : lien TestFlight public et/ou page testeurs à afficher ?
+
+**STOW**
+- **Statut Android réel** : le site annonce iOS + Android mais le bouton Google Play est inactif (`#`) → publié sur le Play Store ou non ?
+- **Chiffres** : nb de téléchargements, note App Store.
+
+**EXTRALIMO**
+- **Modèle économique** : **rien dans le repo** — gratuit ? commission au placement ? abonnement entreprise ? (la doc dit seulement « pas de service payant externe », au sens technique).
+- **Chiffres** : nb d'inscrits, nb de mises en relation / placements, retours terrain.
+
+**Site solutions Microsoft**
+- **Traction commerciale** : leads / clients générés — non présents dans le repo.
+
+**Transverse (déjà dans `DECISIONS.md` → EN ATTENTE GLOBAL)**
+- Détails alternance (désormais portés par le **CV**, pas le portfolio) · IPMS vs Acteo · récit « origine restauration » · skills IA/Mobile à ajouter + niveaux · choix des variantes headline/about.
