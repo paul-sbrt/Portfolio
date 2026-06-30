@@ -22,6 +22,8 @@ function displaySkills() {
 
         const skillImage = document.createElement("img");
         skillImage.src = skill.image;
+        skillImage.loading = "lazy";
+        skillImage.alt = skill.name;
 
         const skillName = document.createElement("span");
         skillName.textContent = skill.name;
@@ -59,6 +61,8 @@ function displayExperience() {
 
         const experienceImage = document.createElement("img");
         experienceImage.src = experience.image;
+        experienceImage.loading = "lazy";
+        experienceImage.alt = experience.company || experience.position || "";
 
         const experiencePosition = document.createElement("span");
         experiencePosition.textContent = experience.position;
@@ -102,6 +106,8 @@ function displayStudies() {
 
         const studyImage = document.createElement("img");
         studyImage.src = study.image;
+        studyImage.loading = "lazy";
+        studyImage.alt = study.institution || "";
 
         const studyInstitution = document.createElement("span");
         studyInstitution.textContent = study.institution;
@@ -220,6 +226,7 @@ function displayProjects() {
         const imgElement = document.createElement("img");
         imgElement.src = project.image;
         imgElement.alt = project.title;
+        imgElement.loading = "lazy";
 
         const layerElement = document.createElement("div");
         layerElement.classList.add("layer");

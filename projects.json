@@ -1,115 +1,115 @@
 [
   {
     "title": "Professional Wordpress Website",
-    "image": "./images/Site anne guillien.png",
+    "image": "./images/site-anne-guillien.webp",
     "description": "Delivered a custom WordPress business website focused on showcasing services and enhancing client engagement. Integrated essential features such as online appointment booking, SEO optimization, and responsive design to ensure a seamless user experience and ease of management for the client.",
     "link": "https://anneguillien.fr"
   },
   {
     "title": "WhereToWatch",
-    "image": "./images/wheretowatch2.png",
+    "image": "./images/wheretowatch2.webp",
     "description": "WhereToWatch is a React application that lets users search for movies and find where to watch them. It uses the TMDB API to display movie details like genres, ratings, main actors, and streaming platforms. Built with React, React Router, and Bootstrap, it's deployed on GitHub Pages",
     "link": "https://paul-sbrt.github.io/WhereToWatch/"
   },
   {
     "title": "Password Generator",
-    "image": "./images/passwordGen.png",
+    "image": "./images/passwordgen.webp",
     "description": "A JavaScript project to create secure, customizable passwords. It strengthens my skills in JavaScript functions, DOM manipulation, and input validation while practicing arrays, loops, and conditional logic.",
     "link": "https://paul-sbrt.github.io/Password-Generator/"
   },
   {
     "title": "To Do List",
-    "image": "./images/todo.png",
+    "image": "./images/todo.webp",
     "description": "The goal is to build a To-Do List web application that allows users to add, manage, and delete tasks. It helps in practicing JavaScript concepts like DOM manipulation, event handling, local storage, and form validation.",
     "link": "https://paul-sbrt.github.io/ToDoList/"
   },
   {
     "title": "Age Calculator",
-    "image": "./images/age-calcul.png",
+    "image": "./images/age-calcul.webp",
     "description": "This web application calculates and displays a user's age based on their date of birth. Using JavaScript, the app computes the age in years, months, and days. Users enter their date of birth, and upon clicking a button, the application performs the calculation and presents the result. The project emphasizes JavaScript for accurate date calculations and an engaging, interactive user experience.",
     "link": "https://paul-sbrt.github.io/age-calculator/"
   },
   {
     "title": "Bricotips",
-    "image": "./images/bricotips.png",
+    "image": "./images/bricotips.webp",
     "description": "In this project, I deepened my WordPress skills by exploring developer documentation, creating a child theme, and customizing its CSS. I built pages with Gutenberg, created custom widgets and shortcodes, modified theme templates, and developed custom page templates. I also added features using hooks, customized post pages, debugged the site, and implemented security measures to prevent hacking.",
     "link": "https://bricotips.portfolio-sbrt.com/"
   },
   {
     "title": "Banana Design",
-    "image": "./images/BananaDesign.png",
+    "image": "./images/bananadesign.webp",
     "description": "Create a simple WordPress website to learn the basics of WordPress, including installation, theme customization, page creation, and plugin management. Ideal for beginners to understand core WordPress functionalities.",
     "link": "https://bananadesign.portfolio-sbrt.com/"
   },
   {
     "title": "Advice Generator",
-    "image": "./images/advice-generator.png",
+    "image": "./images/advice-generator.webp",
     "description": "This front-end project focuses on building a web application that interacts with an API to generate and display advice. Users can click a button to fetch advice from the API and view it on the screen. The project emphasizes API integration, asynchronous data handling, and creating a user-friendly interface.",
     "link": "https://paul-sbrt.github.io/Advice-generator-app/"
   },
   {
     "title": "Wish Project",
-    "image": "./images/wish-project.png",
+    "image": "./images/wish-project.webp",
     "description": "The Wish Project is a course project to learn the basics of the Symfony framework: controller, entity, form, repository, adding, deleting, editing in the database",
     "link": "https://wish.portfolio-sbrt.com/"
   },
   {
     "title": "TwitThor",
-    "image": "./images/twithor.png",
+    "image": "./images/twithor.webp",
     "description": "The Twitter project is a course project developed using React. This project is designed to provide a experience with the fundamental concepts of the React framework. It covers various aspects such as components, props, and other core features of React. The aim is to provide a practical understanding of how these elements work together to build a dynamic web application.",
     "link": "https://youtu.be/iFYvu0avXg4"
   },
   {
     "title": "La Maison Jungle",
-    "image": "./images//la-maison-jungle.png",
+    "image": "./images/la-maison-jungle.webp",
     "description": "A plant e-commerce site project designed for practicing React. Developed as part of an OpenClassrooms course, this project allows users to browse and purchase a variety of plants. Features include cart management, product detail displays, and a modern, responsive user interface.",
     "link": "https://paul-sbrt.github.io/La-Maison-Jungle/"
   },
   {
     "title": "FavFilm",
-    "image": "./images/FavFilm.png",
+    "image": "./images/favfilm.webp",
     "description": "I created a website to learn React for school. The website allows users to explore a collection of films, displaying them and providing sorting options. It serves as a practical exercise in React development and user interface design.",
     "link": "https://paul-sbrt.github.io/React-FavFilm/"
   },
   {
     "title": "New Home Page",
-    "image": "./images/newsHomePage.png",
+    "image": "./images/newshomepage.webp",
     "description": "This project entails building a responsive news website homepage, focusing on HTML, CSS, and basic JavaScript skills. Participants are tasked with replicating the design as closely as possible, ensuring responsiveness across different screen sizes and incorporating hover and focus states for interactive elements.",
     "link": "https://paul-sbrt.github.io/News-Home-Page-/"
   },
   {
     "title": "Newsletter Sign Up",
-    "image": "./images/newsletter sign up .png",
+    "image": "./images/newsletter-sign-up.webp",
     "description": "I developed an interactive newsletter signup form from a given design. Users can input their email, receiving a confirmation message upon successful submission, along with responsive design for various screens.",
     "link": "https://paul-sbrt.github.io/newsletter-sign-up-/"
   },
   {
     "title": "Interactive Rating",
-    "image": "./images/interactive rating.png",
+    "image": "./images/interactive-rating.webp",
     "description": "I created a responsive rating component with hover effects based on a design, encouraging user interaction. After rating, a 'Thank you' card boosts engagement.",
     "link": "https://paul-sbrt.github.io/Interactive-rating-/"
   },
   {
     "title": "Taxifood",
-    "image": "./images/taxifood.png",
+    "image": "./images/taxifood.webp",
     "description": "Group project for training assessment (CEFIM). I designed the team page to showcase store members with photos and roles, enabling their information to be editable for administrative purposes.",
     "link": "https://paul-sbrt.github.io/TaxiFood/"
   },
   {
     "title": "SuperApp",
-    "image": "./images/superapp.png",
+    "image": "./images/superapp.webp",
     "description": "Successful integration of the 'Super App' landing page designed in Adobe XD. Demonstration of development skills and highlighting the attractive interface of the application.",
     "link": "https://paul-sbrt.github.io/Challenge/"
   },
   {
     "title": "Excursion Site",
-    "image": "./images/excursion.jpg",
+    "image": "./images/excursion.webp",
     "description": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
     "link": "https://paul-sbrt.github.io/excursion/"
   },
   {
     "title": "Tea Cozy",
-    "image": "./images/tea.jpg",
+    "image": "./images/tea.webp",
     "description": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
     "link": "https://paul-sbrt.github.io/Projet-Tea-Cozy/"
   }

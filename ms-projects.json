@@ -12,7 +12,7 @@
       "Designed interactive pages with slicers, drill-down exploration, and intelligent tooltips",
       "Improved data readability and insights through clean UX and structured report pages"
     ],
-    "image": "./images/powerBI.png",
+    "image": "./images/powerbi.webp",
     "link": "./video-game-sales-powerbi.html",
     "openInSameTab": true,
     "status": "Personal portfolio project — interactive demo available via screenshots and video"
@@ -30,7 +30,7 @@
       "Improved visibility and traceability for quality management",
       "Reduced manual follow-up through automated workflows"
     ],
-    "image": "./images/power-app-removebg-preview.png",
+    "image": "./images/power-app-removebg-preview.webp",
     "link": "./mscd-application.html",
     "openInSameTab": true,
     "status": "Internal project developed at Avanade — live access no longer available. Presented through screenshots for confidentiality reasons."
@@ -47,7 +47,7 @@
       "Improved visibility for managers with clear KPIs and drill-down views",
       "Reduced manual reporting by consolidating data into a single dashboard"
     ],
-    "image": "./images/powerBI.png",
+    "image": "./images/powerbi.webp",
     "link": "./suez-dashboard.html",
     "openInSameTab": true,
     "status": "Internal project developed at Avanade — live access no longer available"

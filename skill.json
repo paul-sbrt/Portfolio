@@ -1,32 +1,32 @@
 [
   {
     "name": "Power App",
-    "image": "./images/power-app-removebg-preview.png",
+    "image": "./images/power-app-removebg-preview.webp",
     "level": "Intermediate"
   },
   {
     "name": "Power BI",
-    "image": "./images/powerBI.png",
+    "image": "./images/powerbi.webp",
     "level": "Intermediate"
   },
   {
     "name": "Power Automate",
-    "image": "./images/power-automate-removebg-preview.png",
+    "image": "./images/power-automate-removebg-preview.webp",
     "level": "Intermediate"
   },
   {
     "name": "Excel",
-    "image": "./images/excel-removebg-preview.png",
+    "image": "./images/excel-removebg-preview.webp",
     "level": "Intermediate"
   },
   {
     "name": "Sharepoint",
-    "image": "./images/sharepoint.png",
+    "image": "./images/sharepoint.webp",
     "level": "Intermediate"
   },
   {
     "name": "Wordpress",
-    "image": "./images/wordpressLogo.webp",
+    "image": "./images/wordpresslogo.webp",
     "level": "Intermediate"
   },
   {
@@ -36,52 +36,52 @@
   },
   {
     "name": "CSS",
-    "image": "./images/css-3.png",
+    "image": "./images/css-3.webp",
     "level": "Intermediate"
   },
   {
     "name": "HTML",
-    "image": "./images/html-5.png",
+    "image": "./images/html-5.webp",
     "level": "Intermediate"
   },
   {
     "name": "JavaScript",
-    "image": "./images/js.png",
+    "image": "./images/js.webp",
     "level": "Intermediate"
   },
   {
     "name": "React",
-    "image": "./images/react.png",
+    "image": "./images/react.webp",
     "level": "Intermediate"
   },
   {
     "name": "PHP",
-    "image": "./images/php.png",
+    "image": "./images/php.webp",
     "level": "Intermediate"
   },
   {
     "name": "SQL",
-    "image": "./images/sql.png",
+    "image": "./images/sql.webp",
     "level": "Intermediate"
   },
   {
     "name": "Symfony",
-    "image": "./images/symfony.png",
+    "image": "./images/symfony.webp",
     "level": "Intermediate"
   },
   {
     "name": "Python",
-    "image": "./images/python.png",
+    "image": "./images/python.webp",
     "level": "Basic"
   },
   {
     "name": "Photoshop",
-    "image": "./images/photoshop.png",
+    "image": "./images/photoshop.webp",
     "level": "Basic"
   },
   {
     "name": "Figma",
-    "image": "./images/figma.png",
+    "image": "./images/figma.webp",
     "level": "Basic"
   }
 ]

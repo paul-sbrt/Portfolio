@@ -33,7 +33,7 @@ function renderMsProjects(projects) {
   grid.innerHTML = "";
 
   projects.forEach((p) => {
-    const img = p.image || "./images/powerBI.png";
+    const img = p.image || "./images/powerbi.webp";
     const title = p.title || "Project";
     const year = p.year ? String(p.year) : "";
     const type = p.type || "";

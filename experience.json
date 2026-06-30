@@ -4,55 +4,55 @@
     "company": "Acteo",
     "location": "Freelance",
     "dates": "oct 2025",
-    "image": "./images/malt logo.png"
+    "image": "./images/malt-logo.webp"
   },
   {
     "position": "Developer",
     "company": "AVANADE FRANCE",
     "location": "Paris",
     "dates": "oct 2023 - sept 2025",
-    "image": "./images/avanade.png"
+    "image": "./images/avanade.webp"
   },
   {
     "position": "Online Dealer",
     "company": "Evolution Gaming",
     "location": "Vancouver",
     "dates": "jan 2023 - apr 2023",
-    "image": "./images/evolution gaming .png"
+    "image": "./images/evolution-gaming.webp"
   },
   {
     "position": "Tobacconist",
     "company": "Napoleon",
     "location": "Tours",
     "dates": "oct 2021 - feb 2022",
-    "image": "./images/napoleon.png"
+    "image": "./images/napoleon.webp"
   },
   {
     "position": "Bartender",
     "company": "O'Gorille",
     "location": "Tours",
     "dates": "oct 2021 - nov 2021",
-    "image": "./images/O'gorille.jpeg"
+    "image": "./images/o-gorille.webp"
   },
   {
     "position": "Cook",
     "company": "Le Lys d'Or",
     "location": "Tours",
     "dates": "may 2021 - oct 2021",
-    "image": "./images/lys.png"
+    "image": "./images/lys.webp"
   },
   {
     "position": "Delivery Driver",
     "company": "Speed Rabbit",
     "location": "Tours",
     "dates": "jun 2020 - may 2021",
-    "image": "./images/speed rabbit.png"
+    "image": "./images/speed-rabbit.webp"
   },
   {
     "position": "Cook",
     "company": "L'affranchi",
     "location": "Tours",
     "dates": "apr 2019 - aug 2020",
-    "image": "./images/affranchi.png"
+    "image": "./images/affranchi.webp"
   }
 ]
