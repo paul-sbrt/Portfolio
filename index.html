@@ -28,17 +28,17 @@
   </head>
   <body>
     <!--HEADER-->
-    <div class="header">
+    <header class="header" id="header">
       <div class="container">
         <div class="header-sticky">
           <div class="nom">
-            <a href="#"
+            <a href="#header"
               ><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a
             >
           </div>
           <nav>
             <ul id="sidemenu">
-              <li><a href="#">Home</a></li>
+              <li><a href="#header">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#projects">Projects</a></li>
               <li>
@@ -59,7 +59,9 @@
           a Software Developer
         </h1>
       </div>
-    </div>
+    </header>
+
+    <main>
     <!--ABOUT-->
     <div id="about">
       <div class="container">
@@ -72,7 +74,7 @@
             />
           </div>
           <div class="about-col-2">
-            <h1 class="sub-title">About me</h1>
+            <h2 class="sub-title">About me</h2>
             <p>
               I’m a software developer with a background in web development and
               application design. After graduating in web development and
@@ -115,7 +117,7 @@
           <!-- ------PORTFOLIIO------ -->
           <div id="projects">
             <div class="container">
-              <h1 class="sub-title">My Projects</h1>
+              <h2 class="sub-title">My Projects</h2>
               <!-- Swiper -->
               <div class="swiper mySwiper work-list">
                 <div class="swiper-wrapper"></div>
@@ -135,7 +137,7 @@
             <div class="container">
               <div class="row">
                 <div class="contact-left">
-                  <h1 class="sub-title">Contact Me</h1>
+                  <h2 class="sub-title">Contact Me</h2>
                   <a href="mailto:paul.sabourault0@gmail.com"
                     ><p>
                       <i class="fa-solid fa-paper-plane"></i
@@ -205,5 +207,6 @@
         </div>
       </div>
     </div>
+    </main>
   </body>
 </html>
