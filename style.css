@@ -203,7 +203,7 @@ nav ul li a:hover:after {
   margin-top: 15%;
   font-size: 35px;
   padding: 10px 10%;
-  margin-right: 500px;
+  max-width: 720px;
 }
 
 /*ABOUT*/
@@ -293,7 +293,6 @@ h1.sub-title {
 
 .tab-content.active-tab {
   display: block;
-  margin-right: -65px;
 }
 
 .tab-panels {
@@ -677,7 +676,7 @@ nav .fa-solid {
   }
 
   .box-2 {
-    margin: 20px -8px;
+    margin: 20px var(--space-1);
   }
 
   .work-list {

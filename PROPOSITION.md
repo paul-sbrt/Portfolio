@@ -45,11 +45,18 @@ Trois piliers **à parité** :
 
 > Rempli au maximum depuis le code/READMEs observés. `[[À COMPLÉTER]]` = à confirmer par Paul (surtout impact chiffré).
 
-### 3.1 DUMP — « second cerveau » mobile augmenté par l'IA
-- **Problème** : capturer une idée/note/vocal **avant de la perdre**, sans friction, puis la retrouver structurée. `[[À COMPLÉTER: ta formulation exacte du problème / déclencheur]]`
-- **Pour qui** : `[[À COMPLÉTER: cible visée — toi d'abord ? étudiants ? créatifs ? pro débordés ?]]`
-- **Solution** : app **iOS native** (capture texte + **voix**), **transcription Whisper**, **structuration par IA (Claude)**, **widgets** d'accueil et **extension de partage**.
-- **Stack** : Swift/SwiftUI · **Cloudflare Worker** (`dump-api-proxy`) · **Claude API** · **OpenAI Whisper** · site testeurs PHP/MySQL (O2switch).
+### 3.1 DUMP — « deuxième cerveau » mobile augmenté par l'IA
+> *Source : `Dump_Build_Plan.md` + `Dump/worker/README.md`.*
+- **Problème** : on **capture une idée / note / vocal en vrac** mais on la **perd** ou on ne la **retrouve pas structurée**. DUMP est un **assistant cognitif** : l'utilisateur **parle ou écrit en vrac, et l'IA trie automatiquement** — le « deuxième cerveau » doit être crédible dès le jour 1.
+- **Pour qui** : `[[À COMPLÉTER: cible/persona non précisée dans la doc produit — toi d'abord ? étudiants ? créatifs ? pro débordés ?]]`
+- **Solution** : app **iOS native** qui transforme un flux brut en notes triées :
+  - **Capture texte + voix** ; **transcription Whisper** des vocaux.
+  - **Classification IA (Claude)** en catégories **ACTION / INFO / IDÉE / VRAC** (+ **catégories custom** suggérées et apprises) et **niveaux d'urgence** (feu / important / secondaire / aucune).
+  - **Extraction d'entités** (personnes, lieux, dates → anonymisées avant envoi), **rappels/notifications** datés, **buffer d'impulsivité**, **apprentissage des corrections** de l'utilisateur.
+  - Fonctions IA additionnelles côté proxy : **recherche** sémantique, **« brain »**, **nettoyage OCR**.
+  - **Onboarding zéro friction** (pas de compte, pas d'email, app utilisable à la 1re seconde), **widgets** d'accueil et **extension de partage**.
+- **Modèle éco** : **freemium / premium** — **gratuit jusqu'à 25 classifications IA / semaine**, **premium** déverrouillant l'illimité via **StoreKit 2** (achat in-app).
+- **Stack** : Swift/SwiftUI · **SwiftData** (iOS 17+) · **Cloudflare Worker** (`dump-api-proxy`, clés IA côté serveur) · **Claude API** (Anthropic) · **OpenAI Whisper** · site testeurs PHP/MySQL (O2switch).
 - **Résultat / statut** : **sur TestFlight** (build 2), projet le plus actif (503 commits, maj juin 2026), design system v2, widgets « production ready ». `[[À COMPLÉTER: nb de testeurs, retours, date de sortie App Store visée]]`
 - **Visuels** : screenshots simulateur dispo. **Lien** : `[[À COMPLÉTER: lien TestFlight public ? page testeurs ?]]`
 

@@ -13,6 +13,7 @@
 
 ## Changelog
 
+- **2026-06-30** — **Recentrage de positionnement.** Le portfolio est acté comme une **VITRINE de qui Paul est** (builder polyvalent qui construit / cherche / apprend), **pas un outil de candidature** : l'angle Product/alternance est désormais **porté par le CV**. Le **cap produit** rétrograde de *thème transverse structurant* à **simple touche légère** (une ligne « en recherche d'alternance », pas plus) ; récit central = **polyvalence + « je construis de vrais trucs et j'apprends »**. Reste des décisions **inchangé** (multi-pages, `hats[]`, data-driven…). **Nouvelle décision design** (Chantier 3) : direction visuelle **soignée et atypique**, **desktop travaillé** avec animations pertinentes (scroll/hover) faisant du site **une démo du savoir-faire**, **mobile clean/simple**.
 - **2026-06-30** — Création du document. Chantier **0** (hygiène, 10 commits) acté **FAIT** ; chantiers **1** (positionnement & structure), **2** (système de contenu) et **3** (design) actés **DÉCIDÉS**. Faits marquants : pool de projets verrouillé (vedettes DUMP/STOW/EXTRALIMO/site Microsoft), **modèle B unifié data-driven** retenu, DA dark **à tokeniser** (paires Dark/Light + toggle). Travail mené sur la branche `refonte` (main = prod).
 
 ---
