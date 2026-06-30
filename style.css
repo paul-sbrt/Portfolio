@@ -1,8 +1,10 @@
 :root {
   /* ===== Brand accents — constant across themes ===== */
   --accent: #ff004f;          /* portfolio */
-  --accent-ms: #f7c948;       /* Microsoft */
+  --accent-ms: #f7c948;       /* Microsoft (fills/borders) */
   --accent-ms-2: #ffd861;     /* Microsoft hover gold */
+  --accent-ms-text: var(--accent-ms); /* Microsoft text — darkens in light theme for AA */
+  --on-accent: #fff;          /* text/icons sitting on a filled accent surface */
 
   /* ===== Theme tokens (dark = default; light overrides in [data-theme="light"]) ===== */
   --bg: #080808;
@@ -49,6 +51,22 @@
   --fs-900: 3.5rem;    /* 56px — h1 */
   --lh-tight: 1.15;
   --lh-base: 1.6;
+}
+
+/* ===== Light theme — overrides only the theme tokens (accents stay constant) ===== */
+[data-theme="light"] {
+  --bg: #f4f5f7;
+  --text: #15171c;
+  --text-muted: #586070;
+  --surface: #ffffff;
+  --surface-raised: rgba(0, 0, 0, 0.035);
+  --surface-sunken: rgba(0, 0, 0, 0.05);
+  --border: rgba(0, 0, 0, 0.12);
+  --border-soft: rgba(0, 0, 0, 0.08);
+  --border-line: rgba(0, 0, 0, 0.1);
+  --grid-line: rgba(0, 0, 0, 0.06);
+  --img-outline: rgba(0, 0, 0, 0.15);
+  --accent-ms-text: #8a6a00; /* darkened amber: AA-readable on light */
 }
 
 * {
@@ -151,7 +169,7 @@ nav a {
   border: 2px solid var(--accent-ms);
   border-radius: 0;
   padding: 6px 18px;
-  color: var(--accent-ms);
+  color: var(--accent-ms-text);
   display: inline-block;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -426,6 +444,7 @@ h1.sub-title {
 
 .btn:hover {
   background: var(--accent);
+  color: var(--on-accent);
 }
 
 .swiper-button-next,
@@ -489,6 +508,29 @@ h1.sub-title {
 .btn.btn2 {
   display: inline-block;
   background-color: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Theme toggle (header) */
+.theme-toggle {
+  margin-left: 12px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .contact-right form {
@@ -795,7 +837,7 @@ nav .fa-solid {
 .cert-code {
   font-weight: 700;
   letter-spacing: 2px;
-  color: var(--accent-ms);
+  color: var(--accent-ms-text);
   font-size: 14px;
   text-transform: uppercase;
 }
@@ -830,6 +872,6 @@ nav .fa-solid {
 }
 
 .cert-arrow {
-  color: var(--accent-ms);
+  color: var(--accent-ms-text);
   font-size: 14px;
 }

@@ -3,6 +3,19 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <script>
+      // Set theme before paint to avoid flash of incorrect theme.
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (!t)
+            t = matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Portfolio Paul Sabourault</title>
     <meta name="description" content="Portfolio of Paul Sabourault — software developer with two years at Avanade, building web projects and Microsoft Power Platform solutions (Power BI, Power Apps, Power Automate)." />
@@ -29,6 +42,7 @@
       src="https://kit.fontawesome.com/5d10eb0d43.js"
       defer
     ></script>
+    <script src="./theme.js" defer></script>
   </head>
   <body>
     <!--HEADER-->
@@ -53,6 +67,7 @@
               <li><a href="#contact">Contact</a></li>
               <i class="fa-solid fa-xmark"></i>
             </ul>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Passer en thème clair"><i class="fa-solid fa-moon"></i></button>
             <i class="fa-solid fa-bars"></i>
           </nav>
         </div>

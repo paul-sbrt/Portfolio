@@ -19,9 +19,10 @@
 
 ## Cadrage transverse (s'applique à tous les chantiers)
 
+- 🔒 **Nature du portfolio = VITRINE, pas outil de candidature.** Le portfolio montre **qui Paul EST** : un **builder polyvalent qui touche à tout** — il construit, cherche, apprend (mobile, web, IA, Microsoft). Ce n'est **pas** une lettre de motivation déguisée. **L'angle Product / alternance est porté par le CV**, pas par le portfolio.
+- 🔒 **Récit central = polyvalence + « je construis de vrais trucs et j'apprends ».** C'est le fil rouge structurant. Tout le reste (sections, projets, skills) sert ce récit.
 - 🔒 **Socle = ce que Paul EST aujourd'hui** : développeur (mobile + web), IA, technologies Microsoft / Power Platform — **à parité, sans hiérarchie artificielle**.
-- 🔒 **Product Management = OBJECTIF**, pas un acquis : recherche d'**alternance produit**, affiché comme une **direction transverse** assumée.
-  **Ne jamais écrire « Product Manager »** ni présenter une expérience PM. La sensibilité produit se montre par la façon de raconter les projets (problème → pour qui → solution → résultat).
+- 🔒 **Cap produit = TOUCHE LÉGÈRE, plus un thème transverse structurant.** Une seule **ligne assumée** (du type « en recherche d'alternance »), **pas plus** — ni section, ni filtre, ni titre. **Ne jamais écrire « Product Manager »** ni présenter une expérience PM. La sensibilité produit transparaît dans la façon de raconter les projets (problème → pour qui → solution → résultat), jamais comme un axe affiché.
 - 🔒 **Récit unifié** : une seule personne, pas des silos par casquette.
 - 🔒 **Zéro fabrication** : toute donnée manquante = `[[À COMPLÉTER]]` + question listée.
 
@@ -37,7 +38,7 @@
 
 ## CHANTIER 1 — Positionnement & structure ✅ DÉCIDÉ
 
-🔒 **Positionnement** : profil qui **conçoit, développe ET déploie de vraies applis** (mobile + web), avec **IA** et **Microsoft/Power Platform**, à parité. Touche claire « **en route vers le produit / recherche d'alternance** » (hero + about), jamais un titre.
+🔒 **Positionnement** : **vitrine d'un builder polyvalent** qui **conçoit, développe ET déploie de vraies applis** (mobile + web), avec **IA** et **Microsoft/Power Platform**, à parité — *« je construis de vrais trucs et j'apprends »*. **Cap produit = une seule ligne légère** (du type « en recherche d'alternance »), **pas plus** ; l'angle produit/alternance est porté par le **CV**, pas par le portfolio.
 
 🔒 **Architecture MULTI-PAGES** : home curée + **1 page détail par projet vedette**.
 
@@ -84,6 +85,8 @@
 ## CHANTIER 3 — Design ✅ DÉCIDÉ
 
 > Principe : **garder et élever** la DA existante, pas la remplacer. (Audit complet de l'existant : couleurs en dur, Poppins non importée, dark-only, desktop-first — voir historique.)
+
+🔒 **DIRECTION VISUELLE** : portfolio **soigné et atypique**. Le **desktop est travaillé** avec des **animations PERTINENTES** (scroll, hover) qui font du **site lui-même une démo du savoir-faire** de Paul (le portfolio prouve ce qu'il sait faire). En **mobile**, on reste **clean et simple** — les animations ne doivent jamais nuire à la lisibilité ni aux perfs sur petit écran. (Cohérent avec le récit « builder polyvalent qui construit de vrais trucs ».)
 
 🔒 **Garder** : DA **dark**, esprit **plat / graphique**, **bichromie** rose **`#ff004f`** (marque) / or **`#f7c948`** (Microsoft) ; transitions uniformes `0.2s ease`.
 

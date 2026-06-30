@@ -301,7 +301,7 @@ body.vg-lightbox-open{
   font-size: 16px;
   width: 18px;
   text-align: center;
-  color: rgba(247,201,72,0.85);
+  color: var(--accent-ms-text);
 }
 
 .ms-contact .btn span{
@@ -322,7 +322,7 @@ body.vg-lightbox-open{
   font-size: 12px;
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: rgba(247,201,72,0.9);
+  color: var(--accent-ms-text);
   margin-bottom: 6px;
   display: inline-block;
 }
@@ -340,7 +340,7 @@ body.vg-lightbox-open{
   border: 2px solid var(--accent-ms); /* yellow frame */
   border-radius: var(--radius-md);
   line-height: 1.2;
-  color: var(--accent-ms);
+  color: var(--accent-ms-text);
 }
 
 .ms-report-shell{
@@ -461,7 +461,7 @@ body.vg-lightbox-open{
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: rgba(247,201,72,0.85);
+  color: var(--accent-ms-text);
 }
 
 .ms-kpi-card strong{
@@ -556,7 +556,7 @@ body.vg-lightbox-open{
 
 .ms-demo-btn i{
   font-size: 15px;
-  color: rgba(247,201,72,0.85);
+  color: var(--accent-ms-text);
 }
 
 .ms-demo-btn:hover{

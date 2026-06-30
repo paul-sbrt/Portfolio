@@ -2,6 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <script>
+      // Set theme before paint to avoid flash of incorrect theme.
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (!t)
+            t = matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Microsoft Power Platform & Power BI — Portfolio</title>
     <meta name="description" content="Microsoft Power Platform &amp; Power BI work by Paul Sabourault: dashboards, business applications and automations built with Power BI, Power Apps and Power Automate." />
@@ -23,6 +36,7 @@
       defer
       crossorigin="anonymous"
     ></script>
+    <script src="./theme.js" defer></script>
   </head>
 
   <body>
@@ -50,6 +64,7 @@
               <li><a href="index.html#contact">Contact</a></li>
               <i class="fa-solid fa-xmark"></i>
             </ul>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Passer en thème clair"><i class="fa-solid fa-moon"></i></button>
             <i class="fa-solid fa-bars"></i>
           </nav>
         </div>
