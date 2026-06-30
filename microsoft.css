@@ -3,7 +3,7 @@
 
 .ms-lead {
   margin-top: 14px;
-  color: #ababab;
+  color: var(--text-muted);
   line-height: 1.7;
   max-width: 900px;
 }
@@ -17,26 +17,26 @@
 }
 
 .ms-card {
-  background: #262626;
-  border-radius: 18px;
+  background: var(--surface);
+  border-radius: var(--radius-2xl);
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid var(--border-soft);
   transition: transform .2s ease, border-color .2s ease;
   display: block;
   text-decoration: none;
-  color: #fff;
+  color: var(--text);
   width: clamp(260px, 100%, 480px);
 }
 
-.ms-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.14); }
+.ms-card:hover { transform: translateY(-4px); border-color: var(--border); }
 
 .ms-card-thumb{
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), transparent 55%), rgba(0,0,0,0.3);
+  border-bottom: 1px solid var(--grid-line);
+  background: radial-gradient(circle at 30% 30%, var(--border), transparent 55%), var(--surface-sunken);
 }
 
 .ms-card-thumb img{
@@ -53,16 +53,16 @@
 
 .ms-card h3 { font-size: 18px; margin-bottom: 8px; }
 
-.ms-meta { color: #ababab; font-size: 13px; margin-bottom: 12px; }
+.ms-meta { color: var(--text-muted); font-size: 13px; margin-bottom: 12px; }
 
 .ms-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 12px; }
 
 .ms-tag {
   font-size: 12px;
   padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-pill);
+  background: var(--border-soft);
+  border: 1px solid var(--border);
 }
 
 .suez-gallery,
@@ -79,14 +79,14 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  color: #f4f4f4;
+  color: var(--text);
 }
 
 .suez-shot-frame,
 .mscd-shot-frame,
 .vg-shot-frame{
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
   overflow: hidden;
   background: rgba(0,0,0,0.4);
   aspect-ratio: 16 / 9;
@@ -107,7 +107,7 @@
 .mscd-shot figcaption,
 .vg-shot figcaption{
   font-size: 14px;
-  color: #bdbdbd;
+  color: var(--text-muted);
 }
 
 .suez-cta,
@@ -138,8 +138,8 @@
 .mscd-back-btn,
 .vg-back-btn,
 .vg-video-btn{
-  border-color: rgba(255,255,255,0.2);
-  color: #fff;
+  border-color: var(--border);
+  color: var(--text);
   padding: 14px 32px;
   display: inline-flex;
   align-items: center;
@@ -159,7 +159,7 @@
 .mscd-back-btn:hover,
 .vg-back-btn:hover,
 .vg-video-btn:hover{
-  background: rgba(255,255,255,0.08);
+  background: var(--border);
 }
 
 .suez-lightbox,
@@ -198,8 +198,8 @@
 .vg-lightbox-media img{
   width: 100%;
   height: auto;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--border);
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
@@ -207,7 +207,7 @@
 .mscd-lightbox-media p,
 .vg-lightbox-media p{
   margin-top: 14px;
-  color: #e0e0e0;
+  color: var(--text-muted);
   font-size: 15px;
 }
 
@@ -219,19 +219,19 @@
   right: 24px;
   border: none;
   background: rgba(0,0,0,0.6);
-  color: #fff;
+  color: var(--text);
   padding: 10px 14px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   cursor: pointer;
   font-size: 20px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid var(--border);
   transition: background 0.2s ease;
 }
 
 .suez-lightbox-close:hover,
 .mscd-lightbox-close:hover,
 .vg-lightbox-close:hover{
-  background: rgba(255,255,255,0.2);
+  background: var(--border);
 }
 
 body.suez-lightbox-open,
@@ -240,20 +240,20 @@ body.vg-lightbox-open{
   overflow: hidden;
 }
 
-.ms-impact { margin-top: 10px; color: #ddd; }
-.ms-impact li { margin-left: 18px; margin-top: 6px; color: #d7d7d7; }
+.ms-impact { margin-top: 10px; color: var(--text-muted); }
+.ms-impact li { margin-left: 18px; margin-top: 6px; color: var(--text-muted); }
 
 .ms-cert-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 24px; }
 
 .ms-cert{
-  background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 16px;
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
   padding: 18px;
 }
 
 .ms-cert a{
-  color: #fff;
+  color: var(--text);
   text-decoration: none;
   font-weight: 600;
 }
@@ -263,7 +263,7 @@ body.vg-lightbox-open{
 }
 
 .ms-cert .ms-cert-year{
-  color: #ababab;
+  color: var(--text-muted);
   font-size: 13px;
   margin-top: 4px;
 }
@@ -277,10 +277,10 @@ body.vg-lightbox-open{
 }
 
 .ms-contact .btn.btn2{
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(0,0,0,0.2);
-  color: #fff;
-  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-sunken);
+  color: var(--text);
+  border-radius: var(--radius-sm);
   padding: 10px 20px;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
@@ -308,12 +308,12 @@ body.vg-lightbox-open{
   font-size: 14px;
   letter-spacing: 0.4px;
   text-transform: uppercase;
-  color: #f7f7f7;
+  color: var(--text);
 }
 
 .ms-contact-note{
   margin-top: 10px;
-  color: #ababab;
+  color: var(--text-muted);
   font-size: 14px;
 }
 
@@ -330,17 +330,17 @@ body.vg-lightbox-open{
 .ms-lead--compact{
   margin-top: 0;
   font-size: 16px;
-  color: #cfcfcf;
+  color: var(--text-muted);
 }
 
 /* Power BI "report" feel while keeping the global dark portfolio look */
 .ms-highlight{
   display:inline-block;
   padding: 2px 10px;
-  border: 2px solid #f7c948; /* yellow frame */
-  border-radius: 10px;
+  border: 2px solid var(--accent-ms); /* yellow frame */
+  border-radius: var(--radius-md);
   line-height: 1.2;
-  color: #f7c948;
+  color: var(--accent-ms);
 }
 
 .ms-report-shell{
@@ -349,9 +349,9 @@ body.vg-lightbox-open{
 }
 
 .ms-panel{
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 18px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
   padding: 18px;
   margin-top: 18px;
   position: relative;
@@ -364,8 +364,8 @@ body.vg-lightbox-open{
   position:absolute;
   inset:0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 40px 40px;
   opacity: 0.35;
   pointer-events:none;
@@ -383,8 +383,8 @@ body.vg-lightbox-open{
 
 /* Make project cards look like report visuals */
 .ms-card{
-  background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(255,255,255,0.14);
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
 }
 
 .ms-card:hover{
@@ -415,13 +415,13 @@ body.vg-lightbox-open{
   font-size: 14px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
+  color: var(--text-muted);
 }
 
 .ms-note-card{
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 18px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
   padding: 16px 20px;
   margin-top: 8px;
 }
@@ -433,7 +433,7 @@ body.vg-lightbox-open{
 
 .ms-note-card p{
   margin: 0;
-  color: #dcdcdc;
+  color: var(--text-muted);
   line-height: 1.5;
 }
 
@@ -446,9 +446,9 @@ body.vg-lightbox-open{
 
 .ms-kpi-card{
   border: 1px solid rgba(247,201,72,0.4);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   padding: 16px;
-  background: rgba(0,0,0,0.35);
+  background: var(--surface-sunken);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -466,12 +466,12 @@ body.vg-lightbox-open{
 
 .ms-kpi-card strong{
   font-size: 26px;
-  color: #fff;
+  color: var(--text);
 }
 
 .ms-kpi-card p{
   margin: 0;
-  color: #c9c9c9;
+  color: var(--text-muted);
   font-size: 13px;
 }
 
@@ -487,9 +487,9 @@ body.vg-lightbox-open{
 }
 
 .ms-demo-inline{
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 14px;
-  background: rgba(0,0,0,0.25);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-sunken);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -524,7 +524,7 @@ body.vg-lightbox-open{
 
 .ms-demo-note{
   margin: 0;
-  color: rgba(255,255,255,0.7);
+  color: var(--text-muted);
   font-size: 14px;
 }
 
@@ -537,21 +537,21 @@ body.vg-lightbox-open{
 
 .ms-demo-btn{
   border: 1px solid rgba(247,201,72,0.4);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 12px 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   text-decoration: none;
-  color: #fff;
+  color: var(--text);
   font-size: 14px;
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   width: 100%;
 }
 
 .ms-demo-btn span{
-  color: #fff;
+  color: var(--text);
 }
 
 .ms-demo-btn i{
@@ -690,7 +690,7 @@ body.vg-lightbox-open{
     gap: 12px;
   }
   .ms-card{
-    border-radius: 14px;
+    border-radius: var(--radius-lg);
   }
   .ms-card-body{
     padding: 16px;
