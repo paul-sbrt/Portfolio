@@ -1,0 +1,131 @@
+# DECISIONS.md — Refonte du portfolio Paul Sabourault
+
+> **Source de vérité** des décisions de refonte. À lire en début de chaque session.
+> Dernière mise à jour : **2026-06-30**.
+>
+> **Légende** : 🔒 **FIGÉ** (décidé, ne pas rediscuter sans raison) · ⏳ **EN ATTENTE** (à trancher / à fournir par Paul).
+>
+> **Règle de travail** : *audit avant chaque chantier · décision actée sur ce doc avant tout code.*
+>
+> **Ordre des chantiers** : 0 (✅ fait) → 1 (décidé) → 2 (décidé) → 3 (décidé) → **4 implémentation** → **5 déploiement** O2switch (`portfolio-sbrt.com`).
+
+---
+
+## Changelog
+
+- **2026-06-30** — Création du document. Chantier **0** (hygiène, 10 commits) acté **FAIT** ; chantiers **1** (positionnement & structure), **2** (système de contenu) et **3** (design) actés **DÉCIDÉS**. Faits marquants : pool de projets verrouillé (vedettes DUMP/STOW/EXTRALIMO/site Microsoft), **modèle B unifié data-driven** retenu, DA dark **à tokeniser** (paires Dark/Light + toggle). Travail mené sur la branche `refonte` (main = prod).
+
+---
+
+## Cadrage transverse (s'applique à tous les chantiers)
+
+- 🔒 **Socle = ce que Paul EST aujourd'hui** : développeur (mobile + web), IA, technologies Microsoft / Power Platform — **à parité, sans hiérarchie artificielle**.
+- 🔒 **Product Management = OBJECTIF**, pas un acquis : recherche d'**alternance produit**, affiché comme une **direction transverse** assumée.
+  **Ne jamais écrire « Product Manager »** ni présenter une expérience PM. La sensibilité produit se montre par la façon de raconter les projets (problème → pour qui → solution → résultat).
+- 🔒 **Récit unifié** : une seule personne, pas des silos par casquette.
+- 🔒 **Zéro fabrication** : toute donnée manquante = `[[À COMPLÉTER]]` + question listée.
+
+---
+
+## CHANTIER 0 — Hygiène ✅ FAIT
+
+🔒 **10 commits atomiques** livrés sur `main` (non poussés) : `.gitignore` + dé-tracking `.DS_Store`/`.vscode` ; renommage du CV (faute « mirosoft » corrigée) ; **images → WebP + kebab-case + lazy-load** (~38 Mo → 5 Mo) + 4 orphelines supprimées ; **favicon SVG** ; **SEO** (meta description, Open Graph/Twitter, `robots.txt`, `sitemap.xml`) ; sémantique (1 `<h1>`/page, `<header>`/`<main>`, ancres) ; **labels formulaire** ; retrait téléphone + Facebook perso ; `defer` sur scripts.
+
+⏳ **URL de production** : placeholder `YOUR-DOMAIN.com` dans OG/sitemap/robots → à remplacer par l'URL réelle (voir Chantier 5).
+
+---
+
+## CHANTIER 1 — Positionnement & structure ✅ DÉCIDÉ
+
+🔒 **Positionnement** : profil qui **conçoit, développe ET déploie de vraies applis** (mobile + web), avec **IA** et **Microsoft/Power Platform**, à parité. Touche claire « **en route vers le produit / recherche d'alternance** » (hero + about), jamais un titre.
+
+🔒 **Architecture MULTI-PAGES** : home curée + **1 page détail par projet vedette**.
+
+🔒 **Pool de projets VERROUILLÉ** (on n'en cherche plus d'autres) :
+- **Niveau 1 — Vedette** : **DUMP** (iOS + IA), **STOW** (Flutter), **EXTRALIMO** (Laravel), **site solutions Microsoft** (Next.js).
+- **Niveau 2 — Grille** : les **~19 projets** actuels du site (surtout exercices dev).
+- **Niveau 3** : lien **GitHub** (« voir plus »).
+- **EXCLUS** : freelance Microsoft (IPMS, Experium, colvert…), **TripIA** (idée sans code).
+
+⏳ **Sort des 2 exercices Codecademy** (Excursion, Tea Cozy, les plus faibles) : à retirer de la grille ? — à confirmer.
+
+---
+
+## CHANTIER 2 — Système de contenu ✅ DÉCIDÉ
+
+🔒 **Modèle B unifié, data-driven** :
+- **1 fichier de données par type** : projets, skills, certifs, xp.
+- **1 seul moteur de rendu** (`display.js`) ; **`microsoft-page.js` supprimé** ; les **2 schémas projet fusionnés** (`projects.json` + `ms-projects.json` → un seul schéma enrichi).
+- **Casquette = champ `hats[]` multi-valeurs** (`App` / `IA` / `Microsoft`) → sert de **filtres**, **jamais** d'espace dédié. (Ex. DUMP = `["App","IA"]` apparaît dans 2 filtres depuis 1 entrée.)
+- **Produit = champ `product{}` transverse** (problème / impact utilisateur), **jamais un filtre** ni un espace.
+- **`featured` + `slug`** → la **page détail** est **auto-générée** par un template commun.
+
+🔒 **Espace Microsoft : consolidé puis fondu** (ne pas jeter) :
+- SUEZ, MSCD, Video Game Sales → **pages projet standard**, `hats:["Microsoft"]`, `featured`.
+- `power-platform.html` rétrogradé d'« espace maître » à **vue filtrée Microsoft**.
+- **URLs existantes préservées** (redirection **301** si le slug change — vrais actifs SEO).
+
+🔒 **Ajout = 1 entrée de données, 0 HTML** (le template génère les pages featured).
+
+🔒 **Pas de back-end maison** (sur-engineering à éviter). Site statique.
+
+⏳ **CMS Git (Decap) sans serveur** : option de confort éventuelle **plus tard**, à évaluer seulement si besoin.
+
+⏳ **Bilingue FR/EN** : le contenu devra être **bilingue dans les données** (champ à intégrer au schéma, ex. `{ "fr": …, "en": … }`) + **2e toggle** dans le header (langue). À intégrer à la conception du schéma au Chantier 4.
+
+### Schéma cible (référence — détaillé dans `PROPOSITION.md`)
+- **Projet** : `slug, title, image, hats[], featured, level (1|2), year, tech[], context, impact[], status, product{problem,userImpact}, media{video,screenshots[]}, links{}` (+ bilingue à prévoir).
+- **Skill** : `name, image, level, category`.
+- **Certif** : `code, name, issuer, date, skills[], officialUrl`.
+- **XP** : `position, company, location, dates, image, category?`.
+
+---
+
+## CHANTIER 3 — Design ✅ DÉCIDÉ
+
+> Principe : **garder et élever** la DA existante, pas la remplacer. (Audit complet de l'existant : couleurs en dur, Poppins non importée, dark-only, desktop-first — voir historique.)
+
+🔒 **Garder** : DA **dark**, esprit **plat / graphique**, **bichromie** rose **`#ff004f`** (marque) / or **`#f7c948`** (Microsoft) ; transitions uniformes `0.2s ease`.
+
+🔒 **Tokeniser** : variables CSS, **chaque couleur en PAIRE** pour gérer **Dark + Light** avec un **toggle** (aujourd'hui dark-only).
+
+🔒 **Typographie** : **importer enfin Poppins** (jamais importée → fallback système actuel), poser une **échelle typo cohérente**, **corriger la hiérarchie (`h1` > `h2`)** (actuellement `.sub-title` 60px > `h1` 35px).
+
+🔒 **Responsive** : passer en **mobile-first**, breakpoints propres (actuel : desktop-first, home 2 bp, Microsoft 6 bp en désordre).
+
+🔒 **Header** : **garder l'effet de scroll**, **changer l'image** de fond (réutiliser la **photo de l'about**).
+
+🔒 **Harmoniser** les composants divergents (boutons / cartes : portfolio vs Microsoft — radius & padding différents).
+
+🔒 **Couleurs de casquette** : prévoir le **mécanisme** (une teinte discrète par casquette, **sur les tags/filtres uniquement**).
+⏳ **Teintes exactes** par casquette : **à définir plus tard**.
+
+---
+
+## ⏳ EN ATTENTE GLOBAL — à fournir par Paul avant l'implémentation (Chantier 4)
+
+1. **Alternance produit** : angle exact + rythme + dates + secteur visé.
+2. **DUMP** : problème/déclencheur exact, cible, chiffres (testeurs, sortie App Store), lien public.
+3. **STOW** : pain point voyageur exact + 2-3 fonctionnalités phares + chiffres (téléchargements, note, Android ?).
+4. **EXTRALIMO** : **modèle économique** (gratuit / commission / abonnement) + chiffres (inscrits, mises en relation).
+5. **Site solutions Microsoft** : **URL de prod** confirmée (paulsabourault.fr ?) + offres/pages clés.
+6. **Expérience IPMS** : description **générique** (client en cours).
+7. **Clarifier « Acteo » vs « IPMS »** dans les expériences.
+8. **Confirmer le récit « origine restauration »**.
+9. **Skills à ajouter** : IA & Mobile (Flutter, Swift/SwiftUI, intégration LLM/Claude, Whisper…) + niveaux.
+10. **Headline + About** : choix des variantes (A/B) — cf. `PROPOSITION.md`.
+
+---
+
+## CHANTIER 4 — Implémentation (À VENIR)
+Fusion des JSON projet + schéma enrichi (hats/featured/product/bilingue) · suppression `microsoft-page.js` · moteur unique `display.js` · template de page détail · tokenisation CSS + toggle Dark/Light + import Poppins + échelle typo · mobile-first · 301 sur les URLs Microsoft.
+**Pré-requis** : EN ATTENTE GLOBAL renseigné.
+
+## CHANTIER 5 — Déploiement (À VENIR)
+Mise en ligne sur **O2switch** → domaine cible **`portfolio-sbrt.com`** ; remplacer le placeholder `YOUR-DOMAIN.com` (OG/sitemap/robots) par l'URL réelle.
+
+---
+
+## Documents liés
+- `PROPOSITION.md` — positionnement détaillé, gabarits des 4 cas vedette, headlines/about, schéma `projects.json`.
+- (Audits Chantiers 1-3 : réalisés en session, synthèses intégrées ci-dessus.)
