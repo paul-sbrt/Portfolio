@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://YOUR-DOMAIN.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://YOUR-DOMAIN.com/power-platform.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://YOUR-DOMAIN.com/video-game-sales-powerbi.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://YOUR-DOMAIN.com/mscd-application.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://YOUR-DOMAIN.com/suez-dashboard.html</loc>
+    <priority>0.6</priority>
+  </url>
+</urlset>
