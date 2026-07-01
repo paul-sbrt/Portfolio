@@ -307,60 +307,43 @@ h1.sub-title {
   width: 100%;
 }
 
-.box {
-  text-align: center;
-  margin: 30px 20px;
-  display: inline-block;
-  width: 135px;
-  height: 112px;
-}
-
-.box span {
-  color: var(--text);
-}
-
-.box p {
-  font-size: 15px;
-}
-
-.box img {
-  width: 55px;
-  height: 55px;
-  margin-bottom: 3px;
-}
-
-/* Grouped skills (4 parity groups, no levels). Icon-less skills fall back
-   to a text chip until real icons are added (design pass). */
+/* Grouped skills — one consistent chip per skill (icon optional, no levels).
+   Uniform shape so icon and icon-less skills align cleanly in the same row. */
 .skills-group-title {
   font-size: var(--fs-300);
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--text-muted);
-  margin: 26px 0 2px;
+  margin: 26px 0 12px;
 }
 
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
 }
 
-.box--text {
-  width: auto;
-  height: auto;
-  margin: 12px 10px;
-  padding: 10px 18px;
+.skill-chip {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
   background: var(--surface-raised);
-}
-
-.box--text span {
+  color: var(--text);
   font-size: var(--fs-300);
+  line-height: 1;
 }
 
+.skill-chip img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* Studies — uniform logo tiles (every entry has a logo). */
 .box-2 {
   text-align: center;
   margin: 30px 20px;
@@ -383,23 +366,49 @@ h1.sub-title {
   margin-bottom: 3px;
 }
 
-/* Entrée d'expérience sans logo ou avec description : carte lisible qui
-   ne tient pas dans la tuile compacte. Provisoire — le composant expérience
-   sera redessiné à la passe design. */
-.box-2--block {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: 440px;
+/* Experience — uniform rows (logo optional, description optional). */
+.exp-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 0;
   text-align: left;
-  margin: 26px 20px;
+  border-bottom: 1px solid var(--border-soft);
 }
 
-.box-2 .exp-desc {
+.exp-item:last-child {
+  border-bottom: none;
+}
+
+.exp-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.exp-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.exp-position {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.exp-meta {
   font-size: var(--fs-300);
   color: var(--text-muted);
-  margin-top: 6px;
+}
+
+.exp-desc {
+  font-size: var(--fs-300);
+  color: var(--text-muted);
+  margin-top: 4px;
   line-height: var(--lh-base);
+  max-width: 480px;
 }
 
 /* Projects  */
@@ -824,10 +833,6 @@ nav .fa-solid {
     flex-basis: 100%;
   }
 
-  .box {
-    margin: 20px 6px;
-  }
-
   .box-2 {
     margin: 20px var(--space-1);
   }
@@ -905,10 +910,6 @@ nav .fa-solid {
 }
 
 @media only screen and (max-width: 372px) {
-  .box {
-    margin: 20px 3px;
-  }
-
   .box-2 {
     margin: 20px 3px;
   }

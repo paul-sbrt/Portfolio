@@ -82,25 +82,22 @@ function displaySkills() {
         gridEl.classList.add("skills-grid");
 
         (group.skills || []).forEach((skill) => {
-          const skillBox = document.createElement("div");
-          skillBox.classList.add("box");
+          const chip = document.createElement("div");
+          chip.classList.add("skill-chip");
 
           if (skill.image) {
             const skillImage = document.createElement("img");
             skillImage.src = skill.image;
             skillImage.loading = "lazy";
             skillImage.alt = t(skill.name);
-            skillBox.appendChild(skillImage);
-            skillBox.appendChild(document.createElement("br"));
-          } else {
-            skillBox.classList.add("box--text");
+            chip.appendChild(skillImage);
           }
 
           const skillName = document.createElement("span");
           skillName.textContent = t(skill.name);
-          skillBox.appendChild(skillName);
+          chip.appendChild(skillName);
 
-          gridEl.appendChild(skillBox);
+          gridEl.appendChild(chip);
         });
 
         groupEl.appendChild(gridEl);
@@ -121,55 +118,51 @@ function displayExperience() {
       );
       experienceContent.innerHTML = ""; // Vider le contenu existant
 
-      // Parcourir les données et créer les éléments HTML dynamiquement.
-      // Image et description optionnelles ; une entrée sans logo ou avec
-      // description passe en carte "block" lisible (mise en forme provisoire,
-      // le composant expérience sera retravaillé à la passe design).
+      // Uniform rows: optional logo, then position / company·location·dates,
+      // and an optional description. Handles logo-less and described entries
+      // consistently (no more mixed tile/block shapes).
       experienceData.forEach((experience) => {
-        const experienceBox = document.createElement("div");
-        experienceBox.classList.add("box-2");
-        if (!experience.image || experience.description) {
-          experienceBox.classList.add("box-2--block");
-        }
+        const item = document.createElement("div");
+        item.classList.add("exp-item");
 
         if (experience.image) {
           const experienceImage = document.createElement("img");
+          experienceImage.classList.add("exp-logo");
           experienceImage.src = experience.image;
           experienceImage.loading = "lazy";
           experienceImage.alt = experience.company || t(experience.position) || "";
-          experienceBox.appendChild(experienceImage);
-          experienceBox.appendChild(document.createElement("br"));
+          item.appendChild(experienceImage);
         }
+
+        const body = document.createElement("div");
+        body.classList.add("exp-body");
 
         const experiencePosition = document.createElement("span");
+        experiencePosition.classList.add("exp-position");
         experiencePosition.textContent = t(experience.position);
-        experienceBox.appendChild(experiencePosition);
-        experienceBox.appendChild(document.createElement("br"));
+        body.appendChild(experiencePosition);
 
-        if (experience.company) {
-          const experienceCompany = document.createElement("p");
-          experienceCompany.textContent = t(experience.company);
-          experienceBox.appendChild(experienceCompany);
+        const metaParts = [
+          t(experience.company),
+          t(experience.location),
+          t(experience.dates),
+        ].filter(Boolean);
+        if (metaParts.length) {
+          const meta = document.createElement("span");
+          meta.classList.add("exp-meta");
+          meta.textContent = metaParts.join(" · ");
+          body.appendChild(meta);
         }
-
-        if (experience.location) {
-          const experienceLocation = document.createElement("p");
-          experienceLocation.textContent = t(experience.location);
-          experienceBox.appendChild(experienceLocation);
-        }
-
-        const experienceDates = document.createElement("p");
-        experienceDates.textContent = t(experience.dates);
-        experienceBox.appendChild(experienceDates);
 
         if (experience.description) {
           const experienceDesc = document.createElement("p");
           experienceDesc.classList.add("exp-desc");
           experienceDesc.textContent = t(experience.description);
-          experienceBox.appendChild(experienceDesc);
+          body.appendChild(experienceDesc);
         }
 
-        experienceContent.appendChild(experienceBox);
+        item.appendChild(body);
+        experienceContent.appendChild(item);
       });
       emitTabContentUpdated();
     })
