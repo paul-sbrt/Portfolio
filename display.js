@@ -219,7 +219,6 @@ function displayProjects() {
       const projectsContainer = document.querySelector(".swiper-wrapper");
 
       projectData.forEach((project) => {
-        // Remplacement de 'projects' par 'projectData.projects'
         const projectElement = document.createElement("div");
         projectElement.classList.add("work", "swiper-slide");
 
@@ -235,11 +234,18 @@ function displayProjects() {
         titleElement.textContent = project.title;
 
         const descriptionElement = document.createElement("p");
-        descriptionElement.textContent = project.description;
+        descriptionElement.textContent = project.summary || project.description || "";
 
+        // Featured projects link to their generated detail page (same tab);
+        // everything else links out to its live/external URL (new tab).
         const linkElement = document.createElement("a");
-        linkElement.href = project.link;
-        linkElement.target = "_blank";
+        if (project.featured && project.slug) {
+          linkElement.href = `projects/${project.slug}.html`;
+        } else {
+          linkElement.href = project.externalUrl || project.link || "#";
+          linkElement.target = "_blank";
+          linkElement.rel = "noopener noreferrer";
+        }
         const arrowIcon = document.createElement("i");
         arrowIcon.classList.add("fa-solid", "fa-arrow-up-right-from-square");
         linkElement.appendChild(arrowIcon);

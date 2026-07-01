@@ -1,116 +1,394 @@
 [
   {
+    "slug": "video-game-sales-powerbi",
+    "title": "Video Game Sales Analysis — Power BI",
+    "image": "./images/powerbi.webp",
+    "summary": "Interactive Power BI report built from a public Kaggle dataset to analyze global video game sales. Designed both as a portfolio case study and as hands-on preparation for the PL-300 certification, covering data modeling, DAX measures, and interactive reporting.",
+    "hats": ["Microsoft"],
+    "tags": ["Power BI", "Power Query", "DAX", "Data Modeling"],
+    "type": "Dashboard",
+    "year": 2025,
+    "featured": true,
+    "openInSameTab": true,
+    "detail": {
+      "tagline": "Portfolio case study",
+      "highlight": "Video Game Sales",
+      "heading": "Power BI Report",
+      "lead": "Interactive dashboard created from the Kaggle video game sales data set. I used it as a sandbox to rehearse PL-300 skills: data modelling, DAX measures, dynamic tooltips and responsive layouts. This page summarizes the report story and the insights surfaced in each tab.",
+      "certification": "PL-300 (Power BI Data Analyst Associate) — preparation project",
+      "status": "Personal portfolio project — interactive demo available via screenshots and video",
+      "context": {
+        "heading": "Project context",
+        "body": "The model combines five dimensions (Genre, Platform, Publisher, Region and Calendar) around a sales fact table. From there I built KPI cards, drill-through journeys and a narrative layout inspired by Microsoft's Fluent design language."
+      },
+      "impact": [
+        "Built a star schema model with fact and dimension tables (Date, Genre, Platform, Publisher, Game)",
+        "Created dynamic KPIs, time-based analysis, and Top N rankings using DAX",
+        "Designed interactive pages with slicers, drill-down exploration, and intelligent tooltips",
+        "Improved data readability and insights through clean UX and structured report pages"
+      ],
+      "galleryTitle": "Report gallery",
+      "galleryLead": "Highlights from the overview, regional drilldowns, franchise scorecard and mobile canvas used throughout demos.",
+      "gallery": [
+        {
+          "src": "./images/screen-sale1-copie.webp",
+          "alt": "Overview KPIs for the video game sales dashboard",
+          "caption": "Overview — revenue KPIs, growth indicators and a genre filter bar to steer the story."
+        },
+        {
+          "src": "./images/screen-sale1-5-copie.webp",
+          "alt": "Regional performance heatmap",
+          "caption": "Regions — synchronized map + column charts compare North America, Europe, Japan and ROW."
+        },
+        {
+          "src": "./images/screen-sale2-copie.webp",
+          "alt": "Franchise ranking leaderboard",
+          "caption": "Franchises — Top N selector powered by DAX ranking measures with tooltips for long-tail titles."
+        },
+        {
+          "src": "./images/screen-sale2-5-copie.webp",
+          "alt": "Platform lifecycle timeline",
+          "caption": "Platforms — lifecycle chart showing launches vs. revenue maturity to guide platform bets."
+        },
+        {
+          "src": "./images/screen-sale3-copie.webp",
+          "alt": "Datamodel view showing fact and dimension tables",
+          "caption": "Data model — star schema built in Power BI Desktop with fact Sales and Date/Genre/Platform/Publisher dims."
+        },
+        {
+          "src": "./images/screen-sale3-5-copie.webp",
+          "alt": "Mobile-ready layout",
+          "caption": "Mobile — responsive canvas with simplified KPIs for handheld consumption during demos."
+        }
+      ],
+      "video": {
+        "heading": "Video walkthrough",
+        "body": "Short demo recording showing navigation between tabs, slicer interactions and how the insights are presented live.",
+        "url": "https://youtu.be/wg360XzBvso",
+        "label": "Watch the video"
+      },
+      "cta": {
+        "heading": "Need a PL-300 style walkthrough?",
+        "body": "Let me demo the model, DAX techniques and UX guidelines I used here so we can replicate them for your dataset."
+      }
+    }
+  },
+  {
+    "slug": "mscd-application",
+    "title": "MSCD — Internal Contract & Quality Management Application",
+    "image": "./images/power-app-removebg-preview.webp",
+    "summary": "Internal application built during my time at Avanade to track signed contracts end-to-end. The solution covered all required processes and validation steps to ensure consistent follow-up and support long-term quality management.",
+    "hats": ["Microsoft"],
+    "tags": ["Power Apps", "SharePoint", "Power Automate"],
+    "type": "Business Application",
+    "year": 2023,
+    "featured": true,
+    "openInSameTab": true,
+    "detail": {
+      "tagline": "Internal case study",
+      "highlight": "MSCD",
+      "heading": "Contract Management App",
+      "lead": "A Power Apps solution deployed at Avanade to control every contract milestone — from intake to quality monitoring. This page compiles the UI states shared with stakeholders to explain the app story while keeping client data confidential.",
+      "status": "Internal project developed at Avanade — live access no longer available. Presented through screenshots for confidentiality reasons.",
+      "context": {
+        "heading": "Project context",
+        "body": "MSCD orchestrates SharePoint, Dataverse and Power Automate flows so delivery teams can trace approvals, trigger alerts and update executive KPIs without switching tools. The canvas mirrors the Microsoft Design System for familiarity and fast adoption."
+      },
+      "impact": [
+        "Centralized contract tracking from signature to delivery",
+        "Standardized processes and validation steps across teams",
+        "Improved visibility and traceability for quality management",
+        "Reduced manual follow-up through automated workflows"
+      ],
+      "galleryTitle": "Application gallery",
+      "galleryLead": "Seven walkthrough captures covering overview metrics, approval pipeline, automation logs and mobile responsive states.",
+      "gallery": [
+        {
+          "src": "./images/msdc1.webp",
+          "alt": "MSCD overview dashboard",
+          "caption": "Overview — global KPIs pulling quality, delivery and SLA data."
+        },
+        {
+          "src": "./images/msdc2.webp",
+          "alt": "Approval queue",
+          "caption": "Approvals — queue prioritizing validations with SLA timers and reminders."
+        },
+        {
+          "src": "./images/msdc3.webp",
+          "alt": "Quality and automation KPIs",
+          "caption": "Quality — consolidated KPIs with a live feed from Power Automate."
+        },
+        {
+          "src": "./images/msdc4.webp",
+          "alt": "Delivery pipeline visualization",
+          "caption": "Pipeline — stage progression indicators highlight potential bottlenecks."
+        },
+        {
+          "src": "./images/msdc5.webp",
+          "alt": "SLA heatmap",
+          "caption": "SLA heatmap — surfacing overdue validations by entity."
+        },
+        {
+          "src": "./images/msdc6.webp",
+          "alt": "Process flow map",
+          "caption": "Process — the canonical flow from intake to delivery monitoring."
+        },
+        {
+          "src": "./images/msdc7.webp",
+          "alt": "Mobile layout and quick actions",
+          "caption": "Mobile — responsive canvas with quick actions for field users."
+        }
+      ],
+      "cta": {
+        "heading": "Want to see the data model?",
+        "body": "I can walk you through the governance approach, automation steps and UX patterns that made MSCD a reliable internal tool."
+      }
+    }
+  },
+  {
+    "slug": "suez-dashboard",
+    "title": "SUEZ — Power BI Certification Progress Dashboard",
+    "image": "./images/powerbi.webp",
+    "summary": "Power BI dashboard built for a SUEZ project to help stakeholders track certification progress across teams and support decision-making.",
+    "hats": ["Microsoft"],
+    "tags": ["Power BI", "Power Query", "DAX"],
+    "type": "Dashboard",
+    "year": 2023,
+    "featured": true,
+    "openInSameTab": true,
+    "detail": {
+      "tagline": "Client case study",
+      "highlight": "SUEZ",
+      "heading": "Certification Dashboard",
+      "lead": "Dashboard created at Avanade for SUEZ to monitor Power Platform certifications across teams. This page highlights the key views used to track progress, spot gaps and prepare leadership reviews.",
+      "status": "Internal project developed at Avanade — live access no longer available",
+      "context": {
+        "heading": "Project context",
+        "body": "The report blends Power BI, Power Query and DAX measures to expose KPIs in a modern Microsoft look-and-feel. It consolidates pipelines and training data so managers can act before deadlines."
+      },
+      "impact": [
+        "Centralized certification progress tracking for multiple teams",
+        "Improved visibility for managers with clear KPIs and drill-down views",
+        "Reduced manual reporting by consolidating data into a single dashboard"
+      ],
+      "galleryTitle": "Report gallery",
+      "galleryLead": "Four snapshots covering the executive summary, certification details, completion timelines and mobile-ready canvas.",
+      "gallery": [
+        {
+          "src": "./images/screenshot-2025-10-01-210737.webp",
+          "alt": "SUEZ overview page with KPIs",
+          "caption": "Overview — global KPIs and segment filters."
+        },
+        {
+          "src": "./images/screenshot-2025-10-01-210750.webp",
+          "alt": "Team comparison view",
+          "caption": "Teams — focus on completion rate by business unit."
+        },
+        {
+          "src": "./images/screenshot-2025-10-01-210802.webp",
+          "alt": "Certification breakdown cards",
+          "caption": "Certifications — status cards filtered by product."
+        },
+        {
+          "src": "./images/screenshot-2025-10-01-210814.webp",
+          "alt": "Mobile responsive page",
+          "caption": "Mobile — responsive view for managers on-the-go."
+        }
+      ],
+      "cta": {
+        "heading": "Need a similar dashboard?",
+        "body": "I can walk you through the data model, KPIs and UX choices that made this project successful, then adapt them to your context."
+      }
+    }
+  },
+  {
+    "slug": "professional-wordpress-website",
     "title": "Professional Wordpress Website",
     "image": "./images/site-anne-guillien.webp",
-    "description": "Delivered a custom WordPress business website focused on showcasing services and enhancing client engagement. Integrated essential features such as online appointment booking, SEO optimization, and responsive design to ensure a seamless user experience and ease of management for the client.",
-    "link": "https://anneguillien.fr"
+    "summary": "Delivered a custom WordPress business website focused on showcasing services and enhancing client engagement. Integrated essential features such as online appointment booking, SEO optimization, and responsive design to ensure a seamless user experience and ease of management for the client.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://anneguillien.fr"
   },
   {
+    "slug": "wheretowatch",
     "title": "WhereToWatch",
     "image": "./images/wheretowatch2.webp",
-    "description": "WhereToWatch is a React application that lets users search for movies and find where to watch them. It uses the TMDB API to display movie details like genres, ratings, main actors, and streaming platforms. Built with React, React Router, and Bootstrap, it's deployed on GitHub Pages",
-    "link": "https://paul-sbrt.github.io/WhereToWatch/"
+    "summary": "WhereToWatch is a React application that lets users search for movies and find where to watch them. It uses the TMDB API to display movie details like genres, ratings, main actors, and streaming platforms. Built with React, React Router, and Bootstrap, it's deployed on GitHub Pages",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://paul-sbrt.github.io/WhereToWatch/"
   },
   {
+    "slug": "password-generator",
     "title": "Password Generator",
     "image": "./images/passwordgen.webp",
-    "description": "A JavaScript project to create secure, customizable passwords. It strengthens my skills in JavaScript functions, DOM manipulation, and input validation while practicing arrays, loops, and conditional logic.",
-    "link": "https://paul-sbrt.github.io/Password-Generator/"
+    "summary": "A JavaScript project to create secure, customizable passwords. It strengthens my skills in JavaScript functions, DOM manipulation, and input validation while practicing arrays, loops, and conditional logic.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://paul-sbrt.github.io/Password-Generator/"
   },
   {
+    "slug": "to-do-list",
     "title": "To Do List",
     "image": "./images/todo.webp",
-    "description": "The goal is to build a To-Do List web application that allows users to add, manage, and delete tasks. It helps in practicing JavaScript concepts like DOM manipulation, event handling, local storage, and form validation.",
-    "link": "https://paul-sbrt.github.io/ToDoList/"
+    "summary": "The goal is to build a To-Do List web application that allows users to add, manage, and delete tasks. It helps in practicing JavaScript concepts like DOM manipulation, event handling, local storage, and form validation.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://paul-sbrt.github.io/ToDoList/"
   },
   {
+    "slug": "age-calculator",
     "title": "Age Calculator",
     "image": "./images/age-calcul.webp",
-    "description": "This web application calculates and displays a user's age based on their date of birth. Using JavaScript, the app computes the age in years, months, and days. Users enter their date of birth, and upon clicking a button, the application performs the calculation and presents the result. The project emphasizes JavaScript for accurate date calculations and an engaging, interactive user experience.",
-    "link": "https://paul-sbrt.github.io/age-calculator/"
+    "summary": "This web application calculates and displays a user's age based on their date of birth. Using JavaScript, the app computes the age in years, months, and days. Users enter their date of birth, and upon clicking a button, the application performs the calculation and presents the result. The project emphasizes JavaScript for accurate date calculations and an engaging, interactive user experience.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://paul-sbrt.github.io/age-calculator/"
   },
   {
+    "slug": "bricotips",
     "title": "Bricotips",
     "image": "./images/bricotips.webp",
-    "description": "In this project, I deepened my WordPress skills by exploring developer documentation, creating a child theme, and customizing its CSS. I built pages with Gutenberg, created custom widgets and shortcodes, modified theme templates, and developed custom page templates. I also added features using hooks, customized post pages, debugged the site, and implemented security measures to prevent hacking.",
-    "link": "https://bricotips.portfolio-sbrt.com/"
+    "summary": "In this project, I deepened my WordPress skills by exploring developer documentation, creating a child theme, and customizing its CSS. I built pages with Gutenberg, created custom widgets and shortcodes, modified theme templates, and developed custom page templates. I also added features using hooks, customized post pages, debugged the site, and implemented security measures to prevent hacking.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://bricotips.portfolio-sbrt.com/"
   },
   {
+    "slug": "banana-design",
     "title": "Banana Design",
     "image": "./images/bananadesign.webp",
-    "description": "Create a simple WordPress website to learn the basics of WordPress, including installation, theme customization, page creation, and plugin management. Ideal for beginners to understand core WordPress functionalities.",
-    "link": "https://bananadesign.portfolio-sbrt.com/"
+    "summary": "Create a simple WordPress website to learn the basics of WordPress, including installation, theme customization, page creation, and plugin management. Ideal for beginners to understand core WordPress functionalities.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://bananadesign.portfolio-sbrt.com/"
   },
   {
+    "slug": "advice-generator",
     "title": "Advice Generator",
     "image": "./images/advice-generator.webp",
-    "description": "This front-end project focuses on building a web application that interacts with an API to generate and display advice. Users can click a button to fetch advice from the API and view it on the screen. The project emphasizes API integration, asynchronous data handling, and creating a user-friendly interface.",
-    "link": "https://paul-sbrt.github.io/Advice-generator-app/"
+    "summary": "This front-end project focuses on building a web application that interacts with an API to generate and display advice. Users can click a button to fetch advice from the API and view it on the screen. The project emphasizes API integration, asynchronous data handling, and creating a user-friendly interface.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://paul-sbrt.github.io/Advice-generator-app/"
   },
   {
+    "slug": "wish-project",
     "title": "Wish Project",
     "image": "./images/wish-project.webp",
-    "description": "The Wish Project is a course project to learn the basics of the Symfony framework: controller, entity, form, repository, adding, deleting, editing in the database",
-    "link": "https://wish.portfolio-sbrt.com/"
+    "summary": "The Wish Project is a course project to learn the basics of the Symfony framework: controller, entity, form, repository, adding, deleting, editing in the database",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://wish.portfolio-sbrt.com/"
   },
   {
+    "slug": "twitthor",
     "title": "TwitThor",
     "image": "./images/twithor.webp",
-    "description": "The Twitter project is a course project developed using React. This project is designed to provide a experience with the fundamental concepts of the React framework. It covers various aspects such as components, props, and other core features of React. The aim is to provide a practical understanding of how these elements work together to build a dynamic web application.",
-    "link": "https://youtu.be/iFYvu0avXg4"
+    "summary": "The Twitter project is a course project developed using React. This project is designed to provide a experience with the fundamental concepts of the React framework. It covers various aspects such as components, props, and other core features of React. The aim is to provide a practical understanding of how these elements work together to build a dynamic web application.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://youtu.be/iFYvu0avXg4"
   },
   {
+    "slug": "la-maison-jungle",
     "title": "La Maison Jungle",
     "image": "./images/la-maison-jungle.webp",
-    "description": "A plant e-commerce site project designed for practicing React. Developed as part of an OpenClassrooms course, this project allows users to browse and purchase a variety of plants. Features include cart management, product detail displays, and a modern, responsive user interface.",
-    "link": "https://paul-sbrt.github.io/La-Maison-Jungle/"
+    "summary": "A plant e-commerce site project designed for practicing React. Developed as part of an OpenClassrooms course, this project allows users to browse and purchase a variety of plants. Features include cart management, product detail displays, and a modern, responsive user interface.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://paul-sbrt.github.io/La-Maison-Jungle/"
   },
   {
+    "slug": "favfilm",
     "title": "FavFilm",
     "image": "./images/favfilm.webp",
-    "description": "I created a website to learn React for school. The website allows users to explore a collection of films, displaying them and providing sorting options. It serves as a practical exercise in React development and user interface design.",
-    "link": "https://paul-sbrt.github.io/React-FavFilm/"
+    "summary": "I created a website to learn React for school. The website allows users to explore a collection of films, displaying them and providing sorting options. It serves as a practical exercise in React development and user interface design.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://paul-sbrt.github.io/React-FavFilm/"
   },
   {
+    "slug": "news-home-page",
     "title": "New Home Page",
     "image": "./images/newshomepage.webp",
-    "description": "This project entails building a responsive news website homepage, focusing on HTML, CSS, and basic JavaScript skills. Participants are tasked with replicating the design as closely as possible, ensuring responsiveness across different screen sizes and incorporating hover and focus states for interactive elements.",
-    "link": "https://paul-sbrt.github.io/News-Home-Page-/"
+    "summary": "This project entails building a responsive news website homepage, focusing on HTML, CSS, and basic JavaScript skills. Participants are tasked with replicating the design as closely as possible, ensuring responsiveness across different screen sizes and incorporating hover and focus states for interactive elements.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://paul-sbrt.github.io/News-Home-Page-/"
   },
   {
+    "slug": "newsletter-sign-up",
     "title": "Newsletter Sign Up",
     "image": "./images/newsletter-sign-up.webp",
-    "description": "I developed an interactive newsletter signup form from a given design. Users can input their email, receiving a confirmation message upon successful submission, along with responsive design for various screens.",
-    "link": "https://paul-sbrt.github.io/newsletter-sign-up-/"
+    "summary": "I developed an interactive newsletter signup form from a given design. Users can input their email, receiving a confirmation message upon successful submission, along with responsive design for various screens.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://paul-sbrt.github.io/newsletter-sign-up-/"
   },
   {
+    "slug": "interactive-rating",
     "title": "Interactive Rating",
     "image": "./images/interactive-rating.webp",
-    "description": "I created a responsive rating component with hover effects based on a design, encouraging user interaction. After rating, a 'Thank you' card boosts engagement.",
-    "link": "https://paul-sbrt.github.io/Interactive-rating-/"
+    "summary": "I created a responsive rating component with hover effects based on a design, encouraging user interaction. After rating, a 'Thank you' card boosts engagement.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://paul-sbrt.github.io/Interactive-rating-/"
   },
   {
+    "slug": "taxifood",
     "title": "Taxifood",
     "image": "./images/taxifood.webp",
-    "description": "Group project for training assessment (CEFIM). I designed the team page to showcase store members with photos and roles, enabling their information to be editable for administrative purposes.",
-    "link": "https://paul-sbrt.github.io/TaxiFood/"
+    "summary": "Group project for training assessment (CEFIM). I designed the team page to showcase store members with photos and roles, enabling their information to be editable for administrative purposes.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://paul-sbrt.github.io/TaxiFood/"
   },
   {
+    "slug": "superapp",
     "title": "SuperApp",
     "image": "./images/superapp.webp",
-    "description": "Successful integration of the 'Super App' landing page designed in Adobe XD. Demonstration of development skills and highlighting the attractive interface of the application.",
-    "link": "https://paul-sbrt.github.io/Challenge/"
+    "summary": "Successful integration of the 'Super App' landing page designed in Adobe XD. Demonstration of development skills and highlighting the attractive interface of the application.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://paul-sbrt.github.io/Challenge/"
   },
   {
+    "slug": "excursion-site",
     "title": "Excursion Site",
     "image": "./images/excursion.webp",
-    "description": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
-    "link": "https://paul-sbrt.github.io/excursion/"
+    "summary": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://paul-sbrt.github.io/excursion/"
   },
   {
+    "slug": "tea-cozy",
     "title": "Tea Cozy",
     "image": "./images/tea.webp",
-    "description": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
-    "link": "https://paul-sbrt.github.io/Projet-Tea-Cozy/"
+    "summary": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
+    "hats": [],
+    "tags": [],
+    "featured": false,
+    "externalUrl": "https://paul-sbrt.github.io/Projet-Tea-Cozy/"
   }
 ]
