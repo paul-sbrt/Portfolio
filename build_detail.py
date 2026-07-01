@@ -186,11 +186,6 @@ def render_page(project):
               <li><a href="../index.html#header">Home</a></li>
               <li><a href="../index.html#about">About</a></li>
               <li><a href="../index.html#projects">Projects</a></li>
-              <li>
-                <a class="nav-microsoft-highlight" href="../index.html#projects"
-                  >Microsoft</a
-                >
-              </li>
               <li><a href="../index.html#contact">Contact</a></li>
               <i class="fa-solid fa-xmark"></i>
             </ul>

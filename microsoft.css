@@ -340,11 +340,6 @@ body.detail-lightbox-open{
   z-index: 1;
 }
 
-.ms-projects-return{
-  margin-top: 28px;
-  text-align: center;
-}
-
 /* Make project cards look like report visuals */
 .ms-card{
   background: var(--surface-sunken);
