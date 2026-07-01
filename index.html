@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <script>
@@ -14,6 +14,22 @@
               : "dark";
           document.documentElement.setAttribute("data-theme", t);
         } catch (e) {}
+      })();
+    </script>
+    <script>
+      // Set language before paint (no flash of wrong language).
+      (function () {
+        try {
+          var l = localStorage.getItem("lang");
+          if (!l)
+            l =
+              (navigator.language || "fr").toLowerCase().indexOf("fr") === 0
+                ? "fr"
+                : "en";
+          document.documentElement.lang = l;
+        } catch (e) {
+          document.documentElement.lang = "fr";
+        }
       })();
     </script>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -39,6 +55,7 @@
       defer
     ></script>
     <script src="./theme.js" defer></script>
+    <script src="./i18n.js" defer></script>
   </head>
   <body>
     <!--HEADER-->
@@ -52,23 +69,24 @@
           </div>
           <nav>
             <ul id="sidemenu">
-              <li><a href="#header">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#header" data-i18n="nav.home">Accueil</a></li>
+              <li><a href="#about" data-i18n="nav.about">À propos</a></li>
+              <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
+              <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
               <i class="fa-solid fa-xmark"></i>
             </ul>
+            <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Switch to English">EN</button>
             <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Passer en thème clair"><i class="fa-solid fa-moon"></i></button>
             <i class="fa-solid fa-bars"></i>
           </nav>
         </div>
       </div>
       <div class="header-text">
-        <h1>
+        <h1 data-i18n-html="hero.title">
           J'aime construire, penser,<br />
           et donner vie à mes <span>idées</span>.
         </h1>
-        <p class="header-sub">
+        <p class="header-sub" data-i18n="hero.sub">
           Développeur — solo comme en entreprise. Je conçois, je code,
           j'apprends, et j'utilise l'IA pour aller plus loin.
         </p>
@@ -88,8 +106,8 @@
             />
           </div>
           <div class="about-col-2">
-            <h2 class="sub-title">À propos</h2>
-            <p>
+            <h2 class="sub-title" data-i18n="about.title">À propos</h2>
+            <p data-i18n="about.body">
               Je viens de la restauration, et c'est en voulant résoudre des
               problèmes réels que je suis devenu développeur. Depuis, je
               construis des produits de bout en bout : une app de voyage publiée
@@ -102,18 +120,19 @@
               l'utilisateur, livrer, itérer — et apprendre en construisant. Après
               deux ans chez Avanade, je continue à empiler les vrais projets.
             </p>
-            <p class="about-availability">En recherche d'une alternance.</p>
+            <p class="about-availability" data-i18n="about.availability">En recherche d'une alternance.</p>
             <a
               class="btn btn2 btn3"
               download=""
               href="./images/CV-Paul-Sabourault-Microsoft-2025.pdf"
-              >Download CV</a
+              data-i18n="btn.downloadCv"
+              >Télécharger le CV</a
             >
             <div class="tab-title">
-              <p class="tab-links active-link" data-tab="skills">Skills</p>
-              <p class="tab-links" data-tab="experience">Experience</p>
-              <p class="tab-links" data-tab="studies">Studies</p>
-              <p class="tab-links">Certifications</p>
+              <p class="tab-links active-link" data-tab="skills" data-i18n="tab.skills">Compétences</p>
+              <p class="tab-links" data-tab="experience" data-i18n="tab.experience">Expérience</p>
+              <p class="tab-links" data-tab="studies" data-i18n="tab.studies">Études</p>
+              <p class="tab-links" data-i18n="tab.certifications">Certifications</p>
             </div>
             <div class="tab-panels" data-tab-slider>
               <div class="tab-panels-track">
@@ -135,11 +154,12 @@
           <!-- ------PORTFOLIIO------ -->
           <div id="projects">
             <div class="container">
-              <h2 class="sub-title">My Projects</h2>
+              <h2 class="sub-title" data-i18n="section.projects">Mes projets</h2>
               <div class="project-filters" id="project-filters"></div>
               <div class="project-grid" id="project-grid"></div>
               <a class="btn" href="https://github.com/paul-sbrt" target="_blank"
-                >See More</a
+                data-i18n="btn.seeMore"
+                >Voir plus</a
               >
             </div>
           </div>
@@ -148,7 +168,7 @@
             <div class="container">
               <div class="row">
                 <div class="contact-left">
-                  <h2 class="sub-title">Contact Me</h2>
+                  <h2 class="sub-title" data-i18n="section.contact">Me contacter</h2>
                   <a href="mailto:paul.sabourault0@gmail.com"
                     ><p>
                       <i class="fa-solid fa-paper-plane"></i
@@ -171,31 +191,34 @@
                 </div>
                 <div class="contact-right">
                   <form action="https://formspree.io/f/xleybonk" method="POST">
-                    <label class="sr-only" for="name">Your Name</label>
+                    <label class="sr-only" for="name" data-i18n="form.name">Votre nom</label>
                     <input
                       id="name"
                       name="name"
-                      placeholder="Your Name"
+                      placeholder="Votre nom"
+                      data-i18n-ph="form.name"
                       required=""
                       type="text"
                     />
-                    <label class="sr-only" for="email">Your Email</label>
+                    <label class="sr-only" for="email" data-i18n="form.email">Votre email</label>
                     <input
                       id="email"
                       name="email"
-                      placeholder="Your Email"
+                      placeholder="Votre email"
+                      data-i18n-ph="form.email"
                       required=""
                       type="email"
                     />
-                    <label class="sr-only" for="message">Your Message</label>
+                    <label class="sr-only" for="message" data-i18n="form.message">Votre message</label>
                     <textarea
                       id="message"
                       name="message"
-                      placeholder="Your Message"
+                      placeholder="Votre message"
+                      data-i18n-ph="form.message"
                       required=""
                       rows="6"
                     ></textarea>
-                    <button class="btn btn2" type="submit">Send</button>
+                    <button class="btn btn2" type="submit" data-i18n="btn.send">Envoyer</button>
                   </form>
                 </div>
               </div>
@@ -203,7 +226,7 @@
           </div>
           <footer>
             <p>
-              Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault
+              <span data-i18n="footer.copyright">Copyright</span><i class="fa-regular fa-copyright"></i> Paul Sabourault
             </p>
           </footer>
           <!--JS-->
