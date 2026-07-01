@@ -221,6 +221,14 @@ nav ul li a:hover:after {
   flex-basis: 54%;
 }
 
+/* Discrete availability line — light touch, never a headline (see DECISIONS). */
+.about-availability {
+  margin-top: 16px;
+  font-size: var(--fs-300);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
 .sub-title {
   font-size: var(--fs-800);
   font-weight: 600;
