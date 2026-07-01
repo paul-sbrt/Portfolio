@@ -297,101 +297,101 @@
     }
   },
   {
-    "slug": "site-solutions-microsoft",
-    "title": "Site solutions Microsoft",
+    "slug": "ticketing-it",
+    "title": "Solution Ticketing IT",
     "image": "./images/placeholder.svg",
     "summary": {
-      "fr": "Site vitrine orienté vente d'une offre Power Platform pour PME (offre phare « Ticketing IT » intégrée à Microsoft 365). Next.js, en ligne.",
-      "en": "A sales-focused showcase site for a Power Platform offer for SMBs (flagship “Ticketing IT” offer integrated with Microsoft 365). Next.js, live."
+      "fr": "Le produit Power Platform que j'ai construit : un système de ticketing IT intégré à Microsoft 365 (portail utilisateur, dashboard admin avec SLA, notifications Email + Teams, reporting Power BI). Sans nouvel outil à adopter.",
+      "en": "The Power Platform product I built: an IT ticketing system integrated with Microsoft 365 (user portal, admin dashboard with SLAs, Email + Teams notifications, Power BI reporting). No new tool to adopt."
     },
     "hats": [
       "Microsoft"
     ],
     "tags": [
-      "Next.js",
-      "TypeScript",
-      "Tailwind",
-      "Framer Motion",
-      "Formspree",
-      "Power Platform"
+      "Power Apps",
+      "Power Automate",
+      "Power BI",
+      "SharePoint",
+      "Teams"
     ],
     "type": {
-      "fr": "Site vitrine",
-      "en": "Showcase site"
+      "fr": "Solution Power Platform",
+      "en": "Power Platform solution"
     },
+    "year": 2026,
     "featured": true,
     "openInSameTab": true,
-    "externalUrl": "https://paulsabourault.fr",
+    "externalUrl": "https://www.powerflows.fr/solutions/ticketing-it",
     "detail": {
       "tagline": {
-        "fr": "Solutions IT sur mesure pour PME",
-        "en": "Tailored IT solutions for SMBs"
+        "fr": "Votre support IT, simplifié",
+        "en": "Your IT support, simplified"
       },
       "highlight": {
-        "fr": "Solutions",
-        "en": "Solutions"
+        "fr": "Ticketing IT",
+        "en": "Ticketing IT"
       },
       "heading": {
-        "fr": "Microsoft pour PME",
-        "en": "Microsoft for SMBs"
+        "fr": "intégré à Microsoft 365",
+        "en": "integrated with Microsoft 365"
       },
       "lead": {
-        "fr": "Les PME ont des outils Microsoft 365 sous-exploités (la Power Platform est déjà dans leur licence), des process manuels (emails, Excel, relances) et aucune visibilité (pas de dashboard/KPI). Ce site vitrine vend une offre Power Platform pour digitaliser ces process sans nouvel outil à apprendre.",
-        "en": "SMBs have underused Microsoft 365 tools (the Power Platform is already in their license), manual processes (emails, Excel, follow-ups) and no visibility (no dashboard/KPIs). This showcase site sells a Power Platform offer to digitize those processes without a new tool to learn."
+        "fr": "Les PME noient leurs demandes IT dans les emails, Teams et le téléphone : aucune visibilité, des process manuels, et une Power Platform déjà incluse dans leur licence Microsoft 365 mais sous-exploitée.",
+        "en": "SMBs drown their IT requests in email, Teams and phone calls: no visibility, manual processes, and a Power Platform that's already in their Microsoft 365 license but left underused."
       },
       "status": {
-        "fr": "En ligne sur paulsabourault.fr (Paul Sabourault, auto-entrepreneur, Tours).",
-        "en": "Live at paulsabourault.fr (Paul Sabourault, self-employed, Tours)."
+        "fr": "Solution présentée sur powerflows.fr — déployable en une demi-journée dans un tenant Microsoft 365 existant, formation incluse.",
+        "en": "Presented on powerflows.fr — deployable in half a day inside an existing Microsoft 365 tenant, training included."
       },
       "context": {
         "heading": {
-          "fr": "L'offre phare : Ticketing IT",
-          "en": "The flagship offer: Ticketing IT"
+          "fr": "La solution",
+          "en": "The solution"
         },
         "body": {
-          "fr": "« Votre support IT, simplifié » : système de ticketing intégré à Microsoft 365 (portail utilisateur en 30 s, dashboard admin, SLA temps réel, notifications email + Teams, reporting Power BI, multi-clients, rôles, pièces jointes). Déployé en une demi-journée, formation incluse. Données hébergées chez le client (SharePoint, France).",
-          "en": "“Your IT support, simplified”: a ticketing system integrated with Microsoft 365 (user portal in 30s, admin dashboard, real-time SLAs, email + Teams notifications, Power BI reporting, multi-client, roles, attachments). Deployed in half a day, training included. Data hosted on the client's side (SharePoint, France)."
+          "fr": "Un système de ticketing intégré à Microsoft 365 : pas de nouvel outil à adopter, tout vit dans l'écosystème que l'entreprise utilise déjà. Mise en place type : Échange → Démo → Déploiement → Formation.",
+          "en": "An IT ticketing system integrated with Microsoft 365: no new tool to adopt, everything lives inside the ecosystem the company already uses. Typical engagement: Discovery → Demo → Deployment → Training."
         }
       },
       "impact": [
         {
-          "fr": "Deux packs : Pack Essentiel à 2 000 € et Pack Complet à 3 500 € (recommandé, + Power BI 4 pages + multi-clients)",
-          "en": "Two packs: Essential Pack at €2,000 and Complete Pack at €3,500 (recommended, + 4-page Power BI + multi-client)"
+          "fr": "Portail utilisateur : une demande créée en 30 secondes (3 champs)",
+          "en": "User portal: a request created in 30 seconds (3 fields)"
         },
         {
-          "fr": "Investissement unique, sans abonnement ; maintenance optionnelle dès 39 €/mois",
-          "en": "One-time investment, no subscription; optional maintenance from €39/month"
+          "fr": "Dashboard admin : KPI temps réel, filtres, recherche et badges SLA (vert / orange / rouge)",
+          "en": "Admin dashboard: real-time KPIs, filters, search and SLA badges (green / amber / red)"
         },
         {
-          "fr": "Ticketing intégré à Microsoft 365 : SLA temps réel, notifications email + Teams, reporting Power BI",
-          "en": "Ticketing integrated with Microsoft 365: real-time SLAs, email + Teams notifications, Power BI reporting"
+          "fr": "Notifications automatiques par Email et Teams",
+          "en": "Automatic Email and Teams notifications"
         },
         {
-          "fr": "Process affiché : Échange → Démo → Déploiement → Formation",
-          "en": "Stated process: Discovery → Demo → Deployment → Training"
+          "fr": "Reporting Power BI",
+          "en": "Power BI reporting"
         },
         {
-          "fr": "Brique métier : SharePoint, Power Apps, Power Automate, Power BI, Teams",
-          "en": "Building blocks: SharePoint, Power Apps, Power Automate, Power BI, Teams"
+          "fr": "Deux formules (Essentielle / Complète), maintenance en option",
+          "en": "Two plans (Essential / Complete), optional maintenance"
         }
       ],
       "links": [
         {
           "label": {
-            "fr": "Visiter paulsabourault.fr",
-            "en": "Visit paulsabourault.fr"
+            "fr": "Voir la solution",
+            "en": "See the solution"
           },
-          "url": "https://paulsabourault.fr"
+          "url": "https://www.powerflows.fr/solutions/ticketing-it"
         }
       ],
       "cta": {
         "heading": {
-          "fr": "Voir le site",
-          "en": "See the site"
+          "fr": "Voir la solution",
+          "en": "See the solution"
         },
         "body": {
-          "fr": "Le site de vente est en ligne — je peux présenter l'offre Ticketing IT et la démarche commerciale.",
-          "en": "The sales site is live — I can walk through the Ticketing IT offer and the sales approach."
+          "fr": "La solution est présentée en ligne sur PowerFlows — je peux détailler l'architecture Power Platform (Power Apps, Power Automate, Power BI, SharePoint) et une démo.",
+          "en": "The solution is presented online on PowerFlows — I can walk through the Power Platform architecture (Power Apps, Power Automate, Power BI, SharePoint) and a demo."
         }
       }
     }
@@ -826,6 +826,26 @@
         }
       }
     }
+  },
+  {
+    "slug": "powerflows",
+    "title": "Solutions Microsoft",
+    "image": "./images/placeholder.svg",
+    "summary": {
+      "fr": "PowerFlows — mon site vitrine qui vend des solutions Power Platform aux PME : apps métier, automatisations et dashboards intégrés à Microsoft 365. Construit en Next.js.",
+      "en": "PowerFlows — my showcase site selling Power Platform solutions to SMBs: business apps, automations and dashboards integrated with Microsoft 365. Built with Next.js."
+    },
+    "hats": [
+      "Microsoft"
+    ],
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "Power Platform"
+    ],
+    "featured": false,
+    "externalUrl": "https://www.powerflows.fr"
   },
   {
     "slug": "professional-wordpress-website",
