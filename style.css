@@ -119,19 +119,74 @@ body {
   z-index: 200;
 }
 
+/* Hero glow intensity — theme-aware, tunable. "present" level. */
+:root {
+  --hero-glow-1: rgba(255, 0, 79, 0.5);
+  --hero-glow-2: rgba(247, 201, 72, 0.42);
+}
+[data-theme="light"] {
+  --hero-glow-1: rgba(255, 0, 79, 0.26);
+  --hero-glow-2: rgba(247, 201, 72, 0.3);
+}
+
 .header {
+  position: relative;
+  overflow: hidden; /* clip the animated blobs to the hero band */
   width: 100%;
   min-height: 100vh;
-  /* Graphic hero on the theme surface — a faint brand glow, no photo.
-     Uses tokens so it reads correctly in both dark and light. */
-  background:
-    radial-gradient(90% 60% at 15% 0%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 60%),
-    radial-gradient(70% 50% at 100% 100%, color-mix(in srgb, var(--accent-ms) 12%, transparent), transparent 60%),
-    var(--bg);
+  background: var(--bg);
   margin-bottom: 100px;
   display: flex;
   align-items: center;
   padding-top: 69px; /* clear the fixed nav bar */
+}
+
+/* Living rose->gold background — two soft blurred blobs that drift, scale and
+   breathe on offset timings, so the hero clearly moves without hurting the
+   text (text sits above via z-index). No photo. GPU transforms only. */
+.header::before,
+.header::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(48px);
+  pointer-events: none;
+}
+.header::before {
+  width: min(62vw, 780px);
+  right: -6vw;
+  top: -8vw;
+  background: radial-gradient(circle, var(--hero-glow-1), transparent 70%);
+  animation: hero-blob-a 15s ease-in-out infinite alternate;
+}
+.header::after {
+  width: min(48vw, 620px);
+  right: 4vw;
+  bottom: -14vw;
+  background: radial-gradient(circle, var(--hero-glow-2), transparent 70%);
+  animation: hero-blob-b 19s ease-in-out infinite alternate;
+}
+@keyframes hero-blob-a {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.85;
+  }
+  to {
+    transform: translate3d(-9%, 12%, 0) scale(1.22);
+    opacity: 1;
+  }
+}
+@keyframes hero-blob-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(12%, -10%, 0) scale(1.15);
+    opacity: 0.8;
+  }
 }
 
 .nom {
@@ -188,6 +243,8 @@ nav ul li a:hover:after {
 }
 
 .header-text {
+  position: relative;
+  z-index: 1; /* above the animated glow */
   width: 100%;
   max-width: 1180px;
   margin: 0 auto;
@@ -204,13 +261,13 @@ nav ul li a:hover:after {
     .header-text {
       animation: hero-parallax linear both;
       animation-timeline: scroll(root);
-      animation-range: 0 78vh;
+      animation-range: 0 90vh;
       will-change: transform, opacity;
     }
     @keyframes hero-parallax {
       to {
-        transform: translateY(46px);
-        opacity: 0.15;
+        transform: translateY(120px);
+        opacity: 0.08;
       }
     }
   }
@@ -238,8 +295,8 @@ nav ul li a:hover:after {
     var(--accent-ms),
     var(--accent)
   );
-  background-size: 200% 100%;
-  animation: hero-bar 6s ease-in-out infinite alternate;
+  background-size: 300% 100%;
+  animation: hero-bar 4.5s ease-in-out infinite alternate;
 }
 @keyframes hero-bar {
   to {
@@ -295,7 +352,9 @@ nav ul li a:hover:after {
     transition: none;
   }
   .header-text h1 span,
-  .hero-eyebrow::before {
+  .hero-eyebrow::before,
+  .header::before,
+  .header::after {
     animation: none;
   }
 }
@@ -361,11 +420,11 @@ nav ul li a:hover:after {
     var(--accent-ms),
     var(--accent)
   );
-  background-size: 220% 100%;
+  background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: hero-hue 9s ease-in-out infinite alternate;
+  animation: hero-hue 6s ease-in-out infinite alternate;
 }
 @keyframes hero-hue {
   to {
