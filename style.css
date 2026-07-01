@@ -121,12 +121,17 @@ body {
 
 .header {
   width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-image: url(./images/image-1-portfolio-paul.webp);
+  min-height: 100vh;
+  /* Graphic hero on the theme surface — a faint brand glow, no photo.
+     Uses tokens so it reads correctly in both dark and light. */
+  background:
+    radial-gradient(90% 60% at 15% 0%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 60%),
+    radial-gradient(70% 50% at 100% 100%, color-mix(in srgb, var(--accent-ms) 12%, transparent), transparent 60%),
+    var(--bg);
   margin-bottom: 100px;
-  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  padding-top: 69px; /* clear the fixed nav bar */
 }
 
 .nom {
@@ -183,13 +188,75 @@ nav ul li a:hover:after {
 }
 
 .header-text {
-  margin-top: 15%;
-  font-size: 35px;
-  padding: 10px 10%;
-  max-width: 720px;
-  /* Always sits over the header photo -> keep light text in both themes */
-  color: #fff;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 6vh clamp(24px, 6vw, 80px) 8vh;
+  color: var(--text);
+}
+
+/* Mono eyebrow with a bichromy accent bar (fil rouge rose -> or) */
+.hero-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+.hero-eyebrow::before {
+  content: "";
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-ms));
+}
+
+.hero-cue {
+  margin-top: 54px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-cue::before {
+  content: "";
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(var(--accent), transparent);
+}
+
+/* Progressive reveal (motion.js adds .in when the element scrolls in) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+.header-text .reveal:nth-child(2) {
+  transition-delay: 0.08s;
+}
+.header-text .reveal:nth-child(3) {
+  transition-delay: 0.16s;
+}
+.header-text .reveal:nth-child(4) {
+  transition-delay: 0.24s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /*ABOUT*/
@@ -237,8 +304,23 @@ nav ul li a:hover:after {
   line-height: var(--lh-tight);
 }
 
-/* h1 always outranks h2: heroes (incl. h1.sub-title on Microsoft pages) */
-.header-text h1,
+/* Poster headline — Archivo, affirmed, brand gradient on the accent word */
+.header-text h1 {
+  font-family: "Archivo", var(--body, sans-serif);
+  font-weight: 900;
+  font-size: clamp(44px, 7vw, 92px);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  max-width: 15ch;
+}
+.header-text h1 span {
+  background: linear-gradient(120deg, var(--accent), var(--accent-ms));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* h1 always outranks h2 on the Microsoft detail heroes (h1.sub-title) */
 h1.sub-title {
   font-size: var(--fs-900);
   line-height: var(--lh-tight);
@@ -246,10 +328,11 @@ h1.sub-title {
 
 .header-sub {
   font-size: var(--fs-500);
-  line-height: var(--lh-base);
-  max-width: 600px;
-  margin-top: 18px;
-  color: #fff;
+  line-height: 1.65;
+  max-width: 52ch;
+  margin-top: 34px;
+  color: var(--text-muted);
+  font-weight: 300;
 }
 
 .btn.btn2.btn3 {
@@ -740,16 +823,19 @@ nav .fa-solid {
 
 @media only screen and (max-width: 600px) {
   .header {
-    background-image: url(./images/image-2-portfolio-paul.webp);
-    background-attachment: scroll;
-    margin-bottom: 0px;
-    margin-top: 55px;
+    min-height: auto;
+    margin-bottom: 56px;
+    padding-top: 92px;
+    padding-bottom: 40px;
   }
   .row {
     margin-top: 30px;
   }
   .header-text {
-    display: none;
+    padding: 0 24px 12px;
+  }
+  .header-text h1 {
+    font-size: clamp(36px, 11vw, 52px);
   }
 
   nav .fa-solid {
