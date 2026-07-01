@@ -852,8 +852,8 @@
     "title": "Professional Wordpress Website",
     "image": "./images/site-anne-guillien.webp",
     "summary": {
-      "fr": "Delivered a custom WordPress business website focused on showcasing services and enhancing client engagement. Integrated essential features such as online appointment booking, SEO optimization, and responsive design to ensure a seamless user experience and ease of management for the client.",
-      "en": "Delivered a custom WordPress business website focused on showcasing services and enhancing client engagement. Integrated essential features such as online appointment booking, SEO optimization, and responsive design to ensure a seamless user experience and ease of management for the client."
+      "fr": "Un site vitrine WordPress sur mesure, pensé pour mettre en avant les services et l'engagement client : prise de rendez-vous en ligne, optimisation SEO et design responsive, et facile à gérer pour le client.",
+      "en": "A custom WordPress business site built to showcase services and boost client engagement, with online appointment booking, SEO optimization and responsive design — and easy for the client to manage."
     },
     "hats": [
       "Web"
@@ -867,8 +867,8 @@
     "title": "WhereToWatch",
     "image": "./images/wheretowatch2.webp",
     "summary": {
-      "fr": "WhereToWatch is a React application that lets users search for movies and find where to watch them. It uses the TMDB API to display movie details like genres, ratings, main actors, and streaming platforms. Built with React, React Router, and Bootstrap, it's deployed on GitHub Pages",
-      "en": "WhereToWatch is a React application that lets users search for movies and find where to watch them. It uses the TMDB API to display movie details like genres, ratings, main actors, and streaming platforms. Built with React, React Router, and Bootstrap, it's deployed on GitHub Pages"
+      "fr": "Une app React pour chercher des films et savoir où les regarder. Elle s'appuie sur l'API TMDB pour afficher genres, notes, acteurs principaux et plateformes de streaming. Faite avec React, React Router et Bootstrap, déployée sur GitHub Pages.",
+      "en": "A React app to search for movies and find where to watch them. It uses the TMDB API to show genres, ratings, main cast and streaming platforms. Built with React, React Router and Bootstrap, deployed on GitHub Pages."
     },
     "hats": [
       "Web"
@@ -882,8 +882,8 @@
     "title": "Password Generator",
     "image": "./images/passwordgen.webp",
     "summary": {
-      "fr": "A JavaScript project to create secure, customizable passwords. It strengthens my skills in JavaScript functions, DOM manipulation, and input validation while practicing arrays, loops, and conditional logic.",
-      "en": "A JavaScript project to create secure, customizable passwords. It strengthens my skills in JavaScript functions, DOM manipulation, and input validation while practicing arrays, loops, and conditional logic."
+      "fr": "Un projet JavaScript pour générer des mots de passe sûrs et personnalisables — de quoi travailler les fonctions, la manipulation du DOM et la validation des entrées, avec tableaux, boucles et logique conditionnelle.",
+      "en": "A JavaScript project to generate secure, customizable passwords — good practice with functions, DOM manipulation and input validation, using arrays, loops and conditional logic."
     },
     "hats": [
       "Web"
@@ -897,8 +897,8 @@
     "title": "To Do List",
     "image": "./images/todo.webp",
     "summary": {
-      "fr": "The goal is to build a To-Do List web application that allows users to add, manage, and delete tasks. It helps in practicing JavaScript concepts like DOM manipulation, event handling, local storage, and form validation.",
-      "en": "The goal is to build a To-Do List web application that allows users to add, manage, and delete tasks. It helps in practicing JavaScript concepts like DOM manipulation, event handling, local storage, and form validation."
+      "fr": "Une to-do list web pour ajouter, gérer et supprimer des tâches — pour pratiquer la manipulation du DOM, la gestion d'événements, le local storage et la validation de formulaire.",
+      "en": "A to-do list web app to add, manage and delete tasks — practice with DOM manipulation, event handling, local storage and form validation."
     },
     "hats": [
       "Web"
@@ -912,8 +912,8 @@
     "title": "Age Calculator",
     "image": "./images/age-calcul.webp",
     "summary": {
-      "fr": "This web application calculates and displays a user's age based on their date of birth. Using JavaScript, the app computes the age in years, months, and days. Users enter their date of birth, and upon clicking a button, the application performs the calculation and presents the result. The project emphasizes JavaScript for accurate date calculations and an engaging, interactive user experience.",
-      "en": "This web application calculates and displays a user's age based on their date of birth. Using JavaScript, the app computes the age in years, months, and days. Users enter their date of birth, and upon clicking a button, the application performs the calculation and presents the result. The project emphasizes JavaScript for accurate date calculations and an engaging, interactive user experience."
+      "fr": "Une app web qui calcule l'âge en années, mois et jours à partir de la date de naissance. On saisit une date, on clique, et le résultat s'affiche — l'accent sur des calculs de dates précis en JavaScript et une expérience interactive.",
+      "en": "A web app that computes a user's age in years, months and days from their date of birth. Enter a date, click, and get the result — a focus on accurate date calculations in JavaScript and an interactive experience."
     },
     "hats": [
       "Web"
@@ -927,8 +927,8 @@
     "title": "Bricotips",
     "image": "./images/bricotips.webp",
     "summary": {
-      "fr": "In this project, I deepened my WordPress skills by exploring developer documentation, creating a child theme, and customizing its CSS. I built pages with Gutenberg, created custom widgets and shortcodes, modified theme templates, and developed custom page templates. I also added features using hooks, customized post pages, debugged the site, and implemented security measures to prevent hacking.",
-      "en": "In this project, I deepened my WordPress skills by exploring developer documentation, creating a child theme, and customizing its CSS. I built pages with Gutenberg, created custom widgets and shortcodes, modified theme templates, and developed custom page templates. I also added features using hooks, customized post pages, debugged the site, and implemented security measures to prevent hacking."
+      "fr": "Un projet où j'ai creusé WordPress : documentation développeur, création d'un thème enfant et personnalisation de son CSS. J'ai construit des pages avec Gutenberg, créé des widgets et shortcodes sur mesure, modifié des templates de thème et de page, ajouté des fonctionnalités via des hooks, personnalisé les pages d'articles, débogué le site et renforcé sa sécurité.",
+      "en": "A project where I went deeper into WordPress: reading the developer docs, building a child theme and customizing its CSS. I built pages with Gutenberg, created custom widgets and shortcodes, edited theme and page templates, added features with hooks, customized post pages, debugged the site and hardened it against attacks."
     },
     "hats": [
       "Web"
@@ -942,8 +942,8 @@
     "title": "Banana Design",
     "image": "./images/bananadesign.webp",
     "summary": {
-      "fr": "Create a simple WordPress website to learn the basics of WordPress, including installation, theme customization, page creation, and plugin management. Ideal for beginners to understand core WordPress functionalities.",
-      "en": "Create a simple WordPress website to learn the basics of WordPress, including installation, theme customization, page creation, and plugin management. Ideal for beginners to understand core WordPress functionalities."
+      "fr": "Un site WordPress simple pour apprendre les bases — installation, personnalisation du thème, création de pages et gestion des plugins. Une bonne intro aux fonctionnalités clés de WordPress.",
+      "en": "A simple WordPress site to learn the basics — installation, theme customization, page creation and plugin management. A solid beginner intro to core WordPress features."
     },
     "hats": [
       "Web"
@@ -957,8 +957,8 @@
     "title": "Advice Generator",
     "image": "./images/advice-generator.webp",
     "summary": {
-      "fr": "This front-end project focuses on building a web application that interacts with an API to generate and display advice. Users can click a button to fetch advice from the API and view it on the screen. The project emphasizes API integration, asynchronous data handling, and creating a user-friendly interface.",
-      "en": "This front-end project focuses on building a web application that interacts with an API to generate and display advice. Users can click a button to fetch advice from the API and view it on the screen. The project emphasizes API integration, asynchronous data handling, and creating a user-friendly interface."
+      "fr": "Une app front-end qui interroge une API pour récupérer et afficher des conseils : un clic, un nouveau conseil à l'écran. L'accent sur l'intégration d'API, la gestion des données asynchrones et une interface claire et agréable.",
+      "en": "A front-end app that calls an API to fetch and display advice: click a button, get a new piece of advice on screen. A focus on API integration, async data handling and a clean, friendly interface."
     },
     "hats": [
       "Web"
@@ -972,8 +972,8 @@
     "title": "Wish Project",
     "image": "./images/wish-project.webp",
     "summary": {
-      "fr": "The Wish Project is a course project to learn the basics of the Symfony framework: controller, entity, form, repository, adding, deleting, editing in the database",
-      "en": "The Wish Project is a course project to learn the basics of the Symfony framework: controller, entity, form, repository, adding, deleting, editing in the database"
+      "fr": "Un projet de cours pour apprendre les bases du framework Symfony : contrôleur, entité, formulaire, repository, et ajout, suppression et modification d'enregistrements en base de données.",
+      "en": "A course project to learn the basics of the Symfony framework: controller, entity, form, repository, and creating, deleting and editing records in the database."
     },
     "hats": [
       "Web"
@@ -987,8 +987,8 @@
     "title": "TwitThor",
     "image": "./images/twithor.webp",
     "summary": {
-      "fr": "The Twitter project is a course project developed using React. This project is designed to provide a experience with the fundamental concepts of the React framework. It covers various aspects such as components, props, and other core features of React. The aim is to provide a practical understanding of how these elements work together to build a dynamic web application.",
-      "en": "The Twitter project is a course project developed using React. This project is designed to provide a experience with the fundamental concepts of the React framework. It covers various aspects such as components, props, and other core features of React. The aim is to provide a practical understanding of how these elements work together to build a dynamic web application."
+      "fr": "Un projet de cours fait avec React — une app façon Twitter pour prendre en main les concepts clés du framework : composants, props et la façon dont ils s'articulent pour construire une app web dynamique.",
+      "en": "A course project built with React — a Twitter-like app to get hands-on with the framework's core concepts: components, props and how they fit together to build a dynamic web app."
     },
     "hats": [
       "Web"
@@ -1002,8 +1002,8 @@
     "title": "La Maison Jungle",
     "image": "./images/la-maison-jungle.webp",
     "summary": {
-      "fr": "A plant e-commerce site project designed for practicing React. Developed as part of an OpenClassrooms course, this project allows users to browse and purchase a variety of plants. Features include cart management, product detail displays, and a modern, responsive user interface.",
-      "en": "A plant e-commerce site project designed for practicing React. Developed as part of an OpenClassrooms course, this project allows users to browse and purchase a variety of plants. Features include cart management, product detail displays, and a modern, responsive user interface."
+      "fr": "Un site e-commerce de plantes pour pratiquer React, réalisé pendant un cours OpenClassrooms. On parcourt et on achète des plantes, avec gestion du panier, fiches produit et une interface moderne et responsive.",
+      "en": "A plant e-commerce site to practice React, built during an OpenClassrooms course. Users browse and buy a range of plants, with cart management, product detail views and a modern, responsive interface."
     },
     "hats": [
       "Web"
@@ -1017,8 +1017,8 @@
     "title": "FavFilm",
     "image": "./images/favfilm.webp",
     "summary": {
-      "fr": "I created a website to learn React for school. The website allows users to explore a collection of films, displaying them and providing sorting options. It serves as a practical exercise in React development and user interface design.",
-      "en": "I created a website to learn React for school. The website allows users to explore a collection of films, displaying them and providing sorting options. It serves as a practical exercise in React development and user interface design."
+      "fr": "Un site que j'ai fait pour apprendre React à l'école : parcourir une collection de films, les afficher et les trier. Un exercice concret de développement React et de design d'interface.",
+      "en": "A site I built to learn React at school: browse a collection of films, display them and sort them. A hands-on exercise in React development and UI design."
     },
     "hats": [
       "Web"
@@ -1032,8 +1032,8 @@
     "title": "New Home Page",
     "image": "./images/newshomepage.webp",
     "summary": {
-      "fr": "This project entails building a responsive news website homepage, focusing on HTML, CSS, and basic JavaScript skills. Participants are tasked with replicating the design as closely as possible, ensuring responsiveness across different screen sizes and incorporating hover and focus states for interactive elements.",
-      "en": "This project entails building a responsive news website homepage, focusing on HTML, CSS, and basic JavaScript skills. Participants are tasked with replicating the design as closely as possible, ensuring responsiveness across different screen sizes and incorporating hover and focus states for interactive elements."
+      "fr": "La page d'accueil responsive d'un site d'actualités, centrée sur HTML, CSS et un peu de JavaScript — reproduire le design au plus près, le garder responsive sur toutes les tailles d'écran, avec des états hover et focus sur les éléments interactifs.",
+      "en": "A responsive news website homepage focused on HTML, CSS and a bit of JavaScript — replicating the design as closely as possible, keeping it responsive across screen sizes, with hover and focus states on interactive elements."
     },
     "hats": [
       "Web"
@@ -1047,8 +1047,8 @@
     "title": "Newsletter Sign Up",
     "image": "./images/newsletter-sign-up.webp",
     "summary": {
-      "fr": "I developed an interactive newsletter signup form from a given design. Users can input their email, receiving a confirmation message upon successful submission, along with responsive design for various screens.",
-      "en": "I developed an interactive newsletter signup form from a given design. Users can input their email, receiving a confirmation message upon successful submission, along with responsive design for various screens."
+      "fr": "Un formulaire d'inscription à une newsletter, interactif, réalisé à partir d'un design : l'utilisateur saisit son email et reçoit une confirmation en cas de succès, avec une mise en page responsive.",
+      "en": "An interactive newsletter signup form built from a given design: users enter their email and get a confirmation on success, with a responsive layout across screens."
     },
     "hats": [
       "Web"
@@ -1062,8 +1062,8 @@
     "title": "Interactive Rating",
     "image": "./images/interactive-rating.webp",
     "summary": {
-      "fr": "I created a responsive rating component with hover effects based on a design, encouraging user interaction. After rating, a 'Thank you' card boosts engagement.",
-      "en": "I created a responsive rating component with hover effects based on a design, encouraging user interaction. After rating, a 'Thank you' card boosts engagement."
+      "fr": "Un composant de notation responsive avec effets au survol, réalisé à partir d'un design pour encourager l'interaction. Après la note, une carte « Merci » renforce l'engagement.",
+      "en": "A responsive rating component with hover effects, built from a design to encourage interaction. After rating, a 'Thank you' card boosts engagement."
     },
     "hats": [
       "Web"
@@ -1077,8 +1077,8 @@
     "title": "Taxifood",
     "image": "./images/taxifood.webp",
     "summary": {
-      "fr": "Group project for training assessment (CEFIM). I designed the team page to showcase store members with photos and roles, enabling their information to be editable for administrative purposes.",
-      "en": "Group project for training assessment (CEFIM). I designed the team page to showcase store members with photos and roles, enabling their information to be editable for administrative purposes."
+      "fr": "Un projet de groupe pour une évaluation CEFIM. J'ai conçu la page équipe qui présente les membres du magasin avec photos et rôles, et rendu leurs informations modifiables pour l'administration.",
+      "en": "A group project for a CEFIM assessment. I designed the team page that showcases store members with photos and roles, and made their information editable for admin purposes."
     },
     "hats": [
       "Web"
@@ -1092,8 +1092,8 @@
     "title": "SuperApp",
     "image": "./images/superapp.webp",
     "summary": {
-      "fr": "Successful integration of the 'Super App' landing page designed in Adobe XD. Demonstration of development skills and highlighting the attractive interface of the application.",
-      "en": "Successful integration of the 'Super App' landing page designed in Adobe XD. Demonstration of development skills and highlighting the attractive interface of the application."
+      "fr": "Une intégration soignée de la landing page « Super App » conçue sous Adobe XD — une démo de mes compétences front-end et de l'interface attractive de l'app.",
+      "en": "A clean integration of the 'Super App' landing page designed in Adobe XD — a showcase of my front-end skills and of the app's attractive interface."
     },
     "hats": [
       "Web"
@@ -1107,8 +1107,8 @@
     "title": "Excursion Site",
     "image": "./images/excursion.webp",
     "summary": {
-      "fr": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
-      "en": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy."
+      "fr": "Quelques-uns de mes tout premiers exercices de débutant, pour travailler mon HTML et mon CSS sur Codecademy.",
+      "en": "Some of my very first beginner exercises, working on my HTML and CSS on Codecademy."
     },
     "hats": [
       "Web"
@@ -1122,8 +1122,8 @@
     "title": "Tea Cozy",
     "image": "./images/tea.webp",
     "summary": {
-      "fr": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
-      "en": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy."
+      "fr": "Quelques-uns de mes tout premiers exercices de débutant, pour travailler mon HTML et mon CSS sur Codecademy.",
+      "en": "Some of my very first beginner exercises, working on my HTML and CSS on Codecademy."
     },
     "hats": [
       "Web"
