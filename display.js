@@ -7,6 +7,27 @@ function emitTabContentUpdated() {
   }
 }
 
+// --- Certification field extraction (single source of truth) ---
+function certName(cert) {
+  return cert.name || cert.title || cert.code || "Certification";
+}
+
+function certYear(cert) {
+  return cert.date ? String(cert.date) : cert.year ? String(cert.year) : "";
+}
+
+function certUrl(cert) {
+  const official = cert.officialUrl && cert.officialUrl.trim();
+  const credential = cert.credentialUrl && cert.credentialUrl.trim();
+  return (
+    official ||
+    credential ||
+    `https://learn.microsoft.com/credentials/certifications/search/?terms=${encodeURIComponent(
+      cert.code || certName(cert)
+    )}`
+  );
+}
+
 // Fonction pour charger et afficher les compétences
 function displaySkills() {
   fetch("skill.json")
@@ -144,15 +165,10 @@ function displayCertifications() {
       certContainer.innerHTML = "";
 
       certData.forEach((cert) => {
-        const name = cert.name || cert.title || "Certification";
+        const name = certName(cert);
         const issuer = cert.issuer || "Microsoft";
-        const year = cert.date ? String(cert.date) : "";
-        const url =
-          (cert.officialUrl && cert.officialUrl.trim()) ||
-          (cert.credentialUrl && cert.credentialUrl.trim()) ||
-          `https://learn.microsoft.com/credentials/certifications/search/?terms=${encodeURIComponent(
-            cert.code || name
-          )}`;
+        const year = certYear(cert);
+        const url = certUrl(cert);
 
         const card = document.createElement("a");
         card.classList.add("cert-card");

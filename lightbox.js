@@ -68,32 +68,15 @@
     });
   }
 
+  // Single generic config shared by every generated project detail page.
   document.addEventListener("DOMContentLoaded", () => {
-    [
-      {
-        shotSelector: ".suez-shot",
-        lightboxId: "suezLightbox",
-        lightboxImgId: "suezLightboxImg",
-        captionId: "suezLightboxCaption",
-        closeBtnId: "suezLightboxClose",
-        bodyClass: "suez-lightbox-open",
-      },
-      {
-        shotSelector: ".mscd-shot",
-        lightboxId: "mscdLightbox",
-        lightboxImgId: "mscdLightboxImg",
-        captionId: "mscdLightboxCaption",
-        closeBtnId: "mscdLightboxClose",
-        bodyClass: "mscd-lightbox-open",
-      },
-      {
-        shotSelector: ".vg-shot",
-        lightboxId: "vgLightbox",
-        lightboxImgId: "vgLightboxImg",
-        captionId: "vgLightboxCaption",
-        closeBtnId: "vgLightboxClose",
-        bodyClass: "vg-lightbox-open",
-      },
-    ].forEach(initLightbox);
+    initLightbox({
+      shotSelector: ".detail-shot",
+      lightboxId: "detailLightbox",
+      lightboxImgId: "detailLightboxImg",
+      captionId: "detailLightboxCaption",
+      closeBtnId: "detailLightboxClose",
+      bodyClass: "detail-lightbox-open",
+    });
   });
 })();
