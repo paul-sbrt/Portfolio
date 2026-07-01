@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      // Set theme before paint to avoid flash of incorrect theme.
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (!t)
+            t = matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Game Sales Analysis — Power BI — Paul Sabourault</title>
+    <meta name="description" content="Interactive Power BI report built from a public Kaggle dataset to analyze global video game sales. Designed both as a portfolio case study and as hands-on preparation for the PL-300 certification, covering data modeling, DAX measures, and interactive reporting." />
+    <!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
+    <link rel="canonical" href="https://YOUR-DOMAIN.com/projects/video-game-sales-powerbi.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Video Game Sales Analysis — Power BI" />
+    <meta property="og:description" content="Interactive Power BI report built from a public Kaggle dataset to analyze global video game sales. Designed both as a portfolio case study and as hands-on preparation for the PL-300 certification, covering data modeling, DAX measures, and interactive reporting." />
+    <meta property="og:url" content="https://YOUR-DOMAIN.com/projects/video-game-sales-powerbi.html" />
+    <meta property="og:image" content="https://YOUR-DOMAIN.com/images/powerbi.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../microsoft.css" />
+    <script src="https://kit.fontawesome.com/5d10eb0d43.js" defer crossorigin="anonymous"></script>
+    <script src="../theme.js" defer></script>
+  </head>
+
+  <body data-hat="Microsoft">
+    <div class="ms-nav-shell">
+      <div class="container">
+        <div class="header-sticky">
+          <div class="nom">
+            <a href="../index.html#header"
+              ><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a
+            >
+          </div>
+          <nav>
+            <ul id="sidemenu">
+              <li><a href="../index.html#header">Home</a></li>
+              <li><a href="../index.html#about">About</a></li>
+              <li><a href="../index.html#projects">Projects</a></li>
+              <li>
+                <a class="nav-microsoft-highlight" href="../index.html#projects"
+                  >Microsoft</a
+                >
+              </li>
+              <li><a href="../index.html#contact">Contact</a></li>
+              <i class="fa-solid fa-xmark"></i>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Passer en thème clair"><i class="fa-solid fa-moon"></i></button>
+            <i class="fa-solid fa-bars"></i>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <main class="ms-report-shell detail-shell">
+      <header class="container ms-section ms-hero detail-hero--simple" id="detail-top">
+        <div class="ms-hero-copy">
+          <p class="ms-tagline">Portfolio case study</p>
+          <h1 class="sub-title">
+            <span class="ms-highlight">Video Game Sales</span> Power BI Report
+          </h1>
+          <p class="ms-lead">Interactive dashboard created from the Kaggle video game sales data set. I used it as a sandbox to rehearse PL-300 skills: data modelling, DAX measures, dynamic tooltips and responsive layouts. This page summarizes the report story and the insights surfaced in each tab.</p>
+          <p class="detail-status">Personal portfolio project — interactive demo available via screenshots and video</p>
+          <div class="ms-note-card">
+            <h3>Project context</h3>
+            <p>The model combines five dimensions (Genre, Platform, Publisher, Region and Calendar) around a sales fact table. From there I built KPI cards, drill-through journeys and a narrative layout inspired by Microsoft&#x27;s Fluent design language.</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="container ms-section" id="detail-outcomes">
+        <h2 class="sub-title">Key outcomes</h2>
+        <div class="ms-panel">
+          <ul class="ms-impact">
+            <li>Built a star schema model with fact and dimension tables (Date, Genre, Platform, Publisher, Game)</li>
+            <li>Created dynamic KPIs, time-based analysis, and Top N rankings using DAX</li>
+            <li>Designed interactive pages with slicers, drill-down exploration, and intelligent tooltips</li>
+            <li>Improved data readability and insights through clean UX and structured report pages</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="container ms-section" id="detail-gallery">
+        <h2 class="sub-title">Report gallery</h2>
+        <p class="ms-lead ms-lead--compact">Highlights from the overview, regional drilldowns, franchise scorecard and mobile canvas used throughout demos.</p>
+
+        <div class="ms-panel">
+          <div class="detail-gallery">
+            <figure class="detail-shot">
+              <div class="detail-shot-frame">
+                <img src="../images/screen-sale1-copie.webp" alt="Overview KPIs for the video game sales dashboard" loading="lazy" data-full="../images/screen-sale1-copie.webp" />
+              </div>
+              <figcaption>Overview — revenue KPIs, growth indicators and a genre filter bar to steer the story.</figcaption>
+            </figure>
+            <figure class="detail-shot">
+              <div class="detail-shot-frame">
+                <img src="../images/screen-sale1-5-copie.webp" alt="Regional performance heatmap" loading="lazy" data-full="../images/screen-sale1-5-copie.webp" />
+              </div>
+              <figcaption>Regions — synchronized map + column charts compare North America, Europe, Japan and ROW.</figcaption>
+            </figure>
+            <figure class="detail-shot">
+              <div class="detail-shot-frame">
+                <img src="../images/screen-sale2-copie.webp" alt="Franchise ranking leaderboard" loading="lazy" data-full="../images/screen-sale2-copie.webp" />
+              </div>
+              <figcaption>Franchises — Top N selector powered by DAX ranking measures with tooltips for long-tail titles.</figcaption>
+            </figure>
+            <figure class="detail-shot">
+              <div class="detail-shot-frame">
+                <img src="../images/screen-sale2-5-copie.webp" alt="Platform lifecycle timeline" loading="lazy" data-full="../images/screen-sale2-5-copie.webp" />
+              </div>
+              <figcaption>Platforms — lifecycle chart showing launches vs. revenue maturity to guide platform bets.</figcaption>
+            </figure>
+            <figure class="detail-shot">
+              <div class="detail-shot-frame">
+                <img src="../images/screen-sale3-copie.webp" alt="Datamodel view showing fact and dimension tables" loading="lazy" data-full="../images/screen-sale3-copie.webp" />
+              </div>
+              <figcaption>Data model — star schema built in Power BI Desktop with fact Sales and Date/Genre/Platform/Publisher dims.</figcaption>
+            </figure>
+            <figure class="detail-shot">
+              <div class="detail-shot-frame">
+                <img src="../images/screen-sale3-5-copie.webp" alt="Mobile-ready layout" loading="lazy" data-full="../images/screen-sale3-5-copie.webp" />
+              </div>
+              <figcaption>Mobile — responsive canvas with simplified KPIs for handheld consumption during demos.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="ms-panel detail-video-panel">
+          <div class="detail-video-copy">
+            <h2 class="sub-title">Video walkthrough</h2>
+            <p class="ms-lead ms-lead--compact">Short demo recording showing navigation between tabs, slicer interactions and how the insights are presented live.</p>
+          </div>
+          <a class="btn detail-video-btn" href="https://youtu.be/wg360XzBvso" target="_blank" rel="noopener noreferrer"
+            ><i class="fa-solid fa-circle-play"></i> Watch the video</a
+          >
+        </div>
+      </section>
+
+      <div class="detail-lightbox" id="detailLightbox" aria-hidden="true">
+        <button class="detail-lightbox-close" id="detailLightboxClose" aria-label="Close gallery view">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="detail-lightbox-media">
+          <img id="detailLightboxImg" src="" alt="" />
+          <p id="detailLightboxCaption"></p>
+        </div>
+      </div>
+
+      <section class="container ms-section">
+        <div class="ms-panel detail-cta">
+          <div>
+            <h2 class="sub-title">Need a PL-300 style walkthrough?</h2>
+            <p class="ms-lead ms-lead--compact">Let me demo the model, DAX techniques and UX guidelines I used here so we can replicate them for your dataset.</p>
+          </div>
+          <div class="detail-cta-actions">
+            <a class="btn btn2" href="../index.html#contact">Book a walkthrough</a>
+            <a class="btn detail-back-btn" href="../index.html#projects"
+              ><i class="fa-solid fa-arrow-left"></i> Back to all projects</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
+      </footer>
+    </main>
+
+    <script src="../app.js" defer></script>
+    <script src="../lightbox.js"></script>
+  </body>
+</html>

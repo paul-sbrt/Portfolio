@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      // Set theme before paint to avoid flash of incorrect theme.
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (!t)
+            t = matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUEZ — Power BI Certification Progress Dashboard — Paul Sabourault</title>
+    <meta name="description" content="Power BI dashboard built for a SUEZ project to help stakeholders track certification progress across teams and support decision-making." />
+    <!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
+    <link rel="canonical" href="https://YOUR-DOMAIN.com/projects/suez-dashboard.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SUEZ — Power BI Certification Progress Dashboard" />
+    <meta property="og:description" content="Power BI dashboard built for a SUEZ project to help stakeholders track certification progress across teams and support decision-making." />
+    <meta property="og:url" content="https://YOUR-DOMAIN.com/projects/suez-dashboard.html" />
+    <meta property="og:image" content="https://YOUR-DOMAIN.com/images/powerbi.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../microsoft.css" />
+    <script src="https://kit.fontawesome.com/5d10eb0d43.js" defer crossorigin="anonymous"></script>
+    <script src="../theme.js" defer></script>
+  </head>
+
+  <body data-hat="Microsoft">
+    <div class="ms-nav-shell">
+      <div class="container">
+        <div class="header-sticky">
+          <div class="nom">
+            <a href="../index.html#header"
+              ><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a
+            >
+          </div>
+          <nav>
+            <ul id="sidemenu">
+              <li><a href="../index.html#header">Home</a></li>
+              <li><a href="../index.html#about">About</a></li>
+              <li><a href="../index.html#projects">Projects</a></li>
+              <li>
+                <a class="nav-microsoft-highlight" href="../index.html#projects"
+                  >Microsoft</a
+                >
+              </li>
+              <li><a href="../index.html#contact">Contact</a></li>
+              <i class="fa-solid fa-xmark"></i>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Passer en thème clair"><i class="fa-solid fa-moon"></i></button>
+            <i class="fa-solid fa-bars"></i>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <main class="ms-report-shell detail-shell">
+      <header class="container ms-section ms-hero detail-hero--simple" id="detail-top">
+        <div class="ms-hero-copy">
+          <p class="ms-tagline">Client case study</p>
+          <h1 class="sub-title">
+            <span class="ms-highlight">SUEZ</span> Certification Dashboard
+          </h1>
+          <p class="ms-lead">Dashboard created at Avanade for SUEZ to monitor Power Platform certifications across teams. This page highlights the key views used to track progress, spot gaps and prepare leadership reviews.</p>
+          <p class="detail-status">Internal project developed at Avanade — live access no longer available</p>
+          <div class="ms-note-card">
+            <h3>Project context</h3>
+            <p>The report blends Power BI, Power Query and DAX measures to expose KPIs in a modern Microsoft look-and-feel. It consolidates pipelines and training data so managers can act before deadlines.</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="container ms-section" id="detail-outcomes">
+        <h2 class="sub-title">Key outcomes</h2>
+        <div class="ms-panel">
+          <ul class="ms-impact">
+            <li>Centralized certification progress tracking for multiple teams</li>
+            <li>Improved visibility for managers with clear KPIs and drill-down views</li>
+            <li>Reduced manual reporting by consolidating data into a single dashboard</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="container ms-section" id="detail-gallery">
+        <h2 class="sub-title">Report gallery</h2>
+        <p class="ms-lead ms-lead--compact">Four snapshots covering the executive summary, certification details, completion timelines and mobile-ready canvas.</p>
+
+        <div class="ms-panel">
+          <div class="detail-gallery">
+            <figure class="detail-shot">
+              <div class="detail-shot-frame">
+                <img src="../images/screenshot-2025-10-01-210737.webp" alt="SUEZ overview page with KPIs" loading="lazy" data-full="../images/screenshot-2025-10-01-210737.webp" />
+              </div>
+              <figcaption>Overview — global KPIs and segment filters.</figcaption>
+            </figure>
+            <figure class="detail-shot">
+              <div class="detail-shot-frame">
+                <img src="../images/screenshot-2025-10-01-210750.webp" alt="Team comparison view" loading="lazy" data-full="../images/screenshot-2025-10-01-210750.webp" />
+              </div>
+              <figcaption>Teams — focus on completion rate by business unit.</figcaption>
+            </figure>
+            <figure class="detail-shot">
+              <div class="detail-shot-frame">
+                <img src="../images/screenshot-2025-10-01-210802.webp" alt="Certification breakdown cards" loading="lazy" data-full="../images/screenshot-2025-10-01-210802.webp" />
+              </div>
+              <figcaption>Certifications — status cards filtered by product.</figcaption>
+            </figure>
+            <figure class="detail-shot">
+              <div class="detail-shot-frame">
+                <img src="../images/screenshot-2025-10-01-210814.webp" alt="Mobile responsive page" loading="lazy" data-full="../images/screenshot-2025-10-01-210814.webp" />
+              </div>
+              <figcaption>Mobile — responsive view for managers on-the-go.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <div class="detail-lightbox" id="detailLightbox" aria-hidden="true">
+        <button class="detail-lightbox-close" id="detailLightboxClose" aria-label="Close gallery view">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="detail-lightbox-media">
+          <img id="detailLightboxImg" src="" alt="" />
+          <p id="detailLightboxCaption"></p>
+        </div>
+      </div>
+
+      <section class="container ms-section">
+        <div class="ms-panel detail-cta">
+          <div>
+            <h2 class="sub-title">Need a similar dashboard?</h2>
+            <p class="ms-lead ms-lead--compact">I can walk you through the data model, KPIs and UX choices that made this project successful, then adapt them to your context.</p>
+          </div>
+          <div class="detail-cta-actions">
+            <a class="btn btn2" href="../index.html#contact">Book a walkthrough</a>
+            <a class="btn detail-back-btn" href="../index.html#projects"
+              ><i class="fa-solid fa-arrow-left"></i> Back to all projects</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
+      </footer>
+    </main>
+
+    <script src="../app.js" defer></script>
+    <script src="../lightbox.js"></script>
+  </body>
+</html>

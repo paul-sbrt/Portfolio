@@ -891,3 +891,23 @@ nav .fa-solid {
   color: var(--accent-ms-text);
   font-size: 14px;
 }
+
+/* ============================================================
+   HAT TINT — accent color driven by a project's casquette.
+   --hat / --hat-text default to the pink accent; a [data-hat]
+   value (on <body> for detail pages, on a card/chip for the
+   grid) switches the tint. Applied to tags/filters/highlights
+   only, never to structural surfaces.
+   ============================================================ */
+:root {
+  --hat: var(--accent);
+  --hat-text: var(--accent);
+}
+[data-hat="Microsoft"] {
+  --hat: var(--accent-ms);
+  --hat-text: var(--accent-ms-text);
+}
+[data-hat="Web"] {
+  --hat: var(--accent);
+  --hat-text: var(--accent);
+}
