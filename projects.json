@@ -298,7 +298,7 @@
   },
   {
     "slug": "ticketing-it",
-    "title": "Solution Ticketing IT",
+    "title": "Ticketing IT",
     "image": "./images/placeholder.svg",
     "summary": {
       "fr": "Le produit Power Platform que j'ai construit : un système de ticketing IT intégré à Microsoft 365 (portail utilisateur, dashboard admin avec SLA, notifications Email + Teams, reporting Power BI). Sans nouvel outil à adopter.",
