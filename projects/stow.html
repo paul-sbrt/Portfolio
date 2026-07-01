@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      // Set theme before paint to avoid flash of incorrect theme.
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (!t)
+            t = matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STOW — Paul Sabourault</title>
+    <meta name="description" content="Coffre-fort de documents de voyage partagé : on crée un voyage, on invite ses amis, chacun ajoute ses documents (billets, passeports), accessibles hors ligne. Publié sur iOS et Android." />
+    <!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
+    <link rel="canonical" href="https://YOUR-DOMAIN.com/projects/stow.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="STOW" />
+    <meta property="og:description" content="Coffre-fort de documents de voyage partagé : on crée un voyage, on invite ses amis, chacun ajoute ses documents (billets, passeports), accessibles hors ligne. Publié sur iOS et Android." />
+    <meta property="og:url" content="https://YOUR-DOMAIN.com/projects/stow.html" />
+    <meta property="og:image" content="https://YOUR-DOMAIN.com/images/placeholder.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../microsoft.css" />
+    <script src="https://kit.fontawesome.com/5d10eb0d43.js" defer crossorigin="anonymous"></script>
+    <script src="../theme.js" defer></script>
+  </head>
+
+  <body data-hat="App">
+    <div class="ms-nav-shell">
+      <div class="container">
+        <div class="header-sticky">
+          <div class="nom">
+            <a href="../index.html#header"
+              ><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a
+            >
+          </div>
+          <nav>
+            <ul id="sidemenu">
+              <li><a href="../index.html#header">Home</a></li>
+              <li><a href="../index.html#about">About</a></li>
+              <li><a href="../index.html#projects">Projects</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
+              <i class="fa-solid fa-xmark"></i>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Passer en thème clair"><i class="fa-solid fa-moon"></i></button>
+            <i class="fa-solid fa-bars"></i>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <main class="ms-report-shell detail-shell">
+      <header class="container ms-section ms-hero detail-hero--simple" id="detail-top">
+        <div class="ms-hero-copy">
+          <p class="ms-tagline">Le coffre-fort de vos voyages en groupe</p>
+          <h1 class="sub-title">
+            <span class="ms-highlight">STOW</span> voyagez serein
+          </h1>
+          <p class="ms-lead">En voyage de groupe, les documents (billets, réservations, photos de passeport) sont éparpillés dans WhatsApp et introuvables au mauvais moment, sans accès hors ligne à la douane ou à l&#x27;arrivée. STOW est un coffre-fort de documents de voyage partagé.</p>
+          <p class="detail-status">Publié sur iOS ET Android — « Stow — Voyagez serein » (v1.2), disponible sur l&#x27;App Store et le Google Play Store.</p>
+          <div class="detail-actions"><a class="btn detail-live-btn" href="https://apps.apple.com/us/app/stow-voyagez-serein/id6758451337" target="_blank" rel="noopener noreferrer">App Store</a></div>
+          <div class="ms-note-card">
+            <h3>La solution</h3>
+            <p>On crée un voyage, on invite ses amis, chacun ajoute ses documents (PDF, captures, photos de passeport). Les documents importants restent accessibles même sans réseau. Login rapide Apple ou Google, fichiers disponibles en deux clics.</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="container ms-section" id="detail-outcomes">
+        <h2 class="sub-title">Key outcomes</h2>
+        <div class="ms-panel">
+          <ul class="ms-impact">
+            <li>Voyage partagé : chaque membre du groupe contribue ses propres documents</li>
+            <li>Accès hors ligne aux documents importants (douane, aéroport sans réseau)</li>
+            <li>Chaque document à sa place, fini le mélange avec le chat de groupe</li>
+            <li>Login rapide Apple ou Google, gratuit</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="container ms-section">
+        <div class="ms-panel detail-cta">
+          <div>
+            <h2 class="sub-title">Envie de tester ?</h2>
+            <p class="ms-lead ms-lead--compact">L&#x27;app est disponible gratuitement sur l&#x27;App Store et le Google Play Store.</p>
+          </div>
+          <div class="detail-cta-actions">
+            <a class="btn btn2" href="../index.html#contact">Book a walkthrough</a>
+            <a class="btn detail-back-btn" href="../index.html#projects"
+              ><i class="fa-solid fa-arrow-left"></i> Back to all projects</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
+      </footer>
+    </main>
+
+    <script src="../app.js" defer></script>
+    <script src="../lightbox.js"></script>
+  </body>
+</html>

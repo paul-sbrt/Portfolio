@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      // Set theme before paint to avoid flash of incorrect theme.
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (!t)
+            t = matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EXTRALIMO — Paul Sabourault</title>
+    <meta name="description" content="Plateforme web de mise en relation à intermédiation humaine pour l&#x27;hôtellerie-restauration : candidats, entreprises et admins autour d&#x27;un « match », avec confidentialité by design. Menée avec ses associés." />
+    <!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
+    <link rel="canonical" href="https://YOUR-DOMAIN.com/projects/extralimo.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="EXTRALIMO" />
+    <meta property="og:description" content="Plateforme web de mise en relation à intermédiation humaine pour l&#x27;hôtellerie-restauration : candidats, entreprises et admins autour d&#x27;un « match », avec confidentialité by design. Menée avec ses associés." />
+    <meta property="og:url" content="https://YOUR-DOMAIN.com/projects/extralimo.html" />
+    <meta property="og:image" content="https://YOUR-DOMAIN.com/images/placeholder.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../microsoft.css" />
+    <script src="https://kit.fontawesome.com/5d10eb0d43.js" defer crossorigin="anonymous"></script>
+    <script src="../theme.js" defer></script>
+  </head>
+
+  <body data-hat="Web">
+    <div class="ms-nav-shell">
+      <div class="container">
+        <div class="header-sticky">
+          <div class="nom">
+            <a href="../index.html#header"
+              ><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a
+            >
+          </div>
+          <nav>
+            <ul id="sidemenu">
+              <li><a href="../index.html#header">Home</a></li>
+              <li><a href="../index.html#about">About</a></li>
+              <li><a href="../index.html#projects">Projects</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
+              <i class="fa-solid fa-xmark"></i>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Passer en thème clair"><i class="fa-solid fa-moon"></i></button>
+            <i class="fa-solid fa-bars"></i>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <main class="ms-report-shell detail-shell">
+      <header class="container ms-section ms-hero detail-hero--simple" id="detail-top">
+        <div class="ms-hero-copy">
+          <p class="ms-tagline">On trouve, vous brillez.</p>
+          <h1 class="sub-title">
+            <span class="ms-highlight">EXTRALIMO</span> mise en relation HCR
+          </h1>
+          <p class="ms-lead">L&#x27;hôtellerie-restauration peine à trouver les bons extras ; les candidats manquent de visibilité. EXTRALIMO les relie — mais ce n&#x27;est pas un job board en libre-service : la valeur, c&#x27;est l&#x27;intermédiation humaine, une petite équipe d&#x27;admins qui sélectionne, propose et accompagne.</p>
+          <p class="detail-status">En ligne sur extralimo.portfolio-sbrt.com (52 commits, mise à jour juin 2026). Projet mené avec ses associés.</p>
+          <div class="detail-actions"><a class="btn detail-live-btn" href="https://extralimo.portfolio-sbrt.com" target="_blank" rel="noopener noreferrer">Visiter le site</a></div>
+          <div class="ms-note-card">
+            <h3>La solution</h3>
+            <p>Plateforme web articulée autour de 3 rôles (candidat / entreprise / admin) et d&#x27;un objet central, le « match » (suggéré → en cours → contact débloqué → placé). Confidentialité by design : les coordonnées restent masquées tant qu&#x27;un admin n&#x27;a pas débloqué le contact. Inscriptions publiques mobile-first, consentement RGPD.</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="container ms-section" id="detail-outcomes">
+        <h2 class="sub-title">Key outcomes</h2>
+        <div class="ms-panel">
+          <ul class="ms-impact">
+            <li>Trois rôles (candidat / entreprise / admin) autour d&#x27;un objet « match »</li>
+            <li>Confidentialité by design : coordonnées masquées jusqu&#x27;au déblocage par un admin</li>
+            <li>Matchs créés manuellement, placement selon le type de contrat et l&#x27;affinité de poste</li>
+            <li>Inscriptions publiques mobile-first, consentement RGPD</li>
+            <li>Modèle économique : commission au contrat (pourcentage sur le placement)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="container ms-section">
+        <div class="ms-panel detail-cta">
+          <div>
+            <h2 class="sub-title">Voir la plateforme</h2>
+            <p class="ms-lead ms-lead--compact">Le produit est en ligne — je peux présenter le modèle de données, le cycle de vie d&#x27;un « match » et l&#x27;approche confidentialité.</p>
+          </div>
+          <div class="detail-cta-actions">
+            <a class="btn btn2" href="../index.html#contact">Book a walkthrough</a>
+            <a class="btn detail-back-btn" href="../index.html#projects"
+              ><i class="fa-solid fa-arrow-left"></i> Back to all projects</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
+      </footer>
+    </main>
+
+    <script src="../app.js" defer></script>
+    <script src="../lightbox.js"></script>
+  </body>
+</html>

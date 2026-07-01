@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      // Set theme before paint to avoid flash of incorrect theme.
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (!t)
+            t = matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DUMP — Paul Sabourault</title>
+    <meta name="description" content="« Deuxième cerveau » iOS : on capture texte ou voix en vrac, l&#x27;IA (Claude + Whisper) trie automatiquement en catégories et niveaux d&#x27;urgence, suggère des connexions et des rappels. Modèle freemium via StoreKit 2." />
+    <!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
+    <link rel="canonical" href="https://YOUR-DOMAIN.com/projects/dump.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DUMP" />
+    <meta property="og:description" content="« Deuxième cerveau » iOS : on capture texte ou voix en vrac, l&#x27;IA (Claude + Whisper) trie automatiquement en catégories et niveaux d&#x27;urgence, suggère des connexions et des rappels. Modèle freemium via StoreKit 2." />
+    <meta property="og:url" content="https://YOUR-DOMAIN.com/projects/dump.html" />
+    <meta property="og:image" content="https://YOUR-DOMAIN.com/images/placeholder.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../microsoft.css" />
+    <script src="https://kit.fontawesome.com/5d10eb0d43.js" defer crossorigin="anonymous"></script>
+    <script src="../theme.js" defer></script>
+  </head>
+
+  <body data-hat="App">
+    <div class="ms-nav-shell">
+      <div class="container">
+        <div class="header-sticky">
+          <div class="nom">
+            <a href="../index.html#header"
+              ><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a
+            >
+          </div>
+          <nav>
+            <ul id="sidemenu">
+              <li><a href="../index.html#header">Home</a></li>
+              <li><a href="../index.html#about">About</a></li>
+              <li><a href="../index.html#projects">Projects</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
+              <i class="fa-solid fa-xmark"></i>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Passer en thème clair"><i class="fa-solid fa-moon"></i></button>
+            <i class="fa-solid fa-bars"></i>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <main class="ms-report-shell detail-shell">
+      <header class="container ms-section ms-hero detail-hero--simple" id="detail-top">
+        <div class="ms-hero-copy">
+          <p class="ms-tagline">Second cerveau augmenté par l&#x27;IA</p>
+          <h1 class="sub-title">
+            <span class="ms-highlight">DUMP</span> second cerveau iOS
+          </h1>
+          <p class="ms-lead">On capture une idée, une note ou un vocal en vrac — et on la perd, ou on ne la retrouve pas structurée. DUMP est un assistant cognitif : on parle ou on écrit en vrac, l&#x27;IA trie automatiquement. Particulièrement utile aux profils qui débordent d&#x27;idées et se dispersent (TDAH inclus), comme outil d&#x27;organisation au quotidien. Paul l&#x27;a d&#x27;abord construit pour lui-même.</p>
+          <p class="detail-status">Sur TestFlight (build 2) — le projet le plus actif de Paul (503 commits, mise à jour juin 2026), design system v2, widgets « production ready ».</p>
+          <div class="ms-note-card">
+            <h3>La solution</h3>
+            <p>App iOS native qui transforme un flux brut en notes triées : capture texte et voix (transcription Whisper), classification IA (Claude) en catégories ACTION / INFO / IDÉE / VRAC et niveaux d&#x27;urgence, suggestions de connexions entre notes, extraction d&#x27;entités anonymisées, rappels datés, apprentissage des corrections. Onboarding zéro friction (pas de compte), widgets et extension de partage.</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="container ms-section" id="detail-outcomes">
+        <h2 class="sub-title">Key outcomes</h2>
+        <div class="ms-panel">
+          <ul class="ms-impact">
+            <li>Capture texte + voix, avec transcription des vocaux via Whisper</li>
+            <li>Classification automatique par Claude (ACTION / INFO / IDÉE / VRAC + catégories custom apprises) et niveaux d&#x27;urgence</li>
+            <li>Suggestions de connexions entre notes et extraction d&#x27;entités (anonymisées avant envoi)</li>
+            <li>Rappels datés, buffer d&#x27;impulsivité et apprentissage des corrections de l&#x27;utilisateur</li>
+            <li>Modèle freemium : gratuit jusqu&#x27;à 25 classifications IA/semaine, premium illimité via StoreKit 2</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="container ms-section">
+        <div class="ms-panel detail-cta">
+          <div>
+            <h2 class="sub-title">Envie d&#x27;en voir plus ?</h2>
+            <p class="ms-lead ms-lead--compact">Je peux présenter l&#x27;architecture (proxy Cloudflare, clés IA côté serveur), le design system et le fonctionnement de la classification.</p>
+          </div>
+          <div class="detail-cta-actions">
+            <a class="btn btn2" href="../index.html#contact">Book a walkthrough</a>
+            <a class="btn detail-back-btn" href="../index.html#projects"
+              ><i class="fa-solid fa-arrow-left"></i> Back to all projects</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
+      </footer>
+    </main>
+
+    <script src="../app.js" defer></script>
+    <script src="../lightbox.js"></script>
+  </body>
+</html>

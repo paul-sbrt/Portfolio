@@ -1,5 +1,153 @@
 [
   {
+    "slug": "dump",
+    "title": "DUMP",
+    "image": "./images/placeholder.svg",
+    "summary": "« Deuxième cerveau » iOS : on capture texte ou voix en vrac, l'IA (Claude + Whisper) trie automatiquement en catégories et niveaux d'urgence, suggère des connexions et des rappels. Modèle freemium via StoreKit 2.",
+    "hats": ["App", "IA"],
+    "tags": ["Swift", "SwiftUI", "SwiftData", "Claude API", "Whisper", "Cloudflare Workers", "StoreKit 2"],
+    "type": "Application mobile (iOS)",
+    "year": 2026,
+    "featured": true,
+    "openInSameTab": true,
+    "externalUrl": "[[À COMPLÉTER: lien TestFlight public]]",
+    "detail": {
+      "tagline": "Second cerveau augmenté par l'IA",
+      "highlight": "DUMP",
+      "heading": "second cerveau iOS",
+      "lead": "On capture une idée, une note ou un vocal en vrac — et on la perd, ou on ne la retrouve pas structurée. DUMP est un assistant cognitif : on parle ou on écrit en vrac, l'IA trie automatiquement. Particulièrement utile aux profils qui débordent d'idées et se dispersent (TDAH inclus), comme outil d'organisation au quotidien. Paul l'a d'abord construit pour lui-même.",
+      "status": "Sur TestFlight (build 2) — le projet le plus actif de Paul (503 commits, mise à jour juin 2026), design system v2, widgets « production ready ».",
+      "context": {
+        "heading": "La solution",
+        "body": "App iOS native qui transforme un flux brut en notes triées : capture texte et voix (transcription Whisper), classification IA (Claude) en catégories ACTION / INFO / IDÉE / VRAC et niveaux d'urgence, suggestions de connexions entre notes, extraction d'entités anonymisées, rappels datés, apprentissage des corrections. Onboarding zéro friction (pas de compte), widgets et extension de partage."
+      },
+      "impact": [
+        "Capture texte + voix, avec transcription des vocaux via Whisper",
+        "Classification automatique par Claude (ACTION / INFO / IDÉE / VRAC + catégories custom apprises) et niveaux d'urgence",
+        "Suggestions de connexions entre notes et extraction d'entités (anonymisées avant envoi)",
+        "Rappels datés, buffer d'impulsivité et apprentissage des corrections de l'utilisateur",
+        "Modèle freemium : gratuit jusqu'à 25 classifications IA/semaine, premium illimité via StoreKit 2"
+      ],
+      "links": [],
+      "cta": {
+        "heading": "Envie d'en voir plus ?",
+        "body": "Je peux présenter l'architecture (proxy Cloudflare, clés IA côté serveur), le design system et le fonctionnement de la classification."
+      }
+    }
+  },
+  {
+    "slug": "stow",
+    "title": "STOW",
+    "image": "./images/placeholder.svg",
+    "summary": "Coffre-fort de documents de voyage partagé : on crée un voyage, on invite ses amis, chacun ajoute ses documents (billets, passeports), accessibles hors ligne. Publié sur iOS et Android.",
+    "hats": ["App"],
+    "tags": ["Flutter", "Dart", "FlutterFlow", "Firebase", "Firestore"],
+    "type": "Application mobile (iOS & Android)",
+    "featured": true,
+    "openInSameTab": true,
+    "externalUrl": "https://apps.apple.com/us/app/stow-voyagez-serein/id6758451337",
+    "detail": {
+      "tagline": "Le coffre-fort de vos voyages en groupe",
+      "highlight": "STOW",
+      "heading": "voyagez serein",
+      "lead": "En voyage de groupe, les documents (billets, réservations, photos de passeport) sont éparpillés dans WhatsApp et introuvables au mauvais moment, sans accès hors ligne à la douane ou à l'arrivée. STOW est un coffre-fort de documents de voyage partagé.",
+      "status": "Publié sur iOS ET Android — « Stow — Voyagez serein » (v1.2), disponible sur l'App Store et le Google Play Store.",
+      "context": {
+        "heading": "La solution",
+        "body": "On crée un voyage, on invite ses amis, chacun ajoute ses documents (PDF, captures, photos de passeport). Les documents importants restent accessibles même sans réseau. Login rapide Apple ou Google, fichiers disponibles en deux clics."
+      },
+      "impact": [
+        "Voyage partagé : chaque membre du groupe contribue ses propres documents",
+        "Accès hors ligne aux documents importants (douane, aéroport sans réseau)",
+        "Chaque document à sa place, fini le mélange avec le chat de groupe",
+        "Login rapide Apple ou Google, gratuit"
+      ],
+      "links": [
+        { "label": "App Store", "url": "https://apps.apple.com/us/app/stow-voyagez-serein/id6758451337" },
+        { "label": "Google Play", "url": "[[À COMPLÉTER: lien Google Play Store]]" }
+      ],
+      "cta": {
+        "heading": "Envie de tester ?",
+        "body": "L'app est disponible gratuitement sur l'App Store et le Google Play Store."
+      }
+    }
+  },
+  {
+    "slug": "extralimo",
+    "title": "EXTRALIMO",
+    "image": "./images/placeholder.svg",
+    "summary": "Plateforme web de mise en relation à intermédiation humaine pour l'hôtellerie-restauration : candidats, entreprises et admins autour d'un « match », avec confidentialité by design. Menée avec ses associés.",
+    "hats": ["Web"],
+    "tags": ["Laravel", "Blade", "MySQL", "Alpine.js", "O2switch"],
+    "type": "Plateforme web",
+    "year": 2026,
+    "featured": true,
+    "openInSameTab": true,
+    "externalUrl": "https://extralimo.portfolio-sbrt.com",
+    "detail": {
+      "tagline": "On trouve, vous brillez.",
+      "highlight": "EXTRALIMO",
+      "heading": "mise en relation HCR",
+      "lead": "L'hôtellerie-restauration peine à trouver les bons extras ; les candidats manquent de visibilité. EXTRALIMO les relie — mais ce n'est pas un job board en libre-service : la valeur, c'est l'intermédiation humaine, une petite équipe d'admins qui sélectionne, propose et accompagne.",
+      "status": "En ligne sur extralimo.portfolio-sbrt.com (52 commits, mise à jour juin 2026). Projet mené avec ses associés.",
+      "context": {
+        "heading": "La solution",
+        "body": "Plateforme web articulée autour de 3 rôles (candidat / entreprise / admin) et d'un objet central, le « match » (suggéré → en cours → contact débloqué → placé). Confidentialité by design : les coordonnées restent masquées tant qu'un admin n'a pas débloqué le contact. Inscriptions publiques mobile-first, consentement RGPD."
+      },
+      "impact": [
+        "Trois rôles (candidat / entreprise / admin) autour d'un objet « match »",
+        "Confidentialité by design : coordonnées masquées jusqu'au déblocage par un admin",
+        "Matchs créés manuellement, placement selon le type de contrat et l'affinité de poste",
+        "Inscriptions publiques mobile-first, consentement RGPD",
+        "Modèle économique : commission au contrat (pourcentage sur le placement)"
+      ],
+      "links": [
+        { "label": "Visiter le site", "url": "https://extralimo.portfolio-sbrt.com" }
+      ],
+      "cta": {
+        "heading": "Voir la plateforme",
+        "body": "Le produit est en ligne — je peux présenter le modèle de données, le cycle de vie d'un « match » et l'approche confidentialité."
+      }
+    }
+  },
+  {
+    "slug": "site-solutions-microsoft",
+    "title": "Site solutions Microsoft",
+    "image": "./images/placeholder.svg",
+    "summary": "Site vitrine orienté vente d'une offre Power Platform pour PME (offre phare « Ticketing IT » intégrée à Microsoft 365). Next.js, en ligne.",
+    "hats": ["Microsoft"],
+    "tags": ["Next.js", "TypeScript", "Tailwind", "Framer Motion", "Formspree", "Power Platform"],
+    "type": "Site vitrine",
+    "featured": true,
+    "openInSameTab": true,
+    "externalUrl": "https://paulsabourault.fr",
+    "detail": {
+      "tagline": "Solutions IT sur mesure pour PME",
+      "highlight": "Solutions",
+      "heading": "Microsoft pour PME",
+      "lead": "Les PME ont des outils Microsoft 365 sous-exploités (la Power Platform est déjà dans leur licence), des process manuels (emails, Excel, relances) et aucune visibilité (pas de dashboard/KPI). Ce site vitrine vend une offre Power Platform pour digitaliser ces process sans nouvel outil à apprendre.",
+      "status": "En ligne sur paulsabourault.fr (Paul Sabourault, auto-entrepreneur, Tours).",
+      "context": {
+        "heading": "L'offre phare : Ticketing IT",
+        "body": "« Votre support IT, simplifié » : système de ticketing intégré à Microsoft 365 (portail utilisateur en 30 s, dashboard admin, SLA temps réel, notifications email + Teams, reporting Power BI, multi-clients, rôles, pièces jointes). Déployé en une demi-journée, formation incluse. Données hébergées chez le client (SharePoint, France)."
+      },
+      "impact": [
+        "Deux packs : Pack Essentiel à 2 000 € et Pack Complet à 3 500 € (recommandé, + Power BI 4 pages + multi-clients)",
+        "Investissement unique, sans abonnement ; maintenance optionnelle dès 39 €/mois",
+        "Ticketing intégré à Microsoft 365 : SLA temps réel, notifications email + Teams, reporting Power BI",
+        "Process affiché : Échange → Démo → Déploiement → Formation",
+        "Brique métier : SharePoint, Power Apps, Power Automate, Power BI, Teams"
+      ],
+      "links": [
+        { "label": "Visiter paulsabourault.fr", "url": "https://paulsabourault.fr" }
+      ],
+      "cta": {
+        "heading": "Voir le site",
+        "body": "Le site de vente est en ligne — je peux présenter l'offre Ticketing IT et la démarche commerciale."
+      }
+    }
+  },
+  {
     "slug": "video-game-sales-powerbi",
     "title": "Video Game Sales Analysis — Power BI",
     "image": "./images/powerbi.webp",
@@ -206,7 +354,7 @@
     "title": "Professional Wordpress Website",
     "image": "./images/site-anne-guillien.webp",
     "summary": "Delivered a custom WordPress business website focused on showcasing services and enhancing client engagement. Integrated essential features such as online appointment booking, SEO optimization, and responsive design to ensure a seamless user experience and ease of management for the client.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://anneguillien.fr"
@@ -216,7 +364,7 @@
     "title": "WhereToWatch",
     "image": "./images/wheretowatch2.webp",
     "summary": "WhereToWatch is a React application that lets users search for movies and find where to watch them. It uses the TMDB API to display movie details like genres, ratings, main actors, and streaming platforms. Built with React, React Router, and Bootstrap, it's deployed on GitHub Pages",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/WhereToWatch/"
@@ -226,7 +374,7 @@
     "title": "Password Generator",
     "image": "./images/passwordgen.webp",
     "summary": "A JavaScript project to create secure, customizable passwords. It strengthens my skills in JavaScript functions, DOM manipulation, and input validation while practicing arrays, loops, and conditional logic.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/Password-Generator/"
@@ -236,7 +384,7 @@
     "title": "To Do List",
     "image": "./images/todo.webp",
     "summary": "The goal is to build a To-Do List web application that allows users to add, manage, and delete tasks. It helps in practicing JavaScript concepts like DOM manipulation, event handling, local storage, and form validation.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/ToDoList/"
@@ -246,7 +394,7 @@
     "title": "Age Calculator",
     "image": "./images/age-calcul.webp",
     "summary": "This web application calculates and displays a user's age based on their date of birth. Using JavaScript, the app computes the age in years, months, and days. Users enter their date of birth, and upon clicking a button, the application performs the calculation and presents the result. The project emphasizes JavaScript for accurate date calculations and an engaging, interactive user experience.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/age-calculator/"
@@ -256,7 +404,7 @@
     "title": "Bricotips",
     "image": "./images/bricotips.webp",
     "summary": "In this project, I deepened my WordPress skills by exploring developer documentation, creating a child theme, and customizing its CSS. I built pages with Gutenberg, created custom widgets and shortcodes, modified theme templates, and developed custom page templates. I also added features using hooks, customized post pages, debugged the site, and implemented security measures to prevent hacking.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://bricotips.portfolio-sbrt.com/"
@@ -266,7 +414,7 @@
     "title": "Banana Design",
     "image": "./images/bananadesign.webp",
     "summary": "Create a simple WordPress website to learn the basics of WordPress, including installation, theme customization, page creation, and plugin management. Ideal for beginners to understand core WordPress functionalities.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://bananadesign.portfolio-sbrt.com/"
@@ -276,7 +424,7 @@
     "title": "Advice Generator",
     "image": "./images/advice-generator.webp",
     "summary": "This front-end project focuses on building a web application that interacts with an API to generate and display advice. Users can click a button to fetch advice from the API and view it on the screen. The project emphasizes API integration, asynchronous data handling, and creating a user-friendly interface.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/Advice-generator-app/"
@@ -286,7 +434,7 @@
     "title": "Wish Project",
     "image": "./images/wish-project.webp",
     "summary": "The Wish Project is a course project to learn the basics of the Symfony framework: controller, entity, form, repository, adding, deleting, editing in the database",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://wish.portfolio-sbrt.com/"
@@ -296,7 +444,7 @@
     "title": "TwitThor",
     "image": "./images/twithor.webp",
     "summary": "The Twitter project is a course project developed using React. This project is designed to provide a experience with the fundamental concepts of the React framework. It covers various aspects such as components, props, and other core features of React. The aim is to provide a practical understanding of how these elements work together to build a dynamic web application.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://youtu.be/iFYvu0avXg4"
@@ -306,7 +454,7 @@
     "title": "La Maison Jungle",
     "image": "./images/la-maison-jungle.webp",
     "summary": "A plant e-commerce site project designed for practicing React. Developed as part of an OpenClassrooms course, this project allows users to browse and purchase a variety of plants. Features include cart management, product detail displays, and a modern, responsive user interface.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/La-Maison-Jungle/"
@@ -316,7 +464,7 @@
     "title": "FavFilm",
     "image": "./images/favfilm.webp",
     "summary": "I created a website to learn React for school. The website allows users to explore a collection of films, displaying them and providing sorting options. It serves as a practical exercise in React development and user interface design.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/React-FavFilm/"
@@ -326,7 +474,7 @@
     "title": "New Home Page",
     "image": "./images/newshomepage.webp",
     "summary": "This project entails building a responsive news website homepage, focusing on HTML, CSS, and basic JavaScript skills. Participants are tasked with replicating the design as closely as possible, ensuring responsiveness across different screen sizes and incorporating hover and focus states for interactive elements.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/News-Home-Page-/"
@@ -336,7 +484,7 @@
     "title": "Newsletter Sign Up",
     "image": "./images/newsletter-sign-up.webp",
     "summary": "I developed an interactive newsletter signup form from a given design. Users can input their email, receiving a confirmation message upon successful submission, along with responsive design for various screens.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/newsletter-sign-up-/"
@@ -346,7 +494,7 @@
     "title": "Interactive Rating",
     "image": "./images/interactive-rating.webp",
     "summary": "I created a responsive rating component with hover effects based on a design, encouraging user interaction. After rating, a 'Thank you' card boosts engagement.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/Interactive-rating-/"
@@ -356,7 +504,7 @@
     "title": "Taxifood",
     "image": "./images/taxifood.webp",
     "summary": "Group project for training assessment (CEFIM). I designed the team page to showcase store members with photos and roles, enabling their information to be editable for administrative purposes.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/TaxiFood/"
@@ -366,7 +514,7 @@
     "title": "SuperApp",
     "image": "./images/superapp.webp",
     "summary": "Successful integration of the 'Super App' landing page designed in Adobe XD. Demonstration of development skills and highlighting the attractive interface of the application.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/Challenge/"
@@ -376,7 +524,7 @@
     "title": "Excursion Site",
     "image": "./images/excursion.webp",
     "summary": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/excursion/"
@@ -386,7 +534,7 @@
     "title": "Tea Cozy",
     "image": "./images/tea.webp",
     "summary": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
-    "hats": [],
+    "hats": ["Web"],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/Projet-Tea-Cozy/"

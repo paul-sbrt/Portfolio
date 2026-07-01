@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      // Set theme before paint to avoid flash of incorrect theme.
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (!t)
+            t = matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site solutions Microsoft — Paul Sabourault</title>
+    <meta name="description" content="Site vitrine orienté vente d&#x27;une offre Power Platform pour PME (offre phare « Ticketing IT » intégrée à Microsoft 365). Next.js, en ligne." />
+    <!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
+    <link rel="canonical" href="https://YOUR-DOMAIN.com/projects/site-solutions-microsoft.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Site solutions Microsoft" />
+    <meta property="og:description" content="Site vitrine orienté vente d&#x27;une offre Power Platform pour PME (offre phare « Ticketing IT » intégrée à Microsoft 365). Next.js, en ligne." />
+    <meta property="og:url" content="https://YOUR-DOMAIN.com/projects/site-solutions-microsoft.html" />
+    <meta property="og:image" content="https://YOUR-DOMAIN.com/images/placeholder.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../microsoft.css" />
+    <script src="https://kit.fontawesome.com/5d10eb0d43.js" defer crossorigin="anonymous"></script>
+    <script src="../theme.js" defer></script>
+  </head>
+
+  <body data-hat="Microsoft">
+    <div class="ms-nav-shell">
+      <div class="container">
+        <div class="header-sticky">
+          <div class="nom">
+            <a href="../index.html#header"
+              ><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a
+            >
+          </div>
+          <nav>
+            <ul id="sidemenu">
+              <li><a href="../index.html#header">Home</a></li>
+              <li><a href="../index.html#about">About</a></li>
+              <li><a href="../index.html#projects">Projects</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
+              <i class="fa-solid fa-xmark"></i>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Passer en thème clair"><i class="fa-solid fa-moon"></i></button>
+            <i class="fa-solid fa-bars"></i>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <main class="ms-report-shell detail-shell">
+      <header class="container ms-section ms-hero detail-hero--simple" id="detail-top">
+        <div class="ms-hero-copy">
+          <p class="ms-tagline">Solutions IT sur mesure pour PME</p>
+          <h1 class="sub-title">
+            <span class="ms-highlight">Solutions</span> Microsoft pour PME
+          </h1>
+          <p class="ms-lead">Les PME ont des outils Microsoft 365 sous-exploités (la Power Platform est déjà dans leur licence), des process manuels (emails, Excel, relances) et aucune visibilité (pas de dashboard/KPI). Ce site vitrine vend une offre Power Platform pour digitaliser ces process sans nouvel outil à apprendre.</p>
+          <p class="detail-status">En ligne sur paulsabourault.fr (Paul Sabourault, auto-entrepreneur, Tours).</p>
+          <div class="detail-actions"><a class="btn detail-live-btn" href="https://paulsabourault.fr" target="_blank" rel="noopener noreferrer">Visiter paulsabourault.fr</a></div>
+          <div class="ms-note-card">
+            <h3>L&#x27;offre phare : Ticketing IT</h3>
+            <p>« Votre support IT, simplifié » : système de ticketing intégré à Microsoft 365 (portail utilisateur en 30 s, dashboard admin, SLA temps réel, notifications email + Teams, reporting Power BI, multi-clients, rôles, pièces jointes). Déployé en une demi-journée, formation incluse. Données hébergées chez le client (SharePoint, France).</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="container ms-section" id="detail-outcomes">
+        <h2 class="sub-title">Key outcomes</h2>
+        <div class="ms-panel">
+          <ul class="ms-impact">
+            <li>Deux packs : Pack Essentiel à 2 000 € et Pack Complet à 3 500 € (recommandé, + Power BI 4 pages + multi-clients)</li>
+            <li>Investissement unique, sans abonnement ; maintenance optionnelle dès 39 €/mois</li>
+            <li>Ticketing intégré à Microsoft 365 : SLA temps réel, notifications email + Teams, reporting Power BI</li>
+            <li>Process affiché : Échange → Démo → Déploiement → Formation</li>
+            <li>Brique métier : SharePoint, Power Apps, Power Automate, Power BI, Teams</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="container ms-section">
+        <div class="ms-panel detail-cta">
+          <div>
+            <h2 class="sub-title">Voir le site</h2>
+            <p class="ms-lead ms-lead--compact">Le site de vente est en ligne — je peux présenter l&#x27;offre Ticketing IT et la démarche commerciale.</p>
+          </div>
+          <div class="detail-cta-actions">
+            <a class="btn btn2" href="../index.html#contact">Book a walkthrough</a>
+            <a class="btn detail-back-btn" href="../index.html#projects"
+              ><i class="fa-solid fa-arrow-left"></i> Back to all projects</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
+      </footer>
+    </main>
+
+    <script src="../app.js" defer></script>
+    <script src="../lightbox.js"></script>
+  </body>
+</html>
