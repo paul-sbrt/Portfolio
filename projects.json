@@ -421,7 +421,7 @@
       "Data Modeling"
     ],
     "type": {
-      "fr": "Dashboard",
+      "fr": "Tableau de bord",
       "en": "Dashboard"
     },
     "year": 2025,
@@ -579,8 +579,8 @@
       "Power Automate"
     ],
     "type": {
-      "fr": "Business Application",
-      "en": "Business Application"
+      "fr": "Application métier",
+      "en": "Business application"
     },
     "year": 2023,
     "featured": true,
@@ -729,7 +729,7 @@
       "DAX"
     ],
     "type": {
-      "fr": "Dashboard",
+      "fr": "Tableau de bord",
       "en": "Dashboard"
     },
     "year": 2023,

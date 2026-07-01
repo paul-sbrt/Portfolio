@@ -11,16 +11,16 @@
     },
     "dates": {
       "fr": "depuis avril 2026",
-      "en": "depuis avril 2026"
+      "en": "since April 2026"
     },
     "description": {
       "fr": "Refonte de back-office, pilotage des tableaux de bord et gestion de projets.",
-      "en": "Refonte de back-office, pilotage des tableaux de bord et gestion de projets."
+      "en": "Back-office rebuild, dashboard oversight and project management."
     }
   },
   {
     "position": {
-      "fr": "Developer",
+      "fr": "Développeur",
       "en": "Developer"
     },
     "company": "AVANADE FRANCE",
@@ -30,14 +30,14 @@
     },
     "dates": {
       "fr": "oct 2023 - sept 2025",
-      "en": "oct 2023 - sept 2025"
+      "en": "Oct 2023 – Sept 2025"
     },
     "image": "./images/avanade.webp"
   },
   {
     "position": {
       "fr": "Parcours restauration & jobs étudiants",
-      "en": "Parcours restauration & jobs étudiants"
+      "en": "Restaurant & student jobs"
     },
     "company": "Tours / Vancouver",
     "location": {
