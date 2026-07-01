@@ -89,7 +89,7 @@ function displaySkills() {
             const skillImage = document.createElement("img");
             skillImage.src = skill.image;
             skillImage.loading = "lazy";
-            skillImage.alt = skill.name;
+            skillImage.alt = t(skill.name);
             skillBox.appendChild(skillImage);
             skillBox.appendChild(document.createElement("br"));
           } else {
@@ -230,7 +230,7 @@ function displayCertifications() {
 
       certData.forEach((cert) => {
         const name = certName(cert);
-        const issuer = cert.issuer || "Microsoft";
+        const issuer = t(cert.issuer) || "Microsoft";
         const year = certYear(cert);
         const url = certUrl(cert);
 
