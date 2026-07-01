@@ -1,0 +1,14 @@
+# ============================================================
+# 301 redirects — Chantier 4 (Microsoft space folded into the
+# unified project grid). Old standalone URLs are preserved and
+# permanently redirected to their new location so external links
+# and search-engine equity are not lost.
+# ============================================================
+
+# Former Microsoft hub — folded into the main project grid.
+Redirect 301 /power-platform.html /index.html
+
+# Former Microsoft detail pages — moved under /projects/.
+Redirect 301 /suez-dashboard.html /projects/suez-dashboard.html
+Redirect 301 /mscd-application.html /projects/mscd-application.html
+Redirect 301 /video-game-sales-powerbi.html /projects/video-game-sales-powerbi.html
