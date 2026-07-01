@@ -1,87 +1,47 @@
 [
   {
-    "name": "Power App",
-    "image": "./images/power-app-removebg-preview.webp",
-    "level": "Intermediate"
+    "group": "Mobile",
+    "skills": [
+      { "name": "Flutter / Dart" },
+      { "name": "Swift / SwiftUI" },
+      { "name": "Firebase" }
+    ]
   },
   {
-    "name": "Power BI",
-    "image": "./images/powerbi.webp",
-    "level": "Intermediate"
+    "group": "Web",
+    "skills": [
+      { "name": "Laravel" },
+      { "name": "Next.js" },
+      { "name": "React", "image": "./images/react.webp" },
+      { "name": "Symfony", "image": "./images/symfony.webp" },
+      { "name": "WordPress", "image": "./images/wordpresslogo.webp" },
+      { "name": "HTML", "image": "./images/html-5.webp" },
+      { "name": "CSS", "image": "./images/css-3.webp" },
+      { "name": "JavaScript", "image": "./images/js.webp" },
+      { "name": "PHP", "image": "./images/php.webp" },
+      { "name": "SQL", "image": "./images/sql.webp" },
+      { "name": "Figma", "image": "./images/figma.webp" },
+      { "name": "Photoshop", "image": "./images/photoshop.webp" }
+    ]
   },
   {
-    "name": "Power Automate",
-    "image": "./images/power-automate-removebg-preview.webp",
-    "level": "Intermediate"
+    "group": "IA",
+    "skills": [
+      { "name": "Intégration LLM / Claude" },
+      { "name": "Whisper" },
+      { "name": "Cloudflare Workers" },
+      { "name": "Python", "image": "./images/python.webp" }
+    ]
   },
   {
-    "name": "Excel",
-    "image": "./images/excel-removebg-preview.webp",
-    "level": "Intermediate"
-  },
-  {
-    "name": "Sharepoint",
-    "image": "./images/sharepoint.webp",
-    "level": "Intermediate"
-  },
-  {
-    "name": "Wordpress",
-    "image": "./images/wordpresslogo.webp",
-    "level": "Intermediate"
-  },
-  {
-    "name": "Azure Devops",
-    "image": "./images/azure.webp",
-    "level": "Basic"
-  },
-  {
-    "name": "CSS",
-    "image": "./images/css-3.webp",
-    "level": "Intermediate"
-  },
-  {
-    "name": "HTML",
-    "image": "./images/html-5.webp",
-    "level": "Intermediate"
-  },
-  {
-    "name": "JavaScript",
-    "image": "./images/js.webp",
-    "level": "Intermediate"
-  },
-  {
-    "name": "React",
-    "image": "./images/react.webp",
-    "level": "Intermediate"
-  },
-  {
-    "name": "PHP",
-    "image": "./images/php.webp",
-    "level": "Intermediate"
-  },
-  {
-    "name": "SQL",
-    "image": "./images/sql.webp",
-    "level": "Intermediate"
-  },
-  {
-    "name": "Symfony",
-    "image": "./images/symfony.webp",
-    "level": "Intermediate"
-  },
-  {
-    "name": "Python",
-    "image": "./images/python.webp",
-    "level": "Basic"
-  },
-  {
-    "name": "Photoshop",
-    "image": "./images/photoshop.webp",
-    "level": "Basic"
-  },
-  {
-    "name": "Figma",
-    "image": "./images/figma.webp",
-    "level": "Basic"
+    "group": "Microsoft & Power Platform",
+    "skills": [
+      { "name": "Power Apps", "image": "./images/power-app-removebg-preview.webp" },
+      { "name": "Power BI", "image": "./images/powerbi.webp" },
+      { "name": "Power Automate", "image": "./images/power-automate-removebg-preview.webp" },
+      { "name": "SharePoint", "image": "./images/sharepoint.webp" },
+      { "name": "Excel", "image": "./images/excel-removebg-preview.webp" },
+      { "name": "Azure DevOps", "image": "./images/azure.webp" }
+    ]
   }
 ]

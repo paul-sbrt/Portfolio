@@ -28,7 +28,9 @@ function certUrl(cert) {
   );
 }
 
-// Fonction pour charger et afficher les compétences
+// Fonction pour charger et afficher les compétences.
+// Données groupées ([{group, skills:[{name, image?}]}]) OU plate (rétrocompat).
+// Aucun niveau affiché ; l'icône est optionnelle (skills sans visuel = puce texte).
 function displaySkills() {
   fetch("skill.json")
     .then((response) => response.json())
@@ -36,29 +38,48 @@ function displaySkills() {
       const skillsContent = document.querySelector(".tab-content.skills");
       skillsContent.innerHTML = ""; // Vider le contenu existant
 
-      // Parcourir les données et créer les éléments HTML dynamiquement
-      skillsData.forEach((skill) => {
-        const skillBox = document.createElement("div");
-        skillBox.classList.add("box");
+      const groups = Array.isArray(skillsData) && skillsData[0] && skillsData[0].group
+        ? skillsData
+        : [{ group: "", skills: skillsData }];
 
-        const skillImage = document.createElement("img");
-        skillImage.src = skill.image;
-        skillImage.loading = "lazy";
-        skillImage.alt = skill.name;
+      groups.forEach((group) => {
+        const groupEl = document.createElement("div");
+        groupEl.classList.add("skills-group");
 
-        const skillName = document.createElement("span");
-        skillName.textContent = skill.name;
+        if (group.group) {
+          const groupTitle = document.createElement("h4");
+          groupTitle.classList.add("skills-group-title");
+          groupTitle.textContent = group.group;
+          groupEl.appendChild(groupTitle);
+        }
 
-        const skillLevel = document.createElement("p");
-        skillLevel.textContent = skill.level;
+        const gridEl = document.createElement("div");
+        gridEl.classList.add("skills-grid");
 
-        skillBox.appendChild(skillImage);
-        skillBox.appendChild(document.createElement("br"));
-        skillBox.appendChild(skillName);
-        skillBox.appendChild(document.createElement("br"));
-        skillBox.appendChild(skillLevel);
+        (group.skills || []).forEach((skill) => {
+          const skillBox = document.createElement("div");
+          skillBox.classList.add("box");
 
-        skillsContent.appendChild(skillBox);
+          if (skill.image) {
+            const skillImage = document.createElement("img");
+            skillImage.src = skill.image;
+            skillImage.loading = "lazy";
+            skillImage.alt = skill.name;
+            skillBox.appendChild(skillImage);
+            skillBox.appendChild(document.createElement("br"));
+          } else {
+            skillBox.classList.add("box--text");
+          }
+
+          const skillName = document.createElement("span");
+          skillName.textContent = skill.name;
+          skillBox.appendChild(skillName);
+
+          gridEl.appendChild(skillBox);
+        });
+
+        groupEl.appendChild(gridEl);
+        skillsContent.appendChild(groupEl);
       });
       emitTabContentUpdated();
     })

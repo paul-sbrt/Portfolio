@@ -329,6 +329,38 @@ h1.sub-title {
   margin-bottom: 3px;
 }
 
+/* Grouped skills (4 parity groups, no levels). Icon-less skills fall back
+   to a text chip until real icons are added (design pass). */
+.skills-group-title {
+  font-size: var(--fs-300);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin: 26px 0 2px;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.box--text {
+  width: auto;
+  height: auto;
+  margin: 12px 10px;
+  padding: 10px 18px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface-raised);
+}
+
+.box--text span {
+  font-size: var(--fs-300);
+}
+
 .box-2 {
   text-align: center;
   margin: 30px 20px;
