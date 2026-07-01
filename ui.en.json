@@ -15,14 +15,14 @@
   "btn.downloadCv": "Download CV",
   "btn.seeMore": "See more",
   "btn.send": "Send",
-  "form.name": "Votre nom",
-  "form.email": "Votre email",
-  "form.message": "Votre message",
-  "section.projects": "Mes projets",
-  "section.contact": "Me contacter",
+  "form.name": "Your name",
+  "form.email": "Your email",
+  "form.message": "Your message",
+  "section.projects": "My projects",
+  "section.contact": "Get in touch",
   "footer.copyright": "Copyright",
-  "detail.outcomes": "Points clés",
-  "detail.book": "Réserver une démo",
-  "detail.back": "Retour aux projets",
-  "detail.close": "Fermer la galerie"
+  "detail.outcomes": "Key outcomes",
+  "detail.book": "Book a walkthrough",
+  "detail.back": "Back to all projects",
+  "detail.close": "Close gallery view"
 }

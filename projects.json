@@ -182,6 +182,13 @@
             "en": "Google Play"
           },
           "url": "[[À COMPLÉTER: lien Google Play Store]]"
+        },
+        {
+          "label": {
+            "fr": "Visiter le site",
+            "en": "Visit the site"
+          },
+          "url": "https://stow-app.fr/"
         }
       ],
       "cta": {

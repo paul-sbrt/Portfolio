@@ -10,12 +10,19 @@
   function syncIcon() {
     if (!btn) return;
     var isLight = current() === "light";
+    var isEn = root.lang === "en";
     var icon = btn.querySelector("i");
     if (icon) icon.className = isLight ? "fa-solid fa-sun" : "fa-solid fa-moon";
     btn.setAttribute("aria-pressed", String(isLight));
     btn.setAttribute(
       "aria-label",
-      isLight ? "Passer en thème sombre" : "Passer en thème clair"
+      isLight
+        ? isEn
+          ? "Switch to dark theme"
+          : "Passer en thème sombre"
+        : isEn
+        ? "Switch to light theme"
+        : "Passer en thème clair"
     );
   }
 
@@ -31,4 +38,7 @@
       syncIcon();
     });
   }
+
+  // Keep the theme-toggle label in the active language when it changes.
+  window.addEventListener("langChanged", syncIcon);
 })();
