@@ -258,15 +258,17 @@ h1.sub-title {
 
 .tab-title {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 25px;
 }
 
 .tab-links {
-  margin: 30px 50px 15px 13px;
+  margin: 24px 36px 12px 0;
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
   position: relative;
+  white-space: nowrap;
 }
 
 .about-col-2 p {
@@ -343,13 +345,15 @@ h1.sub-title {
   object-fit: contain;
 }
 
-/* Studies — uniform logo tiles (every entry has a logo). */
+/* Studies — uniform logo tiles (every entry has a logo). Height grows with
+   the label so long institution names never overflow the tile. */
 .box-2 {
   text-align: center;
   margin: 30px 20px;
   display: inline-block;
+  vertical-align: top;
   width: 165px;
-  height: 112px;
+  min-height: 112px;
 }
 
 .box-2 span {
