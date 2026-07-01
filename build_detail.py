@@ -44,6 +44,61 @@ def og_abs(path):
     return f"{DOMAIN}/{p}"
 
 
+def is_placeholder(value):
+    return "À COMPLÉTER" in str(value or "")
+
+
+def render_actions(links, external_url):
+    """Live-link buttons (App Store, site…). Skips placeholder URLs."""
+    items = list(links or [])
+    if not items and external_url and not is_placeholder(external_url):
+        items = [{"label": "Visiter", "url": external_url}]
+    btns = []
+    for link in items:
+        url = link.get("url", "")
+        if not url or is_placeholder(url):
+            continue
+        label = esc(link.get("label", "Visiter"))
+        btns.append(
+            f'<a class="btn detail-live-btn" href="{esc(url)}" target="_blank" rel="noopener noreferrer">{label}</a>'
+        )
+    if not btns:
+        return ""
+    return '\n          <div class="detail-actions">' + "".join(btns) + "</div>"
+
+
+def render_gallery_section(detail):
+    gallery = detail.get("gallery", [])
+    if not gallery:
+        return ""
+    gallery_title = esc(detail.get("galleryTitle", "Gallery"))
+    gallery_lead = esc(detail.get("galleryLead", ""))
+    gallery_lead_html = (
+        f'\n        <p class="ms-lead ms-lead--compact">{gallery_lead}</p>' if gallery_lead else ""
+    )
+    return f"""
+      <section class="container ms-section" id="detail-gallery">
+        <h2 class="sub-title">{gallery_title}</h2>{gallery_lead_html}
+
+        <div class="ms-panel">
+          <div class="detail-gallery">
+{render_gallery(gallery)}
+          </div>
+        </div>
+{render_video(detail.get("video"))}      </section>
+
+      <div class="detail-lightbox" id="detailLightbox" aria-hidden="true">
+        <button class="detail-lightbox-close" id="detailLightboxClose" aria-label="Close gallery view">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="detail-lightbox-media">
+          <img id="detailLightboxImg" src="" alt="" />
+          <p id="detailLightboxCaption"></p>
+        </div>
+      </div>
+"""
+
+
 def render_gallery(gallery):
     figs = []
     for shot in gallery:
@@ -112,8 +167,6 @@ def render_page(project):
     context = detail.get("context") or {}
     context_heading = esc(context.get("heading", "Project context"))
     context_body = esc(context.get("body", ""))
-    gallery_title = esc(detail.get("galleryTitle", "Gallery"))
-    gallery_lead = esc(detail.get("galleryLead", ""))
     cta = detail.get("cta") or {}
     cta_heading = esc(cta.get("heading", "Interested?"))
     cta_body = esc(cta.get("body", ""))
@@ -130,9 +183,8 @@ def render_page(project):
         if context_body
         else ""
     )
-    gallery_lead_html = (
-        f'\n        <p class="ms-lead ms-lead--compact">{gallery_lead}</p>' if gallery_lead else ""
-    )
+    actions_html = render_actions(detail.get("links"), project.get("externalUrl"))
+    gallery_section = render_gallery_section(detail)
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -202,30 +254,10 @@ def render_page(project):
           {tagline_html}<h1 class="sub-title">
             <span class="ms-highlight">{highlight}</span> {heading}
           </h1>
-          <p class="ms-lead">{lead}</p>{status_html}{context_html}
+          <p class="ms-lead">{lead}</p>{status_html}{actions_html}{context_html}
         </div>
       </header>
-{render_impact(detail.get("impact"))}
-      <section class="container ms-section" id="detail-gallery">
-        <h2 class="sub-title">{gallery_title}</h2>{gallery_lead_html}
-
-        <div class="ms-panel">
-          <div class="detail-gallery">
-{render_gallery(detail.get("gallery", []))}
-          </div>
-        </div>
-{render_video(detail.get("video"))}      </section>
-
-      <div class="detail-lightbox" id="detailLightbox" aria-hidden="true">
-        <button class="detail-lightbox-close" id="detailLightboxClose" aria-label="Close gallery view">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="detail-lightbox-media">
-          <img id="detailLightboxImg" src="" alt="" />
-          <p id="detailLightboxCaption"></p>
-        </div>
-      </div>
-
+{render_impact(detail.get("impact"))}{gallery_section}
       <section class="container ms-section">
         <div class="ms-panel detail-cta">
           <div>

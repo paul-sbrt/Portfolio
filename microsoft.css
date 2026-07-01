@@ -384,6 +384,27 @@ body.detail-lightbox-open{
   margin-top: 4px;
 }
 
+.detail-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.detail-actions .btn{
+  margin: 0;
+}
+
+.detail-live-btn{
+  border-color: var(--hat, var(--accent));
+  color: var(--hat-text, var(--text));
+}
+
+.detail-live-btn:hover{
+  background: var(--hat, var(--accent));
+  color: var(--on-accent);
+}
+
 .ms-note-card{
   background: var(--surface-raised);
   border: 1px solid var(--border);
