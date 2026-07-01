@@ -229,54 +229,126 @@ function displayCertifications() {
 }
 
 function displayProjects() {
+  const grid = document.querySelector("#project-grid");
+  if (!grid) return;
+  const filtersContainer = document.querySelector("#project-filters");
+
   fetch("projects.json")
     .then((response) => response.json())
     .then((projectData) => {
-      const projectsContainer = document.querySelector(".swiper-wrapper");
-
+      grid.innerHTML = "";
       projectData.forEach((project) => {
-        const projectElement = document.createElement("div");
-        projectElement.classList.add("work", "swiper-slide");
-
-        const imgElement = document.createElement("img");
-        imgElement.src = project.image;
-        imgElement.alt = project.title;
-        imgElement.loading = "lazy";
-
-        const layerElement = document.createElement("div");
-        layerElement.classList.add("layer");
-
-        const titleElement = document.createElement("h3");
-        titleElement.textContent = project.title;
-
-        const descriptionElement = document.createElement("p");
-        descriptionElement.textContent = project.summary || project.description || "";
-
-        // Featured projects link to their generated detail page (same tab);
-        // everything else links out to its live/external URL (new tab).
-        const linkElement = document.createElement("a");
-        if (project.featured && project.slug) {
-          linkElement.href = `projects/${project.slug}.html`;
-        } else {
-          linkElement.href = project.externalUrl || project.link || "#";
-          linkElement.target = "_blank";
-          linkElement.rel = "noopener noreferrer";
-        }
-        const arrowIcon = document.createElement("i");
-        arrowIcon.classList.add("fa-solid", "fa-arrow-up-right-from-square");
-        linkElement.appendChild(arrowIcon);
-
-        layerElement.appendChild(titleElement);
-        layerElement.appendChild(descriptionElement);
-        layerElement.appendChild(linkElement);
-
-        projectElement.appendChild(imgElement);
-        projectElement.appendChild(layerElement);
-
-        projectsContainer.appendChild(projectElement);
+        grid.appendChild(buildProjectCard(project));
       });
+      buildProjectFilters(projectData, filtersContainer, grid);
     })
     .catch((error) => console.error("Error fetching projects:", error));
+}
+
+// Build one project card (createElement — no unescaped innerHTML).
+function buildProjectCard(project) {
+  const hats = Array.isArray(project.hats) ? project.hats : [];
+  const tags = Array.isArray(project.tags) ? project.tags : [];
+  const isFeatured = Boolean(project.featured && project.slug);
+
+  const card = document.createElement("a");
+  card.className = "project-card";
+  card.dataset.hats = hats.join("|");
+  if (isFeatured) {
+    card.href = `projects/${project.slug}.html`;
+  } else {
+    card.href = project.externalUrl || project.link || "#";
+    card.target = "_blank";
+    card.rel = "noopener noreferrer";
+  }
+  card.setAttribute("aria-label", `Open ${project.title}`);
+
+  const thumb = document.createElement("div");
+  thumb.className = "project-card-thumb";
+  const img = document.createElement("img");
+  img.src = project.image;
+  img.alt = project.title;
+  img.loading = "lazy";
+  thumb.appendChild(img);
+
+  const body = document.createElement("div");
+  body.className = "project-card-body";
+
+  const title = document.createElement("h3");
+  title.textContent = project.title;
+  body.appendChild(title);
+
+  if (tags.length) {
+    const tagRow = document.createElement("div");
+    tagRow.className = "project-tags";
+    tags.forEach((t) => {
+      const chip = document.createElement("span");
+      chip.className = "project-tag";
+      chip.textContent = t;
+      tagRow.appendChild(chip);
+    });
+    body.appendChild(tagRow);
+  }
+
+  const summary = document.createElement("p");
+  summary.className = "project-summary";
+  summary.textContent = project.summary || project.description || "";
+  body.appendChild(summary);
+
+  const foot = document.createElement("div");
+  foot.className = "project-card-foot";
+  hats.forEach((h) => {
+    const hatChip = document.createElement("span");
+    hatChip.className = "project-hat";
+    hatChip.dataset.hat = h;
+    hatChip.textContent = h;
+    foot.appendChild(hatChip);
+  });
+  const arrow = document.createElement("i");
+  arrow.className = isFeatured
+    ? "fa-solid fa-arrow-right project-card-arrow"
+    : "fa-solid fa-arrow-up-right-from-square project-card-arrow";
+  foot.appendChild(arrow);
+  body.appendChild(foot);
+
+  card.appendChild(thumb);
+  card.appendChild(body);
+  return card;
+}
+
+// Build the hat filter bar and wire it to show/hide cards.
+function buildProjectFilters(projectData, filtersContainer, grid) {
+  if (!filtersContainer) return;
+  const hatSet = [];
+  projectData.forEach((p) => {
+    (p.hats || []).forEach((h) => {
+      if (!hatSet.includes(h)) hatSet.push(h);
+    });
+  });
+
+  filtersContainer.innerHTML = "";
+  const filters = ["all", ...hatSet];
+  filters.forEach((filter, index) => {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "filter-chip" + (index === 0 ? " is-active" : "");
+    chip.dataset.filter = filter;
+    if (filter !== "all") chip.dataset.hat = filter;
+    chip.textContent = filter === "all" ? "All" : filter;
+    chip.addEventListener("click", () => applyFilter(filter, filtersContainer, grid));
+    filtersContainer.appendChild(chip);
+  });
+}
+
+function applyFilter(filter, filtersContainer, grid) {
+  filtersContainer.querySelectorAll(".filter-chip").forEach((c) => {
+    c.classList.toggle("is-active", c.dataset.filter === filter);
+  });
+  grid.querySelectorAll(".project-card").forEach((card) => {
+    const hats = (card.dataset.hats || "").split("|").filter(Boolean);
+    const show = filter === "all" || hats.includes(filter);
+    card.style.display = show ? "" : "none";
+  });
 }
 
 displayProjects();

@@ -31,10 +31,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <!-- CSS -->
-    <link
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-      rel="stylesheet"
-    />
     <link href="./style.css" rel="stylesheet" />
     <!-- FONT-->
     <script
@@ -137,13 +133,8 @@
           <div id="projects">
             <div class="container">
               <h2 class="sub-title">My Projects</h2>
-              <!-- Swiper -->
-              <div class="swiper mySwiper work-list">
-                <div class="swiper-wrapper"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-              </div>
+              <div class="project-filters" id="project-filters"></div>
+              <div class="project-grid" id="project-grid"></div>
               <a class="btn" href="https://github.com/paul-sbrt" target="_blank"
                 >See More</a
               >
@@ -214,7 +205,6 @@
           </footer>
           <!--JS-->
           <script src="./display.js" defer></script>
-          <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
           <script src="./app.js" defer></script>
         </div>
       </div>

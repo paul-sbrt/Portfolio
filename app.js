@@ -118,37 +118,6 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// -----Slide projects----
-
-const swiperContainer = document.querySelector(".mySwiper");
-let swiper = null;
-
-if (typeof Swiper !== "undefined" && swiperContainer) {
-  swiper = new Swiper(".mySwiper", {
-    slidesPerView: 2,
-    spaceBetween: 55,
-    slidesPerGroup: 1,
-    loop: true,
-    loopFillGroupWithBlank: true,
-    keyboard: {
-      enabled: true,
-    },
-    mousewheel: true,
-
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: false,
-      dynamicBullets: true,
-      loop: true,
-    },
-
-    navigation: {
-      prevEl: ".swiper-button-prev",
-      nextEl: ".swiper-button-next",
-    },
-  });
-}
-
 // ------ menu mobile ------
 
 let sideMenu = document.getElementById("sidemenu");
@@ -193,15 +162,3 @@ if (sideMenu) {
 
 window.addEventListener("resize", closeMenu);
 closeMenu();
-
-// ---- responsive slide ----
-
-if (swiper) {
-  const updateSlidesPerView = () => {
-    swiper.params.slidesPerView = window.innerWidth < 600 ? 1 : 2;
-    swiper.update();
-  };
-
-  window.addEventListener("resize", updateSlidesPerView);
-  updateSlidesPerView(); // initial sync
-}
