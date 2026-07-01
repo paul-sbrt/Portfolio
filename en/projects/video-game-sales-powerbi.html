@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <script>
@@ -19,45 +19,45 @@
     <title>Video Game Sales Analysis — Power BI — Paul Sabourault</title>
     <meta name="description" content="Interactive Power BI report built from a public Kaggle dataset to analyze global video game sales. Designed both as a portfolio case study and as hands-on preparation for the PL-300 certification, covering data modeling, DAX measures, and interactive reporting." />
     <!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
-    <link rel="canonical" href="https://YOUR-DOMAIN.com/projects/video-game-sales-powerbi.html" />
+    <link rel="canonical" href="https://YOUR-DOMAIN.com/en/projects/video-game-sales-powerbi.html" />
     <link rel="alternate" hreflang="fr" href="https://YOUR-DOMAIN.com/projects/video-game-sales-powerbi.html" />
     <link rel="alternate" hreflang="en" href="https://YOUR-DOMAIN.com/en/projects/video-game-sales-powerbi.html" />
     <link rel="alternate" hreflang="x-default" href="https://YOUR-DOMAIN.com/projects/video-game-sales-powerbi.html" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Video Game Sales Analysis — Power BI" />
     <meta property="og:description" content="Interactive Power BI report built from a public Kaggle dataset to analyze global video game sales. Designed both as a portfolio case study and as hands-on preparation for the PL-300 certification, covering data modeling, DAX measures, and interactive reporting." />
-    <meta property="og:url" content="https://YOUR-DOMAIN.com/projects/video-game-sales-powerbi.html" />
+    <meta property="og:url" content="https://YOUR-DOMAIN.com/en/projects/video-game-sales-powerbi.html" />
     <meta property="og:image" content="https://YOUR-DOMAIN.com/images/powerbi.webp" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="../microsoft.css" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../../microsoft.css" />
     <script src="https://kit.fontawesome.com/5d10eb0d43.js" defer crossorigin="anonymous"></script>
-    <script src="../theme.js" defer></script>
-    <script src="../i18n.js" defer></script>
+    <script src="../../theme.js" defer></script>
+    <script src="../../i18n.js" defer></script>
   </head>
 
-  <body data-hat="Microsoft" data-detail data-i18n-base="../" data-alt-en="../en/projects/video-game-sales-powerbi.html">
+  <body data-hat="Microsoft" data-detail data-i18n-base="../../" data-alt-fr="../../projects/video-game-sales-powerbi.html">
     <div class="ms-nav-shell">
       <div class="container">
         <div class="header-sticky">
           <div class="nom">
-            <a href="../index.html#header"
+            <a href="../../index.html#header"
               ><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a
             >
           </div>
           <nav>
             <ul id="sidemenu">
-              <li><a href="../index.html#header">Accueil</a></li>
-              <li><a href="../index.html#about">À propos</a></li>
-              <li><a href="../index.html#projects">Projets</a></li>
-              <li><a href="../index.html#contact">Contact</a></li>
+              <li><a href="../../index.html#header">Accueil</a></li>
+              <li><a href="../../index.html#about">À propos</a></li>
+              <li><a href="../../index.html#projects">Projets</a></li>
+              <li><a href="../../index.html#contact">Contact</a></li>
               <i class="fa-solid fa-xmark"></i>
             </ul>
-            <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Switch to English">EN</button>
+            <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Passer en français">FR</button>
             <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Passer en thème clair"><i class="fa-solid fa-moon"></i></button>
             <i class="fa-solid fa-bars"></i>
           </nav>
@@ -101,37 +101,37 @@
           <div class="detail-gallery">
             <figure class="detail-shot">
               <div class="detail-shot-frame">
-                <img src="../images/screen-sale1-copie.webp" alt="Overview KPIs for the video game sales dashboard" loading="lazy" data-full="../images/screen-sale1-copie.webp" />
+                <img src="../../images/screen-sale1-copie.webp" alt="Overview KPIs for the video game sales dashboard" loading="lazy" data-full="../../images/screen-sale1-copie.webp" />
               </div>
               <figcaption>Overview — revenue KPIs, growth indicators and a genre filter bar to steer the story.</figcaption>
             </figure>
             <figure class="detail-shot">
               <div class="detail-shot-frame">
-                <img src="../images/screen-sale1-5-copie.webp" alt="Regional performance heatmap" loading="lazy" data-full="../images/screen-sale1-5-copie.webp" />
+                <img src="../../images/screen-sale1-5-copie.webp" alt="Regional performance heatmap" loading="lazy" data-full="../../images/screen-sale1-5-copie.webp" />
               </div>
               <figcaption>Regions — synchronized map + column charts compare North America, Europe, Japan and ROW.</figcaption>
             </figure>
             <figure class="detail-shot">
               <div class="detail-shot-frame">
-                <img src="../images/screen-sale2-copie.webp" alt="Franchise ranking leaderboard" loading="lazy" data-full="../images/screen-sale2-copie.webp" />
+                <img src="../../images/screen-sale2-copie.webp" alt="Franchise ranking leaderboard" loading="lazy" data-full="../../images/screen-sale2-copie.webp" />
               </div>
               <figcaption>Franchises — Top N selector powered by DAX ranking measures with tooltips for long-tail titles.</figcaption>
             </figure>
             <figure class="detail-shot">
               <div class="detail-shot-frame">
-                <img src="../images/screen-sale2-5-copie.webp" alt="Platform lifecycle timeline" loading="lazy" data-full="../images/screen-sale2-5-copie.webp" />
+                <img src="../../images/screen-sale2-5-copie.webp" alt="Platform lifecycle timeline" loading="lazy" data-full="../../images/screen-sale2-5-copie.webp" />
               </div>
               <figcaption>Platforms — lifecycle chart showing launches vs. revenue maturity to guide platform bets.</figcaption>
             </figure>
             <figure class="detail-shot">
               <div class="detail-shot-frame">
-                <img src="../images/screen-sale3-copie.webp" alt="Datamodel view showing fact and dimension tables" loading="lazy" data-full="../images/screen-sale3-copie.webp" />
+                <img src="../../images/screen-sale3-copie.webp" alt="Datamodel view showing fact and dimension tables" loading="lazy" data-full="../../images/screen-sale3-copie.webp" />
               </div>
               <figcaption>Data model — star schema built in Power BI Desktop with fact Sales and Date/Genre/Platform/Publisher dims.</figcaption>
             </figure>
             <figure class="detail-shot">
               <div class="detail-shot-frame">
-                <img src="../images/screen-sale3-5-copie.webp" alt="Mobile-ready layout" loading="lazy" data-full="../images/screen-sale3-5-copie.webp" />
+                <img src="../../images/screen-sale3-5-copie.webp" alt="Mobile-ready layout" loading="lazy" data-full="../../images/screen-sale3-5-copie.webp" />
               </div>
               <figcaption>Mobile — responsive canvas with simplified KPIs for handheld consumption during demos.</figcaption>
             </figure>
@@ -166,8 +166,8 @@
             <p class="ms-lead ms-lead--compact">Let me demo the model, DAX techniques and UX guidelines I used here so we can replicate them for your dataset.</p>
           </div>
           <div class="detail-cta-actions">
-            <a class="btn btn2" href="../index.html#contact">Réserver une démo</a>
-            <a class="btn detail-back-btn" href="../index.html#projects"
+            <a class="btn btn2" href="../../index.html#contact">Réserver une démo</a>
+            <a class="btn detail-back-btn" href="../../index.html#projects"
               ><i class="fa-solid fa-arrow-left"></i> Retour aux projets</a
             >
           </div>
@@ -179,7 +179,7 @@
       </footer>
     </main>
 
-    <script src="../app.js" defer></script>
-    <script src="../lightbox.js"></script>
+    <script src="../../app.js" defer></script>
+    <script src="../../lightbox.js"></script>
   </body>
 </html>

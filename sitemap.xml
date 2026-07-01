@@ -10,7 +10,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://YOUR-DOMAIN.com/en/projects/dump.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://YOUR-DOMAIN.com/projects/stow.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://YOUR-DOMAIN.com/en/projects/stow.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -18,7 +26,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://YOUR-DOMAIN.com/en/projects/extralimo.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://YOUR-DOMAIN.com/projects/site-solutions-microsoft.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://YOUR-DOMAIN.com/en/projects/site-solutions-microsoft.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -26,11 +42,23 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://YOUR-DOMAIN.com/en/projects/video-game-sales-powerbi.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://YOUR-DOMAIN.com/projects/mscd-application.html</loc>
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://YOUR-DOMAIN.com/en/projects/mscd-application.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://YOUR-DOMAIN.com/projects/suez-dashboard.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://YOUR-DOMAIN.com/en/projects/suez-dashboard.html</loc>
     <priority>0.6</priority>
   </url>
 </urlset>
