@@ -96,35 +96,53 @@ function displayExperience() {
       );
       experienceContent.innerHTML = ""; // Vider le contenu existant
 
-      // Parcourir les données et créer les éléments HTML dynamiquement
+      // Parcourir les données et créer les éléments HTML dynamiquement.
+      // Image et description optionnelles ; une entrée sans logo ou avec
+      // description passe en carte "block" lisible (mise en forme provisoire,
+      // le composant expérience sera retravaillé à la passe design).
       experienceData.forEach((experience) => {
         const experienceBox = document.createElement("div");
         experienceBox.classList.add("box-2");
+        if (!experience.image || experience.description) {
+          experienceBox.classList.add("box-2--block");
+        }
 
-        const experienceImage = document.createElement("img");
-        experienceImage.src = experience.image;
-        experienceImage.loading = "lazy";
-        experienceImage.alt = experience.company || experience.position || "";
+        if (experience.image) {
+          const experienceImage = document.createElement("img");
+          experienceImage.src = experience.image;
+          experienceImage.loading = "lazy";
+          experienceImage.alt = experience.company || experience.position || "";
+          experienceBox.appendChild(experienceImage);
+          experienceBox.appendChild(document.createElement("br"));
+        }
 
         const experiencePosition = document.createElement("span");
         experiencePosition.textContent = experience.position;
+        experienceBox.appendChild(experiencePosition);
+        experienceBox.appendChild(document.createElement("br"));
 
-        const experienceCompany = document.createElement("p");
-        experienceCompany.textContent = experience.company;
+        if (experience.company) {
+          const experienceCompany = document.createElement("p");
+          experienceCompany.textContent = experience.company;
+          experienceBox.appendChild(experienceCompany);
+        }
 
-        const experienceLocation = document.createElement("p");
-        experienceLocation.textContent = experience.location;
+        if (experience.location) {
+          const experienceLocation = document.createElement("p");
+          experienceLocation.textContent = experience.location;
+          experienceBox.appendChild(experienceLocation);
+        }
 
         const experienceDates = document.createElement("p");
         experienceDates.textContent = experience.dates;
-
-        experienceBox.appendChild(experienceImage);
-        experienceBox.appendChild(document.createElement("br"));
-        experienceBox.appendChild(experiencePosition);
-        experienceBox.appendChild(document.createElement("br"));
-        experienceBox.appendChild(experienceCompany);
-        experienceBox.appendChild(experienceLocation);
         experienceBox.appendChild(experienceDates);
+
+        if (experience.description) {
+          const experienceDesc = document.createElement("p");
+          experienceDesc.classList.add("exp-desc");
+          experienceDesc.textContent = experience.description;
+          experienceBox.appendChild(experienceDesc);
+        }
 
         experienceContent.appendChild(experienceBox);
       });

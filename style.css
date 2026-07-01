@@ -383,6 +383,25 @@ h1.sub-title {
   margin-bottom: 3px;
 }
 
+/* Entrée d'expérience sans logo ou avec description : carte lisible qui
+   ne tient pas dans la tuile compacte. Provisoire — le composant expérience
+   sera redessiné à la passe design. */
+.box-2--block {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 440px;
+  text-align: left;
+  margin: 26px 20px;
+}
+
+.box-2 .exp-desc {
+  font-size: var(--fs-300);
+  color: var(--text-muted);
+  margin-top: 6px;
+  line-height: var(--lh-base);
+}
+
 /* Projects  */
 
 #projects {
