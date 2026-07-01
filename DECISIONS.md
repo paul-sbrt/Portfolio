@@ -13,6 +13,7 @@
 
 ## Changelog
 
+- **2026-07-01** — **Feuille de route DESIGN consignée** (nouvelle section sous le Chantier 3, ⏳ EN ATTENTE — à traiter à la passe visuelle, rien implémenté). 9 pistes : affiner **palette light** ; **charte par projet vedette** (ambiance produit dans le cadre constant du portfolio → extension `--hat` vers une couleur **par projet**, futur champ `brand{}`) ; **alléger le layout** des pages détail (encore le contenu migré des ex-pages MS) ; **galerie** à revoir ; **header** (garder scroll, changer la photo = celle de l'about) ; **purge CSS `ms-*` orphelin** ; **harmoniser boutons/cartes** ; **desktop atypique** (anim scroll/hover, mobile clean — skill `frontend-design`) ; **couleurs de casquette** accordées à la DA (fil chromatique discret carte→filtre→page).
 - **2026-07-01** — **Chantier 4 — CONTENU (partie B) — projets** implémenté sur `refonte`, 2 commits. **4 vedette créées** dans `projects.json` (`featured:true`, contenu 100 % sourcé de `PROPOSITION.md`, zéro invention) : **DUMP** `hats:[App,IA]` · **STOW** `hats:[App]` · **EXTRALIMO** `hats:[Web]` · **Site solutions Microsoft** `hats:[Microsoft]` — summary, `tags[]` (stack), `type`, `detail{impact,status,links}`, `externalUrl` réels ; pages détail générées. **19 projets web classés** `hats:[Web]` (factuel : WordPress/React/Symfony/HTML-CSS-JS), restent `featured:false`. Template enrichi : **boutons live-link** (masqués si URL `[[À COMPLÉTER]]`) + **galerie optionnelle** (masquée si pas de visuels). Filtres grille désormais : **All / App / IA / Web / Microsoft**. ⚠️ **Visuels manquants** (cover + galerie des 4 vedette) = `placeholder.svg` en attendant les screenshots réels. ⏳ Restent : **preuves chiffrées** (testeurs DUMP, téléchargements STOW, inscrits EXTRALIMO, leads MS), **lien Google Play STOW**, **lien TestFlight public DUMP**, et les **choix éditoriaux** (headline/about, skills) — non traités volontairement.
 - **2026-07-01** — **Chantier 4 — PLOMBERIE (partie A) implémentée** sur `refonte`, 6 commits atomiques. **Schéma unifié** : `projects.json` unique (superset `slug`, `image`, `images[]`, `summary`, `hats[]`, `tags[]`, `type`, `year`, `featured`, `externalUrl` XOR `detail{impact,status,video,gallery}`, `openInSameTab`) ; 19 projets plats + 3 sous-cas Microsoft migrés ; `ms-projects.json` supprimé. **Moteur unique** : `display.js` (createElement, pas d'`innerHTML` non échappé) ; `microsoft-page.js` et le **hub `power-platform.html` supprimés** (fondu dans la grille) ; helper certif factorisé ; `lightbox.js` réécrit en config générique. **Template détail** : `build_detail.py` génère 1 HTML/projet `featured` sous `projects/<slug>.html` (hero + galerie variable + vidéo optionnelle + CTA + `<title>`/OG/canonical corrects) ; les 3 pages MS migrées ; préfixes CSS `suez-/mscd-/vg-` collapsés en `detail-` ; **teinte par casquette** (`--hat`/`--hat-text` via `[data-hat]`). **Grille filtrable** (filtres = `hats[]`) remplace le Swiper (dépendance retirée). **301** `.htaccess` + **sitemap** repointé vers `/projects/`. ⏳ Reste : **partie B** (contenu vedette, `hats[]` des 19, choix éditoriaux) et un peu de **CSS `ms-*` orphelin** (kpi/card/cert du hub) non bloquant. Rendu local servi pour validation.
 - **2026-07-01** — **Fiches projets `PROPOSITION.md` mises à jour** avec les infos réelles de Paul. Décisions actées : **Acteo retiré** des expériences (mission d'1 j, trop faible) ; **détails d'alternance = CV uniquement** (portfolio garde une seule ligne « en recherche d'alternance ») ; **origine restauration** = touche légère dans l'about. Fiches : **DUMP** cible = personnes débordant d'idées en vrac / qui se dispersent (TDAH inclus) — cadré **outil d'organisation, pas médical** ; angle « construit pour lui-même » ; **STOW** = **iOS + Android** (corrigé) ; **EXTRALIMO** = **commission au contrat** (%), placement selon contrat + affinité, fait avec ses associés. Restent en attente : quelques **chiffres/preuves** + 2 choix éditoriaux (variantes headline/about, skills IA/Mobile).
@@ -107,6 +108,22 @@
 
 🔒 **Couleurs de casquette** : prévoir le **mécanisme** (une teinte discrète par casquette, **sur les tags/filtres uniquement**).
 ⏳ **Teintes exactes** par casquette : **à définir plus tard**.
+
+---
+
+## 🎨 Feuille de route DESIGN (phase à venir) — ⏳ EN ATTENTE
+
+> À traiter à la **passe visuelle** (après la plomberie + le contenu du Chantier 4). **Décisions / pistes à consigner, pas à implémenter maintenant.** Utiliser le **skill `frontend-design`** (installé) pour cette passe.
+
+1. ⏳ **Palette mode light** — affiner contrastes et teintes (jugés « pas encore optimaux »).
+2. ⏳ **Charte par projet vedette** — chaque page vedette (DUMP, STOW, EXTRALIMO, Site MS) reprend la **charte du produit** (accents de couleur + ambiance propres à l'app/au site), **MAIS dans le cadre CONSTANT du portfolio** : structure, typo et composants restent les miens. Objectif : **un fil rouge sous les variations, pas un patchwork**. Techniquement = **extension du mécanisme `--hat`** déjà en place, vers une **couleur par PROJET** (plus fine que par casquette). → à terme : **champ `brand{}` par projet vedette** dans les données.
+3. ⏳ **Layout des pages détail** — repenser / **alléger**, ne garder que le pertinent (les pages actuelles portent encore le **contenu migré des anciennes pages MS**).
+4. ⏳ **Galerie** — revoir disposition et rendu.
+5. ⏳ **Header** — **garder l'effet de scroll**, **changer la photo** (réutiliser la **photo de l'about**). *(déjà acté Chantier 3 ; rappelé ici comme tâche de la passe design.)*
+6. ⏳ **Purge CSS `ms-*` orphelin** restant (résidus du hub supprimé : kpi / card / cert / demo…).
+7. ⏳ **Harmoniser les composants divergents** (boutons / cartes).
+8. ⏳ **Direction « desktop atypique »** — animations **pertinentes** au scroll/hover faisant du site une **démo du savoir-faire** ; **mobile clean/simple**. *(cf. direction visuelle Chantier 3 ; skill `frontend-design`.)*
+9. ⏳ **Couleurs de casquette** (Web / App / IA / Microsoft) **accordées à la DA** (rose/or) : **fil chromatique** carte → filtre → page + hover. **Teintes discrètes, pas d'arc-en-ciel.**
 
 ---
 
