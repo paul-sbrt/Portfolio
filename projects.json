@@ -5,7 +5,7 @@
     "image": "./images/placeholder.svg",
     "summary": {
       "fr": "« Deuxième cerveau » iOS : on capture texte ou voix en vrac, l'IA (Claude + Whisper) trie automatiquement en catégories et niveaux d'urgence, suggère des connexions et des rappels. Modèle freemium via StoreKit 2.",
-      "en": "« Deuxième cerveau » iOS : on capture texte ou voix en vrac, l'IA (Claude + Whisper) trie automatiquement en catégories et niveaux d'urgence, suggère des connexions et des rappels. Modèle freemium via StoreKit 2."
+      "en": "iOS “second brain”: capture text or voice on the fly, and the AI (Claude + Whisper) automatically sorts it into categories and urgency levels, suggesting connections and reminders. Freemium model via StoreKit 2."
     },
     "hats": [
       "App",
@@ -22,7 +22,7 @@
     ],
     "type": {
       "fr": "Application mobile (iOS)",
-      "en": "Application mobile (iOS)"
+      "en": "Mobile app (iOS)"
     },
     "year": 2026,
     "featured": true,
@@ -31,7 +31,7 @@
     "detail": {
       "tagline": {
         "fr": "Second cerveau augmenté par l'IA",
-        "en": "Second cerveau augmenté par l'IA"
+        "en": "A second brain, augmented by AI"
       },
       "highlight": {
         "fr": "DUMP",
@@ -39,57 +39,57 @@
       },
       "heading": {
         "fr": "second cerveau iOS",
-        "en": "second cerveau iOS"
+        "en": "iOS second brain"
       },
       "lead": {
         "fr": "On capture une idée, une note ou un vocal en vrac — et on la perd, ou on ne la retrouve pas structurée. DUMP est un assistant cognitif : on parle ou on écrit en vrac, l'IA trie automatiquement. Particulièrement utile aux profils qui débordent d'idées et se dispersent (TDAH inclus), comme outil d'organisation au quotidien. Paul l'a d'abord construit pour lui-même.",
-        "en": "On capture une idée, une note ou un vocal en vrac — et on la perd, ou on ne la retrouve pas structurée. DUMP est un assistant cognitif : on parle ou on écrit en vrac, l'IA trie automatiquement. Particulièrement utile aux profils qui débordent d'idées et se dispersent (TDAH inclus), comme outil d'organisation au quotidien. Paul l'a d'abord construit pour lui-même."
+        "en": "You capture an idea, a note or a voice memo on the fly — and then you lose it, or you can't find it in any usable shape. DUMP is a cognitive assistant: you speak or type, messy and unfiltered, and the AI sorts it automatically. Especially handy for minds that overflow with ideas and scatter easily (ADHD included), as an everyday organization tool. Paul built it for himself first."
       },
       "status": {
         "fr": "Sur TestFlight (build 2) — le projet le plus actif de Paul (503 commits, mise à jour juin 2026), design system v2, widgets « production ready ».",
-        "en": "Sur TestFlight (build 2) — le projet le plus actif de Paul (503 commits, mise à jour juin 2026), design system v2, widgets « production ready »."
+        "en": "On TestFlight (build 2) — Paul's most active project (503 commits, updated June 2026), design system v2, production-ready widgets."
       },
       "context": {
         "heading": {
           "fr": "La solution",
-          "en": "La solution"
+          "en": "The solution"
         },
         "body": {
           "fr": "App iOS native qui transforme un flux brut en notes triées : capture texte et voix (transcription Whisper), classification IA (Claude) en catégories ACTION / INFO / IDÉE / VRAC et niveaux d'urgence, suggestions de connexions entre notes, extraction d'entités anonymisées, rappels datés, apprentissage des corrections. Onboarding zéro friction (pas de compte), widgets et extension de partage.",
-          "en": "App iOS native qui transforme un flux brut en notes triées : capture texte et voix (transcription Whisper), classification IA (Claude) en catégories ACTION / INFO / IDÉE / VRAC et niveaux d'urgence, suggestions de connexions entre notes, extraction d'entités anonymisées, rappels datés, apprentissage des corrections. Onboarding zéro friction (pas de compte), widgets et extension de partage."
+          "en": "A native iOS app that turns a raw stream into sorted notes: text and voice capture (Whisper transcription), AI classification (Claude) into ACTION / INFO / IDEA / MISC categories and urgency levels, connection suggestions between notes, anonymized entity extraction, dated reminders, and learning from your corrections. Zero-friction onboarding (no account), widgets and a share extension."
         }
       },
       "impact": [
         {
           "fr": "Capture texte + voix, avec transcription des vocaux via Whisper",
-          "en": "Capture texte + voix, avec transcription des vocaux via Whisper"
+          "en": "Text + voice capture, with Whisper transcription of voice memos"
         },
         {
           "fr": "Classification automatique par Claude (ACTION / INFO / IDÉE / VRAC + catégories custom apprises) et niveaux d'urgence",
-          "en": "Classification automatique par Claude (ACTION / INFO / IDÉE / VRAC + catégories custom apprises) et niveaux d'urgence"
+          "en": "Automatic classification by Claude (ACTION / INFO / IDEA / MISC + custom categories it learns) and urgency levels"
         },
         {
           "fr": "Suggestions de connexions entre notes et extraction d'entités (anonymisées avant envoi)",
-          "en": "Suggestions de connexions entre notes et extraction d'entités (anonymisées avant envoi)"
+          "en": "Connection suggestions between notes and entity extraction (anonymized before sending)"
         },
         {
           "fr": "Rappels datés, buffer d'impulsivité et apprentissage des corrections de l'utilisateur",
-          "en": "Rappels datés, buffer d'impulsivité et apprentissage des corrections de l'utilisateur"
+          "en": "Dated reminders, an impulsivity buffer, and learning from the user's corrections"
         },
         {
           "fr": "Modèle freemium : gratuit jusqu'à 25 classifications IA/semaine, premium illimité via StoreKit 2",
-          "en": "Modèle freemium : gratuit jusqu'à 25 classifications IA/semaine, premium illimité via StoreKit 2"
+          "en": "Freemium model: free up to 25 AI classifications/week, unlimited with premium via StoreKit 2"
         }
       ],
       "links": [],
       "cta": {
         "heading": {
           "fr": "Envie d'en voir plus ?",
-          "en": "Envie d'en voir plus ?"
+          "en": "Want to see more?"
         },
         "body": {
           "fr": "Je peux présenter l'architecture (proxy Cloudflare, clés IA côté serveur), le design system et le fonctionnement de la classification.",
-          "en": "Je peux présenter l'architecture (proxy Cloudflare, clés IA côté serveur), le design system et le fonctionnement de la classification."
+          "en": "I can walk through the architecture (Cloudflare proxy, AI keys kept server-side), the design system and how the classification works."
         }
       }
     }
@@ -100,7 +100,7 @@
     "image": "./images/placeholder.svg",
     "summary": {
       "fr": "Coffre-fort de documents de voyage partagé : on crée un voyage, on invite ses amis, chacun ajoute ses documents (billets, passeports), accessibles hors ligne. Publié sur iOS et Android.",
-      "en": "Coffre-fort de documents de voyage partagé : on crée un voyage, on invite ses amis, chacun ajoute ses documents (billets, passeports), accessibles hors ligne. Publié sur iOS et Android."
+      "en": "A shared vault for group-travel documents: create a trip, invite your friends, and everyone adds their documents (tickets, passports), available offline. Published on iOS and Android."
     },
     "hats": [
       "App"
@@ -114,7 +114,7 @@
     ],
     "type": {
       "fr": "Application mobile (iOS & Android)",
-      "en": "Application mobile (iOS & Android)"
+      "en": "Mobile app (iOS & Android)"
     },
     "featured": true,
     "openInSameTab": true,
@@ -122,7 +122,7 @@
     "detail": {
       "tagline": {
         "fr": "Le coffre-fort de vos voyages en groupe",
-        "en": "Le coffre-fort de vos voyages en groupe"
+        "en": "The vault for your group trips"
       },
       "highlight": {
         "fr": "STOW",
@@ -130,42 +130,42 @@
       },
       "heading": {
         "fr": "voyagez serein",
-        "en": "voyagez serein"
+        "en": "travel worry-free"
       },
       "lead": {
         "fr": "En voyage de groupe, les documents (billets, réservations, photos de passeport) sont éparpillés dans WhatsApp et introuvables au mauvais moment, sans accès hors ligne à la douane ou à l'arrivée. STOW est un coffre-fort de documents de voyage partagé.",
-        "en": "En voyage de groupe, les documents (billets, réservations, photos de passeport) sont éparpillés dans WhatsApp et introuvables au mauvais moment, sans accès hors ligne à la douane ou à l'arrivée. STOW est un coffre-fort de documents de voyage partagé."
+        "en": "On a group trip, documents (tickets, bookings, passport photos) get scattered across WhatsApp and are impossible to find at the worst moment, with no offline access at customs or on arrival. STOW is a shared vault for travel documents."
       },
       "status": {
         "fr": "Publié sur iOS ET Android — « Stow — Voyagez serein » (v1.2), disponible sur l'App Store et le Google Play Store.",
-        "en": "Publié sur iOS ET Android — « Stow — Voyagez serein » (v1.2), disponible sur l'App Store et le Google Play Store."
+        "en": "Published on iOS AND Android — “Stow — Voyagez serein” (v1.2), available on the App Store and Google Play Store."
       },
       "context": {
         "heading": {
           "fr": "La solution",
-          "en": "La solution"
+          "en": "The solution"
         },
         "body": {
           "fr": "On crée un voyage, on invite ses amis, chacun ajoute ses documents (PDF, captures, photos de passeport). Les documents importants restent accessibles même sans réseau. Login rapide Apple ou Google, fichiers disponibles en deux clics.",
-          "en": "On crée un voyage, on invite ses amis, chacun ajoute ses documents (PDF, captures, photos de passeport). Les documents importants restent accessibles même sans réseau. Login rapide Apple ou Google, fichiers disponibles en deux clics."
+          "en": "Create a trip, invite your friends, and everyone adds their documents (PDFs, screenshots, passport photos). The important ones stay accessible even with no signal. Quick Apple or Google sign-in, files ready in two taps."
         }
       },
       "impact": [
         {
           "fr": "Voyage partagé : chaque membre du groupe contribue ses propres documents",
-          "en": "Voyage partagé : chaque membre du groupe contribue ses propres documents"
+          "en": "Shared trip: every member of the group contributes their own documents"
         },
         {
           "fr": "Accès hors ligne aux documents importants (douane, aéroport sans réseau)",
-          "en": "Accès hors ligne aux documents importants (douane, aéroport sans réseau)"
+          "en": "Offline access to important documents (customs, an airport with no signal)"
         },
         {
           "fr": "Chaque document à sa place, fini le mélange avec le chat de groupe",
-          "en": "Chaque document à sa place, fini le mélange avec le chat de groupe"
+          "en": "Every document in its place — no more mixing with the group chat"
         },
         {
           "fr": "Login rapide Apple ou Google, gratuit",
-          "en": "Login rapide Apple ou Google, gratuit"
+          "en": "Quick Apple or Google sign-in, free"
         }
       ],
       "links": [
@@ -187,11 +187,11 @@
       "cta": {
         "heading": {
           "fr": "Envie de tester ?",
-          "en": "Envie de tester ?"
+          "en": "Want to try it?"
         },
         "body": {
           "fr": "L'app est disponible gratuitement sur l'App Store et le Google Play Store.",
-          "en": "L'app est disponible gratuitement sur l'App Store et le Google Play Store."
+          "en": "The app is available for free on the App Store and the Google Play Store."
         }
       }
     }
@@ -202,7 +202,7 @@
     "image": "./images/placeholder.svg",
     "summary": {
       "fr": "Plateforme web de mise en relation à intermédiation humaine pour l'hôtellerie-restauration : candidats, entreprises et admins autour d'un « match », avec confidentialité by design. Menée avec ses associés.",
-      "en": "Plateforme web de mise en relation à intermédiation humaine pour l'hôtellerie-restauration : candidats, entreprises et admins autour d'un « match », avec confidentialité by design. Menée avec ses associés."
+      "en": "A human-led staffing web platform for the hospitality industry: candidates, businesses and admins around a “match”, with privacy by design. Built with his co-founders."
     },
     "hats": [
       "Web"
@@ -216,7 +216,7 @@
     ],
     "type": {
       "fr": "Plateforme web",
-      "en": "Plateforme web"
+      "en": "Web platform"
     },
     "year": 2026,
     "featured": true,
@@ -225,7 +225,7 @@
     "detail": {
       "tagline": {
         "fr": "On trouve, vous brillez.",
-        "en": "On trouve, vous brillez."
+        "en": "We find them, you shine."
       },
       "highlight": {
         "fr": "EXTRALIMO",
@@ -233,53 +233,53 @@
       },
       "heading": {
         "fr": "mise en relation HCR",
-        "en": "mise en relation HCR"
+        "en": "hospitality staffing"
       },
       "lead": {
         "fr": "L'hôtellerie-restauration peine à trouver les bons extras ; les candidats manquent de visibilité. EXTRALIMO les relie — mais ce n'est pas un job board en libre-service : la valeur, c'est l'intermédiation humaine, une petite équipe d'admins qui sélectionne, propose et accompagne.",
-        "en": "L'hôtellerie-restauration peine à trouver les bons extras ; les candidats manquent de visibilité. EXTRALIMO les relie — mais ce n'est pas un job board en libre-service : la valeur, c'est l'intermédiation humaine, une petite équipe d'admins qui sélectionne, propose et accompagne."
+        "en": "Hospitality struggles to find the right extra staff; candidates lack visibility. EXTRALIMO connects them — but it's not a self-service job board: the value is the human touch, a small team of admins who select, propose and support."
       },
       "status": {
         "fr": "En ligne sur extralimo.portfolio-sbrt.com (52 commits, mise à jour juin 2026). Projet mené avec ses associés.",
-        "en": "En ligne sur extralimo.portfolio-sbrt.com (52 commits, mise à jour juin 2026). Projet mené avec ses associés."
+        "en": "Live at extralimo.portfolio-sbrt.com (52 commits, updated June 2026). Built with his co-founders."
       },
       "context": {
         "heading": {
           "fr": "La solution",
-          "en": "La solution"
+          "en": "The solution"
         },
         "body": {
           "fr": "Plateforme web articulée autour de 3 rôles (candidat / entreprise / admin) et d'un objet central, le « match » (suggéré → en cours → contact débloqué → placé). Confidentialité by design : les coordonnées restent masquées tant qu'un admin n'a pas débloqué le contact. Inscriptions publiques mobile-first, consentement RGPD.",
-          "en": "Plateforme web articulée autour de 3 rôles (candidat / entreprise / admin) et d'un objet central, le « match » (suggéré → en cours → contact débloqué → placé). Confidentialité by design : les coordonnées restent masquées tant qu'un admin n'a pas débloqué le contact. Inscriptions publiques mobile-first, consentement RGPD."
+          "en": "A web platform built around 3 roles (candidate / business / admin) and one central object, the “match” (suggested → in progress → contact unlocked → placed). Privacy by design: contact details stay hidden until an admin unlocks the match. Public mobile-first sign-ups, GDPR consent."
         }
       },
       "impact": [
         {
           "fr": "Trois rôles (candidat / entreprise / admin) autour d'un objet « match »",
-          "en": "Trois rôles (candidat / entreprise / admin) autour d'un objet « match »"
+          "en": "Three roles (candidate / business / admin) around a “match” object"
         },
         {
           "fr": "Confidentialité by design : coordonnées masquées jusqu'au déblocage par un admin",
-          "en": "Confidentialité by design : coordonnées masquées jusqu'au déblocage par un admin"
+          "en": "Privacy by design: contact details hidden until an admin unlocks them"
         },
         {
           "fr": "Matchs créés manuellement, placement selon le type de contrat et l'affinité de poste",
-          "en": "Matchs créés manuellement, placement selon le type de contrat et l'affinité de poste"
+          "en": "Matches created manually, placement based on contract type and role fit"
         },
         {
           "fr": "Inscriptions publiques mobile-first, consentement RGPD",
-          "en": "Inscriptions publiques mobile-first, consentement RGPD"
+          "en": "Public mobile-first sign-ups, GDPR consent"
         },
         {
           "fr": "Modèle économique : commission au contrat (pourcentage sur le placement)",
-          "en": "Modèle économique : commission au contrat (pourcentage sur le placement)"
+          "en": "Business model: commission per contract (a percentage of the placement)"
         }
       ],
       "links": [
         {
           "label": {
             "fr": "Visiter le site",
-            "en": "Visiter le site"
+            "en": "Visit the site"
           },
           "url": "https://extralimo.portfolio-sbrt.com"
         }
@@ -287,11 +287,11 @@
       "cta": {
         "heading": {
           "fr": "Voir la plateforme",
-          "en": "Voir la plateforme"
+          "en": "See the platform"
         },
         "body": {
           "fr": "Le produit est en ligne — je peux présenter le modèle de données, le cycle de vie d'un « match » et l'approche confidentialité.",
-          "en": "Le produit est en ligne — je peux présenter le modèle de données, le cycle de vie d'un « match » et l'approche confidentialité."
+          "en": "The product is live — I can walk through the data model, the lifecycle of a “match” and the privacy approach."
         }
       }
     }
@@ -302,7 +302,7 @@
     "image": "./images/placeholder.svg",
     "summary": {
       "fr": "Site vitrine orienté vente d'une offre Power Platform pour PME (offre phare « Ticketing IT » intégrée à Microsoft 365). Next.js, en ligne.",
-      "en": "Site vitrine orienté vente d'une offre Power Platform pour PME (offre phare « Ticketing IT » intégrée à Microsoft 365). Next.js, en ligne."
+      "en": "A sales-focused showcase site for a Power Platform offer for SMBs (flagship “Ticketing IT” offer integrated with Microsoft 365). Next.js, live."
     },
     "hats": [
       "Microsoft"
@@ -317,7 +317,7 @@
     ],
     "type": {
       "fr": "Site vitrine",
-      "en": "Site vitrine"
+      "en": "Showcase site"
     },
     "featured": true,
     "openInSameTab": true,
@@ -325,7 +325,7 @@
     "detail": {
       "tagline": {
         "fr": "Solutions IT sur mesure pour PME",
-        "en": "Solutions IT sur mesure pour PME"
+        "en": "Tailored IT solutions for SMBs"
       },
       "highlight": {
         "fr": "Solutions",
@@ -333,53 +333,53 @@
       },
       "heading": {
         "fr": "Microsoft pour PME",
-        "en": "Microsoft pour PME"
+        "en": "Microsoft for SMBs"
       },
       "lead": {
         "fr": "Les PME ont des outils Microsoft 365 sous-exploités (la Power Platform est déjà dans leur licence), des process manuels (emails, Excel, relances) et aucune visibilité (pas de dashboard/KPI). Ce site vitrine vend une offre Power Platform pour digitaliser ces process sans nouvel outil à apprendre.",
-        "en": "Les PME ont des outils Microsoft 365 sous-exploités (la Power Platform est déjà dans leur licence), des process manuels (emails, Excel, relances) et aucune visibilité (pas de dashboard/KPI). Ce site vitrine vend une offre Power Platform pour digitaliser ces process sans nouvel outil à apprendre."
+        "en": "SMBs have underused Microsoft 365 tools (the Power Platform is already in their license), manual processes (emails, Excel, follow-ups) and no visibility (no dashboard/KPIs). This showcase site sells a Power Platform offer to digitize those processes without a new tool to learn."
       },
       "status": {
         "fr": "En ligne sur paulsabourault.fr (Paul Sabourault, auto-entrepreneur, Tours).",
-        "en": "En ligne sur paulsabourault.fr (Paul Sabourault, auto-entrepreneur, Tours)."
+        "en": "Live at paulsabourault.fr (Paul Sabourault, self-employed, Tours)."
       },
       "context": {
         "heading": {
           "fr": "L'offre phare : Ticketing IT",
-          "en": "L'offre phare : Ticketing IT"
+          "en": "The flagship offer: Ticketing IT"
         },
         "body": {
           "fr": "« Votre support IT, simplifié » : système de ticketing intégré à Microsoft 365 (portail utilisateur en 30 s, dashboard admin, SLA temps réel, notifications email + Teams, reporting Power BI, multi-clients, rôles, pièces jointes). Déployé en une demi-journée, formation incluse. Données hébergées chez le client (SharePoint, France).",
-          "en": "« Votre support IT, simplifié » : système de ticketing intégré à Microsoft 365 (portail utilisateur en 30 s, dashboard admin, SLA temps réel, notifications email + Teams, reporting Power BI, multi-clients, rôles, pièces jointes). Déployé en une demi-journée, formation incluse. Données hébergées chez le client (SharePoint, France)."
+          "en": "“Your IT support, simplified”: a ticketing system integrated with Microsoft 365 (user portal in 30s, admin dashboard, real-time SLAs, email + Teams notifications, Power BI reporting, multi-client, roles, attachments). Deployed in half a day, training included. Data hosted on the client's side (SharePoint, France)."
         }
       },
       "impact": [
         {
           "fr": "Deux packs : Pack Essentiel à 2 000 € et Pack Complet à 3 500 € (recommandé, + Power BI 4 pages + multi-clients)",
-          "en": "Deux packs : Pack Essentiel à 2 000 € et Pack Complet à 3 500 € (recommandé, + Power BI 4 pages + multi-clients)"
+          "en": "Two packs: Essential Pack at €2,000 and Complete Pack at €3,500 (recommended, + 4-page Power BI + multi-client)"
         },
         {
           "fr": "Investissement unique, sans abonnement ; maintenance optionnelle dès 39 €/mois",
-          "en": "Investissement unique, sans abonnement ; maintenance optionnelle dès 39 €/mois"
+          "en": "One-time investment, no subscription; optional maintenance from €39/month"
         },
         {
           "fr": "Ticketing intégré à Microsoft 365 : SLA temps réel, notifications email + Teams, reporting Power BI",
-          "en": "Ticketing intégré à Microsoft 365 : SLA temps réel, notifications email + Teams, reporting Power BI"
+          "en": "Ticketing integrated with Microsoft 365: real-time SLAs, email + Teams notifications, Power BI reporting"
         },
         {
           "fr": "Process affiché : Échange → Démo → Déploiement → Formation",
-          "en": "Process affiché : Échange → Démo → Déploiement → Formation"
+          "en": "Stated process: Discovery → Demo → Deployment → Training"
         },
         {
           "fr": "Brique métier : SharePoint, Power Apps, Power Automate, Power BI, Teams",
-          "en": "Brique métier : SharePoint, Power Apps, Power Automate, Power BI, Teams"
+          "en": "Building blocks: SharePoint, Power Apps, Power Automate, Power BI, Teams"
         }
       ],
       "links": [
         {
           "label": {
             "fr": "Visiter paulsabourault.fr",
-            "en": "Visiter paulsabourault.fr"
+            "en": "Visit paulsabourault.fr"
           },
           "url": "https://paulsabourault.fr"
         }
@@ -387,11 +387,11 @@
       "cta": {
         "heading": {
           "fr": "Voir le site",
-          "en": "Voir le site"
+          "en": "See the site"
         },
         "body": {
           "fr": "Le site de vente est en ligne — je peux présenter l'offre Ticketing IT et la démarche commerciale.",
-          "en": "Le site de vente est en ligne — je peux présenter l'offre Ticketing IT et la démarche commerciale."
+          "en": "The sales site is live — I can walk through the Ticketing IT offer and the sales approach."
         }
       }
     }
