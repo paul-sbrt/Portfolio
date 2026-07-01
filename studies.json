@@ -1,13 +1,7 @@
 [
   {
-    "institution": "CEFIM C.D.A",
-    "dates": "2024-2025",
-    "place": "Tours",
-    "image": "./images/cefim.webp"
-  },
-  {
-    "institution": "CEFIM D.W.W.M",
-    "dates": "2023-2024",
+    "institution": "CEFIM — CDA & DWWM",
+    "dates": "2023-2025",
     "place": "Tours",
     "image": "./images/cefim.webp"
   },
