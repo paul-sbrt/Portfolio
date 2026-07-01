@@ -3,35 +3,94 @@
     "slug": "dump",
     "title": "DUMP",
     "image": "./images/placeholder.svg",
-    "summary": "« Deuxième cerveau » iOS : on capture texte ou voix en vrac, l'IA (Claude + Whisper) trie automatiquement en catégories et niveaux d'urgence, suggère des connexions et des rappels. Modèle freemium via StoreKit 2.",
-    "hats": ["App", "IA"],
-    "tags": ["Swift", "SwiftUI", "SwiftData", "Claude API", "Whisper", "Cloudflare Workers", "StoreKit 2"],
-    "type": "Application mobile (iOS)",
+    "summary": {
+      "fr": "« Deuxième cerveau » iOS : on capture texte ou voix en vrac, l'IA (Claude + Whisper) trie automatiquement en catégories et niveaux d'urgence, suggère des connexions et des rappels. Modèle freemium via StoreKit 2.",
+      "en": "« Deuxième cerveau » iOS : on capture texte ou voix en vrac, l'IA (Claude + Whisper) trie automatiquement en catégories et niveaux d'urgence, suggère des connexions et des rappels. Modèle freemium via StoreKit 2."
+    },
+    "hats": [
+      "App",
+      "IA"
+    ],
+    "tags": [
+      "Swift",
+      "SwiftUI",
+      "SwiftData",
+      "Claude API",
+      "Whisper",
+      "Cloudflare Workers",
+      "StoreKit 2"
+    ],
+    "type": {
+      "fr": "Application mobile (iOS)",
+      "en": "Application mobile (iOS)"
+    },
     "year": 2026,
     "featured": true,
     "openInSameTab": true,
     "externalUrl": "[[À COMPLÉTER: lien TestFlight public]]",
     "detail": {
-      "tagline": "Second cerveau augmenté par l'IA",
-      "highlight": "DUMP",
-      "heading": "second cerveau iOS",
-      "lead": "On capture une idée, une note ou un vocal en vrac — et on la perd, ou on ne la retrouve pas structurée. DUMP est un assistant cognitif : on parle ou on écrit en vrac, l'IA trie automatiquement. Particulièrement utile aux profils qui débordent d'idées et se dispersent (TDAH inclus), comme outil d'organisation au quotidien. Paul l'a d'abord construit pour lui-même.",
-      "status": "Sur TestFlight (build 2) — le projet le plus actif de Paul (503 commits, mise à jour juin 2026), design system v2, widgets « production ready ».",
+      "tagline": {
+        "fr": "Second cerveau augmenté par l'IA",
+        "en": "Second cerveau augmenté par l'IA"
+      },
+      "highlight": {
+        "fr": "DUMP",
+        "en": "DUMP"
+      },
+      "heading": {
+        "fr": "second cerveau iOS",
+        "en": "second cerveau iOS"
+      },
+      "lead": {
+        "fr": "On capture une idée, une note ou un vocal en vrac — et on la perd, ou on ne la retrouve pas structurée. DUMP est un assistant cognitif : on parle ou on écrit en vrac, l'IA trie automatiquement. Particulièrement utile aux profils qui débordent d'idées et se dispersent (TDAH inclus), comme outil d'organisation au quotidien. Paul l'a d'abord construit pour lui-même.",
+        "en": "On capture une idée, une note ou un vocal en vrac — et on la perd, ou on ne la retrouve pas structurée. DUMP est un assistant cognitif : on parle ou on écrit en vrac, l'IA trie automatiquement. Particulièrement utile aux profils qui débordent d'idées et se dispersent (TDAH inclus), comme outil d'organisation au quotidien. Paul l'a d'abord construit pour lui-même."
+      },
+      "status": {
+        "fr": "Sur TestFlight (build 2) — le projet le plus actif de Paul (503 commits, mise à jour juin 2026), design system v2, widgets « production ready ».",
+        "en": "Sur TestFlight (build 2) — le projet le plus actif de Paul (503 commits, mise à jour juin 2026), design system v2, widgets « production ready »."
+      },
       "context": {
-        "heading": "La solution",
-        "body": "App iOS native qui transforme un flux brut en notes triées : capture texte et voix (transcription Whisper), classification IA (Claude) en catégories ACTION / INFO / IDÉE / VRAC et niveaux d'urgence, suggestions de connexions entre notes, extraction d'entités anonymisées, rappels datés, apprentissage des corrections. Onboarding zéro friction (pas de compte), widgets et extension de partage."
+        "heading": {
+          "fr": "La solution",
+          "en": "La solution"
+        },
+        "body": {
+          "fr": "App iOS native qui transforme un flux brut en notes triées : capture texte et voix (transcription Whisper), classification IA (Claude) en catégories ACTION / INFO / IDÉE / VRAC et niveaux d'urgence, suggestions de connexions entre notes, extraction d'entités anonymisées, rappels datés, apprentissage des corrections. Onboarding zéro friction (pas de compte), widgets et extension de partage.",
+          "en": "App iOS native qui transforme un flux brut en notes triées : capture texte et voix (transcription Whisper), classification IA (Claude) en catégories ACTION / INFO / IDÉE / VRAC et niveaux d'urgence, suggestions de connexions entre notes, extraction d'entités anonymisées, rappels datés, apprentissage des corrections. Onboarding zéro friction (pas de compte), widgets et extension de partage."
+        }
       },
       "impact": [
-        "Capture texte + voix, avec transcription des vocaux via Whisper",
-        "Classification automatique par Claude (ACTION / INFO / IDÉE / VRAC + catégories custom apprises) et niveaux d'urgence",
-        "Suggestions de connexions entre notes et extraction d'entités (anonymisées avant envoi)",
-        "Rappels datés, buffer d'impulsivité et apprentissage des corrections de l'utilisateur",
-        "Modèle freemium : gratuit jusqu'à 25 classifications IA/semaine, premium illimité via StoreKit 2"
+        {
+          "fr": "Capture texte + voix, avec transcription des vocaux via Whisper",
+          "en": "Capture texte + voix, avec transcription des vocaux via Whisper"
+        },
+        {
+          "fr": "Classification automatique par Claude (ACTION / INFO / IDÉE / VRAC + catégories custom apprises) et niveaux d'urgence",
+          "en": "Classification automatique par Claude (ACTION / INFO / IDÉE / VRAC + catégories custom apprises) et niveaux d'urgence"
+        },
+        {
+          "fr": "Suggestions de connexions entre notes et extraction d'entités (anonymisées avant envoi)",
+          "en": "Suggestions de connexions entre notes et extraction d'entités (anonymisées avant envoi)"
+        },
+        {
+          "fr": "Rappels datés, buffer d'impulsivité et apprentissage des corrections de l'utilisateur",
+          "en": "Rappels datés, buffer d'impulsivité et apprentissage des corrections de l'utilisateur"
+        },
+        {
+          "fr": "Modèle freemium : gratuit jusqu'à 25 classifications IA/semaine, premium illimité via StoreKit 2",
+          "en": "Modèle freemium : gratuit jusqu'à 25 classifications IA/semaine, premium illimité via StoreKit 2"
+        }
       ],
       "links": [],
       "cta": {
-        "heading": "Envie d'en voir plus ?",
-        "body": "Je peux présenter l'architecture (proxy Cloudflare, clés IA côté serveur), le design system et le fonctionnement de la classification."
+        "heading": {
+          "fr": "Envie d'en voir plus ?",
+          "en": "Envie d'en voir plus ?"
+        },
+        "body": {
+          "fr": "Je peux présenter l'architecture (proxy Cloudflare, clés IA côté serveur), le design system et le fonctionnement de la classification.",
+          "en": "Je peux présenter l'architecture (proxy Cloudflare, clés IA côté serveur), le design system et le fonctionnement de la classification."
+        }
       }
     }
   },
@@ -39,36 +98,101 @@
     "slug": "stow",
     "title": "STOW",
     "image": "./images/placeholder.svg",
-    "summary": "Coffre-fort de documents de voyage partagé : on crée un voyage, on invite ses amis, chacun ajoute ses documents (billets, passeports), accessibles hors ligne. Publié sur iOS et Android.",
-    "hats": ["App"],
-    "tags": ["Flutter", "Dart", "FlutterFlow", "Firebase", "Firestore"],
-    "type": "Application mobile (iOS & Android)",
+    "summary": {
+      "fr": "Coffre-fort de documents de voyage partagé : on crée un voyage, on invite ses amis, chacun ajoute ses documents (billets, passeports), accessibles hors ligne. Publié sur iOS et Android.",
+      "en": "Coffre-fort de documents de voyage partagé : on crée un voyage, on invite ses amis, chacun ajoute ses documents (billets, passeports), accessibles hors ligne. Publié sur iOS et Android."
+    },
+    "hats": [
+      "App"
+    ],
+    "tags": [
+      "Flutter",
+      "Dart",
+      "FlutterFlow",
+      "Firebase",
+      "Firestore"
+    ],
+    "type": {
+      "fr": "Application mobile (iOS & Android)",
+      "en": "Application mobile (iOS & Android)"
+    },
     "featured": true,
     "openInSameTab": true,
     "externalUrl": "https://apps.apple.com/us/app/stow-voyagez-serein/id6758451337",
     "detail": {
-      "tagline": "Le coffre-fort de vos voyages en groupe",
-      "highlight": "STOW",
-      "heading": "voyagez serein",
-      "lead": "En voyage de groupe, les documents (billets, réservations, photos de passeport) sont éparpillés dans WhatsApp et introuvables au mauvais moment, sans accès hors ligne à la douane ou à l'arrivée. STOW est un coffre-fort de documents de voyage partagé.",
-      "status": "Publié sur iOS ET Android — « Stow — Voyagez serein » (v1.2), disponible sur l'App Store et le Google Play Store.",
+      "tagline": {
+        "fr": "Le coffre-fort de vos voyages en groupe",
+        "en": "Le coffre-fort de vos voyages en groupe"
+      },
+      "highlight": {
+        "fr": "STOW",
+        "en": "STOW"
+      },
+      "heading": {
+        "fr": "voyagez serein",
+        "en": "voyagez serein"
+      },
+      "lead": {
+        "fr": "En voyage de groupe, les documents (billets, réservations, photos de passeport) sont éparpillés dans WhatsApp et introuvables au mauvais moment, sans accès hors ligne à la douane ou à l'arrivée. STOW est un coffre-fort de documents de voyage partagé.",
+        "en": "En voyage de groupe, les documents (billets, réservations, photos de passeport) sont éparpillés dans WhatsApp et introuvables au mauvais moment, sans accès hors ligne à la douane ou à l'arrivée. STOW est un coffre-fort de documents de voyage partagé."
+      },
+      "status": {
+        "fr": "Publié sur iOS ET Android — « Stow — Voyagez serein » (v1.2), disponible sur l'App Store et le Google Play Store.",
+        "en": "Publié sur iOS ET Android — « Stow — Voyagez serein » (v1.2), disponible sur l'App Store et le Google Play Store."
+      },
       "context": {
-        "heading": "La solution",
-        "body": "On crée un voyage, on invite ses amis, chacun ajoute ses documents (PDF, captures, photos de passeport). Les documents importants restent accessibles même sans réseau. Login rapide Apple ou Google, fichiers disponibles en deux clics."
+        "heading": {
+          "fr": "La solution",
+          "en": "La solution"
+        },
+        "body": {
+          "fr": "On crée un voyage, on invite ses amis, chacun ajoute ses documents (PDF, captures, photos de passeport). Les documents importants restent accessibles même sans réseau. Login rapide Apple ou Google, fichiers disponibles en deux clics.",
+          "en": "On crée un voyage, on invite ses amis, chacun ajoute ses documents (PDF, captures, photos de passeport). Les documents importants restent accessibles même sans réseau. Login rapide Apple ou Google, fichiers disponibles en deux clics."
+        }
       },
       "impact": [
-        "Voyage partagé : chaque membre du groupe contribue ses propres documents",
-        "Accès hors ligne aux documents importants (douane, aéroport sans réseau)",
-        "Chaque document à sa place, fini le mélange avec le chat de groupe",
-        "Login rapide Apple ou Google, gratuit"
+        {
+          "fr": "Voyage partagé : chaque membre du groupe contribue ses propres documents",
+          "en": "Voyage partagé : chaque membre du groupe contribue ses propres documents"
+        },
+        {
+          "fr": "Accès hors ligne aux documents importants (douane, aéroport sans réseau)",
+          "en": "Accès hors ligne aux documents importants (douane, aéroport sans réseau)"
+        },
+        {
+          "fr": "Chaque document à sa place, fini le mélange avec le chat de groupe",
+          "en": "Chaque document à sa place, fini le mélange avec le chat de groupe"
+        },
+        {
+          "fr": "Login rapide Apple ou Google, gratuit",
+          "en": "Login rapide Apple ou Google, gratuit"
+        }
       ],
       "links": [
-        { "label": "App Store", "url": "https://apps.apple.com/us/app/stow-voyagez-serein/id6758451337" },
-        { "label": "Google Play", "url": "[[À COMPLÉTER: lien Google Play Store]]" }
+        {
+          "label": {
+            "fr": "App Store",
+            "en": "App Store"
+          },
+          "url": "https://apps.apple.com/us/app/stow-voyagez-serein/id6758451337"
+        },
+        {
+          "label": {
+            "fr": "Google Play",
+            "en": "Google Play"
+          },
+          "url": "[[À COMPLÉTER: lien Google Play Store]]"
+        }
       ],
       "cta": {
-        "heading": "Envie de tester ?",
-        "body": "L'app est disponible gratuitement sur l'App Store et le Google Play Store."
+        "heading": {
+          "fr": "Envie de tester ?",
+          "en": "Envie de tester ?"
+        },
+        "body": {
+          "fr": "L'app est disponible gratuitement sur l'App Store et le Google Play Store.",
+          "en": "L'app est disponible gratuitement sur l'App Store et le Google Play Store."
+        }
       }
     }
   },
@@ -76,37 +200,99 @@
     "slug": "extralimo",
     "title": "EXTRALIMO",
     "image": "./images/placeholder.svg",
-    "summary": "Plateforme web de mise en relation à intermédiation humaine pour l'hôtellerie-restauration : candidats, entreprises et admins autour d'un « match », avec confidentialité by design. Menée avec ses associés.",
-    "hats": ["Web"],
-    "tags": ["Laravel", "Blade", "MySQL", "Alpine.js", "O2switch"],
-    "type": "Plateforme web",
+    "summary": {
+      "fr": "Plateforme web de mise en relation à intermédiation humaine pour l'hôtellerie-restauration : candidats, entreprises et admins autour d'un « match », avec confidentialité by design. Menée avec ses associés.",
+      "en": "Plateforme web de mise en relation à intermédiation humaine pour l'hôtellerie-restauration : candidats, entreprises et admins autour d'un « match », avec confidentialité by design. Menée avec ses associés."
+    },
+    "hats": [
+      "Web"
+    ],
+    "tags": [
+      "Laravel",
+      "Blade",
+      "MySQL",
+      "Alpine.js",
+      "O2switch"
+    ],
+    "type": {
+      "fr": "Plateforme web",
+      "en": "Plateforme web"
+    },
     "year": 2026,
     "featured": true,
     "openInSameTab": true,
     "externalUrl": "https://extralimo.portfolio-sbrt.com",
     "detail": {
-      "tagline": "On trouve, vous brillez.",
-      "highlight": "EXTRALIMO",
-      "heading": "mise en relation HCR",
-      "lead": "L'hôtellerie-restauration peine à trouver les bons extras ; les candidats manquent de visibilité. EXTRALIMO les relie — mais ce n'est pas un job board en libre-service : la valeur, c'est l'intermédiation humaine, une petite équipe d'admins qui sélectionne, propose et accompagne.",
-      "status": "En ligne sur extralimo.portfolio-sbrt.com (52 commits, mise à jour juin 2026). Projet mené avec ses associés.",
+      "tagline": {
+        "fr": "On trouve, vous brillez.",
+        "en": "On trouve, vous brillez."
+      },
+      "highlight": {
+        "fr": "EXTRALIMO",
+        "en": "EXTRALIMO"
+      },
+      "heading": {
+        "fr": "mise en relation HCR",
+        "en": "mise en relation HCR"
+      },
+      "lead": {
+        "fr": "L'hôtellerie-restauration peine à trouver les bons extras ; les candidats manquent de visibilité. EXTRALIMO les relie — mais ce n'est pas un job board en libre-service : la valeur, c'est l'intermédiation humaine, une petite équipe d'admins qui sélectionne, propose et accompagne.",
+        "en": "L'hôtellerie-restauration peine à trouver les bons extras ; les candidats manquent de visibilité. EXTRALIMO les relie — mais ce n'est pas un job board en libre-service : la valeur, c'est l'intermédiation humaine, une petite équipe d'admins qui sélectionne, propose et accompagne."
+      },
+      "status": {
+        "fr": "En ligne sur extralimo.portfolio-sbrt.com (52 commits, mise à jour juin 2026). Projet mené avec ses associés.",
+        "en": "En ligne sur extralimo.portfolio-sbrt.com (52 commits, mise à jour juin 2026). Projet mené avec ses associés."
+      },
       "context": {
-        "heading": "La solution",
-        "body": "Plateforme web articulée autour de 3 rôles (candidat / entreprise / admin) et d'un objet central, le « match » (suggéré → en cours → contact débloqué → placé). Confidentialité by design : les coordonnées restent masquées tant qu'un admin n'a pas débloqué le contact. Inscriptions publiques mobile-first, consentement RGPD."
+        "heading": {
+          "fr": "La solution",
+          "en": "La solution"
+        },
+        "body": {
+          "fr": "Plateforme web articulée autour de 3 rôles (candidat / entreprise / admin) et d'un objet central, le « match » (suggéré → en cours → contact débloqué → placé). Confidentialité by design : les coordonnées restent masquées tant qu'un admin n'a pas débloqué le contact. Inscriptions publiques mobile-first, consentement RGPD.",
+          "en": "Plateforme web articulée autour de 3 rôles (candidat / entreprise / admin) et d'un objet central, le « match » (suggéré → en cours → contact débloqué → placé). Confidentialité by design : les coordonnées restent masquées tant qu'un admin n'a pas débloqué le contact. Inscriptions publiques mobile-first, consentement RGPD."
+        }
       },
       "impact": [
-        "Trois rôles (candidat / entreprise / admin) autour d'un objet « match »",
-        "Confidentialité by design : coordonnées masquées jusqu'au déblocage par un admin",
-        "Matchs créés manuellement, placement selon le type de contrat et l'affinité de poste",
-        "Inscriptions publiques mobile-first, consentement RGPD",
-        "Modèle économique : commission au contrat (pourcentage sur le placement)"
+        {
+          "fr": "Trois rôles (candidat / entreprise / admin) autour d'un objet « match »",
+          "en": "Trois rôles (candidat / entreprise / admin) autour d'un objet « match »"
+        },
+        {
+          "fr": "Confidentialité by design : coordonnées masquées jusqu'au déblocage par un admin",
+          "en": "Confidentialité by design : coordonnées masquées jusqu'au déblocage par un admin"
+        },
+        {
+          "fr": "Matchs créés manuellement, placement selon le type de contrat et l'affinité de poste",
+          "en": "Matchs créés manuellement, placement selon le type de contrat et l'affinité de poste"
+        },
+        {
+          "fr": "Inscriptions publiques mobile-first, consentement RGPD",
+          "en": "Inscriptions publiques mobile-first, consentement RGPD"
+        },
+        {
+          "fr": "Modèle économique : commission au contrat (pourcentage sur le placement)",
+          "en": "Modèle économique : commission au contrat (pourcentage sur le placement)"
+        }
       ],
       "links": [
-        { "label": "Visiter le site", "url": "https://extralimo.portfolio-sbrt.com" }
+        {
+          "label": {
+            "fr": "Visiter le site",
+            "en": "Visiter le site"
+          },
+          "url": "https://extralimo.portfolio-sbrt.com"
+        }
       ],
       "cta": {
-        "heading": "Voir la plateforme",
-        "body": "Le produit est en ligne — je peux présenter le modèle de données, le cycle de vie d'un « match » et l'approche confidentialité."
+        "heading": {
+          "fr": "Voir la plateforme",
+          "en": "Voir la plateforme"
+        },
+        "body": {
+          "fr": "Le produit est en ligne — je peux présenter le modèle de données, le cycle de vie d'un « match » et l'approche confidentialité.",
+          "en": "Le produit est en ligne — je peux présenter le modèle de données, le cycle de vie d'un « match » et l'approche confidentialité."
+        }
       }
     }
   },
@@ -114,36 +300,99 @@
     "slug": "site-solutions-microsoft",
     "title": "Site solutions Microsoft",
     "image": "./images/placeholder.svg",
-    "summary": "Site vitrine orienté vente d'une offre Power Platform pour PME (offre phare « Ticketing IT » intégrée à Microsoft 365). Next.js, en ligne.",
-    "hats": ["Microsoft"],
-    "tags": ["Next.js", "TypeScript", "Tailwind", "Framer Motion", "Formspree", "Power Platform"],
-    "type": "Site vitrine",
+    "summary": {
+      "fr": "Site vitrine orienté vente d'une offre Power Platform pour PME (offre phare « Ticketing IT » intégrée à Microsoft 365). Next.js, en ligne.",
+      "en": "Site vitrine orienté vente d'une offre Power Platform pour PME (offre phare « Ticketing IT » intégrée à Microsoft 365). Next.js, en ligne."
+    },
+    "hats": [
+      "Microsoft"
+    ],
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "Framer Motion",
+      "Formspree",
+      "Power Platform"
+    ],
+    "type": {
+      "fr": "Site vitrine",
+      "en": "Site vitrine"
+    },
     "featured": true,
     "openInSameTab": true,
     "externalUrl": "https://paulsabourault.fr",
     "detail": {
-      "tagline": "Solutions IT sur mesure pour PME",
-      "highlight": "Solutions",
-      "heading": "Microsoft pour PME",
-      "lead": "Les PME ont des outils Microsoft 365 sous-exploités (la Power Platform est déjà dans leur licence), des process manuels (emails, Excel, relances) et aucune visibilité (pas de dashboard/KPI). Ce site vitrine vend une offre Power Platform pour digitaliser ces process sans nouvel outil à apprendre.",
-      "status": "En ligne sur paulsabourault.fr (Paul Sabourault, auto-entrepreneur, Tours).",
+      "tagline": {
+        "fr": "Solutions IT sur mesure pour PME",
+        "en": "Solutions IT sur mesure pour PME"
+      },
+      "highlight": {
+        "fr": "Solutions",
+        "en": "Solutions"
+      },
+      "heading": {
+        "fr": "Microsoft pour PME",
+        "en": "Microsoft pour PME"
+      },
+      "lead": {
+        "fr": "Les PME ont des outils Microsoft 365 sous-exploités (la Power Platform est déjà dans leur licence), des process manuels (emails, Excel, relances) et aucune visibilité (pas de dashboard/KPI). Ce site vitrine vend une offre Power Platform pour digitaliser ces process sans nouvel outil à apprendre.",
+        "en": "Les PME ont des outils Microsoft 365 sous-exploités (la Power Platform est déjà dans leur licence), des process manuels (emails, Excel, relances) et aucune visibilité (pas de dashboard/KPI). Ce site vitrine vend une offre Power Platform pour digitaliser ces process sans nouvel outil à apprendre."
+      },
+      "status": {
+        "fr": "En ligne sur paulsabourault.fr (Paul Sabourault, auto-entrepreneur, Tours).",
+        "en": "En ligne sur paulsabourault.fr (Paul Sabourault, auto-entrepreneur, Tours)."
+      },
       "context": {
-        "heading": "L'offre phare : Ticketing IT",
-        "body": "« Votre support IT, simplifié » : système de ticketing intégré à Microsoft 365 (portail utilisateur en 30 s, dashboard admin, SLA temps réel, notifications email + Teams, reporting Power BI, multi-clients, rôles, pièces jointes). Déployé en une demi-journée, formation incluse. Données hébergées chez le client (SharePoint, France)."
+        "heading": {
+          "fr": "L'offre phare : Ticketing IT",
+          "en": "L'offre phare : Ticketing IT"
+        },
+        "body": {
+          "fr": "« Votre support IT, simplifié » : système de ticketing intégré à Microsoft 365 (portail utilisateur en 30 s, dashboard admin, SLA temps réel, notifications email + Teams, reporting Power BI, multi-clients, rôles, pièces jointes). Déployé en une demi-journée, formation incluse. Données hébergées chez le client (SharePoint, France).",
+          "en": "« Votre support IT, simplifié » : système de ticketing intégré à Microsoft 365 (portail utilisateur en 30 s, dashboard admin, SLA temps réel, notifications email + Teams, reporting Power BI, multi-clients, rôles, pièces jointes). Déployé en une demi-journée, formation incluse. Données hébergées chez le client (SharePoint, France)."
+        }
       },
       "impact": [
-        "Deux packs : Pack Essentiel à 2 000 € et Pack Complet à 3 500 € (recommandé, + Power BI 4 pages + multi-clients)",
-        "Investissement unique, sans abonnement ; maintenance optionnelle dès 39 €/mois",
-        "Ticketing intégré à Microsoft 365 : SLA temps réel, notifications email + Teams, reporting Power BI",
-        "Process affiché : Échange → Démo → Déploiement → Formation",
-        "Brique métier : SharePoint, Power Apps, Power Automate, Power BI, Teams"
+        {
+          "fr": "Deux packs : Pack Essentiel à 2 000 € et Pack Complet à 3 500 € (recommandé, + Power BI 4 pages + multi-clients)",
+          "en": "Deux packs : Pack Essentiel à 2 000 € et Pack Complet à 3 500 € (recommandé, + Power BI 4 pages + multi-clients)"
+        },
+        {
+          "fr": "Investissement unique, sans abonnement ; maintenance optionnelle dès 39 €/mois",
+          "en": "Investissement unique, sans abonnement ; maintenance optionnelle dès 39 €/mois"
+        },
+        {
+          "fr": "Ticketing intégré à Microsoft 365 : SLA temps réel, notifications email + Teams, reporting Power BI",
+          "en": "Ticketing intégré à Microsoft 365 : SLA temps réel, notifications email + Teams, reporting Power BI"
+        },
+        {
+          "fr": "Process affiché : Échange → Démo → Déploiement → Formation",
+          "en": "Process affiché : Échange → Démo → Déploiement → Formation"
+        },
+        {
+          "fr": "Brique métier : SharePoint, Power Apps, Power Automate, Power BI, Teams",
+          "en": "Brique métier : SharePoint, Power Apps, Power Automate, Power BI, Teams"
+        }
       ],
       "links": [
-        { "label": "Visiter paulsabourault.fr", "url": "https://paulsabourault.fr" }
+        {
+          "label": {
+            "fr": "Visiter paulsabourault.fr",
+            "en": "Visiter paulsabourault.fr"
+          },
+          "url": "https://paulsabourault.fr"
+        }
       ],
       "cta": {
-        "heading": "Voir le site",
-        "body": "Le site de vente est en ligne — je peux présenter l'offre Ticketing IT et la démarche commerciale."
+        "heading": {
+          "fr": "Voir le site",
+          "en": "Voir le site"
+        },
+        "body": {
+          "fr": "Le site de vente est en ligne — je peux présenter l'offre Ticketing IT et la démarche commerciale.",
+          "en": "Le site de vente est en ligne — je peux présenter l'offre Ticketing IT et la démarche commerciale."
+        }
       }
     }
   },
@@ -151,73 +400,158 @@
     "slug": "video-game-sales-powerbi",
     "title": "Video Game Sales Analysis — Power BI",
     "image": "./images/powerbi.webp",
-    "summary": "Interactive Power BI report built from a public Kaggle dataset to analyze global video game sales. Designed both as a portfolio case study and as hands-on preparation for the PL-300 certification, covering data modeling, DAX measures, and interactive reporting.",
-    "hats": ["Microsoft"],
-    "tags": ["Power BI", "Power Query", "DAX", "Data Modeling"],
-    "type": "Dashboard",
+    "summary": {
+      "fr": "Interactive Power BI report built from a public Kaggle dataset to analyze global video game sales. Designed both as a portfolio case study and as hands-on preparation for the PL-300 certification, covering data modeling, DAX measures, and interactive reporting.",
+      "en": "Interactive Power BI report built from a public Kaggle dataset to analyze global video game sales. Designed both as a portfolio case study and as hands-on preparation for the PL-300 certification, covering data modeling, DAX measures, and interactive reporting."
+    },
+    "hats": [
+      "Microsoft"
+    ],
+    "tags": [
+      "Power BI",
+      "Power Query",
+      "DAX",
+      "Data Modeling"
+    ],
+    "type": {
+      "fr": "Dashboard",
+      "en": "Dashboard"
+    },
     "year": 2025,
     "featured": true,
     "openInSameTab": true,
     "detail": {
-      "tagline": "Portfolio case study",
-      "highlight": "Video Game Sales",
-      "heading": "Power BI Report",
-      "lead": "Interactive dashboard created from the Kaggle video game sales data set. I used it as a sandbox to rehearse PL-300 skills: data modelling, DAX measures, dynamic tooltips and responsive layouts. This page summarizes the report story and the insights surfaced in each tab.",
+      "tagline": {
+        "fr": "Portfolio case study",
+        "en": "Portfolio case study"
+      },
+      "highlight": {
+        "fr": "Video Game Sales",
+        "en": "Video Game Sales"
+      },
+      "heading": {
+        "fr": "Power BI Report",
+        "en": "Power BI Report"
+      },
+      "lead": {
+        "fr": "Interactive dashboard created from the Kaggle video game sales data set. I used it as a sandbox to rehearse PL-300 skills: data modelling, DAX measures, dynamic tooltips and responsive layouts. This page summarizes the report story and the insights surfaced in each tab.",
+        "en": "Interactive dashboard created from the Kaggle video game sales data set. I used it as a sandbox to rehearse PL-300 skills: data modelling, DAX measures, dynamic tooltips and responsive layouts. This page summarizes the report story and the insights surfaced in each tab."
+      },
       "certification": "PL-300 (Power BI Data Analyst Associate) — preparation project",
-      "status": "Personal portfolio project — interactive demo available via screenshots and video",
+      "status": {
+        "fr": "Personal portfolio project — interactive demo available via screenshots and video",
+        "en": "Personal portfolio project — interactive demo available via screenshots and video"
+      },
       "context": {
-        "heading": "Project context",
-        "body": "The model combines five dimensions (Genre, Platform, Publisher, Region and Calendar) around a sales fact table. From there I built KPI cards, drill-through journeys and a narrative layout inspired by Microsoft's Fluent design language."
+        "heading": {
+          "fr": "Project context",
+          "en": "Project context"
+        },
+        "body": {
+          "fr": "The model combines five dimensions (Genre, Platform, Publisher, Region and Calendar) around a sales fact table. From there I built KPI cards, drill-through journeys and a narrative layout inspired by Microsoft's Fluent design language.",
+          "en": "The model combines five dimensions (Genre, Platform, Publisher, Region and Calendar) around a sales fact table. From there I built KPI cards, drill-through journeys and a narrative layout inspired by Microsoft's Fluent design language."
+        }
       },
       "impact": [
-        "Built a star schema model with fact and dimension tables (Date, Genre, Platform, Publisher, Game)",
-        "Created dynamic KPIs, time-based analysis, and Top N rankings using DAX",
-        "Designed interactive pages with slicers, drill-down exploration, and intelligent tooltips",
-        "Improved data readability and insights through clean UX and structured report pages"
+        {
+          "fr": "Built a star schema model with fact and dimension tables (Date, Genre, Platform, Publisher, Game)",
+          "en": "Built a star schema model with fact and dimension tables (Date, Genre, Platform, Publisher, Game)"
+        },
+        {
+          "fr": "Created dynamic KPIs, time-based analysis, and Top N rankings using DAX",
+          "en": "Created dynamic KPIs, time-based analysis, and Top N rankings using DAX"
+        },
+        {
+          "fr": "Designed interactive pages with slicers, drill-down exploration, and intelligent tooltips",
+          "en": "Designed interactive pages with slicers, drill-down exploration, and intelligent tooltips"
+        },
+        {
+          "fr": "Improved data readability and insights through clean UX and structured report pages",
+          "en": "Improved data readability and insights through clean UX and structured report pages"
+        }
       ],
-      "galleryTitle": "Report gallery",
-      "galleryLead": "Highlights from the overview, regional drilldowns, franchise scorecard and mobile canvas used throughout demos.",
+      "galleryTitle": {
+        "fr": "Report gallery",
+        "en": "Report gallery"
+      },
+      "galleryLead": {
+        "fr": "Highlights from the overview, regional drilldowns, franchise scorecard and mobile canvas used throughout demos.",
+        "en": "Highlights from the overview, regional drilldowns, franchise scorecard and mobile canvas used throughout demos."
+      },
       "gallery": [
         {
           "src": "./images/screen-sale1-copie.webp",
           "alt": "Overview KPIs for the video game sales dashboard",
-          "caption": "Overview — revenue KPIs, growth indicators and a genre filter bar to steer the story."
+          "caption": {
+            "fr": "Overview — revenue KPIs, growth indicators and a genre filter bar to steer the story.",
+            "en": "Overview — revenue KPIs, growth indicators and a genre filter bar to steer the story."
+          }
         },
         {
           "src": "./images/screen-sale1-5-copie.webp",
           "alt": "Regional performance heatmap",
-          "caption": "Regions — synchronized map + column charts compare North America, Europe, Japan and ROW."
+          "caption": {
+            "fr": "Regions — synchronized map + column charts compare North America, Europe, Japan and ROW.",
+            "en": "Regions — synchronized map + column charts compare North America, Europe, Japan and ROW."
+          }
         },
         {
           "src": "./images/screen-sale2-copie.webp",
           "alt": "Franchise ranking leaderboard",
-          "caption": "Franchises — Top N selector powered by DAX ranking measures with tooltips for long-tail titles."
+          "caption": {
+            "fr": "Franchises — Top N selector powered by DAX ranking measures with tooltips for long-tail titles.",
+            "en": "Franchises — Top N selector powered by DAX ranking measures with tooltips for long-tail titles."
+          }
         },
         {
           "src": "./images/screen-sale2-5-copie.webp",
           "alt": "Platform lifecycle timeline",
-          "caption": "Platforms — lifecycle chart showing launches vs. revenue maturity to guide platform bets."
+          "caption": {
+            "fr": "Platforms — lifecycle chart showing launches vs. revenue maturity to guide platform bets.",
+            "en": "Platforms — lifecycle chart showing launches vs. revenue maturity to guide platform bets."
+          }
         },
         {
           "src": "./images/screen-sale3-copie.webp",
           "alt": "Datamodel view showing fact and dimension tables",
-          "caption": "Data model — star schema built in Power BI Desktop with fact Sales and Date/Genre/Platform/Publisher dims."
+          "caption": {
+            "fr": "Data model — star schema built in Power BI Desktop with fact Sales and Date/Genre/Platform/Publisher dims.",
+            "en": "Data model — star schema built in Power BI Desktop with fact Sales and Date/Genre/Platform/Publisher dims."
+          }
         },
         {
           "src": "./images/screen-sale3-5-copie.webp",
           "alt": "Mobile-ready layout",
-          "caption": "Mobile — responsive canvas with simplified KPIs for handheld consumption during demos."
+          "caption": {
+            "fr": "Mobile — responsive canvas with simplified KPIs for handheld consumption during demos.",
+            "en": "Mobile — responsive canvas with simplified KPIs for handheld consumption during demos."
+          }
         }
       ],
       "video": {
-        "heading": "Video walkthrough",
-        "body": "Short demo recording showing navigation between tabs, slicer interactions and how the insights are presented live.",
+        "heading": {
+          "fr": "Video walkthrough",
+          "en": "Video walkthrough"
+        },
+        "body": {
+          "fr": "Short demo recording showing navigation between tabs, slicer interactions and how the insights are presented live.",
+          "en": "Short demo recording showing navigation between tabs, slicer interactions and how the insights are presented live."
+        },
         "url": "https://youtu.be/wg360XzBvso",
-        "label": "Watch the video"
+        "label": {
+          "fr": "Watch the video",
+          "en": "Watch the video"
+        }
       },
       "cta": {
-        "heading": "Need a PL-300 style walkthrough?",
-        "body": "Let me demo the model, DAX techniques and UX guidelines I used here so we can replicate them for your dataset."
+        "heading": {
+          "fr": "Need a PL-300 style walkthrough?",
+          "en": "Need a PL-300 style walkthrough?"
+        },
+        "body": {
+          "fr": "Let me demo the model, DAX techniques and UX guidelines I used here so we can replicate them for your dataset.",
+          "en": "Let me demo the model, DAX techniques and UX guidelines I used here so we can replicate them for your dataset."
+        }
       }
     }
   },
@@ -225,71 +559,149 @@
     "slug": "mscd-application",
     "title": "MSCD — Internal Contract & Quality Management Application",
     "image": "./images/power-app-removebg-preview.webp",
-    "summary": "Internal application built during my time at Avanade to track signed contracts end-to-end. The solution covered all required processes and validation steps to ensure consistent follow-up and support long-term quality management.",
-    "hats": ["Microsoft"],
-    "tags": ["Power Apps", "SharePoint", "Power Automate"],
-    "type": "Business Application",
+    "summary": {
+      "fr": "Internal application built during my time at Avanade to track signed contracts end-to-end. The solution covered all required processes and validation steps to ensure consistent follow-up and support long-term quality management.",
+      "en": "Internal application built during my time at Avanade to track signed contracts end-to-end. The solution covered all required processes and validation steps to ensure consistent follow-up and support long-term quality management."
+    },
+    "hats": [
+      "Microsoft"
+    ],
+    "tags": [
+      "Power Apps",
+      "SharePoint",
+      "Power Automate"
+    ],
+    "type": {
+      "fr": "Business Application",
+      "en": "Business Application"
+    },
     "year": 2023,
     "featured": true,
     "openInSameTab": true,
     "detail": {
-      "tagline": "Internal case study",
-      "highlight": "MSCD",
-      "heading": "Contract Management App",
-      "lead": "A Power Apps solution deployed at Avanade to control every contract milestone — from intake to quality monitoring. This page compiles the UI states shared with stakeholders to explain the app story while keeping client data confidential.",
-      "status": "Internal project developed at Avanade — live access no longer available. Presented through screenshots for confidentiality reasons.",
+      "tagline": {
+        "fr": "Internal case study",
+        "en": "Internal case study"
+      },
+      "highlight": {
+        "fr": "MSCD",
+        "en": "MSCD"
+      },
+      "heading": {
+        "fr": "Contract Management App",
+        "en": "Contract Management App"
+      },
+      "lead": {
+        "fr": "A Power Apps solution deployed at Avanade to control every contract milestone — from intake to quality monitoring. This page compiles the UI states shared with stakeholders to explain the app story while keeping client data confidential.",
+        "en": "A Power Apps solution deployed at Avanade to control every contract milestone — from intake to quality monitoring. This page compiles the UI states shared with stakeholders to explain the app story while keeping client data confidential."
+      },
+      "status": {
+        "fr": "Internal project developed at Avanade — live access no longer available. Presented through screenshots for confidentiality reasons.",
+        "en": "Internal project developed at Avanade — live access no longer available. Presented through screenshots for confidentiality reasons."
+      },
       "context": {
-        "heading": "Project context",
-        "body": "MSCD orchestrates SharePoint, Dataverse and Power Automate flows so delivery teams can trace approvals, trigger alerts and update executive KPIs without switching tools. The canvas mirrors the Microsoft Design System for familiarity and fast adoption."
+        "heading": {
+          "fr": "Project context",
+          "en": "Project context"
+        },
+        "body": {
+          "fr": "MSCD orchestrates SharePoint, Dataverse and Power Automate flows so delivery teams can trace approvals, trigger alerts and update executive KPIs without switching tools. The canvas mirrors the Microsoft Design System for familiarity and fast adoption.",
+          "en": "MSCD orchestrates SharePoint, Dataverse and Power Automate flows so delivery teams can trace approvals, trigger alerts and update executive KPIs without switching tools. The canvas mirrors the Microsoft Design System for familiarity and fast adoption."
+        }
       },
       "impact": [
-        "Centralized contract tracking from signature to delivery",
-        "Standardized processes and validation steps across teams",
-        "Improved visibility and traceability for quality management",
-        "Reduced manual follow-up through automated workflows"
+        {
+          "fr": "Centralized contract tracking from signature to delivery",
+          "en": "Centralized contract tracking from signature to delivery"
+        },
+        {
+          "fr": "Standardized processes and validation steps across teams",
+          "en": "Standardized processes and validation steps across teams"
+        },
+        {
+          "fr": "Improved visibility and traceability for quality management",
+          "en": "Improved visibility and traceability for quality management"
+        },
+        {
+          "fr": "Reduced manual follow-up through automated workflows",
+          "en": "Reduced manual follow-up through automated workflows"
+        }
       ],
-      "galleryTitle": "Application gallery",
-      "galleryLead": "Seven walkthrough captures covering overview metrics, approval pipeline, automation logs and mobile responsive states.",
+      "galleryTitle": {
+        "fr": "Application gallery",
+        "en": "Application gallery"
+      },
+      "galleryLead": {
+        "fr": "Seven walkthrough captures covering overview metrics, approval pipeline, automation logs and mobile responsive states.",
+        "en": "Seven walkthrough captures covering overview metrics, approval pipeline, automation logs and mobile responsive states."
+      },
       "gallery": [
         {
           "src": "./images/msdc1.webp",
           "alt": "MSCD overview dashboard",
-          "caption": "Overview — global KPIs pulling quality, delivery and SLA data."
+          "caption": {
+            "fr": "Overview — global KPIs pulling quality, delivery and SLA data.",
+            "en": "Overview — global KPIs pulling quality, delivery and SLA data."
+          }
         },
         {
           "src": "./images/msdc2.webp",
           "alt": "Approval queue",
-          "caption": "Approvals — queue prioritizing validations with SLA timers and reminders."
+          "caption": {
+            "fr": "Approvals — queue prioritizing validations with SLA timers and reminders.",
+            "en": "Approvals — queue prioritizing validations with SLA timers and reminders."
+          }
         },
         {
           "src": "./images/msdc3.webp",
           "alt": "Quality and automation KPIs",
-          "caption": "Quality — consolidated KPIs with a live feed from Power Automate."
+          "caption": {
+            "fr": "Quality — consolidated KPIs with a live feed from Power Automate.",
+            "en": "Quality — consolidated KPIs with a live feed from Power Automate."
+          }
         },
         {
           "src": "./images/msdc4.webp",
           "alt": "Delivery pipeline visualization",
-          "caption": "Pipeline — stage progression indicators highlight potential bottlenecks."
+          "caption": {
+            "fr": "Pipeline — stage progression indicators highlight potential bottlenecks.",
+            "en": "Pipeline — stage progression indicators highlight potential bottlenecks."
+          }
         },
         {
           "src": "./images/msdc5.webp",
           "alt": "SLA heatmap",
-          "caption": "SLA heatmap — surfacing overdue validations by entity."
+          "caption": {
+            "fr": "SLA heatmap — surfacing overdue validations by entity.",
+            "en": "SLA heatmap — surfacing overdue validations by entity."
+          }
         },
         {
           "src": "./images/msdc6.webp",
           "alt": "Process flow map",
-          "caption": "Process — the canonical flow from intake to delivery monitoring."
+          "caption": {
+            "fr": "Process — the canonical flow from intake to delivery monitoring.",
+            "en": "Process — the canonical flow from intake to delivery monitoring."
+          }
         },
         {
           "src": "./images/msdc7.webp",
           "alt": "Mobile layout and quick actions",
-          "caption": "Mobile — responsive canvas with quick actions for field users."
+          "caption": {
+            "fr": "Mobile — responsive canvas with quick actions for field users.",
+            "en": "Mobile — responsive canvas with quick actions for field users."
+          }
         }
       ],
       "cta": {
-        "heading": "Want to see the data model?",
-        "body": "I can walk you through the governance approach, automation steps and UX patterns that made MSCD a reliable internal tool."
+        "heading": {
+          "fr": "Want to see the data model?",
+          "en": "Want to see the data model?"
+        },
+        "body": {
+          "fr": "I can walk you through the governance approach, automation steps and UX patterns that made MSCD a reliable internal tool.",
+          "en": "I can walk you through the governance approach, automation steps and UX patterns that made MSCD a reliable internal tool."
+        }
       }
     }
   },
@@ -297,55 +709,121 @@
     "slug": "suez-dashboard",
     "title": "SUEZ — Power BI Certification Progress Dashboard",
     "image": "./images/powerbi.webp",
-    "summary": "Power BI dashboard built for a SUEZ project to help stakeholders track certification progress across teams and support decision-making.",
-    "hats": ["Microsoft"],
-    "tags": ["Power BI", "Power Query", "DAX"],
-    "type": "Dashboard",
+    "summary": {
+      "fr": "Power BI dashboard built for a SUEZ project to help stakeholders track certification progress across teams and support decision-making.",
+      "en": "Power BI dashboard built for a SUEZ project to help stakeholders track certification progress across teams and support decision-making."
+    },
+    "hats": [
+      "Microsoft"
+    ],
+    "tags": [
+      "Power BI",
+      "Power Query",
+      "DAX"
+    ],
+    "type": {
+      "fr": "Dashboard",
+      "en": "Dashboard"
+    },
     "year": 2023,
     "featured": true,
     "openInSameTab": true,
     "detail": {
-      "tagline": "Client case study",
-      "highlight": "SUEZ",
-      "heading": "Certification Dashboard",
-      "lead": "Dashboard created at Avanade for SUEZ to monitor Power Platform certifications across teams. This page highlights the key views used to track progress, spot gaps and prepare leadership reviews.",
-      "status": "Internal project developed at Avanade — live access no longer available",
+      "tagline": {
+        "fr": "Client case study",
+        "en": "Client case study"
+      },
+      "highlight": {
+        "fr": "SUEZ",
+        "en": "SUEZ"
+      },
+      "heading": {
+        "fr": "Certification Dashboard",
+        "en": "Certification Dashboard"
+      },
+      "lead": {
+        "fr": "Dashboard created at Avanade for SUEZ to monitor Power Platform certifications across teams. This page highlights the key views used to track progress, spot gaps and prepare leadership reviews.",
+        "en": "Dashboard created at Avanade for SUEZ to monitor Power Platform certifications across teams. This page highlights the key views used to track progress, spot gaps and prepare leadership reviews."
+      },
+      "status": {
+        "fr": "Internal project developed at Avanade — live access no longer available",
+        "en": "Internal project developed at Avanade — live access no longer available"
+      },
       "context": {
-        "heading": "Project context",
-        "body": "The report blends Power BI, Power Query and DAX measures to expose KPIs in a modern Microsoft look-and-feel. It consolidates pipelines and training data so managers can act before deadlines."
+        "heading": {
+          "fr": "Project context",
+          "en": "Project context"
+        },
+        "body": {
+          "fr": "The report blends Power BI, Power Query and DAX measures to expose KPIs in a modern Microsoft look-and-feel. It consolidates pipelines and training data so managers can act before deadlines.",
+          "en": "The report blends Power BI, Power Query and DAX measures to expose KPIs in a modern Microsoft look-and-feel. It consolidates pipelines and training data so managers can act before deadlines."
+        }
       },
       "impact": [
-        "Centralized certification progress tracking for multiple teams",
-        "Improved visibility for managers with clear KPIs and drill-down views",
-        "Reduced manual reporting by consolidating data into a single dashboard"
+        {
+          "fr": "Centralized certification progress tracking for multiple teams",
+          "en": "Centralized certification progress tracking for multiple teams"
+        },
+        {
+          "fr": "Improved visibility for managers with clear KPIs and drill-down views",
+          "en": "Improved visibility for managers with clear KPIs and drill-down views"
+        },
+        {
+          "fr": "Reduced manual reporting by consolidating data into a single dashboard",
+          "en": "Reduced manual reporting by consolidating data into a single dashboard"
+        }
       ],
-      "galleryTitle": "Report gallery",
-      "galleryLead": "Four snapshots covering the executive summary, certification details, completion timelines and mobile-ready canvas.",
+      "galleryTitle": {
+        "fr": "Report gallery",
+        "en": "Report gallery"
+      },
+      "galleryLead": {
+        "fr": "Four snapshots covering the executive summary, certification details, completion timelines and mobile-ready canvas.",
+        "en": "Four snapshots covering the executive summary, certification details, completion timelines and mobile-ready canvas."
+      },
       "gallery": [
         {
           "src": "./images/screenshot-2025-10-01-210737.webp",
           "alt": "SUEZ overview page with KPIs",
-          "caption": "Overview — global KPIs and segment filters."
+          "caption": {
+            "fr": "Overview — global KPIs and segment filters.",
+            "en": "Overview — global KPIs and segment filters."
+          }
         },
         {
           "src": "./images/screenshot-2025-10-01-210750.webp",
           "alt": "Team comparison view",
-          "caption": "Teams — focus on completion rate by business unit."
+          "caption": {
+            "fr": "Teams — focus on completion rate by business unit.",
+            "en": "Teams — focus on completion rate by business unit."
+          }
         },
         {
           "src": "./images/screenshot-2025-10-01-210802.webp",
           "alt": "Certification breakdown cards",
-          "caption": "Certifications — status cards filtered by product."
+          "caption": {
+            "fr": "Certifications — status cards filtered by product.",
+            "en": "Certifications — status cards filtered by product."
+          }
         },
         {
           "src": "./images/screenshot-2025-10-01-210814.webp",
           "alt": "Mobile responsive page",
-          "caption": "Mobile — responsive view for managers on-the-go."
+          "caption": {
+            "fr": "Mobile — responsive view for managers on-the-go.",
+            "en": "Mobile — responsive view for managers on-the-go."
+          }
         }
       ],
       "cta": {
-        "heading": "Need a similar dashboard?",
-        "body": "I can walk you through the data model, KPIs and UX choices that made this project successful, then adapt them to your context."
+        "heading": {
+          "fr": "Need a similar dashboard?",
+          "en": "Need a similar dashboard?"
+        },
+        "body": {
+          "fr": "I can walk you through the data model, KPIs and UX choices that made this project successful, then adapt them to your context.",
+          "en": "I can walk you through the data model, KPIs and UX choices that made this project successful, then adapt them to your context."
+        }
       }
     }
   },
@@ -353,8 +831,13 @@
     "slug": "professional-wordpress-website",
     "title": "Professional Wordpress Website",
     "image": "./images/site-anne-guillien.webp",
-    "summary": "Delivered a custom WordPress business website focused on showcasing services and enhancing client engagement. Integrated essential features such as online appointment booking, SEO optimization, and responsive design to ensure a seamless user experience and ease of management for the client.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "Delivered a custom WordPress business website focused on showcasing services and enhancing client engagement. Integrated essential features such as online appointment booking, SEO optimization, and responsive design to ensure a seamless user experience and ease of management for the client.",
+      "en": "Delivered a custom WordPress business website focused on showcasing services and enhancing client engagement. Integrated essential features such as online appointment booking, SEO optimization, and responsive design to ensure a seamless user experience and ease of management for the client."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://anneguillien.fr"
@@ -363,8 +846,13 @@
     "slug": "wheretowatch",
     "title": "WhereToWatch",
     "image": "./images/wheretowatch2.webp",
-    "summary": "WhereToWatch is a React application that lets users search for movies and find where to watch them. It uses the TMDB API to display movie details like genres, ratings, main actors, and streaming platforms. Built with React, React Router, and Bootstrap, it's deployed on GitHub Pages",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "WhereToWatch is a React application that lets users search for movies and find where to watch them. It uses the TMDB API to display movie details like genres, ratings, main actors, and streaming platforms. Built with React, React Router, and Bootstrap, it's deployed on GitHub Pages",
+      "en": "WhereToWatch is a React application that lets users search for movies and find where to watch them. It uses the TMDB API to display movie details like genres, ratings, main actors, and streaming platforms. Built with React, React Router, and Bootstrap, it's deployed on GitHub Pages"
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/WhereToWatch/"
@@ -373,8 +861,13 @@
     "slug": "password-generator",
     "title": "Password Generator",
     "image": "./images/passwordgen.webp",
-    "summary": "A JavaScript project to create secure, customizable passwords. It strengthens my skills in JavaScript functions, DOM manipulation, and input validation while practicing arrays, loops, and conditional logic.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "A JavaScript project to create secure, customizable passwords. It strengthens my skills in JavaScript functions, DOM manipulation, and input validation while practicing arrays, loops, and conditional logic.",
+      "en": "A JavaScript project to create secure, customizable passwords. It strengthens my skills in JavaScript functions, DOM manipulation, and input validation while practicing arrays, loops, and conditional logic."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/Password-Generator/"
@@ -383,8 +876,13 @@
     "slug": "to-do-list",
     "title": "To Do List",
     "image": "./images/todo.webp",
-    "summary": "The goal is to build a To-Do List web application that allows users to add, manage, and delete tasks. It helps in practicing JavaScript concepts like DOM manipulation, event handling, local storage, and form validation.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "The goal is to build a To-Do List web application that allows users to add, manage, and delete tasks. It helps in practicing JavaScript concepts like DOM manipulation, event handling, local storage, and form validation.",
+      "en": "The goal is to build a To-Do List web application that allows users to add, manage, and delete tasks. It helps in practicing JavaScript concepts like DOM manipulation, event handling, local storage, and form validation."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/ToDoList/"
@@ -393,8 +891,13 @@
     "slug": "age-calculator",
     "title": "Age Calculator",
     "image": "./images/age-calcul.webp",
-    "summary": "This web application calculates and displays a user's age based on their date of birth. Using JavaScript, the app computes the age in years, months, and days. Users enter their date of birth, and upon clicking a button, the application performs the calculation and presents the result. The project emphasizes JavaScript for accurate date calculations and an engaging, interactive user experience.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "This web application calculates and displays a user's age based on their date of birth. Using JavaScript, the app computes the age in years, months, and days. Users enter their date of birth, and upon clicking a button, the application performs the calculation and presents the result. The project emphasizes JavaScript for accurate date calculations and an engaging, interactive user experience.",
+      "en": "This web application calculates and displays a user's age based on their date of birth. Using JavaScript, the app computes the age in years, months, and days. Users enter their date of birth, and upon clicking a button, the application performs the calculation and presents the result. The project emphasizes JavaScript for accurate date calculations and an engaging, interactive user experience."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/age-calculator/"
@@ -403,8 +906,13 @@
     "slug": "bricotips",
     "title": "Bricotips",
     "image": "./images/bricotips.webp",
-    "summary": "In this project, I deepened my WordPress skills by exploring developer documentation, creating a child theme, and customizing its CSS. I built pages with Gutenberg, created custom widgets and shortcodes, modified theme templates, and developed custom page templates. I also added features using hooks, customized post pages, debugged the site, and implemented security measures to prevent hacking.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "In this project, I deepened my WordPress skills by exploring developer documentation, creating a child theme, and customizing its CSS. I built pages with Gutenberg, created custom widgets and shortcodes, modified theme templates, and developed custom page templates. I also added features using hooks, customized post pages, debugged the site, and implemented security measures to prevent hacking.",
+      "en": "In this project, I deepened my WordPress skills by exploring developer documentation, creating a child theme, and customizing its CSS. I built pages with Gutenberg, created custom widgets and shortcodes, modified theme templates, and developed custom page templates. I also added features using hooks, customized post pages, debugged the site, and implemented security measures to prevent hacking."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://bricotips.portfolio-sbrt.com/"
@@ -413,8 +921,13 @@
     "slug": "banana-design",
     "title": "Banana Design",
     "image": "./images/bananadesign.webp",
-    "summary": "Create a simple WordPress website to learn the basics of WordPress, including installation, theme customization, page creation, and plugin management. Ideal for beginners to understand core WordPress functionalities.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "Create a simple WordPress website to learn the basics of WordPress, including installation, theme customization, page creation, and plugin management. Ideal for beginners to understand core WordPress functionalities.",
+      "en": "Create a simple WordPress website to learn the basics of WordPress, including installation, theme customization, page creation, and plugin management. Ideal for beginners to understand core WordPress functionalities."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://bananadesign.portfolio-sbrt.com/"
@@ -423,8 +936,13 @@
     "slug": "advice-generator",
     "title": "Advice Generator",
     "image": "./images/advice-generator.webp",
-    "summary": "This front-end project focuses on building a web application that interacts with an API to generate and display advice. Users can click a button to fetch advice from the API and view it on the screen. The project emphasizes API integration, asynchronous data handling, and creating a user-friendly interface.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "This front-end project focuses on building a web application that interacts with an API to generate and display advice. Users can click a button to fetch advice from the API and view it on the screen. The project emphasizes API integration, asynchronous data handling, and creating a user-friendly interface.",
+      "en": "This front-end project focuses on building a web application that interacts with an API to generate and display advice. Users can click a button to fetch advice from the API and view it on the screen. The project emphasizes API integration, asynchronous data handling, and creating a user-friendly interface."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/Advice-generator-app/"
@@ -433,8 +951,13 @@
     "slug": "wish-project",
     "title": "Wish Project",
     "image": "./images/wish-project.webp",
-    "summary": "The Wish Project is a course project to learn the basics of the Symfony framework: controller, entity, form, repository, adding, deleting, editing in the database",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "The Wish Project is a course project to learn the basics of the Symfony framework: controller, entity, form, repository, adding, deleting, editing in the database",
+      "en": "The Wish Project is a course project to learn the basics of the Symfony framework: controller, entity, form, repository, adding, deleting, editing in the database"
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://wish.portfolio-sbrt.com/"
@@ -443,8 +966,13 @@
     "slug": "twitthor",
     "title": "TwitThor",
     "image": "./images/twithor.webp",
-    "summary": "The Twitter project is a course project developed using React. This project is designed to provide a experience with the fundamental concepts of the React framework. It covers various aspects such as components, props, and other core features of React. The aim is to provide a practical understanding of how these elements work together to build a dynamic web application.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "The Twitter project is a course project developed using React. This project is designed to provide a experience with the fundamental concepts of the React framework. It covers various aspects such as components, props, and other core features of React. The aim is to provide a practical understanding of how these elements work together to build a dynamic web application.",
+      "en": "The Twitter project is a course project developed using React. This project is designed to provide a experience with the fundamental concepts of the React framework. It covers various aspects such as components, props, and other core features of React. The aim is to provide a practical understanding of how these elements work together to build a dynamic web application."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://youtu.be/iFYvu0avXg4"
@@ -453,8 +981,13 @@
     "slug": "la-maison-jungle",
     "title": "La Maison Jungle",
     "image": "./images/la-maison-jungle.webp",
-    "summary": "A plant e-commerce site project designed for practicing React. Developed as part of an OpenClassrooms course, this project allows users to browse and purchase a variety of plants. Features include cart management, product detail displays, and a modern, responsive user interface.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "A plant e-commerce site project designed for practicing React. Developed as part of an OpenClassrooms course, this project allows users to browse and purchase a variety of plants. Features include cart management, product detail displays, and a modern, responsive user interface.",
+      "en": "A plant e-commerce site project designed for practicing React. Developed as part of an OpenClassrooms course, this project allows users to browse and purchase a variety of plants. Features include cart management, product detail displays, and a modern, responsive user interface."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/La-Maison-Jungle/"
@@ -463,8 +996,13 @@
     "slug": "favfilm",
     "title": "FavFilm",
     "image": "./images/favfilm.webp",
-    "summary": "I created a website to learn React for school. The website allows users to explore a collection of films, displaying them and providing sorting options. It serves as a practical exercise in React development and user interface design.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "I created a website to learn React for school. The website allows users to explore a collection of films, displaying them and providing sorting options. It serves as a practical exercise in React development and user interface design.",
+      "en": "I created a website to learn React for school. The website allows users to explore a collection of films, displaying them and providing sorting options. It serves as a practical exercise in React development and user interface design."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/React-FavFilm/"
@@ -473,8 +1011,13 @@
     "slug": "news-home-page",
     "title": "New Home Page",
     "image": "./images/newshomepage.webp",
-    "summary": "This project entails building a responsive news website homepage, focusing on HTML, CSS, and basic JavaScript skills. Participants are tasked with replicating the design as closely as possible, ensuring responsiveness across different screen sizes and incorporating hover and focus states for interactive elements.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "This project entails building a responsive news website homepage, focusing on HTML, CSS, and basic JavaScript skills. Participants are tasked with replicating the design as closely as possible, ensuring responsiveness across different screen sizes and incorporating hover and focus states for interactive elements.",
+      "en": "This project entails building a responsive news website homepage, focusing on HTML, CSS, and basic JavaScript skills. Participants are tasked with replicating the design as closely as possible, ensuring responsiveness across different screen sizes and incorporating hover and focus states for interactive elements."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/News-Home-Page-/"
@@ -483,8 +1026,13 @@
     "slug": "newsletter-sign-up",
     "title": "Newsletter Sign Up",
     "image": "./images/newsletter-sign-up.webp",
-    "summary": "I developed an interactive newsletter signup form from a given design. Users can input their email, receiving a confirmation message upon successful submission, along with responsive design for various screens.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "I developed an interactive newsletter signup form from a given design. Users can input their email, receiving a confirmation message upon successful submission, along with responsive design for various screens.",
+      "en": "I developed an interactive newsletter signup form from a given design. Users can input their email, receiving a confirmation message upon successful submission, along with responsive design for various screens."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/newsletter-sign-up-/"
@@ -493,8 +1041,13 @@
     "slug": "interactive-rating",
     "title": "Interactive Rating",
     "image": "./images/interactive-rating.webp",
-    "summary": "I created a responsive rating component with hover effects based on a design, encouraging user interaction. After rating, a 'Thank you' card boosts engagement.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "I created a responsive rating component with hover effects based on a design, encouraging user interaction. After rating, a 'Thank you' card boosts engagement.",
+      "en": "I created a responsive rating component with hover effects based on a design, encouraging user interaction. After rating, a 'Thank you' card boosts engagement."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/Interactive-rating-/"
@@ -503,8 +1056,13 @@
     "slug": "taxifood",
     "title": "Taxifood",
     "image": "./images/taxifood.webp",
-    "summary": "Group project for training assessment (CEFIM). I designed the team page to showcase store members with photos and roles, enabling their information to be editable for administrative purposes.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "Group project for training assessment (CEFIM). I designed the team page to showcase store members with photos and roles, enabling their information to be editable for administrative purposes.",
+      "en": "Group project for training assessment (CEFIM). I designed the team page to showcase store members with photos and roles, enabling their information to be editable for administrative purposes."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/TaxiFood/"
@@ -513,8 +1071,13 @@
     "slug": "superapp",
     "title": "SuperApp",
     "image": "./images/superapp.webp",
-    "summary": "Successful integration of the 'Super App' landing page designed in Adobe XD. Demonstration of development skills and highlighting the attractive interface of the application.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "Successful integration of the 'Super App' landing page designed in Adobe XD. Demonstration of development skills and highlighting the attractive interface of the application.",
+      "en": "Successful integration of the 'Super App' landing page designed in Adobe XD. Demonstration of development skills and highlighting the attractive interface of the application."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/Challenge/"
@@ -523,8 +1086,13 @@
     "slug": "excursion-site",
     "title": "Excursion Site",
     "image": "./images/excursion.webp",
-    "summary": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
+      "en": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/excursion/"
@@ -533,8 +1101,13 @@
     "slug": "tea-cozy",
     "title": "Tea Cozy",
     "image": "./images/tea.webp",
-    "summary": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
-    "hats": ["Web"],
+    "summary": {
+      "fr": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy.",
+      "en": "Here are my first exercises as a beginner that I did to work on my HTML and CSS on Codecademy."
+    },
+    "hats": [
+      "Web"
+    ],
     "tags": [],
     "featured": false,
     "externalUrl": "https://paul-sbrt.github.io/Projet-Tea-Cozy/"

@@ -1,22 +1,52 @@
 [
   {
-    "position": "Lead SI",
+    "position": {
+      "fr": "Lead SI",
+      "en": "Lead SI"
+    },
     "company": "IPMS",
-    "location": "Freelance",
-    "dates": "depuis avril 2026",
-    "description": "Refonte de back-office, pilotage des tableaux de bord et gestion de projets."
+    "location": {
+      "fr": "Freelance",
+      "en": "Freelance"
+    },
+    "dates": {
+      "fr": "depuis avril 2026",
+      "en": "depuis avril 2026"
+    },
+    "description": {
+      "fr": "Refonte de back-office, pilotage des tableaux de bord et gestion de projets.",
+      "en": "Refonte de back-office, pilotage des tableaux de bord et gestion de projets."
+    }
   },
   {
-    "position": "Developer",
+    "position": {
+      "fr": "Developer",
+      "en": "Developer"
+    },
     "company": "AVANADE FRANCE",
-    "location": "Paris",
-    "dates": "oct 2023 - sept 2025",
+    "location": {
+      "fr": "Paris",
+      "en": "Paris"
+    },
+    "dates": {
+      "fr": "oct 2023 - sept 2025",
+      "en": "oct 2023 - sept 2025"
+    },
     "image": "./images/avanade.webp"
   },
   {
-    "position": "Parcours restauration & jobs étudiants",
+    "position": {
+      "fr": "Parcours restauration & jobs étudiants",
+      "en": "Parcours restauration & jobs étudiants"
+    },
     "company": "Tours / Vancouver",
-    "location": "",
-    "dates": "2019 - 2023"
+    "location": {
+      "fr": "",
+      "en": ""
+    },
+    "dates": {
+      "fr": "2019 - 2023",
+      "en": "2019 - 2023"
+    }
   }
 ]

@@ -1,3 +1,28 @@
+// --- Bilingual helpers ---
+function getLang() {
+  return document.documentElement.lang === "en" ? "en" : "fr";
+}
+
+// Read a possibly-bilingual value. {fr,en} -> active language (with fallback);
+// a plain string is returned as-is (progressive migration).
+function t(value, lang) {
+  lang = lang || getLang();
+  if (value && typeof value === "object" && !Array.isArray(value)) {
+    if (value[lang] != null) return value[lang];
+    if (value.fr != null) return value.fr;
+    if (value.en != null) return value.en;
+    return "";
+  }
+  return value != null ? value : "";
+}
+
+// Detail pages are static per-language (FR at projects/, EN under en/projects/).
+function detailHref(slug) {
+  return getLang() === "en"
+    ? `en/projects/${slug}.html`
+    : `projects/${slug}.html`;
+}
+
 function emitTabContentUpdated() {
   if (
     typeof window !== "undefined" &&
@@ -9,7 +34,7 @@ function emitTabContentUpdated() {
 
 // --- Certification field extraction (single source of truth) ---
 function certName(cert) {
-  return cert.name || cert.title || cert.code || "Certification";
+  return t(cert.name) || t(cert.title) || cert.code || "Certification";
 }
 
 function certYear(cert) {
@@ -49,7 +74,7 @@ function displaySkills() {
         if (group.group) {
           const groupTitle = document.createElement("h4");
           groupTitle.classList.add("skills-group-title");
-          groupTitle.textContent = group.group;
+          groupTitle.textContent = t(group.group);
           groupEl.appendChild(groupTitle);
         }
 
@@ -72,7 +97,7 @@ function displaySkills() {
           }
 
           const skillName = document.createElement("span");
-          skillName.textContent = skill.name;
+          skillName.textContent = t(skill.name);
           skillBox.appendChild(skillName);
 
           gridEl.appendChild(skillBox);
@@ -111,36 +136,36 @@ function displayExperience() {
           const experienceImage = document.createElement("img");
           experienceImage.src = experience.image;
           experienceImage.loading = "lazy";
-          experienceImage.alt = experience.company || experience.position || "";
+          experienceImage.alt = experience.company || t(experience.position) || "";
           experienceBox.appendChild(experienceImage);
           experienceBox.appendChild(document.createElement("br"));
         }
 
         const experiencePosition = document.createElement("span");
-        experiencePosition.textContent = experience.position;
+        experiencePosition.textContent = t(experience.position);
         experienceBox.appendChild(experiencePosition);
         experienceBox.appendChild(document.createElement("br"));
 
         if (experience.company) {
           const experienceCompany = document.createElement("p");
-          experienceCompany.textContent = experience.company;
+          experienceCompany.textContent = t(experience.company);
           experienceBox.appendChild(experienceCompany);
         }
 
         if (experience.location) {
           const experienceLocation = document.createElement("p");
-          experienceLocation.textContent = experience.location;
+          experienceLocation.textContent = t(experience.location);
           experienceBox.appendChild(experienceLocation);
         }
 
         const experienceDates = document.createElement("p");
-        experienceDates.textContent = experience.dates;
+        experienceDates.textContent = t(experience.dates);
         experienceBox.appendChild(experienceDates);
 
         if (experience.description) {
           const experienceDesc = document.createElement("p");
           experienceDesc.classList.add("exp-desc");
-          experienceDesc.textContent = experience.description;
+          experienceDesc.textContent = t(experience.description);
           experienceBox.appendChild(experienceDesc);
         }
 
@@ -167,16 +192,16 @@ function displayStudies() {
         const studyImage = document.createElement("img");
         studyImage.src = study.image;
         studyImage.loading = "lazy";
-        studyImage.alt = study.institution || "";
+        studyImage.alt = t(study.institution) || "";
 
         const studyInstitution = document.createElement("span");
-        studyInstitution.textContent = study.institution;
+        studyInstitution.textContent = t(study.institution);
 
         const studyPlace = document.createElement("p");
-        studyPlace.textContent = study.place;
+        studyPlace.textContent = t(study.place);
 
         const studyDates = document.createElement("p");
-        studyDates.textContent = study.dates;
+        studyDates.textContent = t(study.dates);
 
         studyBox.appendChild(studyImage);
         studyBox.appendChild(document.createElement("br"));
@@ -294,13 +319,13 @@ function buildProjectCard(project) {
   card.className = "project-card";
   card.dataset.hats = hats.join("|");
   if (isFeatured) {
-    card.href = `projects/${project.slug}.html`;
+    card.href = detailHref(project.slug);
   } else {
     card.href = project.externalUrl || project.link || "#";
     card.target = "_blank";
     card.rel = "noopener noreferrer";
   }
-  card.setAttribute("aria-label", `Open ${project.title}`);
+  card.setAttribute("aria-label", `${project.title}`);
 
   const thumb = document.createElement("div");
   thumb.className = "project-card-thumb";
@@ -320,10 +345,10 @@ function buildProjectCard(project) {
   if (tags.length) {
     const tagRow = document.createElement("div");
     tagRow.className = "project-tags";
-    tags.forEach((t) => {
+    tags.forEach((tag) => {
       const chip = document.createElement("span");
       chip.className = "project-tag";
-      chip.textContent = t;
+      chip.textContent = tag;
       tagRow.appendChild(chip);
     });
     body.appendChild(tagRow);
@@ -331,7 +356,7 @@ function buildProjectCard(project) {
 
   const summary = document.createElement("p");
   summary.className = "project-summary";
-  summary.textContent = project.summary || project.description || "";
+  summary.textContent = t(project.summary) || t(project.description) || "";
   body.appendChild(summary);
 
   const foot = document.createElement("div");
@@ -373,7 +398,8 @@ function buildProjectFilters(projectData, filtersContainer, grid) {
     chip.className = "filter-chip" + (index === 0 ? " is-active" : "");
     chip.dataset.filter = filter;
     if (filter !== "all") chip.dataset.hat = filter;
-    chip.textContent = filter === "all" ? "All" : filter;
+    chip.textContent =
+      filter === "all" ? (getLang() === "en" ? "All" : "Tous") : filter;
     chip.addEventListener("click", () => applyFilter(filter, filtersContainer, grid));
     filtersContainer.appendChild(chip);
   });
@@ -391,3 +417,14 @@ function applyFilter(filter, filtersContainer, grid) {
 }
 
 displayProjects();
+
+// Re-render every data-driven section when the language toggles (index only).
+// Each renderer clears its container and rebuilds from the active language.
+function renderAllData() {
+  displayProjects();
+  if (typeof displaySkills === "function") displaySkills();
+  if (typeof displayExperience === "function") displayExperience();
+  if (typeof displayStudies === "function") displayStudies();
+  if (typeof displayCertifications === "function") displayCertifications();
+}
+window.addEventListener("langChanged", renderAllData);

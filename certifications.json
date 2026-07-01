@@ -1,8 +1,14 @@
 [
   {
     "code": "PL-900",
-    "name": "Microsoft Power Platform Fundamentals",
-    "issuer": "Microsoft",
+    "name": {
+      "fr": "Microsoft Power Platform Fundamentals",
+      "en": "Microsoft Power Platform Fundamentals"
+    },
+    "issuer": {
+      "fr": "Microsoft",
+      "en": "Microsoft"
+    },
     "date": "2025",
     "skills": [
       "Power Apps",

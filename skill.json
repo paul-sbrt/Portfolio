@@ -1,51 +1,130 @@
 [
   {
-    "group": "Mobile",
+    "group": {
+      "fr": "Mobile",
+      "en": "Mobile"
+    },
     "skills": [
-      { "name": "Flutter / Dart" },
-      { "name": "Swift / SwiftUI" },
-      { "name": "Firebase" }
+      {
+        "name": "Flutter / Dart"
+      },
+      {
+        "name": "Swift / SwiftUI"
+      },
+      {
+        "name": "Firebase"
+      }
     ]
   },
   {
-    "group": "Web",
+    "group": {
+      "fr": "Web",
+      "en": "Web"
+    },
     "skills": [
-      { "name": "Laravel" },
-      { "name": "Next.js" },
-      { "name": "React", "image": "./images/react.webp" },
-      { "name": "Symfony", "image": "./images/symfony.webp" },
-      { "name": "WordPress", "image": "./images/wordpresslogo.webp" },
-      { "name": "HTML/CSS", "image": "./images/html-5.webp" },
-      { "name": "JavaScript", "image": "./images/js.webp" },
-      { "name": "PHP", "image": "./images/php.webp" },
-      { "name": "SQL", "image": "./images/sql.webp" },
-      { "name": "Cloudflare Workers" }
+      {
+        "name": "Laravel"
+      },
+      {
+        "name": "Next.js"
+      },
+      {
+        "name": "React",
+        "image": "./images/react.webp"
+      },
+      {
+        "name": "Symfony",
+        "image": "./images/symfony.webp"
+      },
+      {
+        "name": "WordPress",
+        "image": "./images/wordpresslogo.webp"
+      },
+      {
+        "name": "HTML/CSS",
+        "image": "./images/html-5.webp"
+      },
+      {
+        "name": "JavaScript",
+        "image": "./images/js.webp"
+      },
+      {
+        "name": "PHP",
+        "image": "./images/php.webp"
+      },
+      {
+        "name": "SQL",
+        "image": "./images/sql.webp"
+      },
+      {
+        "name": "Cloudflare Workers"
+      }
     ]
   },
   {
-    "group": "IA",
+    "group": {
+      "fr": "IA",
+      "en": "IA"
+    },
     "skills": [
-      { "name": "Intégration LLM / Claude" },
-      { "name": "Whisper" },
-      { "name": "Python", "image": "./images/python.webp" }
+      {
+        "name": "Intégration LLM / Claude"
+      },
+      {
+        "name": "Whisper"
+      },
+      {
+        "name": "Python",
+        "image": "./images/python.webp"
+      }
     ]
   },
   {
-    "group": "Microsoft & Power Platform",
+    "group": {
+      "fr": "Microsoft & Power Platform",
+      "en": "Microsoft & Power Platform"
+    },
     "skills": [
-      { "name": "Power Apps", "image": "./images/power-app-removebg-preview.webp" },
-      { "name": "Power BI", "image": "./images/powerbi.webp" },
-      { "name": "Power Automate", "image": "./images/power-automate-removebg-preview.webp" },
-      { "name": "SharePoint", "image": "./images/sharepoint.webp" },
-      { "name": "Excel", "image": "./images/excel-removebg-preview.webp" },
-      { "name": "Azure DevOps", "image": "./images/azure.webp" }
+      {
+        "name": "Power Apps",
+        "image": "./images/power-app-removebg-preview.webp"
+      },
+      {
+        "name": "Power BI",
+        "image": "./images/powerbi.webp"
+      },
+      {
+        "name": "Power Automate",
+        "image": "./images/power-automate-removebg-preview.webp"
+      },
+      {
+        "name": "SharePoint",
+        "image": "./images/sharepoint.webp"
+      },
+      {
+        "name": "Excel",
+        "image": "./images/excel-removebg-preview.webp"
+      },
+      {
+        "name": "Azure DevOps",
+        "image": "./images/azure.webp"
+      }
     ]
   },
   {
-    "group": "Design & Outils",
+    "group": {
+      "fr": "Design & Outils",
+      "en": "Design & Outils"
+    },
     "skills": [
-      { "name": "Figma", "image": "./images/figma.webp" },
-      { "name": "Photoshop", "image": "./images/photoshop.webp" }
+      {
+        "name": "Figma",
+        "image": "./images/figma.webp"
+      },
+      {
+        "name": "Photoshop",
+        "image": "./images/photoshop.webp"
+      }
     ]
   }
 ]
