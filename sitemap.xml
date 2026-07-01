@@ -6,19 +6,15 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/power-platform.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://YOUR-DOMAIN.com/video-game-sales-powerbi.html</loc>
+    <loc>https://YOUR-DOMAIN.com/projects/video-game-sales-powerbi.html</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/mscd-application.html</loc>
+    <loc>https://YOUR-DOMAIN.com/projects/mscd-application.html</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/suez-dashboard.html</loc>
+    <loc>https://YOUR-DOMAIN.com/projects/suez-dashboard.html</loc>
     <priority>0.6</priority>
   </url>
 </urlset>
