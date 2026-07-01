@@ -33,8 +33,14 @@
       { threshold: 0.15, rootMargin: "0px 0px -6% 0px" }
     );
 
-    els.forEach(function (el) {
-      io.observe(el);
+    // Paint the initial (hidden) state before observing, so above-the-fold
+    // elements animate on load instead of appearing already-revealed.
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        els.forEach(function (el) {
+          io.observe(el);
+        });
+      });
     });
   });
 })();

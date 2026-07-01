@@ -193,6 +193,56 @@ nav ul li a:hover:after {
   margin: 0 auto;
   padding: 6vh clamp(24px, 6vw, 80px) 8vh;
   color: var(--text);
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+/* Right-hand graphic panel — animated rose->gold duotone mesh (variant A).
+   Decorative, sits beside the copy, never over it. Uses brand tokens so the
+   bichromy holds in both themes; the base tone follows --bg. */
+.hero-visual {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 24px;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 30px 80px color-mix(in srgb, var(--accent) 16%, transparent);
+}
+.hero-mesh {
+  position: absolute;
+  inset: -14%;
+  background: radial-gradient(
+      58% 58% at 22% 18%,
+      var(--accent),
+      transparent 62%
+    ),
+    radial-gradient(56% 56% at 82% 84%, var(--accent-ms), transparent 60%),
+    radial-gradient(
+      42% 42% at 62% 46%,
+      color-mix(in srgb, var(--accent) 55%, var(--accent-ms)),
+      transparent 70%
+    ),
+    linear-gradient(140deg, color-mix(in srgb, var(--accent) 14%, var(--bg)), var(--bg));
+  filter: saturate(1.12);
+  animation: hero-drift 18s ease-in-out infinite alternate;
+}
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: soft-light;
+  opacity: 0.5;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.06) 0 1px,
+    transparent 1px 3px
+  );
+}
+@keyframes hero-drift {
+  to {
+    transform: scale(1.12) translate(-3%, -3%);
+  }
 }
 
 /* Mono eyebrow with a bichromy accent bar (fil rouge rose -> or) */
@@ -242,20 +292,30 @@ nav ul li a:hover:after {
   opacity: 1;
   transform: none;
 }
-.header-text .reveal:nth-child(2) {
-  transition-delay: 0.08s;
+/* Perceptible load cascade: eyebrow -> title -> sub -> cue, panel alongside */
+.hero-copy .reveal:nth-child(1) {
+  transition-delay: 0.1s;
 }
-.header-text .reveal:nth-child(3) {
-  transition-delay: 0.16s;
+.hero-copy .reveal:nth-child(2) {
+  transition-delay: 0.22s;
 }
-.header-text .reveal:nth-child(4) {
-  transition-delay: 0.24s;
+.hero-copy .reveal:nth-child(3) {
+  transition-delay: 0.34s;
+}
+.hero-copy .reveal:nth-child(4) {
+  transition-delay: 0.46s;
+}
+.hero-visual.reveal {
+  transition-delay: 0.28s;
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .hero-mesh {
+    animation: none;
   }
 }
 
@@ -832,10 +892,21 @@ nav .fa-solid {
     margin-top: 30px;
   }
   .header-text {
+    grid-template-columns: 1fr;
+    gap: 26px;
     padding: 0 24px 12px;
   }
   .header-text h1 {
     font-size: clamp(36px, 11vw, 52px);
+  }
+  /* Panel drops below the copy and shrinks to a slim band — text stays first */
+  .hero-visual {
+    order: 2;
+    aspect-ratio: 16 / 7;
+    border-radius: 18px;
+  }
+  .hero-copy {
+    order: 1;
   }
 
   nav .fa-solid {
