@@ -15,13 +15,11 @@
       { "name": "React", "image": "./images/react.webp" },
       { "name": "Symfony", "image": "./images/symfony.webp" },
       { "name": "WordPress", "image": "./images/wordpresslogo.webp" },
-      { "name": "HTML", "image": "./images/html-5.webp" },
-      { "name": "CSS", "image": "./images/css-3.webp" },
+      { "name": "HTML/CSS", "image": "./images/html-5.webp" },
       { "name": "JavaScript", "image": "./images/js.webp" },
       { "name": "PHP", "image": "./images/php.webp" },
       { "name": "SQL", "image": "./images/sql.webp" },
-      { "name": "Figma", "image": "./images/figma.webp" },
-      { "name": "Photoshop", "image": "./images/photoshop.webp" }
+      { "name": "Cloudflare Workers" }
     ]
   },
   {
@@ -29,7 +27,6 @@
     "skills": [
       { "name": "Intégration LLM / Claude" },
       { "name": "Whisper" },
-      { "name": "Cloudflare Workers" },
       { "name": "Python", "image": "./images/python.webp" }
     ]
   },
@@ -42,6 +39,13 @@
       { "name": "SharePoint", "image": "./images/sharepoint.webp" },
       { "name": "Excel", "image": "./images/excel-removebg-preview.webp" },
       { "name": "Azure DevOps", "image": "./images/azure.webp" }
+    ]
+  },
+  {
+    "group": "Design & Outils",
+    "skills": [
+      { "name": "Figma", "image": "./images/figma.webp" },
+      { "name": "Photoshop", "image": "./images/photoshop.webp" }
     ]
   }
 ]
