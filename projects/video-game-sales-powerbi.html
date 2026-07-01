@@ -17,7 +17,7 @@
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Video Game Sales Analysis — Power BI — Paul Sabourault</title>
-    <meta name="description" content="Interactive Power BI report built from a public Kaggle dataset to analyze global video game sales. Designed both as a portfolio case study and as hands-on preparation for the PL-300 certification, covering data modeling, DAX measures, and interactive reporting." />
+    <meta name="description" content="Rapport Power BI interactif construit à partir d&#x27;un jeu de données Kaggle public pour analyser les ventes mondiales de jeux vidéo. Pensé à la fois comme cas portfolio et comme préparation concrète à la certification PL-300 : modélisation de données, mesures DAX et reporting interactif." />
     <!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
     <link rel="canonical" href="https://YOUR-DOMAIN.com/projects/video-game-sales-powerbi.html" />
     <link rel="alternate" hreflang="fr" href="https://YOUR-DOMAIN.com/projects/video-game-sales-powerbi.html" />
@@ -25,7 +25,7 @@
     <link rel="alternate" hreflang="x-default" href="https://YOUR-DOMAIN.com/projects/video-game-sales-powerbi.html" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Video Game Sales Analysis — Power BI" />
-    <meta property="og:description" content="Interactive Power BI report built from a public Kaggle dataset to analyze global video game sales. Designed both as a portfolio case study and as hands-on preparation for the PL-300 certification, covering data modeling, DAX measures, and interactive reporting." />
+    <meta property="og:description" content="Rapport Power BI interactif construit à partir d&#x27;un jeu de données Kaggle public pour analyser les ventes mondiales de jeux vidéo. Pensé à la fois comme cas portfolio et comme préparation concrète à la certification PL-300 : modélisation de données, mesures DAX et reporting interactif." />
     <meta property="og:url" content="https://YOUR-DOMAIN.com/projects/video-game-sales-powerbi.html" />
     <meta property="og:image" content="https://YOUR-DOMAIN.com/images/powerbi.webp" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -68,15 +68,15 @@
     <main class="ms-report-shell detail-shell">
       <header class="container ms-section ms-hero detail-hero--simple" id="detail-top">
         <div class="ms-hero-copy">
-          <p class="ms-tagline">Portfolio case study</p>
+          <p class="ms-tagline">Cas portfolio</p>
           <h1 class="sub-title">
-            <span class="ms-highlight">Video Game Sales</span> Power BI Report
+            <span class="ms-highlight">Video Game Sales</span> rapport Power BI
           </h1>
-          <p class="ms-lead">Interactive dashboard created from the Kaggle video game sales data set. I used it as a sandbox to rehearse PL-300 skills: data modelling, DAX measures, dynamic tooltips and responsive layouts. This page summarizes the report story and the insights surfaced in each tab.</p>
-          <p class="detail-status">Personal portfolio project — interactive demo available via screenshots and video</p>
+          <p class="ms-lead">Dashboard interactif créé à partir du jeu de données Kaggle sur les ventes de jeux vidéo. Je m&#x27;en suis servi comme terrain d&#x27;entraînement pour les compétences PL-300 : modélisation, mesures DAX, infobulles dynamiques et mises en page responsives. Cette page résume l&#x27;histoire du rapport et les enseignements de chaque onglet.</p>
+          <p class="detail-status">Projet portfolio personnel — démo interactive disponible via captures et vidéo.</p>
           <div class="ms-note-card">
-            <h3>Project context</h3>
-            <p>The model combines five dimensions (Genre, Platform, Publisher, Region and Calendar) around a sales fact table. From there I built KPI cards, drill-through journeys and a narrative layout inspired by Microsoft&#x27;s Fluent design language.</p>
+            <h3>Contexte du projet</h3>
+            <p>Le modèle combine cinq dimensions (Genre, Plateforme, Éditeur, Région et Calendrier) autour d&#x27;une table de faits des ventes. À partir de là, j&#x27;ai construit des cartes de KPI, des parcours de drill-through et une mise en page narrative inspirée du langage Fluent de Microsoft.</p>
           </div>
         </div>
       </header>
@@ -85,17 +85,17 @@
         <h2 class="sub-title">Points clés</h2>
         <div class="ms-panel">
           <ul class="ms-impact">
-            <li>Built a star schema model with fact and dimension tables (Date, Genre, Platform, Publisher, Game)</li>
-            <li>Created dynamic KPIs, time-based analysis, and Top N rankings using DAX</li>
-            <li>Designed interactive pages with slicers, drill-down exploration, and intelligent tooltips</li>
-            <li>Improved data readability and insights through clean UX and structured report pages</li>
+            <li>Modèle en étoile avec tables de faits et de dimensions (Date, Genre, Plateforme, Éditeur, Jeu)</li>
+            <li>KPI dynamiques, analyses temporelles et classements Top N en DAX</li>
+            <li>Pages interactives avec segments, exploration en drill-down et infobulles intelligentes</li>
+            <li>Lisibilité et enseignements améliorés grâce à une UX soignée et des pages structurées</li>
           </ul>
         </div>
       </section>
 
       <section class="container ms-section" id="detail-gallery">
-        <h2 class="sub-title">Report gallery</h2>
-        <p class="ms-lead ms-lead--compact">Highlights from the overview, regional drilldowns, franchise scorecard and mobile canvas used throughout demos.</p>
+        <h2 class="sub-title">Galerie du rapport</h2>
+        <p class="ms-lead ms-lead--compact">Extraits de la vue d&#x27;ensemble, des zooms régionaux, du scorecard des franchises et de la vue mobile utilisée en démo.</p>
 
         <div class="ms-panel">
           <div class="detail-gallery">
@@ -103,48 +103,48 @@
               <div class="detail-shot-frame">
                 <img src="../images/screen-sale1-copie.webp" alt="Overview KPIs for the video game sales dashboard" loading="lazy" data-full="../images/screen-sale1-copie.webp" />
               </div>
-              <figcaption>Overview — revenue KPIs, growth indicators and a genre filter bar to steer the story.</figcaption>
+              <figcaption>Vue d&#x27;ensemble — KPI de revenus, indicateurs de croissance et barre de filtre par genre pour dérouler l&#x27;analyse.</figcaption>
             </figure>
             <figure class="detail-shot">
               <div class="detail-shot-frame">
                 <img src="../images/screen-sale1-5-copie.webp" alt="Regional performance heatmap" loading="lazy" data-full="../images/screen-sale1-5-copie.webp" />
               </div>
-              <figcaption>Regions — synchronized map + column charts compare North America, Europe, Japan and ROW.</figcaption>
+              <figcaption>Régions — carte synchronisée + histogrammes pour comparer Amérique du Nord, Europe, Japon et reste du monde.</figcaption>
             </figure>
             <figure class="detail-shot">
               <div class="detail-shot-frame">
                 <img src="../images/screen-sale2-copie.webp" alt="Franchise ranking leaderboard" loading="lazy" data-full="../images/screen-sale2-copie.webp" />
               </div>
-              <figcaption>Franchises — Top N selector powered by DAX ranking measures with tooltips for long-tail titles.</figcaption>
+              <figcaption>Franchises — sélecteur Top N basé sur des mesures de classement DAX, avec infobulles pour les titres de longue traîne.</figcaption>
             </figure>
             <figure class="detail-shot">
               <div class="detail-shot-frame">
                 <img src="../images/screen-sale2-5-copie.webp" alt="Platform lifecycle timeline" loading="lazy" data-full="../images/screen-sale2-5-copie.webp" />
               </div>
-              <figcaption>Platforms — lifecycle chart showing launches vs. revenue maturity to guide platform bets.</figcaption>
+              <figcaption>Plateformes — courbe de cycle de vie confrontant lancements et maturité des revenus pour orienter les choix de plateforme.</figcaption>
             </figure>
             <figure class="detail-shot">
               <div class="detail-shot-frame">
                 <img src="../images/screen-sale3-copie.webp" alt="Datamodel view showing fact and dimension tables" loading="lazy" data-full="../images/screen-sale3-copie.webp" />
               </div>
-              <figcaption>Data model — star schema built in Power BI Desktop with fact Sales and Date/Genre/Platform/Publisher dims.</figcaption>
+              <figcaption>Modèle de données — schéma en étoile construit dans Power BI Desktop, avec la table de faits Sales et les dimensions Date/Genre/Plateforme/Éditeur.</figcaption>
             </figure>
             <figure class="detail-shot">
               <div class="detail-shot-frame">
                 <img src="../images/screen-sale3-5-copie.webp" alt="Mobile-ready layout" loading="lazy" data-full="../images/screen-sale3-5-copie.webp" />
               </div>
-              <figcaption>Mobile — responsive canvas with simplified KPIs for handheld consumption during demos.</figcaption>
+              <figcaption>Mobile — interface responsive avec des KPI simplifiés pour une consultation sur mobile en démo.</figcaption>
             </figure>
           </div>
         </div>
 
         <div class="ms-panel detail-video-panel">
           <div class="detail-video-copy">
-            <h2 class="sub-title">Video walkthrough</h2>
-            <p class="ms-lead ms-lead--compact">Short demo recording showing navigation between tabs, slicer interactions and how the insights are presented live.</p>
+            <h2 class="sub-title">Démo vidéo</h2>
+            <p class="ms-lead ms-lead--compact">Court enregistrement de démo montrant la navigation entre les onglets, les interactions avec les segments et la façon dont les enseignements sont présentés en direct.</p>
           </div>
           <a class="btn detail-video-btn" href="https://youtu.be/wg360XzBvso" target="_blank" rel="noopener noreferrer"
-            ><i class="fa-solid fa-circle-play"></i> Watch the video</a
+            ><i class="fa-solid fa-circle-play"></i> Voir la vidéo</a
           >
         </div>
       </section>
@@ -162,8 +162,8 @@
       <section class="container ms-section">
         <div class="ms-panel detail-cta">
           <div>
-            <h2 class="sub-title">Need a PL-300 style walkthrough?</h2>
-            <p class="ms-lead ms-lead--compact">Let me demo the model, DAX techniques and UX guidelines I used here so we can replicate them for your dataset.</p>
+            <h2 class="sub-title">Envie d&#x27;une démo façon PL-300 ?</h2>
+            <p class="ms-lead ms-lead--compact">Je peux faire une démo du modèle, des techniques DAX et des principes UX utilisés ici, pour les reproduire sur un autre jeu de données.</p>
           </div>
           <div class="detail-cta-actions">
             <a class="btn btn2" href="../index.html#contact">Réserver une démo</a>

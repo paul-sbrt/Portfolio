@@ -401,7 +401,7 @@
     "title": "Video Game Sales Analysis — Power BI",
     "image": "./images/powerbi.webp",
     "summary": {
-      "fr": "Interactive Power BI report built from a public Kaggle dataset to analyze global video game sales. Designed both as a portfolio case study and as hands-on preparation for the PL-300 certification, covering data modeling, DAX measures, and interactive reporting.",
+      "fr": "Rapport Power BI interactif construit à partir d'un jeu de données Kaggle public pour analyser les ventes mondiales de jeux vidéo. Pensé à la fois comme cas portfolio et comme préparation concrète à la certification PL-300 : modélisation de données, mesures DAX et reporting interactif.",
       "en": "Interactive Power BI report built from a public Kaggle dataset to analyze global video game sales. Designed both as a portfolio case study and as hands-on preparation for the PL-300 certification, covering data modeling, DAX measures, and interactive reporting."
     },
     "hats": [
@@ -422,7 +422,7 @@
     "openInSameTab": true,
     "detail": {
       "tagline": {
-        "fr": "Portfolio case study",
+        "fr": "Cas portfolio",
         "en": "Portfolio case study"
       },
       "highlight": {
@@ -430,52 +430,52 @@
         "en": "Video Game Sales"
       },
       "heading": {
-        "fr": "Power BI Report",
+        "fr": "rapport Power BI",
         "en": "Power BI Report"
       },
       "lead": {
-        "fr": "Interactive dashboard created from the Kaggle video game sales data set. I used it as a sandbox to rehearse PL-300 skills: data modelling, DAX measures, dynamic tooltips and responsive layouts. This page summarizes the report story and the insights surfaced in each tab.",
-        "en": "Interactive dashboard created from the Kaggle video game sales data set. I used it as a sandbox to rehearse PL-300 skills: data modelling, DAX measures, dynamic tooltips and responsive layouts. This page summarizes the report story and the insights surfaced in each tab."
+        "fr": "Dashboard interactif créé à partir du jeu de données Kaggle sur les ventes de jeux vidéo. Je m'en suis servi comme terrain d'entraînement pour les compétences PL-300 : modélisation, mesures DAX, infobulles dynamiques et mises en page responsives. Cette page résume l'histoire du rapport et les enseignements de chaque onglet.",
+        "en": "Interactive dashboard created from the Kaggle video game sales data set. I used it as a sandbox to rehearse PL-300 skills: data modeling, DAX measures, dynamic tooltips and responsive layouts. This page summarizes the report story and the insights surfaced in each tab."
       },
       "certification": "PL-300 (Power BI Data Analyst Associate) — preparation project",
       "status": {
-        "fr": "Personal portfolio project — interactive demo available via screenshots and video",
+        "fr": "Projet portfolio personnel — démo interactive disponible via captures et vidéo.",
         "en": "Personal portfolio project — interactive demo available via screenshots and video"
       },
       "context": {
         "heading": {
-          "fr": "Project context",
+          "fr": "Contexte du projet",
           "en": "Project context"
         },
         "body": {
-          "fr": "The model combines five dimensions (Genre, Platform, Publisher, Region and Calendar) around a sales fact table. From there I built KPI cards, drill-through journeys and a narrative layout inspired by Microsoft's Fluent design language.",
+          "fr": "Le modèle combine cinq dimensions (Genre, Plateforme, Éditeur, Région et Calendrier) autour d'une table de faits des ventes. À partir de là, j'ai construit des cartes de KPI, des parcours de drill-through et une mise en page narrative inspirée du langage Fluent de Microsoft.",
           "en": "The model combines five dimensions (Genre, Platform, Publisher, Region and Calendar) around a sales fact table. From there I built KPI cards, drill-through journeys and a narrative layout inspired by Microsoft's Fluent design language."
         }
       },
       "impact": [
         {
-          "fr": "Built a star schema model with fact and dimension tables (Date, Genre, Platform, Publisher, Game)",
+          "fr": "Modèle en étoile avec tables de faits et de dimensions (Date, Genre, Plateforme, Éditeur, Jeu)",
           "en": "Built a star schema model with fact and dimension tables (Date, Genre, Platform, Publisher, Game)"
         },
         {
-          "fr": "Created dynamic KPIs, time-based analysis, and Top N rankings using DAX",
+          "fr": "KPI dynamiques, analyses temporelles et classements Top N en DAX",
           "en": "Created dynamic KPIs, time-based analysis, and Top N rankings using DAX"
         },
         {
-          "fr": "Designed interactive pages with slicers, drill-down exploration, and intelligent tooltips",
+          "fr": "Pages interactives avec segments, exploration en drill-down et infobulles intelligentes",
           "en": "Designed interactive pages with slicers, drill-down exploration, and intelligent tooltips"
         },
         {
-          "fr": "Improved data readability and insights through clean UX and structured report pages",
+          "fr": "Lisibilité et enseignements améliorés grâce à une UX soignée et des pages structurées",
           "en": "Improved data readability and insights through clean UX and structured report pages"
         }
       ],
       "galleryTitle": {
-        "fr": "Report gallery",
+        "fr": "Galerie du rapport",
         "en": "Report gallery"
       },
       "galleryLead": {
-        "fr": "Highlights from the overview, regional drilldowns, franchise scorecard and mobile canvas used throughout demos.",
+        "fr": "Extraits de la vue d'ensemble, des zooms régionaux, du scorecard des franchises et de la vue mobile utilisée en démo.",
         "en": "Highlights from the overview, regional drilldowns, franchise scorecard and mobile canvas used throughout demos."
       },
       "gallery": [
@@ -483,7 +483,7 @@
           "src": "./images/screen-sale1-copie.webp",
           "alt": "Overview KPIs for the video game sales dashboard",
           "caption": {
-            "fr": "Overview — revenue KPIs, growth indicators and a genre filter bar to steer the story.",
+            "fr": "Vue d'ensemble — KPI de revenus, indicateurs de croissance et barre de filtre par genre pour dérouler l'analyse.",
             "en": "Overview — revenue KPIs, growth indicators and a genre filter bar to steer the story."
           }
         },
@@ -491,7 +491,7 @@
           "src": "./images/screen-sale1-5-copie.webp",
           "alt": "Regional performance heatmap",
           "caption": {
-            "fr": "Regions — synchronized map + column charts compare North America, Europe, Japan and ROW.",
+            "fr": "Régions — carte synchronisée + histogrammes pour comparer Amérique du Nord, Europe, Japon et reste du monde.",
             "en": "Regions — synchronized map + column charts compare North America, Europe, Japan and ROW."
           }
         },
@@ -499,7 +499,7 @@
           "src": "./images/screen-sale2-copie.webp",
           "alt": "Franchise ranking leaderboard",
           "caption": {
-            "fr": "Franchises — Top N selector powered by DAX ranking measures with tooltips for long-tail titles.",
+            "fr": "Franchises — sélecteur Top N basé sur des mesures de classement DAX, avec infobulles pour les titres de longue traîne.",
             "en": "Franchises — Top N selector powered by DAX ranking measures with tooltips for long-tail titles."
           }
         },
@@ -507,7 +507,7 @@
           "src": "./images/screen-sale2-5-copie.webp",
           "alt": "Platform lifecycle timeline",
           "caption": {
-            "fr": "Platforms — lifecycle chart showing launches vs. revenue maturity to guide platform bets.",
+            "fr": "Plateformes — courbe de cycle de vie confrontant lancements et maturité des revenus pour orienter les choix de plateforme.",
             "en": "Platforms — lifecycle chart showing launches vs. revenue maturity to guide platform bets."
           }
         },
@@ -515,7 +515,7 @@
           "src": "./images/screen-sale3-copie.webp",
           "alt": "Datamodel view showing fact and dimension tables",
           "caption": {
-            "fr": "Data model — star schema built in Power BI Desktop with fact Sales and Date/Genre/Platform/Publisher dims.",
+            "fr": "Modèle de données — schéma en étoile construit dans Power BI Desktop, avec la table de faits Sales et les dimensions Date/Genre/Plateforme/Éditeur.",
             "en": "Data model — star schema built in Power BI Desktop with fact Sales and Date/Genre/Platform/Publisher dims."
           }
         },
@@ -523,33 +523,33 @@
           "src": "./images/screen-sale3-5-copie.webp",
           "alt": "Mobile-ready layout",
           "caption": {
-            "fr": "Mobile — responsive canvas with simplified KPIs for handheld consumption during demos.",
+            "fr": "Mobile — interface responsive avec des KPI simplifiés pour une consultation sur mobile en démo.",
             "en": "Mobile — responsive canvas with simplified KPIs for handheld consumption during demos."
           }
         }
       ],
       "video": {
         "heading": {
-          "fr": "Video walkthrough",
+          "fr": "Démo vidéo",
           "en": "Video walkthrough"
         },
         "body": {
-          "fr": "Short demo recording showing navigation between tabs, slicer interactions and how the insights are presented live.",
+          "fr": "Court enregistrement de démo montrant la navigation entre les onglets, les interactions avec les segments et la façon dont les enseignements sont présentés en direct.",
           "en": "Short demo recording showing navigation between tabs, slicer interactions and how the insights are presented live."
         },
         "url": "https://youtu.be/wg360XzBvso",
         "label": {
-          "fr": "Watch the video",
+          "fr": "Voir la vidéo",
           "en": "Watch the video"
         }
       },
       "cta": {
         "heading": {
-          "fr": "Need a PL-300 style walkthrough?",
+          "fr": "Envie d'une démo façon PL-300 ?",
           "en": "Need a PL-300 style walkthrough?"
         },
         "body": {
-          "fr": "Let me demo the model, DAX techniques and UX guidelines I used here so we can replicate them for your dataset.",
+          "fr": "Je peux faire une démo du modèle, des techniques DAX et des principes UX utilisés ici, pour les reproduire sur un autre jeu de données.",
           "en": "Let me demo the model, DAX techniques and UX guidelines I used here so we can replicate them for your dataset."
         }
       }
@@ -560,7 +560,7 @@
     "title": "MSCD — Internal Contract & Quality Management Application",
     "image": "./images/power-app-removebg-preview.webp",
     "summary": {
-      "fr": "Internal application built during my time at Avanade to track signed contracts end-to-end. The solution covered all required processes and validation steps to ensure consistent follow-up and support long-term quality management.",
+      "fr": "Application interne construite pendant mon passage chez Avanade pour suivre les contrats signés de bout en bout. La solution couvrait l'ensemble des process et étapes de validation nécessaires à un suivi cohérent et à une gestion de la qualité dans la durée.",
       "en": "Internal application built during my time at Avanade to track signed contracts end-to-end. The solution covered all required processes and validation steps to ensure consistent follow-up and support long-term quality management."
     },
     "hats": [
@@ -580,7 +580,7 @@
     "openInSameTab": true,
     "detail": {
       "tagline": {
-        "fr": "Internal case study",
+        "fr": "Cas interne",
         "en": "Internal case study"
       },
       "highlight": {
@@ -588,51 +588,51 @@
         "en": "MSCD"
       },
       "heading": {
-        "fr": "Contract Management App",
+        "fr": "application de gestion des contrats",
         "en": "Contract Management App"
       },
       "lead": {
-        "fr": "A Power Apps solution deployed at Avanade to control every contract milestone — from intake to quality monitoring. This page compiles the UI states shared with stakeholders to explain the app story while keeping client data confidential.",
+        "fr": "Une solution Power Apps déployée chez Avanade pour maîtriser chaque étape d'un contrat — de la prise en charge au suivi qualité. Cette page rassemble les écrans partagés avec les parties prenantes pour raconter l'application, tout en gardant les données client confidentielles.",
         "en": "A Power Apps solution deployed at Avanade to control every contract milestone — from intake to quality monitoring. This page compiles the UI states shared with stakeholders to explain the app story while keeping client data confidential."
       },
       "status": {
-        "fr": "Internal project developed at Avanade — live access no longer available. Presented through screenshots for confidentiality reasons.",
+        "fr": "Projet interne développé chez Avanade — accès en ligne plus disponible. Présenté via des captures pour raisons de confidentialité.",
         "en": "Internal project developed at Avanade — live access no longer available. Presented through screenshots for confidentiality reasons."
       },
       "context": {
         "heading": {
-          "fr": "Project context",
+          "fr": "Contexte du projet",
           "en": "Project context"
         },
         "body": {
-          "fr": "MSCD orchestrates SharePoint, Dataverse and Power Automate flows so delivery teams can trace approvals, trigger alerts and update executive KPIs without switching tools. The canvas mirrors the Microsoft Design System for familiarity and fast adoption.",
+          "fr": "MSCD orchestre des flux SharePoint, Dataverse et Power Automate pour que les équipes de livraison tracent les validations, déclenchent des alertes et mettent à jour les KPI de direction sans changer d'outil. L'interface reprend le Microsoft Design System pour la familiarité et une adoption rapide.",
           "en": "MSCD orchestrates SharePoint, Dataverse and Power Automate flows so delivery teams can trace approvals, trigger alerts and update executive KPIs without switching tools. The canvas mirrors the Microsoft Design System for familiarity and fast adoption."
         }
       },
       "impact": [
         {
-          "fr": "Centralized contract tracking from signature to delivery",
+          "fr": "Suivi centralisé des contrats, de la signature à la livraison",
           "en": "Centralized contract tracking from signature to delivery"
         },
         {
-          "fr": "Standardized processes and validation steps across teams",
+          "fr": "Process et étapes de validation standardisés entre les équipes",
           "en": "Standardized processes and validation steps across teams"
         },
         {
-          "fr": "Improved visibility and traceability for quality management",
+          "fr": "Meilleure visibilité et traçabilité pour la gestion de la qualité",
           "en": "Improved visibility and traceability for quality management"
         },
         {
-          "fr": "Reduced manual follow-up through automated workflows",
+          "fr": "Suivi manuel réduit grâce à des workflows automatisés",
           "en": "Reduced manual follow-up through automated workflows"
         }
       ],
       "galleryTitle": {
-        "fr": "Application gallery",
+        "fr": "Galerie de l'application",
         "en": "Application gallery"
       },
       "galleryLead": {
-        "fr": "Seven walkthrough captures covering overview metrics, approval pipeline, automation logs and mobile responsive states.",
+        "fr": "Sept captures couvrant les métriques d'ensemble, le pipeline de validation, les journaux d'automatisation et les états responsives mobile.",
         "en": "Seven walkthrough captures covering overview metrics, approval pipeline, automation logs and mobile responsive states."
       },
       "gallery": [
@@ -640,7 +640,7 @@
           "src": "./images/msdc1.webp",
           "alt": "MSCD overview dashboard",
           "caption": {
-            "fr": "Overview — global KPIs pulling quality, delivery and SLA data.",
+            "fr": "Vue d'ensemble — KPI globaux tirant les données qualité, livraison et SLA.",
             "en": "Overview — global KPIs pulling quality, delivery and SLA data."
           }
         },
@@ -648,7 +648,7 @@
           "src": "./images/msdc2.webp",
           "alt": "Approval queue",
           "caption": {
-            "fr": "Approvals — queue prioritizing validations with SLA timers and reminders.",
+            "fr": "Validations — file d'attente priorisant les validations, avec minuteurs SLA et rappels.",
             "en": "Approvals — queue prioritizing validations with SLA timers and reminders."
           }
         },
@@ -656,7 +656,7 @@
           "src": "./images/msdc3.webp",
           "alt": "Quality and automation KPIs",
           "caption": {
-            "fr": "Quality — consolidated KPIs with a live feed from Power Automate.",
+            "fr": "Qualité — KPI consolidés avec un flux en direct depuis Power Automate.",
             "en": "Quality — consolidated KPIs with a live feed from Power Automate."
           }
         },
@@ -664,7 +664,7 @@
           "src": "./images/msdc4.webp",
           "alt": "Delivery pipeline visualization",
           "caption": {
-            "fr": "Pipeline — stage progression indicators highlight potential bottlenecks.",
+            "fr": "Pipeline — indicateurs de progression par étape mettant en évidence les goulots d'étranglement.",
             "en": "Pipeline — stage progression indicators highlight potential bottlenecks."
           }
         },
@@ -672,7 +672,7 @@
           "src": "./images/msdc5.webp",
           "alt": "SLA heatmap",
           "caption": {
-            "fr": "SLA heatmap — surfacing overdue validations by entity.",
+            "fr": "Heatmap SLA — mise en évidence des validations en retard par entité.",
             "en": "SLA heatmap — surfacing overdue validations by entity."
           }
         },
@@ -680,7 +680,7 @@
           "src": "./images/msdc6.webp",
           "alt": "Process flow map",
           "caption": {
-            "fr": "Process — the canonical flow from intake to delivery monitoring.",
+            "fr": "Process — le flux type, de la prise en charge au suivi de livraison.",
             "en": "Process — the canonical flow from intake to delivery monitoring."
           }
         },
@@ -688,18 +688,18 @@
           "src": "./images/msdc7.webp",
           "alt": "Mobile layout and quick actions",
           "caption": {
-            "fr": "Mobile — responsive canvas with quick actions for field users.",
+            "fr": "Mobile — interface responsive avec des actions rapides pour les utilisateurs terrain.",
             "en": "Mobile — responsive canvas with quick actions for field users."
           }
         }
       ],
       "cta": {
         "heading": {
-          "fr": "Want to see the data model?",
+          "fr": "Envie de voir le modèle de données ?",
           "en": "Want to see the data model?"
         },
         "body": {
-          "fr": "I can walk you through the governance approach, automation steps and UX patterns that made MSCD a reliable internal tool.",
+          "fr": "Je peux présenter l'approche de gouvernance, les étapes d'automatisation et les patterns UX qui ont fait de MSCD un outil interne fiable.",
           "en": "I can walk you through the governance approach, automation steps and UX patterns that made MSCD a reliable internal tool."
         }
       }
@@ -710,7 +710,7 @@
     "title": "SUEZ — Power BI Certification Progress Dashboard",
     "image": "./images/powerbi.webp",
     "summary": {
-      "fr": "Power BI dashboard built for a SUEZ project to help stakeholders track certification progress across teams and support decision-making.",
+      "fr": "Dashboard Power BI réalisé pour un projet SUEZ afin d'aider les responsables à suivre l'avancement des certifications entre les équipes et à appuyer la prise de décision.",
       "en": "Power BI dashboard built for a SUEZ project to help stakeholders track certification progress across teams and support decision-making."
     },
     "hats": [
@@ -730,7 +730,7 @@
     "openInSameTab": true,
     "detail": {
       "tagline": {
-        "fr": "Client case study",
+        "fr": "Cas client",
         "en": "Client case study"
       },
       "highlight": {
@@ -738,47 +738,47 @@
         "en": "SUEZ"
       },
       "heading": {
-        "fr": "Certification Dashboard",
+        "fr": "tableau de bord des certifications",
         "en": "Certification Dashboard"
       },
       "lead": {
-        "fr": "Dashboard created at Avanade for SUEZ to monitor Power Platform certifications across teams. This page highlights the key views used to track progress, spot gaps and prepare leadership reviews.",
+        "fr": "Dashboard créé chez Avanade pour SUEZ, pour suivre les certifications Power Platform à travers les équipes. Cette page met en avant les vues clés utilisées pour suivre l'avancement, repérer les manques et préparer les revues de direction.",
         "en": "Dashboard created at Avanade for SUEZ to monitor Power Platform certifications across teams. This page highlights the key views used to track progress, spot gaps and prepare leadership reviews."
       },
       "status": {
-        "fr": "Internal project developed at Avanade — live access no longer available",
+        "fr": "Projet interne développé chez Avanade — accès en ligne plus disponible.",
         "en": "Internal project developed at Avanade — live access no longer available"
       },
       "context": {
         "heading": {
-          "fr": "Project context",
+          "fr": "Contexte du projet",
           "en": "Project context"
         },
         "body": {
-          "fr": "The report blends Power BI, Power Query and DAX measures to expose KPIs in a modern Microsoft look-and-feel. It consolidates pipelines and training data so managers can act before deadlines.",
+          "fr": "Le rapport combine Power BI, Power Query et des mesures DAX pour exposer les KPI dans un rendu Microsoft moderne. Il consolide les pipelines et les données de formation pour que les managers puissent agir avant les échéances.",
           "en": "The report blends Power BI, Power Query and DAX measures to expose KPIs in a modern Microsoft look-and-feel. It consolidates pipelines and training data so managers can act before deadlines."
         }
       },
       "impact": [
         {
-          "fr": "Centralized certification progress tracking for multiple teams",
+          "fr": "Suivi centralisé de l'avancement des certifications pour plusieurs équipes",
           "en": "Centralized certification progress tracking for multiple teams"
         },
         {
-          "fr": "Improved visibility for managers with clear KPIs and drill-down views",
+          "fr": "Meilleure visibilité pour les managers, avec des KPI clairs et des vues détaillées (drill-down)",
           "en": "Improved visibility for managers with clear KPIs and drill-down views"
         },
         {
-          "fr": "Reduced manual reporting by consolidating data into a single dashboard",
+          "fr": "Reporting manuel réduit en consolidant les données dans un seul dashboard",
           "en": "Reduced manual reporting by consolidating data into a single dashboard"
         }
       ],
       "galleryTitle": {
-        "fr": "Report gallery",
+        "fr": "Galerie du rapport",
         "en": "Report gallery"
       },
       "galleryLead": {
-        "fr": "Four snapshots covering the executive summary, certification details, completion timelines and mobile-ready canvas.",
+        "fr": "Quatre captures couvrant la synthèse pour la direction, le détail des certifications, les échéances de complétion et la vue mobile.",
         "en": "Four snapshots covering the executive summary, certification details, completion timelines and mobile-ready canvas."
       },
       "gallery": [
@@ -786,7 +786,7 @@
           "src": "./images/screenshot-2025-10-01-210737.webp",
           "alt": "SUEZ overview page with KPIs",
           "caption": {
-            "fr": "Overview — global KPIs and segment filters.",
+            "fr": "Vue d'ensemble — KPI globaux et filtres par segment.",
             "en": "Overview — global KPIs and segment filters."
           }
         },
@@ -794,7 +794,7 @@
           "src": "./images/screenshot-2025-10-01-210750.webp",
           "alt": "Team comparison view",
           "caption": {
-            "fr": "Teams — focus on completion rate by business unit.",
+            "fr": "Équipes — focus sur le taux de complétion par business unit.",
             "en": "Teams — focus on completion rate by business unit."
           }
         },
@@ -802,7 +802,7 @@
           "src": "./images/screenshot-2025-10-01-210802.webp",
           "alt": "Certification breakdown cards",
           "caption": {
-            "fr": "Certifications — status cards filtered by product.",
+            "fr": "Certifications — cartes de statut filtrées par produit.",
             "en": "Certifications — status cards filtered by product."
           }
         },
@@ -810,18 +810,18 @@
           "src": "./images/screenshot-2025-10-01-210814.webp",
           "alt": "Mobile responsive page",
           "caption": {
-            "fr": "Mobile — responsive view for managers on-the-go.",
+            "fr": "Mobile — vue responsive pour les managers en déplacement.",
             "en": "Mobile — responsive view for managers on-the-go."
           }
         }
       ],
       "cta": {
         "heading": {
-          "fr": "Need a similar dashboard?",
+          "fr": "Besoin d'un dashboard similaire ?",
           "en": "Need a similar dashboard?"
         },
         "body": {
-          "fr": "I can walk you through the data model, KPIs and UX choices that made this project successful, then adapt them to your context.",
+          "fr": "Je peux présenter le modèle de données, les KPI et les choix UX de ce projet, puis les adapter à un nouveau contexte.",
           "en": "I can walk you through the data model, KPIs and UX choices that made this project successful, then adapt them to your context."
         }
       }
