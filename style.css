@@ -237,15 +237,16 @@ nav ul li a:hover:after {
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: scroll()) {
     .header-text {
-      animation: hero-parallax linear both;
+      animation: hero-dissolve linear both;
       animation-timeline: scroll(root);
       animation-range: 0 82vh;
-      will-change: transform, opacity;
+      will-change: transform, opacity, filter;
     }
-    @keyframes hero-parallax {
+    @keyframes hero-dissolve {
       to {
-        transform: translateY(56px);
-        opacity: 0.35;
+        opacity: 0.05;
+        transform: scale(0.93) translateY(26px);
+        filter: blur(6px);
       }
     }
   }
@@ -310,24 +311,41 @@ nav ul li a:hover:after {
   opacity: 1;
   transform: none;
 }
-/* Perceptible load cascade: eyebrow -> title -> sub -> cue, panel alongside */
-.hero-copy .reveal:nth-child(1) {
+/* Title rises from behind a mask on load (premium T1 reveal) */
+.hero-title-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.12em; /* room so the gradient/descenders aren't clipped */
+}
+.header-text h1.reveal {
+  opacity: 1;
+  transform: translateY(112%);
+}
+.header-text h1.reveal.in {
+  transform: none;
+}
+
+/* Load cascade timing (explicit — safe regardless of DOM nesting) */
+.hero-eyebrow.reveal {
   transition-delay: 0.1s;
 }
-.hero-copy .reveal:nth-child(2) {
-  transition-delay: 0.22s;
+.header-text h1.reveal {
+  transition-delay: 0.24s;
 }
-.hero-copy .reveal:nth-child(3) {
-  transition-delay: 0.34s;
-}
-.hero-copy .reveal:nth-child(4) {
+.header-sub.reveal {
   transition-delay: 0.46s;
+}
+.hero-cue.reveal {
+  transition-delay: 0.58s;
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .header-text h1.reveal {
+    transform: none; /* cancel the mask offset so the title stays visible */
   }
   .header-text h1 span,
   .hero-eyebrow::before,
@@ -390,22 +408,28 @@ nav ul li a:hover:after {
   letter-spacing: -0.03em;
   max-width: 15ch;
 }
+/* Living rose->gold gradient with a slow light band sweeping across it */
 .header-text h1 span {
   background: linear-gradient(
-    120deg,
-    var(--accent),
-    var(--accent-ms),
-    var(--accent)
+    110deg,
+    var(--accent) 0%,
+    var(--accent-ms) 38%,
+    #fff2cf 50%,
+    var(--accent-ms) 62%,
+    var(--accent) 100%
   );
   background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: hero-hue 6s ease-in-out infinite alternate;
+  animation: hero-idees 8s ease-in-out infinite alternate;
 }
-@keyframes hero-hue {
+@keyframes hero-idees {
+  from {
+    background-position: 160% 0;
+  }
   to {
-    background-position: 100% 0;
+    background-position: -60% 0;
   }
 }
 
