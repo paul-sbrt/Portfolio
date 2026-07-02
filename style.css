@@ -311,26 +311,32 @@ nav ul li a:hover:after {
   opacity: 1;
   transform: none;
 }
-/* Title rises from behind a mask on load (premium T1 reveal) */
+/* Title rises from behind a mask on load — CSS-only, so it ALWAYS ends visible.
+   The default state (and reduced-motion / no-JS) is fully shown; the hidden
+   offset exists ONLY during the keyframe (fill: both starts low, ends at 0).
+   Not tied to JS/IntersectionObserver (which mis-fires under overflow clip). */
 .hero-title-mask {
   display: block;
   overflow: hidden;
   padding-bottom: 0.12em; /* room so the gradient/descenders aren't clipped */
 }
-.header-text h1.reveal {
-  opacity: 1;
-  transform: translateY(112%);
-}
-.header-text h1.reveal.in {
-  transform: none;
+@media (prefers-reduced-motion: no-preference) {
+  .header-text h1 {
+    animation: hero-title-rise 0.9s 0.25s cubic-bezier(0.19, 1, 0.22, 1) both;
+  }
+  @keyframes hero-title-rise {
+    from {
+      transform: translateY(112%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
 }
 
-/* Load cascade timing (explicit — safe regardless of DOM nesting) */
+/* Load cascade timing for the fading elements (eyebrow / sub / cue) */
 .hero-eyebrow.reveal {
   transition-delay: 0.1s;
-}
-.header-text h1.reveal {
-  transition-delay: 0.24s;
 }
 .header-sub.reveal {
   transition-delay: 0.46s;
@@ -343,9 +349,6 @@ nav ul li a:hover:after {
     opacity: 1;
     transform: none;
     transition: none;
-  }
-  .header-text h1.reveal {
-    transform: none; /* cancel the mask offset so the title stays visible */
   }
   .header-text h1 span,
   .hero-eyebrow::before,
