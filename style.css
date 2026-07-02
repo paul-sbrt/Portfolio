@@ -887,8 +887,9 @@ h1.sub-title {
    tous, Microsoft en OR (--c bascule) ; TEXTE ONLY.
    =================================================================== */
 .skl-bands {
-  border-top: 1px solid var(--border);
-  margin-top: 6px;
+  /* No top rule — the selector's hairline (its border-bottom) already separates,
+     otherwise the two lines would double up. */
+  margin-top: 4px;
 }
 /* One uniform band per group. --c = rose by default; Microsoft flips to gold. */
 .skl-band {
