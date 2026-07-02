@@ -44,8 +44,8 @@
   function updateToggle(lang) {
     var btn = document.getElementById("lang-toggle");
     if (!btn) return;
-    // Show the language you would switch TO.
-    btn.textContent = lang === "fr" ? "EN" : "FR";
+    // The active language is shown by the sliding segmented control (CSS,
+    // driven by <html lang>); we only keep the accessible label in sync.
     btn.setAttribute(
       "aria-label",
       lang === "fr" ? "Switch to English" : "Passer en français"

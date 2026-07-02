@@ -76,8 +76,30 @@
               <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
               <i class="fa-solid fa-xmark"></i>
             </ul>
-            <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Switch to English">EN</button>
-            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Passer en thème clair"><i class="fa-solid fa-moon"></i></button>
+            <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Changer de langue">
+              <span class="lang-slider" aria-hidden="true"></span>
+              <span class="lang-opt" data-lang="fr">FR</span>
+              <span class="lang-opt" data-lang="en">EN</span>
+            </button>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Changer de thème">
+              <svg class="theme-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                <mask id="theme-moon-mask">
+                  <rect x="0" y="0" width="24" height="24" fill="#fff" />
+                  <circle class="theme-cut" cx="18" cy="7" r="6" fill="#000" />
+                </mask>
+                <circle class="theme-orb" cx="12" cy="12" r="6" fill="currentColor" mask="url(#theme-moon-mask)" />
+                <g class="theme-rays" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                  <line x1="12" y1="1.6" x2="12" y2="4" />
+                  <line x1="12" y1="20" x2="12" y2="22.4" />
+                  <line x1="1.6" y1="12" x2="4" y2="12" />
+                  <line x1="20" y1="12" x2="22.4" y2="12" />
+                  <line x1="4.4" y1="4.4" x2="6.1" y2="6.1" />
+                  <line x1="17.9" y1="17.9" x2="19.6" y2="19.6" />
+                  <line x1="19.6" y1="4.4" x2="17.9" y2="6.1" />
+                  <line x1="6.1" y1="17.9" x2="4.4" y2="19.6" />
+                </g>
+              </svg>
+            </button>
             <i class="fa-solid fa-bars"></i>
           </nav>
         </div>

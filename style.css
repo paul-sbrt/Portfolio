@@ -179,7 +179,7 @@ body {
 }
 
 .nom {
-  font-size: 23px;
+  font-size: 25px;
 }
 
 .nom a {
@@ -190,7 +190,7 @@ body {
 /* Logo wordmark — Archivo, tight; the P/S initials carry the brand rose */
 .nom-text {
   font-family: "Archivo", var(--body, sans-serif);
-  font-size: 1.15em;
+  font-size: 1.2em;
   font-weight: 800;
   letter-spacing: -0.01em;
   margin: 0;
@@ -205,7 +205,7 @@ span {
 }
 
 nav {
-  font-size: 16.5px;
+  font-size: 17.5px;
   display: flex;
   align-items: center;
 }
@@ -978,50 +978,114 @@ h1.sub-title {
   color: var(--on-accent);
 }
 
-/* Header toggles — minimal & integrated (no heavy system-button circles) */
-.lang-toggle,
+/* --- Header toggles: a small, coherent, DA-integrated pair --- */
+
+/* Language: a compact segmented control with a sliding rose highlight */
+.lang-toggle {
+  flex: 0 0 auto;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 22px;
+  padding: 3px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+}
+.lang-opt {
+  position: relative;
+  z-index: 1;
+  width: 28px;
+  text-align: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  padding: 3px 0;
+  transition: color 0.25s ease;
+}
+.lang-slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 28px;
+  height: calc(100% - 6px);
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+  transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 0;
+}
+html[lang="en"] .lang-slider {
+  transform: translateX(28px);
+}
+html[lang="fr"] .lang-opt[data-lang="fr"],
+html[lang="en"] .lang-opt[data-lang="en"] {
+  color: var(--on-accent);
+}
+
+/* Theme: bare morphing sun/moon (no button chrome) */
 .theme-toggle {
   flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  margin-left: 16px;
+  padding: 4px;
   background: transparent;
   border: none;
   color: var(--text-muted);
   cursor: pointer;
-  padding: 6px;
-  line-height: 1;
   transition: color 0.2s ease;
 }
-
-.lang-toggle {
-  margin-left: 22px;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-}
-
-.theme-toggle {
-  margin-left: 14px;
-  font-size: 17px;
-}
-
-/* Keep the moon/sun icon visible (overrides nav .fa-solid { display:none }) */
-.theme-toggle .fa-solid {
-  display: inline-block;
-}
-
-.lang-toggle:hover,
 .theme-toggle:hover {
   color: var(--accent);
+}
+.theme-icon {
+  display: block;
+  overflow: visible;
+}
+.theme-orb,
+.theme-cut,
+.theme-rays {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+}
+/* Dark (default): crescent moon, rays hidden */
+.theme-rays {
+  opacity: 0;
+  transform: rotate(-50deg) scale(0.5);
+}
+/* Light: full sun (orb shrinks) + rays fan out */
+[data-theme="light"] .theme-cut {
+  transform: translate(9px, -9px);
+}
+[data-theme="light"] .theme-orb {
+  transform: scale(0.68);
+}
+[data-theme="light"] .theme-rays {
+  opacity: 1;
+  transform: rotate(0) scale(1);
 }
 
 .lang-toggle:focus-visible,
 .theme-toggle:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 6px;
+  border-radius: var(--radius-pill);
+}
+
+/* Reduced motion: toggles switch instantly but stay fully functional */
+@media (prefers-reduced-motion: reduce) {
+  .lang-slider,
+  .theme-orb,
+  .theme-cut,
+  .theme-rays,
+  .lang-opt {
+    transition: none;
+  }
 }
 
 .contact-right form {

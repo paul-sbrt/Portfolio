@@ -9,10 +9,10 @@
 
   function syncIcon() {
     if (!btn) return;
+    // The sun/moon SVG morphs purely from CSS ([data-theme]); we only keep the
+    // accessible label/state in sync here.
     var isLight = current() === "light";
     var isEn = root.lang === "en";
-    var icon = btn.querySelector("i");
-    if (icon) icon.className = isLight ? "fa-solid fa-sun" : "fa-solid fa-moon";
     btn.setAttribute("aria-pressed", String(isLight));
     btn.setAttribute(
       "aria-label",
