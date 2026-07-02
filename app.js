@@ -6,8 +6,9 @@ const tabTrack = tabSlider
   : null;
 let activeTabIndex = 0;
 
+// Skills is now its own section (rendered on load by displaySkills, not a tab).
+// The tab system drives the remaining panels: Experience / Studies / Certifications.
 const tabDataLoaders = [
-  typeof displaySkills === "function" ? displaySkills : null,
   typeof displayExperience === "function" ? displayExperience : null,
   typeof displayStudies === "function" ? displayStudies : null,
   typeof displayCertifications === "function" ? displayCertifications : null,

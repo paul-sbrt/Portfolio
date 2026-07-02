@@ -6,10 +6,12 @@
     },
     "skills": [
       {
-        "name": "Flutter / Dart"
+        "name": "Flutter / Dart",
+        "featured": true
       },
       {
-        "name": "Swift / SwiftUI"
+        "name": "Swift / SwiftUI",
+        "featured": true
       },
       {
         "name": "Firebase"
@@ -23,10 +25,12 @@
     },
     "skills": [
       {
-        "name": "Laravel"
+        "name": "Laravel",
+        "featured": true
       },
       {
-        "name": "Next.js"
+        "name": "Next.js",
+        "featured": true
       },
       {
         "name": "React",
@@ -68,10 +72,12 @@
     },
     "skills": [
       {
-        "name": "Intégration LLM / Claude"
+        "name": "Intégration LLM / Claude",
+        "featured": true
       },
       {
-        "name": "Whisper"
+        "name": "Whisper",
+        "featured": true
       },
       {
         "name": "Python",
@@ -87,11 +93,13 @@
     "skills": [
       {
         "name": "Power Apps",
-        "image": "./images/power-app-removebg-preview.webp"
+        "image": "./images/power-app-removebg-preview.webp",
+        "featured": true
       },
       {
         "name": "Power BI",
-        "image": "./images/powerbi.webp"
+        "image": "./images/powerbi.webp",
+        "featured": true
       },
       {
         "name": "Power Automate",
@@ -119,11 +127,13 @@
     "skills": [
       {
         "name": "Figma",
-        "image": "./images/figma.webp"
+        "image": "./images/figma.webp",
+        "featured": true
       },
       {
         "name": "Photoshop",
-        "image": "./images/photoshop.webp"
+        "image": "./images/photoshop.webp",
+        "featured": true
       }
     ]
   }

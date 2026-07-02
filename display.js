@@ -53,57 +53,147 @@ function certUrl(cert) {
   );
 }
 
-// Fonction pour charger et afficher les compétences.
-// Données groupées ([{group, skills:[{name, image?}]}]) OU plate (rétrocompat).
-// Aucun niveau affiché ; l'icône est optionnelle (skills sans visuel = puce texte).
+// SKILLS — direction ③ « Sur la Ligne ». Un composant UNIFORME rend les 5 groupes à
+// l'identique (bande typo) ; la variété vient de la data. Deux niveaux = propriété du
+// composant : les skills `featured` sont les phares (Archivo 900), le reste = détail
+// caché au repos + révélé au survol/focus/tap (embrasement rose→or → texte blanc).
+// Data groupée ([{group:{fr,en}, skills:[{name, featured?, image?}]}]) ; icône ignorée
+// (TEXTE ONLY). Bilingue via t() ; re-render sur langChanged (renderAllData).
 function displaySkills() {
   fetch("skill.json")
     .then((response) => response.json())
     .then((skillsData) => {
-      const skillsContent = document.querySelector(".tab-content.skills");
-      skillsContent.innerHTML = ""; // Vider le contenu existant
+      const host = document.getElementById("skl-bands");
+      if (!host) return;
+      host.innerHTML = "";
 
-      const groups = Array.isArray(skillsData) && skillsData[0] && skillsData[0].group
-        ? skillsData
-        : [{ group: "", skills: skillsData }];
+      const groups =
+        Array.isArray(skillsData) && skillsData[0] && skillsData[0].group
+          ? skillsData
+          : [{ group: "", skills: skillsData }];
 
-      groups.forEach((group) => {
-        const groupEl = document.createElement("div");
-        groupEl.classList.add("skills-group");
+      const reduce =
+        window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      // One-shot entrance for the (dynamically built) bands — a local observer,
+      // since motion.js queried the DOM before these existed.
+      const io =
+        "IntersectionObserver" in window
+          ? new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (e) {
+                  if (e.isIntersecting) {
+                    e.target.classList.add("in");
+                    io.unobserve(e.target);
+                  }
+                });
+              },
+              { threshold: 0.18 }
+            )
+          : null;
 
-        if (group.group) {
-          const groupTitle = document.createElement("h4");
-          groupTitle.classList.add("skills-group-title");
-          groupTitle.textContent = t(group.group);
-          groupEl.appendChild(groupTitle);
+      groups.forEach(function (group) {
+        const skills = group.skills || [];
+        const flagged = skills.filter(function (s) { return s.featured; });
+        // Fallback if data has no `featured`: first two are the flagships.
+        const flags = flagged.length ? flagged : skills.slice(0, 2);
+        const rest = flagged.length
+          ? skills.filter(function (s) { return !s.featured; })
+          : skills.slice(2);
+
+        const band = document.createElement("div");
+        band.className = "skl-band";
+        if (/microsoft/i.test(t(group.group)) || group.hat === "ms") {
+          band.dataset.hat = "ms";
         }
 
-        const gridEl = document.createElement("div");
-        gridEl.classList.add("skills-grid");
+        // Group name — mono eyebrow (the only structural label; encodes the category).
+        const eyebrow = document.createElement("p");
+        eyebrow.className = "skl-eyebrow";
+        eyebrow.textContent = t(group.group);
+        band.appendChild(eyebrow);
 
-        (group.skills || []).forEach((skill) => {
-          const chip = document.createElement("div");
-          chip.classList.add("skill-chip");
-
-          if (skill.image) {
-            const skillImage = document.createElement("img");
-            skillImage.src = skill.image;
-            skillImage.loading = "lazy";
-            skillImage.alt = t(skill.name);
-            chip.appendChild(skillImage);
+        // Flagships — the interface IS the type (Archivo 900), first = anchor (gradient).
+        const line = document.createElement("div");
+        line.className = "skl-line";
+        flags.forEach(function (s, i) {
+          if (i) {
+            // Middot, not a slash — several skill names already contain "/"
+            // (e.g. "Flutter / Dart"), so a slash separator would read ambiguously.
+            const sep = document.createElement("span");
+            sep.className = "skl-sep";
+            sep.textContent = "·";
+            line.appendChild(sep);
           }
-
-          const skillName = document.createElement("span");
-          skillName.textContent = t(skill.name);
-          chip.appendChild(skillName);
-
-          gridEl.appendChild(chip);
+          const w = document.createElement("span");
+          w.className = "skl-sk" + (i === 0 ? " skl-anchor" : "");
+          w.textContent = t(s.name);
+          line.appendChild(w);
         });
+        band.appendChild(line);
 
-        groupEl.appendChild(gridEl);
-        skillsContent.appendChild(groupEl);
+        if (rest.length) {
+          // Resting invitation — hidden secondaries, elegant "+N · voir plus".
+          const invite = document.createElement("div");
+          invite.className = "skl-invite";
+          invite.setAttribute("aria-hidden", "true");
+          const rule = document.createElement("span");
+          rule.className = "skl-invite-rule";
+          const n = document.createElement("span");
+          n.className = "skl-invite-n";
+          n.textContent = "+" + rest.length;
+          const txt = document.createElement("span");
+          txt.className = "skl-invite-txt";
+          txt.textContent = t({ fr: "voir plus", en: "see all" });
+          const arw = document.createElement("span");
+          arw.className = "skl-invite-arw";
+          arw.textContent = "→";
+          invite.append(rule, n, txt, arw);
+          band.appendChild(invite);
+
+          // Hidden detail (grid-rows) — the rest, revealed with the ignition sweep.
+          const detail = document.createElement("div");
+          detail.className = "skl-detail";
+          const inner = document.createElement("div");
+          inner.className = "skl-inner";
+          const row = document.createElement("div");
+          row.className = "skl-row";
+          rest.forEach(function (s) {
+            const g = document.createElement("span");
+            g.className = "skl-g";
+            g.textContent = t(s.name);
+            row.appendChild(g);
+          });
+          inner.appendChild(row);
+          detail.appendChild(inner);
+          band.appendChild(detail);
+
+          // Hover = CSS. Keyboard + touch here (pin the revealed state).
+          band.tabIndex = 0;
+          band.setAttribute("role", "button");
+          band.setAttribute("aria-expanded", "false");
+          band.setAttribute(
+            "aria-label",
+            t(group.group) +
+              t({ fr: " — voir toutes les compétences", en: " — see all skills" })
+          );
+          const toggle = function () {
+            const on = band.classList.toggle("lit");
+            band.setAttribute("aria-expanded", on ? "true" : "false");
+          };
+          band.addEventListener("click", toggle);
+          band.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              toggle();
+            }
+          });
+        }
+
+        host.appendChild(band);
+        if (reduce || !io) band.classList.add("in");
+        else io.observe(band);
       });
-      emitTabContentUpdated();
     })
     .catch((error) => console.error("Error loading skills data:", error));
 }
@@ -467,6 +557,8 @@ function applyFilter(filter, filtersContainer, grid) {
 }
 
 displayProjects();
+// Skills is its own section now (no longer loaded by the tab system) — render on load.
+if (typeof displaySkills === "function") displaySkills();
 
 // Re-render every data-driven section when the language toggles (index only).
 // Each renderer clears its container and rebuilds from the active language.

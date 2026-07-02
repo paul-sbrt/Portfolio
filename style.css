@@ -856,40 +856,316 @@ h1.sub-title {
   width: 100%;
 }
 
-/* Grouped skills — one consistent chip per skill (icon optional, no levels).
-   Uniform shape so icon and icon-less skills align cleanly in the same row. */
-.skills-group-title {
+/* ===================================================================
+   SKILLS — direction ③ « Sur la Ligne » : bandes typo + révélation « Seuil ».
+   Composant uniforme (les 5 groupes rendus à l'identique par displaySkills).
+   Fil rouge rose→or pour tous ; Microsoft en OR (--c bascule). TEXTE ONLY.
+   =================================================================== */
+#skills {
+  flex-basis: 100%;
+  width: 100%;
+  margin-top: clamp(48px, 7vw, 96px);
+  scroll-margin-top: 90px; /* clears the sticky header on nav-jump */
+}
+.skl-kicker {
+  font-family: "JetBrains Mono", monospace;
   font-size: var(--fs-300);
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  letter-spacing: 1px;
   color: var(--text-muted);
-  margin: 26px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.skl-kicker::before {
+  content: "";
+  width: 38px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-ms));
+}
+.skl-title {
+  font-family: "Archivo", var(--body, sans-serif);
+  font-weight: 900;
+  font-size: clamp(30px, 4vw, 50px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 40px;
 }
 
-.skills-grid {
+.skl-bands {
+  border-top: 1px solid var(--border);
+}
+/* One uniform band per group. --c = rose by default; Microsoft flips to gold. */
+.skl-band {
+  --c: var(--accent);
+  position: relative;
+  padding: 26px 0 24px;
+  border-bottom: 1px solid var(--border);
+  view-timeline-name: --sklband;
+  view-timeline-axis: block;
+  outline: none;
+  /* one-shot entrance (a local observer adds .in — see displaySkills) */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.skl-band[data-hat="ms"] {
+  --c: var(--accent-ms);
+}
+.skl-band[tabindex] {
+  cursor: pointer;
+}
+.skl-band.in {
+  opacity: 1;
+  transform: none;
+}
+.skl-band:focus-visible {
+  outline: 2px solid var(--c);
+  outline-offset: 6px;
+  border-radius: 6px;
+}
+.skl-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.skl-eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--c), var(--accent-ms));
+}
+/* Flagships — the interface IS the type. */
+.skl-line {
+  font-family: "Archivo", var(--body, sans-serif);
+  font-weight: 900;
+  font-size: clamp(26px, 5.2vw, 58px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 6px;
+  gap: 0.35em;
+  align-items: baseline;
+  will-change: transform;
+}
+.skl-anchor {
+  background: linear-gradient(110deg, var(--c), var(--accent-ms) 42%, #fff2cf 50%, var(--accent-ms) 58%, var(--c));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.skl-sep {
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.5em;
+  align-self: center;
 }
 
-.skill-chip {
+/* Resting invitation — the secondaries are HIDDEN; this signals there's more. */
+.skl-invite {
+  margin-top: 16px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-pill);
-  background: var(--surface-raised);
-  color: var(--text);
-  font-size: var(--fs-300);
-  line-height: 1;
+  gap: 10px;
+  height: 22px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.skl-invite-rule {
+  width: 26px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--c), var(--accent-ms));
+  transition: width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.skl-invite-n {
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--c), var(--accent-ms));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.skl-invite-txt {
+  text-transform: uppercase;
+}
+.skl-invite-arw {
+  color: var(--c);
+}
+.skl-band:hover .skl-invite,
+.skl-band:focus-visible .skl-invite,
+.skl-band.lit .skl-invite {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+.skl-band:hover .skl-invite-rule {
+  width: 44px;
 }
 
-.skill-chip img {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
+/* Hidden → revealed detail (grid-rows, no height jump). */
+.skl-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.skl-band:hover .skl-detail,
+.skl-band:focus-visible .skl-detail,
+.skl-band.lit .skl-detail {
+  grid-template-rows: 1fr;
+}
+.skl-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+/* One clean colour cue: a single rose→or vertical rule (no per-word underline). */
+.skl-row {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 13px 26px;
+  padding: 8px 0 4px 18px;
+}
+.skl-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 6px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--c), var(--accent-ms));
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.skl-band:hover .skl-row::before,
+.skl-band:focus-visible .skl-row::before,
+.skl-band.lit .skl-row::before {
+  transform: scaleY(1);
+}
+/* Each secondary: a slow, wide rose→or ignition sweeps through, then the word
+   settles on --text (legible in both themes — colour only PASSES through). */
+.skl-g {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 500;
+  font-size: 13.5px;
+  letter-spacing: 0.06em;
+  background: linear-gradient(100deg, var(--text) 0 38%, var(--c) 44%, #fff2cf 50%, var(--accent-ms) 56%, var(--text) 62% 100%);
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: var(--text);
+  -webkit-text-fill-color: transparent;
+  transform: translateY(8px);
+  transition: background-position 1.5s cubic-bezier(0.33, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.skl-band:hover .skl-g,
+.skl-band:focus-visible .skl-g,
+.skl-band.lit .skl-g {
+  background-position: 0 0;
+  transform: none;
+}
+.skl-g:nth-child(1) { transition-delay: 0.05s; }
+.skl-g:nth-child(2) { transition-delay: 0.18s; }
+.skl-g:nth-child(3) { transition-delay: 0.31s; }
+.skl-g:nth-child(4) { transition-delay: 0.44s; }
+.skl-g:nth-child(5) { transition-delay: 0.57s; }
+.skl-g:nth-child(6) { transition-delay: 0.70s; }
+.skl-g:nth-child(7) { transition-delay: 0.83s; }
+.skl-g:nth-child(8) { transition-delay: 0.96s; }
+
+/* Focus-pull — hovering one band eases the others' type back (depth of field).
+   Only opacity of the line/eyebrow (never the band opacity, which entrance/exit own). */
+@media (hover: hover) {
+  .skl-bands:hover .skl-band:not(:hover) .skl-line,
+  .skl-bands:hover .skl-band:not(:hover) .skl-eyebrow {
+    opacity: 0.42;
+    transition: opacity 0.4s ease;
+  }
+}
+
+/* Signature scroll motion (same family as hero/about, a notch richer):
+   featured lines DRIFT as tickets on a pass rail, the anchor sweeps rose→or, and
+   each band PEELS off the top on exit (fade + lift + lateral drift + soft blur).
+   fill:forwards keeps the exit from fighting the one-shot entrance. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .skl-line {
+      animation: skl-drift linear both;
+      animation-timeline: --sklband;
+      animation-range: cover 0% cover 100%;
+    }
+    .skl-band:nth-child(even) .skl-line {
+      animation-name: skl-drift-r;
+    }
+    @keyframes skl-drift { from { transform: translateX(-1.6vw); } to { transform: translateX(1.6vw); } }
+    @keyframes skl-drift-r { from { transform: translateX(1.6vw); } to { transform: translateX(-1.6vw); } }
+    .skl-anchor {
+      animation: skl-sweep linear both;
+      animation-timeline: --sklband;
+      animation-range: entry 20% cover 60%;
+    }
+    @keyframes skl-sweep { from { background-position: 160% 0; } to { background-position: -60% 0; } }
+    .skl-band {
+      animation: skl-exit linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 100%;
+      animation-fill-mode: forwards;
+      will-change: opacity, transform, filter;
+    }
+    .skl-band:nth-child(even) {
+      animation-name: skl-exit-r;
+    }
+    @keyframes skl-exit { to { opacity: 0; transform: translate(-3vw, -22px); filter: blur(4px); } }
+    @keyframes skl-exit-r { to { opacity: 0; transform: translate(3vw, -22px); filter: blur(4px); } }
+  }
+}
+
+/* Fail-safe / reduced-motion — everything visible & legible, secondaries open. */
+@media (prefers-reduced-motion: reduce) {
+  .skl-band {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .skl-detail {
+    grid-template-rows: 1fr;
+  }
+  .skl-invite {
+    display: none;
+  }
+  .skl-row::before {
+    transform: scaleY(1);
+  }
+  .skl-g {
+    background-position: 0 0;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .skl-line {
+    font-size: clamp(22px, 7vw, 30px);
+  }
+  .skl-row {
+    gap: 12px 18px;
+  }
 }
 
 /* Studies — uniform logo tiles (every entry has a logo). Height grows with
