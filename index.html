@@ -131,36 +131,53 @@
     <div id="about">
       <div class="container">
         <div class="row">
-          <div class="about-col-1">
-            <img
-              alt="Paul Sabourault"
-              src="./images/image-2-portfolio-paul.webp"
-              loading="lazy"
-            />
+          <!-- ABOUT — story : texte à gauche · portrait à droite (éditorial) -->
+          <div class="about-story">
+            <div class="about-copy">
+              <p class="about-eyebrow rv" data-i18n="about.eyebrow">À propos — le parcours</p>
+              <h2 class="sub-title about-headline rv" data-i18n="about.title">De la cuisine au code.</h2>
+              <p class="about-body rv" data-i18n-html="about.body">
+                Je viens de la restauration, et c'est en voulant résoudre des
+                problèmes réels que je suis devenu développeur. Depuis, je
+                construis des produits <span class="hl-strong">de bout en bout</span> :
+                une app de voyage publiée sur iOS et Android (<span class="hl-rose">STOW</span>),
+                un « deuxième cerveau » iOS boosté à l'IA (<span class="hl-rose">DUMP</span>
+                — transcription Whisper + classification Claude), une plateforme de
+                mise en relation pour l'hôtellerie-restauration
+                (<span class="hl-rose">EXTRALIMO</span>) et un site de vente d'une
+                offre Microsoft (<span class="hl-gold">Ticketing IT</span>). Mobile
+                (Flutter, Swift/SwiftUI), web (Laravel, Next.js, React) et
+                <span class="hl-gold">Microsoft/Power Platform</span> : mon fil rouge,
+                <span class="hl-strong">comprendre l'utilisateur, livrer, itérer</span>
+                — et apprendre en construisant. Après deux ans chez Avanade, je
+                continue à empiler les vrais projets.
+              </p>
+              <p class="about-availability rv" data-i18n="about.availability">En recherche d'une alternance.</p>
+              <a
+                class="btn-cv rv"
+                download=""
+                href="./images/CV-Paul-Sabourault-Microsoft-2025.pdf"
+                data-i18n="btn.downloadCv"
+                >Télécharger le CV</a
+              >
+            </div>
+            <div class="about-photo rv">
+              <div class="about-frame">
+                <div class="about-mask">
+                  <img
+                    class="about-portrait"
+                    alt="Paul Sabourault"
+                    src="./images/image-2-portfolio-paul.webp"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <p class="about-cap">Paul Sabourault</p>
+            </div>
           </div>
-          <div class="about-col-2">
-            <h2 class="sub-title" data-i18n="about.title">À propos</h2>
-            <p data-i18n="about.body">
-              Je viens de la restauration, et c'est en voulant résoudre des
-              problèmes réels que je suis devenu développeur. Depuis, je
-              construis des produits de bout en bout : une app de voyage publiée
-              sur iOS et Android (STOW), un « deuxième cerveau » iOS boosté à
-              l'IA (DUMP — transcription Whisper + classification Claude), une
-              plateforme de mise en relation pour l'hôtellerie-restauration
-              (EXTRALIMO) et un site de vente d'une offre Microsoft (Ticketing
-              IT). Mobile (Flutter, Swift/SwiftUI), web (Laravel, Next.js, React)
-              et Microsoft/Power Platform : mon fil rouge, c'est comprendre
-              l'utilisateur, livrer, itérer — et apprendre en construisant. Après
-              deux ans chez Avanade, je continue à empiler les vrais projets.
-            </p>
-            <p class="about-availability" data-i18n="about.availability">En recherche d'une alternance.</p>
-            <a
-              class="btn btn2 btn3"
-              download=""
-              href="./images/CV-Paul-Sabourault-Microsoft-2025.pdf"
-              data-i18n="btn.downloadCv"
-              >Télécharger le CV</a
-            >
+
+          <!-- ABOUT — compétences / expérience / études / certifications -->
+          <div class="about-panels">
             <div class="tab-title">
               <p class="tab-links active-link" data-tab="skills" data-i18n="tab.skills">Compétences</p>
               <p class="tab-links" data-tab="experience" data-i18n="tab.experience">Expérience</p>
