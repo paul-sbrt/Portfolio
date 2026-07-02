@@ -77,12 +77,13 @@ const positionTabIndicator = () => {
   if (!tabIndicator || !tabLinks.length) return;
   const active = tabLinks[activeTabIndex];
   if (!active) return;
+  // Thin rose→gold filet sitting on the hairline, under the active label
+  // (width = label's; y = bottom of the label's row, so wrapping is handled).
   tabIndicator.style.width = active.offsetWidth + "px";
-  tabIndicator.style.height = active.offsetHeight + "px";
   tabIndicator.style.transform =
-    "translate(" + active.offsetLeft + "px, " + active.offsetTop + "px)";
+    "translate(" + active.offsetLeft + "px, " +
+    (active.offsetTop + active.offsetHeight - 2) + "px)";
   tabIndicator.style.opacity = "1";
-  tabTitle.classList.add("has-ind");
 };
 
 const setActiveTab = (index, options = {}) => {

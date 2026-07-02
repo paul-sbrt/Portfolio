@@ -807,56 +807,46 @@ h1.sub-title {
 }
 
 
-/* Segmented mono selector — CENTERED pill rail in the header's lang-toggle family:
-   uppercase JetBrains Mono labels + a single rose→gold indicator that GLIDES under
-   the active tab (JS positions it). The active label sits in dark ink on the bright
-   gradient (AA on both rose and gold ends). */
+/* Editorial "Filet" selector — variante A. Typo only (no pill/fill): uppercase
+   JetBrains Mono labels sitting on a full-width hairline; the active tab is marked
+   by a thin rose→gold underline that GLIDES to it (width = the label's), like the
+   header's scroll-spy. Inactive muted → white on hover. JS positions .tab-ind. */
 .tab-title {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2px;
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 auto 30px;
-  padding: 5px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-pill);
-  background: var(--surface-raised);
+  gap: clamp(20px, 4vw, 44px);
+  margin: 0 0 34px;
+  border-bottom: 1px solid var(--border);
 }
 
-/* The gliding highlight — width/position set by positionTabIndicator() in app.js. */
+/* The gliding rose→gold filet — width/position set by positionTabIndicator(). */
 .tab-ind {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 0;
-  height: 0;
   width: 0;
+  height: 2px;
   opacity: 0;
-  border-radius: var(--radius-pill);
+  border-radius: 2px;
   background: linear-gradient(90deg, var(--accent), var(--accent-ms));
-  box-shadow: 0 6px 20px -8px color-mix(in srgb, var(--accent) 65%, transparent);
   pointer-events: none;
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-    width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease;
+  transition: transform 0.42s cubic-bezier(0.2, 0.8, 0.2, 1),
+    width 0.42s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease;
 }
 
 .tab-links {
-  position: relative;
-  z-index: 1;
   margin: 0;
   white-space: nowrap;
   cursor: pointer;
   font-family: "JetBrains Mono", monospace;
   font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.1em;
+  font-size: 13px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-muted);
-  padding: 10px 18px;
-  border-radius: var(--radius-pill);
+  padding: 2px 2px 18px;
   transition: color 0.3s ease;
 }
 
@@ -864,16 +854,8 @@ h1.sub-title {
   color: var(--text);
 }
 
-/* Default / pre-JS / no-indicator: the active tab is a visible tint (never a dark
-   label on a dark bg). Once JS places the gliding indicator, .tab-title gets
-   .has-ind and the active label flips to dark ink on the bright gradient. */
 .tab-links.active-link {
   color: var(--text);
-  background: color-mix(in srgb, var(--accent) 16%, transparent);
-}
-.tab-title.has-ind .tab-links.active-link {
-  color: #0a0708; /* dark ink on the rose→gold indicator (AA on both ends) */
-  background: transparent;
 }
 
 .tab-content {
@@ -1823,15 +1805,13 @@ nav .fa-solid {
   }
 
   .tab-title {
-    justify-content: center;
-    gap: 3px;
-    padding: 4px;
+    gap: clamp(14px, 4vw, 24px);
   }
 
   .tab-links {
     font-size: 11px;
-    letter-spacing: 0.06em;
-    padding: 9px 13px;
+    letter-spacing: 0.1em;
+    padding: 2px 2px 13px;
   }
 
   .contact-left,
