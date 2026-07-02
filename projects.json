@@ -92,7 +92,8 @@
           "en": "I can walk through the architecture (Cloudflare proxy, AI keys kept server-side), the design system and how the classification works."
         }
       }
-    }
+    },
+    "brand": "#E8A44A"
   },
   {
     "slug": "stow",
@@ -201,7 +202,8 @@
           "en": "The app is available for free on the App Store and the Google Play Store."
         }
       }
-    }
+    },
+    "brand": "#FF4F00"
   },
   {
     "slug": "extralimo",
@@ -301,7 +303,8 @@
           "en": "The product is live — I can walk through the data model, the lifecycle of a “match” and the privacy approach."
         }
       }
-    }
+    },
+    "brand": "#E8A93F"
   },
   {
     "slug": "ticketing-it",
@@ -401,7 +404,8 @@
           "en": "The solution is presented online on PowerFlows — I can walk through the Power Platform architecture (Power Apps, Power Automate, Power BI, SharePoint) and a demo."
         }
       }
-    }
+    },
+    "brand": "#E85D26"
   },
   {
     "slug": "video-game-sales-powerbi",
@@ -560,7 +564,8 @@
           "en": "Let me demo the model, DAX techniques and UX guidelines I used here so we can replicate them for your dataset."
         }
       }
-    }
+    },
+    "brand": "#f7c948"
   },
   {
     "slug": "mscd-application",
@@ -710,7 +715,8 @@
           "en": "I can walk you through the governance approach, automation steps and UX patterns that made MSCD a reliable internal tool."
         }
       }
-    }
+    },
+    "brand": "#f7c948"
   },
   {
     "slug": "suez-dashboard",
@@ -832,7 +838,8 @@
           "en": "I can walk you through the data model, KPIs and UX choices that made this project successful, then adapt them to your context."
         }
       }
-    }
+    },
+    "brand": "#f7c948"
   },
   {
     "slug": "powerflows",
@@ -852,7 +859,8 @@
       "Power Platform"
     ],
     "featured": false,
-    "externalUrl": "https://www.powerflows.fr"
+    "externalUrl": "https://www.powerflows.fr",
+    "brand": "#E85D26"
   },
   {
     "slug": "professional-wordpress-website",

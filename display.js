@@ -294,12 +294,48 @@ function displayProjects() {
     .then((response) => response.json())
     .then((projectData) => {
       grid.innerHTML = "";
-      projectData.forEach((project) => {
-        grid.appendChild(buildProjectCard(project));
+      const cards = projectData.map(buildProjectCard);
+      cards.forEach((card, i) => {
+        card.style.animationDelay = (i % 8) * 0.05 + "s"; // light stagger
+        grid.appendChild(card);
       });
       buildProjectFilters(projectData, filtersContainer, grid);
+      revealCards(cards);
     })
     .catch((error) => console.error("Error fetching projects:", error));
+}
+
+// Scroll reveal for cards, with a strong fail-safe: cards are never left
+// hidden. No IntersectionObserver / reduced-motion -> show immediately; and a
+// timeout un-hides any card that is on-screen but hasn't fired yet.
+function revealCards(cards) {
+  const reduce =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) {
+    cards.forEach((c) => c.classList.add("in"));
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+  );
+  cards.forEach((c) => io.observe(c));
+  // fail-safe: reveal any on-screen card still hidden after a moment
+  setTimeout(() => {
+    cards.forEach((c) => {
+      if (c.classList.contains("in")) return;
+      const r = c.getBoundingClientRect();
+      if (r.top < (window.innerHeight || 0) && r.bottom > 0) c.classList.add("in");
+    });
+  }, 1800);
 }
 
 // Build one project card (createElement — no unescaped innerHTML).
@@ -309,8 +345,10 @@ function buildProjectCard(project) {
   const isFeatured = Boolean(project.featured && project.slug);
 
   const card = document.createElement("a");
-  card.className = "project-card";
+  card.className = "project-card card-reveal";
   card.dataset.hats = hats.join("|");
+  // Real per-project brand colour (--c); falls back to the portfolio rose in CSS.
+  if (project.brand) card.style.setProperty("--c", project.brand);
   if (isFeatured) {
     card.href = detailHref(project.slug);
   } else {
@@ -320,13 +358,32 @@ function buildProjectCard(project) {
   }
   card.setAttribute("aria-label", `${project.title}`);
 
+  // Thumb: a duotone panel in the project's colour; a real screenshot sits on
+  // top when one exists (placeholder-only projects show the duotone + label).
   const thumb = document.createElement("div");
   thumb.className = "project-card-thumb";
-  const img = document.createElement("img");
-  img.src = project.image;
-  img.alt = project.title;
-  img.loading = "lazy";
-  thumb.appendChild(img);
+  const mesh = document.createElement("div");
+  mesh.className = "project-card-mesh";
+  thumb.appendChild(mesh);
+
+  const swatch = document.createElement("span");
+  swatch.className = "project-card-swatch";
+  thumb.appendChild(swatch);
+
+  const hasImage = project.image && project.image.indexOf("placeholder") === -1;
+  if (hasImage) {
+    const img = document.createElement("img");
+    img.src = project.image;
+    img.alt = project.title;
+    img.loading = "lazy";
+    thumb.appendChild(img);
+  } else {
+    const cap = document.createElement("span");
+    cap.className = "project-card-cap";
+    cap.textContent =
+      (project.detail && t(project.detail.highlight)) || project.title;
+    thumb.appendChild(cap);
+  }
 
   const body = document.createElement("div");
   body.className = "project-card-body";

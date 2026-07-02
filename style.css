@@ -653,9 +653,9 @@ h1.sub-title {
 }
 
 .filter-chip.is-active {
-  color: var(--hat-text, var(--on-accent));
-  border-color: var(--hat, var(--accent));
-  background: var(--surface);
+  color: var(--on-accent);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .project-grid {
@@ -667,40 +667,92 @@ h1.sub-title {
 }
 
 .project-card {
+  --c: var(--accent); /* per-project brand colour (set inline by display.js) */
+  position: relative;
   display: flex;
   flex-direction: column;
-  background: var(--surface-raised);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   overflow: hidden;
   text-decoration: none;
   color: var(--text);
-  transition: transform 0.25s ease, border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
 }
 
-.project-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--hat, var(--accent));
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+/* Fail-safe scroll reveal: a card is hidden only after JS tags it .card-reveal,
+   and display.js guarantees it gets .in (observer + on-screen timeout + a
+   reduced/no-IO show-all). It never stays hidden. */
+.project-card.card-reveal {
+  opacity: 0;
+}
+.project-card.card-reveal.in {
+  opacity: 1;
+  animation: card-rise 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .project-card-thumb {
+  position: relative;
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--surface-sunken);
 }
-
+/* duotone panel in the project colour — also the visual when no screenshot */
+.project-card-mesh {
+  position: absolute;
+  inset: -12%;
+  background: radial-gradient(62% 72% at 24% 20%, var(--c), transparent 60%),
+    radial-gradient(
+      58% 62% at 82% 84%,
+      color-mix(in srgb, var(--c) 45%, var(--accent-ms)),
+      transparent 58%
+    ),
+    linear-gradient(150deg, #150810, #0c0a0f);
+  transition: transform 0.5s ease;
+}
 .project-card-thumb img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
-
-.project-card:hover .project-card-thumb img {
-  transform: scale(1.05);
+.project-card-cap {
+  position: absolute;
+  left: 16px;
+  bottom: 12px;
+  z-index: 1;
+  font-family: "Archivo", var(--body, sans-serif);
+  font-weight: 900;
+  font-size: 26px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #0a0708;
+  mix-blend-mode: screen;
+}
+.project-card-swatch {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.28);
 }
 
 .project-card-body {
@@ -709,12 +761,14 @@ h1.sub-title {
   gap: 12px;
   padding: 22px;
   flex: 1;
+  transition: background 0.35s ease;
 }
 
 .project-card-body h3 {
+  font-family: "Archivo", var(--body, sans-serif);
+  font-weight: 700;
   font-size: var(--fs-500);
-  font-weight: 600;
-  line-height: var(--lh-tight);
+  line-height: 1.1;
 }
 
 .project-tags {
@@ -730,6 +784,7 @@ h1.sub-title {
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-pill);
   padding: 4px 10px;
+  transition: color 0.35s ease, background 0.35s ease, border-color 0.35s ease;
 }
 
 .project-summary {
@@ -737,9 +792,10 @@ h1.sub-title {
   color: var(--text-muted);
   line-height: var(--lh-base);
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  transition: color 0.35s ease;
 }
 
 .project-card-foot {
@@ -754,20 +810,67 @@ h1.sub-title {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--hat-text, var(--accent));
-  border: 1px solid var(--hat, var(--accent));
+  color: var(--c);
+  border: 1px solid var(--c);
   border-radius: var(--radius-pill);
   padding: 3px 10px;
+  transition: color 0.35s ease, border-color 0.35s ease;
 }
 
 .project-card-arrow {
   margin-left: auto;
-  color: var(--hat, var(--accent));
-  transition: transform 0.25s ease;
+  color: var(--c);
+  transition: transform 0.25s ease, color 0.35s ease;
 }
 
-.project-card:hover .project-card-arrow {
-  transform: translateX(3px);
+/* Hover flood — desktop (pointer) only; mobile keeps the static accent */
+@media (hover: hover) {
+  .project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--c);
+    box-shadow: 0 22px 55px color-mix(in srgb, var(--c) 34%, transparent);
+  }
+  .project-card:hover .project-card-body {
+    background: var(--c);
+  }
+  .project-card:hover h3,
+  .project-card:hover .project-summary,
+  .project-card:hover .project-tag,
+  .project-card:hover .project-hat,
+  .project-card:hover .project-card-arrow {
+    color: #0a0708;
+  }
+  .project-card:hover .project-tag {
+    background: rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 0, 0, 0.18);
+  }
+  .project-card:hover .project-hat {
+    border-color: rgba(0, 0, 0, 0.4);
+  }
+  .project-card:hover .project-card-mesh {
+    transform: scale(1.06);
+  }
+  .project-card:hover .project-card-thumb img {
+    transform: scale(1.05);
+  }
+  .project-card:hover .project-card-arrow {
+    transform: translateX(3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card.card-reveal {
+    opacity: 1;
+  }
+  .project-card.card-reveal.in {
+    animation: none;
+  }
+  .project-card,
+  .project-card-mesh,
+  .project-card-thumb img,
+  .project-card-arrow {
+    transition: none;
+  }
 }
 
 .btn {
