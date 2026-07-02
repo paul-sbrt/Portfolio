@@ -806,35 +806,62 @@ h1.sub-title {
 }
 
 
+/* Segmented mono selector — same family as the header lang-toggle: a pill rail,
+   uppercase mono labels, the active segment tinted with a rose→gold underline. */
 .tab-title {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
-  margin-bottom: 25px;
+  gap: 4px;
+  max-width: 100%;
+  margin: 26px 0 28px;
+  padding: 5px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface-raised);
 }
 
 .tab-links {
-  margin: 24px 36px 12px 0;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
+  margin: 0;
   position: relative;
   white-space: nowrap;
+  cursor: pointer;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  transition: color 0.28s ease, background 0.28s ease;
 }
 
+.tab-links:hover {
+  color: var(--text);
+}
+
+/* Active segment: subtle rose tint + a rose→gold gradient underline inside the pill. */
+.tab-links.active-link {
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 13%, transparent);
+}
 
 .tab-links::after {
   content: "";
-  background-color: var(--accent);
-  width: 0;
-  height: 3px;
   position: absolute;
-  left: 0;
-  bottom: -9px;
-  transition: 0.1s;
+  left: 18px;
+  right: 18px;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-ms));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .tab-links.active-link::after {
-  width: 90%;
+  transform: scaleX(1);
 }
 
 .tab-content {
@@ -858,44 +885,13 @@ h1.sub-title {
 
 /* ===================================================================
    SKILLS — direction ③ « Sur la Ligne » : bandes typo + révélation « Seuil ».
-   Composant uniforme (les 5 groupes rendus à l'identique par displaySkills).
-   Fil rouge rose→or pour tous ; Microsoft en OR (--c bascule). TEXTE ONLY.
+   CONTENU du 1er onglet (Compétences), rendu par displaySkills dans .tab-content.skills.
+   Composant uniforme (les 5 groupes rendus à l'identique) ; fil rouge rose→or pour
+   tous, Microsoft en OR (--c bascule) ; TEXTE ONLY.
    =================================================================== */
-#skills {
-  flex-basis: 100%;
-  width: 100%;
-  margin-top: clamp(48px, 7vw, 96px);
-  scroll-margin-top: 90px; /* clears the sticky header on nav-jump */
-}
-.skl-kicker {
-  font-family: "JetBrains Mono", monospace;
-  font-size: var(--fs-300);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 20px;
-}
-.skl-kicker::before {
-  content: "";
-  width: 38px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-ms));
-}
-.skl-title {
-  font-family: "Archivo", var(--body, sans-serif);
-  font-weight: 900;
-  font-size: clamp(30px, 4vw, 50px);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  margin-bottom: 40px;
-}
-
 .skl-bands {
   border-top: 1px solid var(--border);
+  margin-top: 6px;
 }
 /* One uniform band per group. --c = rose by default; Microsoft flips to gold. */
 .skl-band {
@@ -1100,9 +1096,9 @@ h1.sub-title {
 }
 
 /* Signature scroll motion (same family as hero/about, a notch richer):
-   featured lines DRIFT as tickets on a pass rail, the anchor sweeps rose→or, and
-   each band PEELS off the top on exit (fade + lift + lateral drift + soft blur).
-   fill:forwards keeps the exit from fighting the one-shot entrance. */
+   featured lines DRIFT as tickets on a pass rail and the anchor sweeps rose→or as
+   the band scrolls through. (No lateral section-exit here: skills is tab content
+   inside an overflow-hidden panel, which would clip a peel.) */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
     .skl-line {
@@ -1121,18 +1117,6 @@ h1.sub-title {
       animation-range: entry 20% cover 60%;
     }
     @keyframes skl-sweep { from { background-position: 160% 0; } to { background-position: -60% 0; } }
-    .skl-band {
-      animation: skl-exit linear both;
-      animation-timeline: view();
-      animation-range: exit 0% exit 100%;
-      animation-fill-mode: forwards;
-      will-change: opacity, transform, filter;
-    }
-    .skl-band:nth-child(even) {
-      animation-name: skl-exit-r;
-    }
-    @keyframes skl-exit { to { opacity: 0; transform: translate(-3vw, -22px); filter: blur(4px); } }
-    @keyframes skl-exit-r { to { opacity: 0; transform: translate(3vw, -22px); filter: blur(4px); } }
   }
 }
 
@@ -1811,22 +1795,20 @@ nav .fa-solid {
   }
 
   .tab-title {
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
+    gap: 3px;
+    padding: 4px;
   }
 
   .tab-links {
-    font-size: 15px;
-    padding: 10px 16px;
-    margin: 0 4px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-pill);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    padding: 9px 13px;
   }
 
   .tab-links::after {
-    left: 50%;
-    transform: translateX(-50%);
+    left: 13px;
+    right: 13px;
   }
 
   .contact-left,

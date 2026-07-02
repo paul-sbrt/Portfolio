@@ -63,9 +63,12 @@ function displaySkills() {
   fetch("skill.json")
     .then((response) => response.json())
     .then((skillsData) => {
-      const host = document.getElementById("skl-bands");
-      if (!host) return;
-      host.innerHTML = "";
+      const panel = document.querySelector(".tab-content.skills");
+      if (!panel) return;
+      panel.innerHTML = "";
+      const host = document.createElement("div");
+      host.className = "skl-bands";
+      panel.appendChild(host);
 
       const groups =
         Array.isArray(skillsData) && skillsData[0] && skillsData[0].group
@@ -180,6 +183,10 @@ function displaySkills() {
           const toggle = function () {
             const on = band.classList.toggle("lit");
             band.setAttribute("aria-expanded", on ? "true" : "false");
+            // Mobile: the tab-slider pins the panel height — re-measure after the
+            // reveal (immediately + once the grid-rows transition settles).
+            emitTabContentUpdated();
+            setTimeout(emitTabContentUpdated, 600);
           };
           band.addEventListener("click", toggle);
           band.addEventListener("keydown", function (e) {
@@ -194,6 +201,7 @@ function displaySkills() {
         if (reduce || !io) band.classList.add("in");
         else io.observe(band);
       });
+      emitTabContentUpdated(); // let the mobile tab-slider re-measure this panel
     })
     .catch((error) => console.error("Error loading skills data:", error));
 }
@@ -557,8 +565,6 @@ function applyFilter(filter, filtersContainer, grid) {
 }
 
 displayProjects();
-// Skills is its own section now (no longer loaded by the tab system) — render on load.
-if (typeof displaySkills === "function") displaySkills();
 
 // Re-render every data-driven section when the language toggles (index only).
 // Each renderer clears its container and rebuilds from the active language.

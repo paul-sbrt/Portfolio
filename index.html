@@ -72,7 +72,6 @@
             <ul id="sidemenu">
               <li><a href="#header" data-i18n="nav.home">Accueil</a></li>
               <li><a href="#about" data-i18n="nav.about">À propos</a></li>
-              <li><a href="#skills" data-i18n="nav.skills">Compétences</a></li>
               <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
               <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
               <i class="fa-solid fa-xmark"></i>
@@ -177,24 +176,21 @@
             </div>
           </div>
 
-          <!-- SKILLS — section à part entière : direction ③ « Sur la Ligne »
-               (bandes typo, phares + détail révélé ; rendu data-driven par displaySkills). -->
-          <section id="skills" class="skills">
-            <p class="skl-kicker reveal" data-i18n="skills.eyebrow">Compétences — sur la ligne</p>
-            <h2 class="skl-title reveal" data-i18n="skills.title">Sur la ligne.</h2>
-            <div class="skl-bands" id="skl-bands"></div>
-          </section>
-
-          <!-- ABOUT — expérience / études / certifications (skills sorti en section dédiée) -->
+          <!-- ABOUT — les 4 catégories dans le système d'onglets (sélecteur segmenté).
+               Onglet Compétences = contenu design ③ « Sur la Ligne » (rendu par displaySkills). -->
           <div class="about-panels">
-            <div class="tab-title">
-              <p class="tab-links active-link" data-tab="experience" data-i18n="tab.experience">Expérience</p>
+            <div class="tab-title" role="tablist">
+              <p class="tab-links active-link" data-tab="skills" data-i18n="tab.skills">Compétences</p>
+              <p class="tab-links" data-tab="experience" data-i18n="tab.experience">Expérience</p>
               <p class="tab-links" data-tab="studies" data-i18n="tab.studies">Études</p>
               <p class="tab-links" data-i18n="tab.certifications">Certifications</p>
             </div>
             <div class="tab-panels" data-tab-slider>
               <div class="tab-panels-track">
-                <div class="tab-content active-tab experience">
+                <div class="tab-content active-tab skills">
+                  <!-- Compétences — design ③ injecté par displaySkills -->
+                </div>
+                <div class="tab-content experience">
                   <!-- Contenu de l'expérience -->
                 </div>
                 <div class="tab-content studies">
