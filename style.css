@@ -424,7 +424,8 @@ nav ul li a.active-link {
 .about-panels {
   flex-basis: 100%;
   width: 100%;
-  margin-top: clamp(40px, 6vw, 72px);
+  /* Generous inter-section breathing between the About story and the tabs. */
+  margin-top: clamp(80px, 12vw, 150px);
 }
 
 /* Discrete availability line — light touch, never a headline (see DECISIONS). */
@@ -806,23 +807,46 @@ h1.sub-title {
 }
 
 
-/* Segmented mono selector — same family as the header lang-toggle: a pill rail,
-   uppercase mono labels, the active segment tinted with a rose→gold underline. */
+/* Segmented mono selector — CENTERED pill rail in the header's lang-toggle family:
+   uppercase JetBrains Mono labels + a single rose→gold indicator that GLIDES under
+   the active tab (JS positions it). The active label sits in dark ink on the bright
+   gradient (AA on both rose and gold ends). */
 .tab-title {
-  display: inline-flex;
+  position: relative;
+  display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  justify-content: center;
+  gap: 2px;
+  width: fit-content;
   max-width: 100%;
-  margin: 26px 0 28px;
+  margin: 0 auto 30px;
   padding: 5px;
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
   background: var(--surface-raised);
 }
 
+/* The gliding highlight — width/position set by positionTabIndicator() in app.js. */
+.tab-ind {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--accent), var(--accent-ms));
+  box-shadow: 0 6px 20px -8px color-mix(in srgb, var(--accent) 65%, transparent);
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease;
+}
+
 .tab-links {
-  margin: 0;
   position: relative;
+  z-index: 1;
+  margin: 0;
   white-space: nowrap;
   cursor: pointer;
   font-family: "JetBrains Mono", monospace;
@@ -833,40 +857,31 @@ h1.sub-title {
   color: var(--text-muted);
   padding: 10px 18px;
   border-radius: var(--radius-pill);
-  transition: color 0.28s ease, background 0.28s ease;
+  transition: color 0.3s ease;
 }
 
 .tab-links:hover {
   color: var(--text);
 }
 
-/* Active segment: subtle rose tint + a rose→gold gradient underline inside the pill. */
+/* Default / pre-JS / no-indicator: the active tab is a visible tint (never a dark
+   label on a dark bg). Once JS places the gliding indicator, .tab-title gets
+   .has-ind and the active label flips to dark ink on the bright gradient. */
 .tab-links.active-link {
   color: var(--text);
-  background: color-mix(in srgb, var(--accent) 13%, transparent);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
 }
-
-.tab-links::after {
-  content: "";
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 6px;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-ms));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.tab-links.active-link::after {
-  transform: scaleX(1);
+.tab-title.has-ind .tab-links.active-link {
+  color: #0a0708; /* dark ink on the rose→gold indicator (AA on both ends) */
+  background: transparent;
 }
 
 .tab-content {
   display: none;
-  overflow: hidden;
+  /* Visible so the skills line-drift + section-exit peel aren't clipped. The mobile
+     tab-slider does its clipping on .tab-panels (which keeps overflow:hidden), so
+     this doesn't affect the mobile panel switching. */
+  overflow: visible;
 }
 
 .tab-content.active-tab {
@@ -1096,9 +1111,10 @@ h1.sub-title {
 }
 
 /* Signature scroll motion (same family as hero/about, a notch richer):
-   featured lines DRIFT as tickets on a pass rail and the anchor sweeps rose→or as
-   the band scrolls through. (No lateral section-exit here: skills is tab content
-   inside an overflow-hidden panel, which would clip a peel.) */
+   featured lines DRIFT like tickets on a pass rail, the anchor sweeps rose→or, and
+   each band PEELS off the top on exit (fade + lift + lateral drift + soft blur).
+   The panel is overflow:visible on desktop so none of this is clipped; fill:forwards
+   keeps the exit from fighting the one-shot entrance. */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
     .skl-line {
@@ -1109,14 +1125,26 @@ h1.sub-title {
     .skl-band:nth-child(even) .skl-line {
       animation-name: skl-drift-r;
     }
-    @keyframes skl-drift { from { transform: translateX(-1.6vw); } to { transform: translateX(1.6vw); } }
-    @keyframes skl-drift-r { from { transform: translateX(1.6vw); } to { transform: translateX(-1.6vw); } }
+    @keyframes skl-drift { from { transform: translateX(-1.2vw); } to { transform: translateX(1.2vw); } }
+    @keyframes skl-drift-r { from { transform: translateX(1.2vw); } to { transform: translateX(-1.2vw); } }
     .skl-anchor {
       animation: skl-sweep linear both;
       animation-timeline: --sklband;
       animation-range: entry 20% cover 60%;
     }
     @keyframes skl-sweep { from { background-position: 160% 0; } to { background-position: -60% 0; } }
+    .skl-band {
+      animation: skl-exit linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 100%;
+      animation-fill-mode: forwards;
+      will-change: opacity, transform, filter;
+    }
+    .skl-band:nth-child(even) {
+      animation-name: skl-exit-r;
+    }
+    @keyframes skl-exit { to { opacity: 0; transform: translate(-2.4vw, -22px); filter: blur(4px); } }
+    @keyframes skl-exit-r { to { opacity: 0; transform: translate(2.4vw, -22px); filter: blur(4px); } }
   }
 }
 
@@ -1804,11 +1832,6 @@ nav .fa-solid {
     font-size: 11px;
     letter-spacing: 0.06em;
     padding: 9px 13px;
-  }
-
-  .tab-links::after {
-    left: 13px;
-    right: 13px;
   }
 
   .contact-left,

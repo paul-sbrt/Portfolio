@@ -70,12 +70,28 @@ const ensurePanelsBefore = (index) => {
   }
 };
 
+// Gliding rose→gold indicator under the active tab (segmented switch motion).
+const tabTitle = document.querySelector(".tab-title");
+const tabIndicator = tabTitle ? tabTitle.querySelector(".tab-ind") : null;
+const positionTabIndicator = () => {
+  if (!tabIndicator || !tabLinks.length) return;
+  const active = tabLinks[activeTabIndex];
+  if (!active) return;
+  tabIndicator.style.width = active.offsetWidth + "px";
+  tabIndicator.style.height = active.offsetHeight + "px";
+  tabIndicator.style.transform =
+    "translate(" + active.offsetLeft + "px, " + active.offsetTop + "px)";
+  tabIndicator.style.opacity = "1";
+  tabTitle.classList.add("has-ind");
+};
+
 const setActiveTab = (index, options = {}) => {
   if (!tabLinks.length || typeof index !== "number") return;
   const targetIndex = Math.max(0, Math.min(index, tabLinks.length - 1));
 
   if (targetIndex === activeTabIndex && !options.force) {
     syncTabSlider(options.animate !== false);
+    positionTabIndicator();
     return;
   }
 
@@ -91,6 +107,7 @@ const setActiveTab = (index, options = {}) => {
 
   ensurePanelsBefore(targetIndex);
   syncTabSlider(options.animate !== false);
+  positionTabIndicator();
 };
 
 if (tabLinks.length && hasTabData) {
@@ -101,9 +118,21 @@ if (tabLinks.length && hasTabData) {
   setActiveTab(0, { animate: false, force: true });
 }
 
-window.addEventListener("resize", () => syncTabSlider(false));
+window.addEventListener("resize", () => {
+  syncTabSlider(false);
+  positionTabIndicator();
+});
 window.addEventListener("tabContentUpdated", () => {
   syncTabSlider(false);
+});
+// Re-place the indicator once webfonts settle (label widths change) and on load.
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(positionTabIndicator);
+}
+window.addEventListener("load", positionTabIndicator);
+// Labels change width on FR/EN switch — re-place after i18n has applied.
+window.addEventListener("langChanged", () => {
+  requestAnimationFrame(positionTabIndicator);
 });
 
 // Header: condense + tint slightly once scrolled (subtle). Fail-safe — if this
