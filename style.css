@@ -119,19 +119,18 @@ body {
   z-index: 200;
 }
 
-/* Hero glow intensity — theme-aware, tunable. "present" level. */
+/* Hero glow — a single, discreet rose touch that slowly breathes. Kept low so
+   the dark background stays clean and contrasted; readability comes first. */
 :root {
-  --hero-glow-1: rgba(255, 0, 79, 0.5);
-  --hero-glow-2: rgba(247, 201, 72, 0.42);
+  --hero-glow: rgba(255, 0, 79, 0.11);
 }
 [data-theme="light"] {
-  --hero-glow-1: rgba(255, 0, 79, 0.26);
-  --hero-glow-2: rgba(247, 201, 72, 0.3);
+  --hero-glow: rgba(255, 0, 79, 0.06);
 }
 
 .header {
   position: relative;
-  overflow: hidden; /* clip the animated blobs to the hero band */
+  overflow: hidden; /* clip the soft glow to the hero band */
   width: 100%;
   min-height: 100vh;
   background: var(--bg);
@@ -141,51 +140,30 @@ body {
   padding-top: 69px; /* clear the fixed nav bar */
 }
 
-/* Living rose->gold background — two soft blurred blobs that drift, scale and
-   breathe on offset timings, so the hero clearly moves without hurting the
-   text (text sits above via z-index). No photo. GPU transforms only. */
-.header::before,
-.header::after {
+/* One soft, low-opacity glow that drifts and breathes very slowly — alive but
+   never busy, and it doesn't muddy the clean surface. GPU transforms only. */
+.header::before {
   content: "";
   position: absolute;
   z-index: 0;
   aspect-ratio: 1;
-  border-radius: 50%;
-  filter: blur(48px);
-  pointer-events: none;
-}
-.header::before {
-  width: min(62vw, 780px);
+  width: min(56vw, 700px);
   right: -6vw;
   top: -8vw;
-  background: radial-gradient(circle, var(--hero-glow-1), transparent 70%);
-  animation: hero-blob-a 15s ease-in-out infinite alternate;
+  border-radius: 50%;
+  filter: blur(64px);
+  pointer-events: none;
+  background: radial-gradient(circle, var(--hero-glow), transparent 68%);
+  animation: hero-glow-drift 24s ease-in-out infinite alternate;
 }
-.header::after {
-  width: min(48vw, 620px);
-  right: 4vw;
-  bottom: -14vw;
-  background: radial-gradient(circle, var(--hero-glow-2), transparent 70%);
-  animation: hero-blob-b 19s ease-in-out infinite alternate;
-}
-@keyframes hero-blob-a {
+@keyframes hero-glow-drift {
   from {
     transform: translate3d(0, 0, 0) scale(1);
-    opacity: 0.85;
+    opacity: 0.6;
   }
   to {
-    transform: translate3d(-9%, 12%, 0) scale(1.22);
+    transform: translate3d(-5%, 6%, 0) scale(1.14);
     opacity: 1;
-  }
-}
-@keyframes hero-blob-b {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-    opacity: 1;
-  }
-  to {
-    transform: translate3d(12%, -10%, 0) scale(1.15);
-    opacity: 0.8;
   }
 }
 
@@ -261,13 +239,13 @@ nav ul li a:hover:after {
     .header-text {
       animation: hero-parallax linear both;
       animation-timeline: scroll(root);
-      animation-range: 0 90vh;
+      animation-range: 0 82vh;
       will-change: transform, opacity;
     }
     @keyframes hero-parallax {
       to {
-        transform: translateY(120px);
-        opacity: 0.08;
+        transform: translateY(56px);
+        opacity: 0.35;
       }
     }
   }
@@ -353,8 +331,7 @@ nav ul li a:hover:after {
   }
   .header-text h1 span,
   .hero-eyebrow::before,
-  .header::before,
-  .header::after {
+  .header::before {
     animation: none;
   }
 }
