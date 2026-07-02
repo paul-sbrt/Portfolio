@@ -107,16 +107,27 @@ body {
 
 .header-sticky {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   position: fixed;
   width: 100%;
-  height: 69px;
-  background-color: var(--bg);
+  height: 72px;
+  padding: 0 clamp(20px, 5vw, 64px);
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
   top: 0;
   left: 0;
   z-index: 200;
+  transition: height 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+/* Subtle scroll state: shorter, a touch more opaque, hairline border */
+.header-sticky.scrolled {
+  height: 58px;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  border-bottom-color: var(--border);
 }
 
 /* Hero glow — a single, discreet rose touch that slowly breathes. Kept low so
@@ -168,7 +179,7 @@ body {
 }
 
 .nom {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .nom a {
@@ -176,11 +187,17 @@ body {
   color: inherit;
 }
 
-/* Logo wordmark — keeps the former h1 look without being a heading */
+/* Logo wordmark — Archivo, tight; the P/S initials carry the brand rose */
 .nom-text {
-  font-size: 2em;
-  font-weight: bold;
-  margin: 0.67em 0;
+  font-family: "Archivo", var(--body, sans-serif);
+  font-size: 1.05em;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0;
+  transition: opacity 0.2s ease;
+}
+.nom a:hover .nom-text {
+  opacity: 0.82;
 }
 
 span {
@@ -188,36 +205,57 @@ span {
 }
 
 nav {
-  font-size: 25px;
+  font-size: 15px;
   display: flex;
   align-items: center;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 nav ul li {
   list-style: none;
   display: inline-block;
-  margin: 10px 20px;
+  margin: 0;
 }
 
 nav a {
   text-decoration: none;
-  color: var(--text);
+  color: var(--text-muted);
   position: relative;
+  padding: 6px 12px;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
 }
 
+nav a:hover {
+  color: var(--text);
+}
+
+/* Rose->gold underline that grows from the left; also shown on the active link */
 nav ul li a::after {
   content: "";
-  background-color: var(--accent);
-  width: 0;
-  height: 3px;
   position: absolute;
-  left: 0;
-  bottom: -6px;
-  transition: 0.3s;
+  left: 12px;
+  right: 12px;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-ms));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
 }
 
-nav ul li a:hover:after {
-  width: 100%;
+nav ul li a:hover::after,
+nav ul li a.active-link::after {
+  transform: scaleX(1);
+}
+
+nav ul li a.active-link {
+  color: var(--text);
 }
 
 .header-text {
@@ -1067,30 +1105,41 @@ nav .fa-solid {
   }
 
   nav ul {
-    background-color: #ff0051a3;
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-left: 2px solid var(--accent);
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
     text-align: center;
     right: -200px;
     top: 0;
     width: 200px;
     bottom: 0;
-    height: auto;
     min-height: 100vh;
-    padding-top: 50px;
-    padding-bottom: 40px;
+    padding: 60px 0 40px;
     box-sizing: border-box;
     z-index: 2;
-    transition: right 0.5s;
+    transition: right 0.4s ease;
   }
 
   nav ul li {
     display: block;
-    margin: 30px;
+    margin: 12px 0;
   }
 
   nav ul li a {
     display: block;
     width: 100%;
+    color: var(--text);
+    font-size: 17px;
+    padding: 10px 0;
+  }
+  nav ul li a::after {
+    display: none;
   }
 
   nav ul .fa-solid {

@@ -105,18 +105,45 @@ window.addEventListener("tabContentUpdated", () => {
   syncTabSlider(false);
 });
 
-// scroll nav
-const nomDiv = document.querySelector(".nom");
+// Header: condense + tint slightly once scrolled (subtle). Fail-safe — if this
+// never runs, the bar stays in its default, fully-usable state.
+const stickyBar = document.querySelector(".header-sticky");
+if (stickyBar) {
+  const onScroll = () =>
+    stickyBar.classList.toggle("scrolled", window.scrollY > 24);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
 
-window.addEventListener("scroll", function () {
-  if (window.scrollY === 0) {
-    // Scroll is at the top of the page
-    nomDiv.style.visibility = "visible";
-  } else {
-    // Scroll is not at the top of the page
-    nomDiv.style.visibility = "hidden";
-  }
-});
+// Scroll-spy: highlight the nav link of the section in view. Progressive —
+// no JS / no IntersectionObserver just means no active state; links still work.
+(function () {
+  const links = Array.prototype.slice.call(
+    document.querySelectorAll('#sidemenu a[href^="#"]')
+  );
+  if (!links.length || !("IntersectionObserver" in window)) return;
+  const byId = {};
+  links.forEach((a) => {
+    const id = a.getAttribute("href").slice(1);
+    if (id) byId[id] = a;
+  });
+  const sections = Object.keys(byId)
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+  if (!sections.length) return;
+  const spy = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        links.forEach((a) => a.classList.remove("active-link"));
+        const a = byId[e.target.id];
+        if (a) a.classList.add("active-link");
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+  );
+  sections.forEach((s) => spy.observe(s));
+})();
 
 // ------ menu mobile ------
 
