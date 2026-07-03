@@ -416,7 +416,7 @@ function displayProjects() {
       grid.innerHTML = "";
       const cards = projectData.map(buildProjectCard);
       cards.forEach((card, i) => {
-        card.style.animationDelay = (i % 8) * 0.05 + "s"; // light stagger
+        card.style.transitionDelay = ((i % 8) * 0.05).toFixed(2) + "s"; // reveal stagger
         grid.appendChild(card);
       });
       buildProjectFilters(projectData, filtersContainer, grid);
@@ -458,17 +458,19 @@ function revealCards(cards) {
   }, 1800);
 }
 
-// Build one project card (createElement — no unescaped innerHTML).
+// Build one project card — direction G2 (createElement, no unescaped innerHTML).
+// Editorial card: duotone thumb (project colour for featured, neutral graphite for
+// web) + title cap, mono eyebrow (hats · year), Archivo title, one-line summary.
+// Featured (→ detail page) get their real brand colour via --c + a taller thumb;
+// web (→ external) stay neutral. Hover = calm rose→gold sweep (styled in CSS).
 function buildProjectCard(project) {
   const hats = Array.isArray(project.hats) ? project.hats : [];
-  const tags = Array.isArray(project.tags) ? project.tags : [];
   const isFeatured = Boolean(project.featured && project.slug);
 
   const card = document.createElement("a");
-  card.className = "project-card card-reveal";
+  card.className = "proj-card " + (isFeatured ? "is-feat" : "is-web");
   card.dataset.hats = hats.join("|");
-  // Real per-project brand colour (--c); falls back to the portfolio rose in CSS.
-  if (project.brand) card.style.setProperty("--c", project.brand);
+  if (isFeatured && project.brand) card.style.setProperty("--c", project.brand);
   if (isFeatured) {
     card.href = detailHref(project.slug);
   } else {
@@ -476,76 +478,56 @@ function buildProjectCard(project) {
     card.target = "_blank";
     card.rel = "noopener noreferrer";
   }
-  card.setAttribute("aria-label", `${project.title}`);
+  card.setAttribute("aria-label", project.title);
 
-  // Thumb: a duotone panel in the project's colour; a real screenshot sits on
-  // top when one exists (placeholder-only projects show the duotone + label).
+  // Duotone thumb + rose→gold sweep layer + title cap (text-only preview).
   const thumb = document.createElement("div");
-  thumb.className = "project-card-thumb";
+  thumb.className = "proj-thumb";
   const mesh = document.createElement("div");
-  mesh.className = "project-card-mesh";
-  thumb.appendChild(mesh);
-
-  const swatch = document.createElement("span");
-  swatch.className = "project-card-swatch";
-  thumb.appendChild(swatch);
-
-  const hasImage = project.image && project.image.indexOf("placeholder") === -1;
-  if (hasImage) {
-    const img = document.createElement("img");
-    img.src = project.image;
-    img.alt = project.title;
-    img.loading = "lazy";
-    thumb.appendChild(img);
-  } else {
-    const cap = document.createElement("span");
-    cap.className = "project-card-cap";
-    cap.textContent =
-      (project.detail && t(project.detail.highlight)) || project.title;
-    thumb.appendChild(cap);
-  }
+  mesh.className = "proj-mesh";
+  const sweep = document.createElement("div");
+  sweep.className = "proj-sweep";
+  const cap = document.createElement("div");
+  cap.className = "proj-cap";
+  cap.textContent = project.title;
+  thumb.append(mesh, sweep, cap);
+  card.appendChild(thumb);
 
   const body = document.createElement("div");
-  body.className = "project-card-body";
+  body.className = "proj-body";
+
+  const eyebrow = document.createElement("div");
+  eyebrow.className = "proj-eyebrow";
+  eyebrow.textContent = [hats.join(" · "), project.year]
+    .filter(Boolean)
+    .join(" · ");
+  body.appendChild(eyebrow);
 
   const title = document.createElement("h3");
+  title.className = "proj-title";
   title.textContent = project.title;
   body.appendChild(title);
 
-  if (tags.length) {
-    const tagRow = document.createElement("div");
-    tagRow.className = "project-tags";
-    tags.forEach((tag) => {
-      const chip = document.createElement("span");
-      chip.className = "project-tag";
-      chip.textContent = tag;
-      tagRow.appendChild(chip);
-    });
-    body.appendChild(tagRow);
+  const line =
+    t((project.detail || {}).tagline) || t(project.summary) || "";
+  if (line) {
+    const sum = document.createElement("p");
+    sum.className = "proj-sum";
+    sum.textContent = line;
+    body.appendChild(sum);
   }
 
-  const summary = document.createElement("p");
-  summary.className = "project-summary";
-  summary.textContent = t(project.summary) || t(project.description) || "";
-  body.appendChild(summary);
-
   const foot = document.createElement("div");
-  foot.className = "project-card-foot";
-  hats.forEach((h) => {
-    const hatChip = document.createElement("span");
-    hatChip.className = "project-hat";
-    hatChip.dataset.hat = h;
-    hatChip.textContent = h;
-    foot.appendChild(hatChip);
-  });
-  const arrow = document.createElement("i");
-  arrow.className = isFeatured
-    ? "fa-solid fa-arrow-right project-card-arrow"
-    : "fa-solid fa-arrow-up-right-from-square project-card-arrow";
+  foot.className = "proj-foot";
+  const hatSpan = document.createElement("span");
+  hatSpan.textContent = hats.join(" · ");
+  foot.appendChild(hatSpan);
+  const arrow = document.createElement("span");
+  arrow.className = "proj-arrow";
+  arrow.textContent = isFeatured ? "→" : "↗";
   foot.appendChild(arrow);
   body.appendChild(foot);
 
-  card.appendChild(thumb);
   card.appendChild(body);
   return card;
 }
@@ -579,7 +561,7 @@ function applyFilter(filter, filtersContainer, grid) {
   filtersContainer.querySelectorAll(".filter-chip").forEach((c) => {
     c.classList.toggle("is-active", c.dataset.filter === filter);
   });
-  grid.querySelectorAll(".project-card").forEach((card) => {
+  grid.querySelectorAll(".proj-card").forEach((card) => {
     const hats = (card.dataset.hats || "").split("|").filter(Boolean);
     const show = filter === "all" || hats.includes(filter);
     card.style.display = show ? "" : "none";
