@@ -1159,7 +1159,7 @@ h1.sub-title {
     .skl-band {
       animation: skl-exit linear both;
       animation-timeline: view();
-      animation-range: cover 62% cover 100%;
+      animation-range: cover 55% cover 100%;
       animation-fill-mode: forwards;
       will-change: opacity, transform, filter;
     }
@@ -1416,7 +1416,7 @@ h1.sub-title {
     .reg-item {
       animation: reg-exit linear both;
       animation-timeline: view();
-      animation-range: cover 62% cover 100%;
+      animation-range: cover 55% cover 100%;
       animation-fill-mode: forwards;
       will-change: opacity, transform, filter;
     }

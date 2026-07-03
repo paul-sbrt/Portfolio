@@ -95,7 +95,7 @@ function displaySkills() {
             )
           : null;
 
-      groups.forEach(function (group) {
+      groups.forEach(function (group, gi) {
         const skills = group.skills || [];
         const flagged = skills.filter(function (s) { return s.featured; });
         // Fallback if data has no `featured`: first two are the flagships.
@@ -106,6 +106,7 @@ function displaySkills() {
 
         const band = document.createElement("div");
         band.className = "skl-band";
+        band.style.transitionDelay = (0.12 + gi * 0.1).toFixed(2) + "s"; // arrival cascade
         if (/microsoft/i.test(t(group.group)) || group.hat === "ms") {
           band.dataset.hat = "ms";
         }
