@@ -12,7 +12,7 @@
   "hero.eyebrow": "Builder — mobile · web · AI · Microsoft",
   "hero.sub": "Developer — solo or within a company. I design, I code, I learn, and I use AI to go further.",
   "hero.cue": "Scroll — each project, its own colour",
-  "about.eyebrow": "About — the journey",
+  "about.eyebrow": "About — the story",
   "about.title": "From kitchen to code.",
   "about.body": "I come from the restaurant world, and I became a developer because I wanted to solve real problems. Since then, I've been building products <span class='hl-strong'>end to end</span>: a travel app shipped on iOS and Android (<span class='hl-rose'>STOW</span>), an AI-powered “second brain” for iOS (<span class='hl-rose'>DUMP</span> — Whisper transcription + Claude classification), a human-led staffing platform for the hospitality industry (<span class='hl-rose'>EXTRALIMO</span>), and a sales site for a Microsoft solution (<span class='hl-gold'>Ticketing IT</span>). Mobile (Flutter, Swift/SwiftUI), web (Laravel, Next.js, React) and <span class='hl-gold'>Microsoft/Power Platform</span> — my throughline is simple: <span class='hl-strong'>understand the user, ship, iterate</span>, and learn as I build. After two years at Avanade, I keep shipping real projects.",
   "about.availability": "Looking for a work-study apprenticeship.",
