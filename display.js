@@ -506,19 +506,9 @@ function buildProjectCard(project) {
     cap.textContent = project.title;
     thumb.append(mesh, cap, sweep);
   }
-  // Full presentation text — revealed on hover (a "voir plus" over the thumb, same
-  // spirit as the tab reveal); shown statically on touch devices (no hover).
-  const line = t((project.detail || {}).tagline) || t(project.summary) || "";
-  if (line) {
-    const over = document.createElement("div");
-    over.className = "proj-over";
-    const otxt = document.createElement("p");
-    otxt.className = "proj-over-txt";
-    otxt.textContent = line;
-    over.appendChild(otxt);
-    thumb.appendChild(over);
-  }
   card.appendChild(thumb);
+
+  const line = t((project.detail || {}).tagline) || t(project.summary) || "";
 
   const body = document.createElement("div");
   body.className = "proj-body";
@@ -535,6 +525,15 @@ function buildProjectCard(project) {
   title.textContent = project.title;
   body.appendChild(title);
 
+  // Presentation text under the thumb — a clamped teaser at rest (cards stay equal
+  // height); the full text unfolds on hover (see .proj-drop below).
+  if (line) {
+    const sum = document.createElement("p");
+    sum.className = "proj-sum";
+    sum.textContent = line;
+    body.appendChild(sum);
+  }
+
   const foot = document.createElement("div");
   foot.className = "proj-foot";
   const hatSpan = document.createElement("span");
@@ -547,6 +546,22 @@ function buildProjectCard(project) {
   body.appendChild(foot);
 
   card.appendChild(body);
+
+  // On hover the card UNFOLDS: a panel drops below (absolute → no grid reflow, no
+  // overlay on the image) with the full presentation text.
+  if (line) {
+    const drop = document.createElement("div");
+    drop.className = "proj-drop";
+    const inner = document.createElement("div");
+    inner.className = "proj-drop-in";
+    const dtxt = document.createElement("p");
+    dtxt.className = "proj-drop-txt";
+    dtxt.textContent = line;
+    inner.appendChild(dtxt);
+    drop.appendChild(inner);
+    card.appendChild(drop);
+  }
+
   return card;
 }
 

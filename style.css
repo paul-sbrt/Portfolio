@@ -1532,6 +1532,7 @@ h1.sub-title {
   position: relative;
   aspect-ratio: 16 / 9; /* uniform for every card = equal heights */
   overflow: hidden;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0; /* keep top rounded when card overflow becomes visible on hover */
   background: linear-gradient(135deg, color-mix(in srgb, var(--c) 55%, #0a0708), #0a0708 78%);
 }
 .proj-mesh {
@@ -1580,35 +1581,6 @@ h1.sub-title {
   color: #fff;
   opacity: 0.92;
 }
-/* Full presentation text — hidden at rest, revealed on hover ("voir plus"); shown
-   statically on touch devices. A bottom scrim keeps it readable over the capture. */
-.proj-over {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  display: flex;
-  align-items: flex-end;
-  padding: 14px 16px 15px;
-  background: linear-gradient(0deg, rgba(8, 6, 8, 0.94) 4%, rgba(8, 6, 8, 0.55) 44%, transparent 74%);
-  opacity: 0;
-  transition: opacity 0.45s ease;
-}
-.proj-over-txt {
-  font-size: 13px;
-  line-height: 1.5;
-  color: #ececec;
-  font-weight: 300;
-  transform: translateY(8px);
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-@media (hover: none) {
-  .proj-over { opacity: 1; }
-  .proj-over-txt { transform: none; }
-}
 
 .proj-body {
   padding: 16px 18px 18px;
@@ -1634,6 +1606,17 @@ h1.sub-title {
   letter-spacing: -0.01em;
   line-height: 1.05;
 }
+/* Teaser under the thumb — clamped to 2 lines so every card is the same height. */
+.proj-sum {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  font-weight: 300;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .proj-foot {
   margin-top: auto;
   padding-top: 12px;
@@ -1655,18 +1638,52 @@ h1.sub-title {
   right: 0;
   bottom: 0;
   height: 2px;
+  z-index: 4;
   background: linear-gradient(90deg, var(--accent), var(--accent-ms));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* HOVER calmé (validé) : wash discret + sweep dégradé + liseré ; texte reste blanc. */
+/* Unfold panel — drops below the card on hover with the full text (absolute, so no
+   grid reflow and no overlay on the image). Reads as the card extending downward. */
+.proj-drop {
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  top: calc(100% - 1px);
+  z-index: 5;
+  display: grid;
+  grid-template-rows: 0fr;
+  background: color-mix(in srgb, var(--text) 5%, var(--bg)); /* opaque, matches the card */
+  border: 1px solid color-mix(in srgb, var(--c) 45%, var(--border));
+  border-top: none;
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  box-shadow: 0 24px 44px -24px rgba(0, 0, 0, 0.75);
+  pointer-events: none;
+  transition: grid-template-rows 0.42s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.proj-drop-in {
+  min-height: 0;
+  overflow: hidden;
+}
+.proj-drop-txt {
+  padding: 4px 18px 18px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+/* HOVER calmé (validé) : wash discret + sweep dégradé + liseré ; texte reste blanc.
+   Plus : la carte se déplie (panneau + texte complet) en montant au-dessus des voisines. */
 @media (hover: hover) {
   .proj-card:hover {
     transform: translateY(-5px);
     border-color: color-mix(in srgb, var(--c) 45%, var(--border));
     background: color-mix(in srgb, var(--c) 10%, var(--surface-raised));
+    overflow: visible; /* let the unfold panel show below */
+    z-index: 10; /* above the neighbouring cards */
   }
   .proj-card:hover .proj-sweep {
     background-position: -30% 0;
@@ -1679,12 +1696,9 @@ h1.sub-title {
   .proj-card:hover .proj-wash {
     opacity: 0.15;
   }
-  /* "voir plus" — the full presentation text rises in over the thumb */
-  .proj-card:hover .proj-over {
-    opacity: 1;
-  }
-  .proj-card:hover .proj-over-txt {
-    transform: none;
+  /* the card unfolds: full presentation text drops in below */
+  .proj-card:hover .proj-drop {
+    grid-template-rows: 1fr;
   }
   .proj-card:hover::after {
     transform: scaleX(1);
