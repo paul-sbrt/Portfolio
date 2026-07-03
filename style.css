@@ -446,6 +446,13 @@ nav ul li a.active-link {
   height: 2px;
   background: linear-gradient(90deg, var(--accent), var(--accent-ms));
 }
+/* One-shot arrival cascade: eyebrow → selector (→ the content cascades on its own). */
+#parcours .prc-eyebrow.reveal {
+  transition-delay: 0.03s;
+}
+#parcours .tab-title.reveal {
+  transition-delay: 0.16s;
+}
 .about-panels {
   width: 100%;
 }
