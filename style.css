@@ -1395,9 +1395,11 @@ h1.sub-title {
 .reg-ignite:nth-child(5) { transition-delay: 0.54s; }
 .reg-ignite:nth-child(6) { transition-delay: 0.66s; }
 
-/* Scroll motion — subtle title drift + a soft PARCOURS section-exit dissolve
-   (fade + slight lift + scale-back + blur) as the section leaves the top;
-   coherent with hero/about, fill:forwards so it never fights the one-shot entrance. */
+/* Scroll motion — subtle registre title drift + a per-ROW section-exit that mirrors
+   the skills bands' peel (skl-exit), so BOTH tab contents leave the same way: each
+   row files away as it scrolls off the top (lift + lateral drift + fade + soft blur),
+   alternating direction. Viewport-sized rows → actually visible (unlike a whole-tall-
+   section dissolve). fill:forwards so it never fights the one-shot entrance. */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
     .reg-title {
@@ -1410,16 +1412,18 @@ h1.sub-title {
     }
     @keyframes reg-drift { from { transform: translateX(-1vw); } to { transform: translateX(1vw); } }
     @keyframes reg-drift-r { from { transform: translateX(1vw); } to { transform: translateX(-1vw); } }
-    #parcours {
-      animation: prc-dissolve linear both;
+    .reg-item {
+      animation: reg-exit linear both;
       animation-timeline: view();
-      animation-range: exit 5% exit 100%;
+      animation-range: exit 0% exit 100%;
       animation-fill-mode: forwards;
       will-change: opacity, transform, filter;
     }
-    @keyframes prc-dissolve {
-      to { opacity: 0.06; transform: scale(0.975) translateY(-20px); filter: blur(5px); }
+    .reg-item:nth-child(even) {
+      animation-name: reg-exit-r;
     }
+    @keyframes reg-exit { to { opacity: 0; transform: translate(-2.4vw, -22px); filter: blur(4px); } }
+    @keyframes reg-exit-r { to { opacity: 0; transform: translate(2.4vw, -22px); filter: blur(4px); } }
   }
 }
 
