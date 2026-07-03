@@ -526,7 +526,7 @@ function buildProjectCard(project) {
   body.appendChild(title);
 
   // Presentation text under the thumb — a clamped teaser at rest (cards stay equal
-  // height); the full text unfolds on hover (see .proj-drop below).
+  // height); the card grows in place on hover to reveal the full text (CSS max-height).
   if (line) {
     const sum = document.createElement("p");
     sum.className = "proj-sum";
@@ -546,22 +546,6 @@ function buildProjectCard(project) {
   body.appendChild(foot);
 
   card.appendChild(body);
-
-  // On hover the card UNFOLDS: a panel drops below (absolute → no grid reflow, no
-  // overlay on the image) with the full presentation text.
-  if (line) {
-    const drop = document.createElement("div");
-    drop.className = "proj-drop";
-    const inner = document.createElement("div");
-    inner.className = "proj-drop-in";
-    const dtxt = document.createElement("p");
-    dtxt.className = "proj-drop-txt";
-    dtxt.textContent = line;
-    inner.appendChild(dtxt);
-    drop.appendChild(inner);
-    card.appendChild(drop);
-  }
-
   return card;
 }
 
