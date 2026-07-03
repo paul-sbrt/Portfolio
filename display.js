@@ -506,6 +506,18 @@ function buildProjectCard(project) {
     cap.textContent = project.title;
     thumb.append(mesh, cap, sweep);
   }
+  // Full presentation text — revealed on hover (a "voir plus" over the thumb, same
+  // spirit as the tab reveal); shown statically on touch devices (no hover).
+  const line = t((project.detail || {}).tagline) || t(project.summary) || "";
+  if (line) {
+    const over = document.createElement("div");
+    over.className = "proj-over";
+    const otxt = document.createElement("p");
+    otxt.className = "proj-over-txt";
+    otxt.textContent = line;
+    over.appendChild(otxt);
+    thumb.appendChild(over);
+  }
   card.appendChild(thumb);
 
   const body = document.createElement("div");
@@ -522,15 +534,6 @@ function buildProjectCard(project) {
   title.className = "proj-title";
   title.textContent = project.title;
   body.appendChild(title);
-
-  const line =
-    t((project.detail || {}).tagline) || t(project.summary) || "";
-  if (line) {
-    const sum = document.createElement("p");
-    sum.className = "proj-sum";
-    sum.textContent = line;
-    body.appendChild(sum);
-  }
 
   const foot = document.createElement("div");
   foot.className = "proj-foot";

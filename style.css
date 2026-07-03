@@ -1496,7 +1496,7 @@ h1.sub-title {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  align-items: start;
+  align-items: stretch; /* equal-height cards per row */
   margin: 44px auto 0;
   width: 100%;
 }
@@ -1530,12 +1530,9 @@ h1.sub-title {
 /* Duotone thumb (project colour) + rose→gold sweep on hover + title cap. */
 .proj-thumb {
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 9; /* uniform for every card = equal heights */
   overflow: hidden;
   background: linear-gradient(135deg, color-mix(in srgb, var(--c) 55%, #0a0708), #0a0708 78%);
-}
-.proj-card.is-feat .proj-thumb {
-  aspect-ratio: 4 / 3; /* featured a touch taller = hierarchy */
 }
 .proj-mesh {
   position: absolute;
@@ -1583,6 +1580,35 @@ h1.sub-title {
   color: #fff;
   opacity: 0.92;
 }
+/* Full presentation text — hidden at rest, revealed on hover ("voir plus"); shown
+   statically on touch devices. A bottom scrim keeps it readable over the capture. */
+.proj-over {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px 16px 15px;
+  background: linear-gradient(0deg, rgba(8, 6, 8, 0.94) 4%, rgba(8, 6, 8, 0.55) 44%, transparent 74%);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+.proj-over-txt {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #ececec;
+  font-weight: 300;
+  transform: translateY(8px);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+@media (hover: none) {
+  .proj-over { opacity: 1; }
+  .proj-over-txt { transform: none; }
+}
 
 .proj-body {
   padding: 16px 18px 18px;
@@ -1604,21 +1630,9 @@ h1.sub-title {
 .proj-title {
   font-family: "Archivo", var(--body, sans-serif);
   font-weight: 700;
-  font-size: clamp(18px, 2vw, 24px);
+  font-size: clamp(19px, 2.1vw, 25px);
   letter-spacing: -0.01em;
   line-height: 1.05;
-}
-.proj-card.is-feat .proj-title {
-  font-size: clamp(20px, 2.4vw, 28px);
-}
-.proj-sum {
-  font-size: 13.5px;
-  color: var(--text-muted);
-  font-weight: 300;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 .proj-foot {
   margin-top: auto;
@@ -1664,6 +1678,13 @@ h1.sub-title {
   }
   .proj-card:hover .proj-wash {
     opacity: 0.15;
+  }
+  /* "voir plus" — the full presentation text rises in over the thumb */
+  .proj-card:hover .proj-over {
+    opacity: 1;
+  }
+  .proj-card:hover .proj-over-txt {
+    transform: none;
   }
   .proj-card:hover::after {
     transform: scaleX(1);
