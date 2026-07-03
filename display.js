@@ -480,17 +480,32 @@ function buildProjectCard(project) {
   }
   card.setAttribute("aria-label", project.title);
 
-  // Duotone thumb + rose→gold sweep layer + title cap (text-only preview).
+  // Thumb. Real screenshot when one exists (with a DA wash/duotone at rest that
+  // lifts on hover to reveal it); otherwise the duotone placeholder + title cap.
+  // The rose→gold sweep sits on top in both cases (validated hover). "placeholder"
+  // in the path = no real image yet (e.g. the 4 vedettes awaiting captures).
   const thumb = document.createElement("div");
   thumb.className = "proj-thumb";
-  const mesh = document.createElement("div");
-  mesh.className = "proj-mesh";
   const sweep = document.createElement("div");
   sweep.className = "proj-sweep";
-  const cap = document.createElement("div");
-  cap.className = "proj-cap";
-  cap.textContent = project.title;
-  thumb.append(mesh, sweep, cap);
+  const hasImage = project.image && project.image.indexOf("placeholder") === -1;
+  if (hasImage) {
+    const img = document.createElement("img");
+    img.className = "proj-img";
+    img.src = project.image;
+    img.alt = project.title;
+    img.loading = "lazy";
+    const wash = document.createElement("div");
+    wash.className = "proj-wash";
+    thumb.append(img, wash, sweep);
+  } else {
+    const mesh = document.createElement("div");
+    mesh.className = "proj-mesh";
+    const cap = document.createElement("div");
+    cap.className = "proj-cap";
+    cap.textContent = project.title;
+    thumb.append(mesh, cap, sweep);
+  }
   card.appendChild(thumb);
 
   const body = document.createElement("div");
