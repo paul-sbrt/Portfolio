@@ -207,178 +207,199 @@ function displaySkills() {
 }
 
 // Fonction pour charger et afficher l'expérience professionnelle
+// ===== REGISTRE — ONE uniform "record row" component for the dated entries
+// (experience / studies / certifications). "One component, N data": each type maps
+// its JSON to the common record { title, org, place, dates, detail?, detailList?,
+// href?, tag? }. Renders a full-width row — Archivo title + org·place mono, a
+// right-aligned mono date-spine — with the detail revealed on hover/focus/tap
+// (rose→gold ignition settling to legible --text + a vertical filet, skills-③ family).
+function renderRegistre(records, container) {
+  if (!container) return;
+  container.innerHTML = "";
+  const list = document.createElement("div");
+  list.className = "reg";
+  container.appendChild(list);
+
+  const reduce =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const io =
+    "IntersectionObserver" in window
+      ? new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        )
+      : null;
+
+  records.forEach(function (r, i) {
+    const hasDetail = r.detail || (r.detailList && r.detailList.length);
+    const item = document.createElement(r.href ? "a" : "div");
+    item.className = "reg-item" + (r.href ? " is-link" : "");
+    item.style.transitionDelay = (0.05 + i * 0.09).toFixed(2) + "s";
+    if (r.href) {
+      item.href = r.href;
+      item.target = "_blank";
+      item.rel = "noopener noreferrer";
+    } else if (hasDetail) {
+      item.tabIndex = 0;
+      item.setAttribute("role", "button");
+      item.setAttribute("aria-expanded", "false");
+    }
+
+    const head = document.createElement("div");
+    head.className = "reg-head";
+
+    const titleline = document.createElement("div");
+    titleline.className = "reg-titleline";
+    if (r.tag) {
+      const tag = document.createElement("span");
+      tag.className = "reg-tag";
+      tag.textContent = r.tag;
+      titleline.appendChild(tag);
+    }
+    const title = document.createElement("span");
+    title.className = "reg-title";
+    title.textContent = r.title;
+    titleline.appendChild(title);
+    if (hasDetail) {
+      const cue = document.createElement("span");
+      cue.className = "reg-cue";
+      cue.setAttribute("aria-hidden", "true");
+      cue.textContent = "＋";
+      titleline.appendChild(cue);
+    }
+    head.appendChild(titleline);
+
+    const metaStr = [r.org, r.place].filter(Boolean).join(" · ");
+    if (metaStr) {
+      const meta = document.createElement("div");
+      meta.className = "reg-meta";
+      meta.textContent = metaStr;
+      head.appendChild(meta);
+    }
+
+    if (hasDetail) {
+      const detail = document.createElement("div");
+      detail.className = "reg-detail";
+      const inner = document.createElement("div");
+      inner.className = "reg-detail-in";
+      const drow = document.createElement("div");
+      drow.className = "reg-drow";
+      const pieces = r.detailList ? r.detailList : [r.detail];
+      pieces.forEach(function (p) {
+        const w = document.createElement("span");
+        w.className = "reg-ignite";
+        w.textContent = p;
+        drow.appendChild(w);
+      });
+      inner.appendChild(drow);
+      detail.appendChild(inner);
+      head.appendChild(detail);
+    }
+    item.appendChild(head);
+
+    const side = document.createElement("div");
+    side.className = "reg-side";
+    const dates = document.createElement("span");
+    dates.className = "reg-dates";
+    dates.textContent = r.dates || "";
+    side.appendChild(dates);
+    if (r.href) {
+      const arw = document.createElement("span");
+      arw.className = "reg-arrow";
+      arw.setAttribute("aria-hidden", "true");
+      arw.textContent = "↗";
+      side.appendChild(arw);
+    }
+    item.appendChild(side);
+    list.appendChild(item);
+
+    // Hover = CSS. Non-link rows with detail get a keyboard/tap toggle.
+    if (!r.href && hasDetail) {
+      const toggle = function () {
+        const on = item.classList.toggle("open");
+        item.setAttribute("aria-expanded", on ? "true" : "false");
+        emitTabContentUpdated();
+        setTimeout(emitTabContentUpdated, 600);
+      };
+      item.addEventListener("click", toggle);
+      item.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggle();
+        }
+      });
+    }
+
+    if (reduce || !io) item.classList.add("in");
+    else io.observe(item);
+  });
+  emitTabContentUpdated();
+}
+
+// Adapter — Experience → record.
 function displayExperience() {
   fetch("experience.json")
     .then((response) => response.json())
-    .then((experienceData) => {
-      const experienceContent = document.querySelector(
-        ".tab-content.experience"
-      );
-      experienceContent.innerHTML = ""; // Vider le contenu existant
-
-      // Uniform rows: optional logo, then position / company·location·dates,
-      // and an optional description. Handles logo-less and described entries
-      // consistently (no more mixed tile/block shapes).
-      experienceData.forEach((experience) => {
-        const item = document.createElement("div");
-        item.classList.add("exp-item");
-
-        if (experience.image) {
-          const experienceImage = document.createElement("img");
-          experienceImage.classList.add("exp-logo");
-          experienceImage.src = experience.image;
-          experienceImage.loading = "lazy";
-          experienceImage.alt = experience.company || t(experience.position) || "";
-          item.appendChild(experienceImage);
-        }
-
-        const body = document.createElement("div");
-        body.classList.add("exp-body");
-
-        const experiencePosition = document.createElement("span");
-        experiencePosition.classList.add("exp-position");
-        experiencePosition.textContent = t(experience.position);
-        body.appendChild(experiencePosition);
-
-        const metaParts = [
-          t(experience.company),
-          t(experience.location),
-          t(experience.dates),
-        ].filter(Boolean);
-        if (metaParts.length) {
-          const meta = document.createElement("span");
-          meta.classList.add("exp-meta");
-          meta.textContent = metaParts.join(" · ");
-          body.appendChild(meta);
-        }
-
-        if (experience.description) {
-          const experienceDesc = document.createElement("p");
-          experienceDesc.classList.add("exp-desc");
-          experienceDesc.textContent = t(experience.description);
-          body.appendChild(experienceDesc);
-        }
-
-        item.appendChild(body);
-        experienceContent.appendChild(item);
+    .then((data) => {
+      const records = data.map(function (e) {
+        return {
+          title: t(e.position),
+          org: e.company || "", // company is a plain string, not {fr,en}
+          place: t(e.location),
+          dates: t(e.dates),
+          detail: e.description ? t(e.description) : null,
+        };
       });
-      emitTabContentUpdated();
+      renderRegistre(records, document.querySelector(".tab-content.experience"));
     })
     .catch((error) => console.error("Error loading experience data:", error));
 }
 
-// Fonction pour charger et afficher les études
+// Adapter — Studies → record (no detail: just title + place + dates).
 function displayStudies() {
   fetch("studies.json")
     .then((response) => response.json())
-    .then((studiesData) => {
-      const studiesContent = document.querySelector(".tab-content.studies");
-      studiesContent.innerHTML = ""; // Vider le contenu existant
-
-      // Parcourir les données et créer les éléments HTML dynamiquement
-      studiesData.forEach((study) => {
-        const studyBox = document.createElement("div");
-        studyBox.classList.add("box-2");
-
-        const studyImage = document.createElement("img");
-        studyImage.src = study.image;
-        studyImage.loading = "lazy";
-        studyImage.alt = t(study.institution) || "";
-
-        const studyInstitution = document.createElement("span");
-        studyInstitution.textContent = t(study.institution);
-
-        const studyPlace = document.createElement("p");
-        studyPlace.textContent = t(study.place);
-
-        const studyDates = document.createElement("p");
-        studyDates.textContent = t(study.dates);
-
-        studyBox.appendChild(studyImage);
-        studyBox.appendChild(document.createElement("br"));
-        studyBox.appendChild(studyInstitution);
-        studyBox.appendChild(document.createElement("br"));
-        studyBox.appendChild(studyPlace);
-        studyBox.appendChild(studyDates);
-
-        studiesContent.appendChild(studyBox);
+    .then((data) => {
+      const records = data.map(function (s) {
+        return {
+          title: t(s.institution),
+          org: "",
+          place: t(s.place),
+          dates: t(s.dates),
+        };
       });
-      emitTabContentUpdated();
+      renderRegistre(records, document.querySelector(".tab-content.studies"));
     })
     .catch((error) => console.error("Error loading studies data:", error));
 }
 
 
-// Fonction pour charger et afficher les certifications (minimal: nom + année + lien officiel)
+// Adapter — Certifications → record (the row is an external link; skills = detail).
 function displayCertifications() {
   fetch("certifications.json")
     .then((response) => response.json())
-    .then((certData) => {
-      const certContainer = document.querySelector(".tab-content.certifications");
-      if (!certContainer) return;
-
-      certContainer.innerHTML = "";
-
-      certData.forEach((cert) => {
-        const name = certName(cert);
-        const issuer = t(cert.issuer) || "Microsoft";
-        const year = certYear(cert);
-        const url = certUrl(cert);
-
-        const card = document.createElement("a");
-        card.classList.add("cert-card");
-        card.href = url;
-        card.target = "_blank";
-        card.rel = "noopener noreferrer";
-        card.title = `Voir le détail ${name}`;
-
-        const main = document.createElement("div");
-        main.classList.add("cert-main");
-
-        if (cert.code) {
-          const codeEl = document.createElement("span");
-          codeEl.classList.add("cert-code");
-          codeEl.textContent = cert.code;
-          main.appendChild(codeEl);
-        }
-
-        const copy = document.createElement("div");
-        copy.classList.add("cert-copy");
-
-        const nameEl = document.createElement("div");
-        nameEl.classList.add("cert-name");
-        nameEl.textContent = name;
-        copy.appendChild(nameEl);
-
-        if (issuer) {
-          const issuerEl = document.createElement("div");
-          issuerEl.classList.add("cert-issuer");
-          issuerEl.textContent = issuer;
-          copy.appendChild(issuerEl);
-        }
-
-        main.appendChild(copy);
-
-        const meta = document.createElement("div");
-        meta.classList.add("cert-meta-block");
-
-        if (year) {
-          const yearEl = document.createElement("span");
-          yearEl.classList.add("cert-year");
-          yearEl.textContent = year;
-          meta.appendChild(yearEl);
-        }
-
-        const arrow = document.createElement("span");
-        arrow.classList.add("cert-arrow");
-        arrow.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i>';
-        meta.appendChild(arrow);
-
-        card.appendChild(main);
-        card.appendChild(meta);
-        certContainer.appendChild(card);
+    .then((data) => {
+      const records = data.map(function (c) {
+        return {
+          title: certName(c),
+          org: t(c.issuer) || "Microsoft",
+          place: "",
+          dates: certYear(c),
+          tag: c.code || null,
+          detailList:
+            Array.isArray(c.skills) && c.skills.length ? c.skills : null,
+          href: certUrl(c),
+        };
       });
-      emitTabContentUpdated();
+      renderRegistre(records, document.querySelector(".tab-content.certifications"));
     })
     .catch((error) => console.error("Error loading certifications:", error));
 }

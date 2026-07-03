@@ -421,11 +421,41 @@ nav ul li a.active-link {
   align-items: start; /* photo top lines up with the "À propos" eyebrow */
 }
 
-.about-panels {
+/* ===== PARCOURS — its own section after About (eyebrow + title + the 4 tabs). ===== */
+#parcours {
   flex-basis: 100%;
   width: 100%;
-  /* Generous inter-section breathing between the About story and the tabs. */
-  margin-top: clamp(80px, 12vw, 150px);
+  margin-top: clamp(96px, 14vw, 170px); /* generous inter-section breathing */
+  scroll-margin-top: 90px; /* clears the sticky header on nav-jump */
+}
+.prc-kicker {
+  font-family: "JetBrains Mono", monospace;
+  font-size: var(--fs-300);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.prc-kicker::before {
+  content: "";
+  width: 38px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-ms));
+}
+.prc-title {
+  font-family: "Archivo", var(--body, sans-serif);
+  font-weight: 900;
+  font-size: clamp(30px, 4vw, 50px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 38px;
+}
+.about-panels {
+  width: 100%;
 }
 
 /* Discrete availability line — light touch, never a headline (see DECISIONS). */
@@ -818,7 +848,8 @@ h1.sub-title {
   justify-content: center;
   gap: clamp(20px, 4vw, 44px);
   margin: 0 0 34px;
-  border-bottom: 1px solid var(--border);
+  /* TEST — no full-width rule under the tabs; the gliding rose→gold filet
+     (.tab-ind) is the only active marker. */
 }
 
 /* The gliding rose→gold filet — width/position set by positionTabIndicator(). */
@@ -842,8 +873,8 @@ h1.sub-title {
   cursor: pointer;
   font-family: "JetBrains Mono", monospace;
   font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.14em;
+  font-size: 15.5px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
   padding: 2px 2px 18px;
@@ -895,8 +926,7 @@ h1.sub-title {
 .skl-band {
   --c: var(--accent);
   position: relative;
-  padding: 26px 0 24px;
-  border-bottom: 1px solid var(--border);
+  padding: 34px 0 34px; /* more air around the separators */
   view-timeline-name: --sklband;
   view-timeline-axis: block;
   outline: none;
@@ -905,6 +935,16 @@ h1.sub-title {
   transform: translateY(30px);
   transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* Separator: full-width hairline between bands. */
+.skl-band:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--border);
 }
 .skl-band[data-hat="ms"] {
   --c: var(--accent-ms);
@@ -1163,74 +1203,238 @@ h1.sub-title {
   }
 }
 
-/* Studies — uniform logo tiles (every entry has a logo). Height grows with
-   the label so long institution names never overflow the tile. */
-.box-2 {
-  text-align: center;
-  margin: 30px 20px;
-  display: inline-block;
-  vertical-align: top;
-  width: 165px;
-  min-height: 112px;
+/* ===================================================================
+   REGISTRE — one "record row" component (Experience / Studies / Certifs),
+   rendered by renderRegistre. Archivo title + org·place mono, a right-aligned
+   mono date-spine, detail revealed on hover/focus/tap (rose→gold ignition →
+   legible --text + a vertical filet). Same family as skills ③, text-only.
+   =================================================================== */
+.reg {
+  margin-top: 4px;
 }
-
-.box-2 span {
-  color: var(--text);
-}
-
-.box-2 p {
-  font-size: 15px;
-}
-
-.box-2 img {
-  width: 55px;
-  height: 55px;
-  margin-bottom: 3px;
-}
-
-/* Experience — uniform rows (logo optional, description optional). */
-.exp-item {
+.reg-item {
+  position: relative;
   display: flex;
   align-items: flex-start;
-  gap: 14px;
-  padding: 16px 0;
-  text-align: left;
-  border-bottom: 1px solid var(--border-soft);
+  gap: 24px;
+  padding: 28px 2px;
+  text-decoration: none;
+  color: inherit;
+  view-timeline-name: --reg;
+  view-timeline-axis: block;
+  outline: none;
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
-.exp-item:last-child {
-  border-bottom: none;
+.reg-item.in {
+  opacity: 1;
+  transform: none;
 }
-
-.exp-logo {
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-  flex: 0 0 auto;
+.reg-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--border);
 }
-
-.exp-body {
+.reg-item[tabindex],
+.reg-item.is-link {
+  cursor: pointer;
+}
+.reg-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+  border-radius: 6px;
+}
+.reg-head {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.reg-titleline {
   display: flex;
-  flex-direction: column;
-  gap: 3px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
 }
-
-.exp-position {
+.reg-tag {
+  font-family: "JetBrains Mono", monospace;
   font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  background: linear-gradient(90deg, var(--accent), var(--accent-ms));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.reg-title {
+  font-family: "Archivo", var(--body, sans-serif);
+  font-weight: 700;
+  font-size: clamp(19px, 2.5vw, 28px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
   color: var(--text);
+  will-change: transform;
 }
-
-.exp-meta {
-  font-size: var(--fs-300);
+.reg-meta {
+  margin-top: 8px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
   color: var(--text-muted);
 }
-
-.exp-desc {
-  font-size: var(--fs-300);
+.reg-cue {
+  margin-left: 10px;
+  color: var(--accent);
+  opacity: 0.7;
+  display: inline-block;
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reg-item:hover .reg-cue,
+.reg-item:focus-visible .reg-cue,
+.reg-item.open .reg-cue {
+  opacity: 0;
+  transform: translateY(-3px);
+}
+/* Date-spine — mono tabular, right-aligned (aligns into a vertical column). */
+.reg-side {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding-top: 6px;
+}
+.reg-dates {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 0.03em;
   color: var(--text-muted);
-  margin-top: 4px;
-  line-height: var(--lh-base);
-  max-width: 480px;
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.reg-arrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  color: var(--accent);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reg-item.is-link:hover .reg-arrow,
+.reg-item.is-link:focus-visible .reg-arrow {
+  transform: translate(3px, -3px);
+}
+/* Revealed detail — grid-rows; rose→gold ignition settles to --text + vertical filet. */
+.reg-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reg-item:hover .reg-detail,
+.reg-item:focus-visible .reg-detail,
+.reg-item.open .reg-detail {
+  grid-template-rows: 1fr;
+}
+.reg-detail-in {
+  min-height: 0;
+  overflow: hidden;
+}
+.reg-drow {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  padding: 14px 0 2px 18px;
+  max-width: 72ch;
+}
+.reg-drow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 2px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-ms));
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.6s 0.06s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reg-item:hover .reg-drow::before,
+.reg-item:focus-visible .reg-drow::before,
+.reg-item.open .reg-drow::before {
+  transform: scaleY(1);
+}
+.reg-ignite {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  line-height: 1.7;
+  background: linear-gradient(100deg, var(--text) 0 36%, var(--accent) 43%, #fff2cf 50%, var(--accent-ms) 57%, var(--text) 64% 100%);
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: var(--text);
+  -webkit-text-fill-color: transparent;
+  transform: translateY(8px);
+  transition: background-position 1.5s cubic-bezier(0.33, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reg-item:hover .reg-ignite,
+.reg-item:focus-visible .reg-ignite,
+.reg-item.open .reg-ignite {
+  background-position: 0 0;
+  transform: none;
+}
+.reg-ignite:nth-child(1) { transition-delay: 0.06s; }
+.reg-ignite:nth-child(2) { transition-delay: 0.18s; }
+.reg-ignite:nth-child(3) { transition-delay: 0.30s; }
+.reg-ignite:nth-child(4) { transition-delay: 0.42s; }
+.reg-ignite:nth-child(5) { transition-delay: 0.54s; }
+.reg-ignite:nth-child(6) { transition-delay: 0.66s; }
+
+/* Scroll motion — subtle title drift + a soft PARCOURS section-exit dissolve
+   (fade + slight lift + scale-back + blur) as the section leaves the top;
+   coherent with hero/about, fill:forwards so it never fights the one-shot entrance. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reg-title {
+      animation: reg-drift linear both;
+      animation-timeline: --reg;
+      animation-range: cover 0% cover 100%;
+    }
+    .reg-item:nth-child(even) .reg-title {
+      animation-name: reg-drift-r;
+    }
+    @keyframes reg-drift { from { transform: translateX(-1vw); } to { transform: translateX(1vw); } }
+    @keyframes reg-drift-r { from { transform: translateX(1vw); } to { transform: translateX(-1vw); } }
+    #parcours {
+      animation: prc-dissolve linear both;
+      animation-timeline: view();
+      animation-range: exit 5% exit 100%;
+      animation-fill-mode: forwards;
+      will-change: opacity, transform, filter;
+    }
+    @keyframes prc-dissolve {
+      to { opacity: 0.06; transform: scale(0.975) translateY(-20px); filter: blur(5px); }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reg-item { opacity: 1; transform: none; transition: none; }
+  .reg-detail { grid-template-rows: 1fr; }
+  .reg-drow::before { transform: scaleY(1); }
+  .reg-ignite { background-position: 0 0; transform: none; transition: none; }
+  .reg-cue { display: none; }
+}
+@media (max-width: 600px) {
+  .reg-item { gap: 14px; padding: 22px 2px; }
+  .reg-title { font-size: clamp(18px, 6vw, 24px); }
+  .reg-dates { font-size: 12px; }
 }
 
 /* Projects  */
@@ -1810,18 +2014,14 @@ nav .fa-solid {
   }
 
   .tab-links {
-    font-size: 11px;
-    letter-spacing: 0.1em;
+    font-size: 13px;
+    letter-spacing: 0.08em;
     padding: 2px 2px 13px;
   }
 
   .contact-left,
   .contact-right {
     flex-basis: 100%;
-  }
-
-  .box-2 {
-    margin: 20px var(--space-1);
   }
 
   .project-grid {
@@ -1864,129 +2064,9 @@ nav .fa-solid {
     margin-right: 0;
     width: 100%;
   }
-
-  .cert-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px 16px;
-  }
-
-  .cert-main {
-    width: 100%;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .cert-copy {
-    gap: 2px;
-  }
-
-  .cert-name {
-    font-size: 16px;
-  }
-
-  .cert-meta-block {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .cert-year {
-    font-size: 13px;
-  }
-}
-
-@media only screen and (max-width: 372px) {
-  .box-2 {
-    margin: 20px 3px;
-  }
-
-  .cert-card {
-    padding: 12px;
-  }
-
-  .cert-name {
-    font-size: 15px;
-  }
-
-  .cert-code,
-  .cert-year,
-  .cert-issuer {
-    font-size: 12px;
-  }
 }
 
 
-
-/* --- Certifications tab --- */
-.cert-card {
-  border-left: 4px solid var(--accent-ms);
-  border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
-  padding: 16px 20px;
-  margin: 12px 0;
-  background: var(--surface-raised);
-  display: flex;
-  gap: 20px;
-  justify-content: space-between;
-  align-items: center;
-  text-decoration: none;
-  color: var(--text);
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-}
-
-.cert-card:hover {
-  background: rgba(247, 201, 72, 0.08);
-  border-color: var(--accent-ms-2);
-  transform: translateX(4px);
-}
-
-.cert-main {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.cert-code {
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--accent-ms-text);
-  font-size: 14px;
-  text-transform: uppercase;
-}
-
-.cert-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.cert-name {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.cert-issuer {
-  color: var(--text-muted);
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-}
-
-.cert-meta-block {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.cert-year {
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.cert-arrow {
-  color: var(--accent-ms-text);
-  font-size: 14px;
-}
 
 /* ============================================================
    HAT TINT — accent color driven by a project's casquette.

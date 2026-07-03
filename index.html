@@ -72,6 +72,7 @@
             <ul id="sidemenu">
               <li><a href="#header" data-i18n="nav.home">Accueil</a></li>
               <li><a href="#about" data-i18n="nav.about">À propos</a></li>
+              <li><a href="#parcours" data-i18n="nav.parcours">Parcours</a></li>
               <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
               <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
               <i class="fa-solid fa-xmark"></i>
@@ -176,8 +177,12 @@
             </div>
           </div>
 
-          <!-- ABOUT — les 4 catégories dans le système d'onglets (sélecteur segmenté).
-               Onglet Compétences = contenu design ③ « Sur la Ligne » (rendu par displaySkills). -->
+          <!-- PARCOURS — section dédiée (extraite du About) : eyebrow + titre + les 4
+               onglets (sélecteur "filet"). Compétences = design ③ ; Exp/Études/Certifs
+               = composant "registre" (displayExperience/Studies/Certifications). -->
+          <section id="parcours" class="parcours">
+            <p class="prc-kicker reveal" data-i18n="parcours.eyebrow">Parcours — le fil</p>
+            <h2 class="prc-title reveal" data-i18n="parcours.title">Étape par étape.</h2>
           <div class="about-panels">
             <div class="tab-title" role="tablist">
               <span class="tab-ind" aria-hidden="true"></span>
@@ -203,6 +208,7 @@
               </div>
             </div>
           </div>
+          </section>
           <!-- ------PORTFOLIIO------ -->
           <div id="projects">
             <div class="container">
