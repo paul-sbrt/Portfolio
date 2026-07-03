@@ -426,6 +426,7 @@ nav ul li a.active-link {
   flex-basis: 100%;
   width: 100%;
   margin-top: clamp(96px, 14vw, 170px); /* generous inter-section breathing */
+  margin-bottom: clamp(64px, 9vw, 120px); /* breathing before Projects */
   scroll-margin-top: 90px; /* clears the sticky header on nav-jump */
 }
 /* Section marker — a mono eyebrow, coherent with the site's other eyebrows. */
@@ -931,7 +932,7 @@ h1.sub-title {
   outline: none;
   /* one-shot entrance (a local observer adds .in — see displaySkills) */
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(16px); /* subtle arrival */
   transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -1158,7 +1159,7 @@ h1.sub-title {
     .skl-band {
       animation: skl-exit linear both;
       animation-timeline: view();
-      animation-range: exit 0% exit 100%;
+      animation-range: cover 62% cover 100%;
       animation-fill-mode: forwards;
       will-change: opacity, transform, filter;
     }
@@ -1223,7 +1224,7 @@ h1.sub-title {
   view-timeline-axis: block;
   outline: none;
   opacity: 0;
-  transform: translateY(36px);
+  transform: translateY(18px); /* subtle arrival */
   transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -1415,7 +1416,7 @@ h1.sub-title {
     .reg-item {
       animation: reg-exit linear both;
       animation-timeline: view();
-      animation-range: exit 0% exit 100%;
+      animation-range: cover 62% cover 100%;
       animation-fill-mode: forwards;
       will-change: opacity, transform, filter;
     }
