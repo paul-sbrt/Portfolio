@@ -220,75 +220,92 @@
               >
             </div>
           </div>
-          <!-- ------------CONTACT----------------- -->
+          <!-- ------------CONTACT — C1 (split invitation + formulaire)----------------- -->
           <div id="contact">
             <div class="container">
-              <div class="row">
-                <div class="contact-left">
-                  <h2 class="sub-title" data-i18n="section.contact">Me contacter</h2>
-                  <a href="mailto:paul.sabourault0@gmail.com"
-                    ><p>
-                      <i class="fa-solid fa-paper-plane"></i
-                      >paul.sabourault0@gmail.com
-                    </p></a
-                  >
-                  <div class="social-icons">
-                    <!-- <a href="https://www.instagram.com/paul_sbrt/" target="_blank"
-                ><i class="fa-brands fa-instagram"></i
-              ></a> -->
-                    <a href="https://github.com/paul-sbrt" target="_blank"
-                      ><i class="fa-brands fa-github"></i
-                    ></a>
-                    <a
-                      href="https://www.linkedin.com/in/paul-sabourault-427622245/"
-                      target="_blank"
-                      ><i class="fa-brands fa-linkedin"></i
-                    ></a>
+              <div class="contact-split">
+                <!-- Gauche : invitation + canaux directs -->
+                <div class="contact-invite">
+                  <p class="c-eyebrow reveal" data-i18n="contact.eyebrow">Contact — parlons-en</p>
+                  <h2 class="c-title reveal" data-i18n-html="contact.title">Une idée, un projet — <em>écrivons-nous.</em></h2>
+                  <p class="c-lead reveal" data-i18n="contact.lead">
+                    Le plus simple, c'est le formulaire : je lis tout et je réponds vite. Ou par email et les réseaux, comme tu préfères.
+                  </p>
+                  <div class="c-avail reveal"><span class="c-dot" aria-hidden="true"></span><span data-i18n="contact.availability">Ouvert aux opportunités</span></div>
+                  <div class="c-channels">
+                    <a class="c-channel reveal" href="mailto:paul.sabourault0@gmail.com"><span class="c-lab">Email</span><span class="c-val">paul.sabourault0@gmail.com</span><span class="c-arw" aria-hidden="true">↗</span></a>
+                    <a class="c-channel reveal" href="https://www.linkedin.com/in/paul-sabourault-427622245/" target="_blank" rel="noopener"><span class="c-lab">LinkedIn</span><span class="c-val">/in/paul-sabourault</span><span class="c-arw" aria-hidden="true">↗</span></a>
+                    <a class="c-channel reveal" href="https://github.com/paul-sbrt" target="_blank" rel="noopener"><span class="c-lab">GitHub</span><span class="c-val">/paul-sbrt</span><span class="c-arw" aria-hidden="true">↗</span></a>
                   </div>
                 </div>
-                <div class="contact-right">
-                  <form action="https://formspree.io/f/xleybonk" method="POST">
-                    <label class="sr-only" for="name" data-i18n="form.name">Votre nom</label>
-                    <input
-                      id="name"
-                      name="name"
-                      placeholder="Votre nom"
-                      data-i18n-ph="form.name"
-                      required=""
-                      type="text"
-                    />
-                    <label class="sr-only" for="email" data-i18n="form.email">Votre email</label>
-                    <input
-                      id="email"
-                      name="email"
-                      placeholder="Votre email"
-                      data-i18n-ph="form.email"
-                      required=""
-                      type="email"
-                    />
-                    <label class="sr-only" for="message" data-i18n="form.message">Votre message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      placeholder="Votre message"
-                      data-i18n-ph="form.message"
-                      required=""
-                      rows="6"
-                    ></textarea>
-                    <button class="btn btn2" type="submit" data-i18n="btn.send">Envoyer</button>
+                <!-- Droite : formulaire éditorial (→ contact.php + SMTP O2switch au déploiement) -->
+                <div class="contact-formwrap reveal">
+                  <form class="c-form" id="contactForm" action="contact.php" method="POST" novalidate>
+                    <div class="c-row2">
+                      <div class="c-field">
+                        <label for="c-name" data-i18n="form.name">Votre nom</label>
+                        <input id="c-name" name="name" type="text" autocomplete="name" placeholder="Jean Dupont" data-i18n-ph="form.namePh" required />
+                      </div>
+                      <div class="c-field">
+                        <label for="c-email" data-i18n="form.email">Votre email</label>
+                        <input id="c-email" name="email" type="email" autocomplete="email" placeholder="jean@exemple.fr" data-i18n-ph="form.emailPh" required />
+                      </div>
+                    </div>
+                    <div class="c-field">
+                      <label for="c-subject" data-i18n="form.subject">Sujet</label>
+                      <input id="c-subject" name="subject" type="text" placeholder="Une alternance, un projet, une question…" data-i18n-ph="form.subjectPh" required />
+                    </div>
+                    <div class="c-field">
+                      <label for="c-message" data-i18n="form.message">Votre message</label>
+                      <textarea id="c-message" name="message" placeholder="Dites-moi tout." data-i18n-ph="form.messagePh" required></textarea>
+                    </div>
+                    <!-- honeypot anti-spam (invisible ; ignoré des humains) -->
+                    <div class="c-hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+                    <input type="hidden" name="ts" id="c-ts" value="" />
+                    <div class="c-form-foot">
+                      <button class="c-submit" id="contactSubmit" type="submit">
+                        <span class="c-spin" aria-hidden="true"></span><span class="c-txt" data-i18n="btn.send">Envoyer →</span>
+                      </button>
+                      <p class="c-status" id="contactStatus" role="status" aria-live="polite"></p>
+                    </div>
                   </form>
                 </div>
               </div>
             </div>
           </div>
-          <footer>
-            <p>
-              <span data-i18n="footer.copyright">Copyright</span><i class="fa-regular fa-copyright"></i> Paul Sabourault
-            </p>
+          <!-- ------------FOOTER — 3 zones----------------- -->
+          <footer class="site-footer">
+            <div class="container">
+              <div class="foot-main">
+                <div class="foot-brand reveal">
+                  <div class="foot-wm"><span>P</span>aul <span>S</span>abourault</div>
+                  <p data-i18n="footer.tagline">Développeur — mobile, web, IA et Microsoft / Power Platform. Je conçois, je code, je déploie.</p>
+                </div>
+                <nav class="foot-col reveal" aria-label="Footer">
+                  <h4 data-i18n="footer.nav">Navigation</h4>
+                  <a href="#header" data-i18n="nav.home">Accueil</a>
+                  <a href="#about" data-i18n="nav.about">À propos</a>
+                  <a href="#parcours" data-i18n="nav.parcours">Parcours</a>
+                  <a href="#projects" data-i18n="nav.projects">Projets</a>
+                  <a href="#contact" data-i18n="nav.contact">Contact</a>
+                </nav>
+                <div class="foot-col reveal">
+                  <h4 data-i18n="footer.elsewhere">Ailleurs</h4>
+                  <a href="https://www.linkedin.com/in/paul-sabourault-427622245/" target="_blank" rel="noopener"><span class="m">in</span>LinkedIn</a>
+                  <a href="https://github.com/paul-sbrt" target="_blank" rel="noopener"><span class="m">gh</span>GitHub</a>
+                  <a href="mailto:paul.sabourault0@gmail.com"><span class="m">@</span>Email</a>
+                </div>
+              </div>
+              <div class="foot-bottom">
+                <span class="foot-cr"><span data-i18n="footer.copyright">Copyright</span> <span class="foot-c">©</span> 2026 Paul Sabourault</span>
+                <a class="foot-totop" href="#header"><i aria-hidden="true">↑</i> <span data-i18n="footer.top">Retour en haut</span></a>
+              </div>
+            </div>
           </footer>
           <!--JS-->
           <script src="./display.js" defer></script>
           <script src="./app.js" defer></script>
+          <script src="./contact.js" defer></script>
         </div>
       </div>
     </div>

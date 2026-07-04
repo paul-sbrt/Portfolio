@@ -18,7 +18,7 @@
   "about.availability": "En recherche d'une alternance.",
   "btn.downloadCv": "Télécharger le CV",
   "btn.seeMore": "Voir plus",
-  "btn.send": "Envoyer",
+  "btn.send": "Envoyer →",
   "form.name": "Votre nom",
   "form.email": "Votre email",
   "form.message": "Votre message",
@@ -37,5 +37,18 @@
   "detail.builtwith": "Construit avec",
   "detail.statusLabel": "Où ça en est",
   "detail.allProjects": "Tous les projets",
-  "detail.visit": "Voir le projet"
+  "detail.visit": "Voir le projet",
+  "contact.eyebrow": "Contact — parlons-en",
+  "contact.title": "Une idée, un projet — <em>écrivons-nous.</em>",
+  "contact.lead": "Le plus simple, c'est le formulaire : je lis tout et je réponds vite. Ou par email et les réseaux, comme tu préfères.",
+  "contact.availability": "Ouvert aux opportunités",
+  "form.subject": "Sujet",
+  "form.namePh": "Jean Dupont",
+  "form.emailPh": "jean@exemple.fr",
+  "form.subjectPh": "Une alternance, un projet, une question…",
+  "form.messagePh": "Dites-moi tout.",
+  "footer.tagline": "Développeur — mobile, web, IA et Microsoft / Power Platform. Je conçois, je code, je déploie.",
+  "footer.nav": "Navigation",
+  "footer.elsewhere": "Ailleurs",
+  "footer.top": "Retour en haut"
 }
