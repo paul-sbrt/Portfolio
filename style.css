@@ -1712,16 +1712,45 @@ h1.sub-title {
   }
 }
 
+/* "Voir plus" — pill mono ghost qui se remplit rose→or au survol (→ GitHub) */
 .btn {
-  display: block;
-  margin: 50px auto;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  gap: 9px;
   width: fit-content;
-  border: 1px solid var(--accent);
-  padding: 14px 50px;
-  border-radius: var(--radius-xs);
-  text-decoration: none;
+  margin: 50px auto 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--text);
-  transition: background 0.5s;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 13px 28px;
+  text-decoration: none;
+  transition: color 0.35s, border-color 0.35s,
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, var(--accent), var(--accent-ms));
+  transform: translateX(-101%);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.btn:hover {
+  color: #160d02;
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+.btn:hover::before {
+  transform: translateX(0);
 }
 
 .btn:hover {
@@ -1958,35 +1987,55 @@ h1.sub-title {
   margin-top: 4px;
 }
 .c-submit {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 15px 30px;
-  border: none;
+  padding: 15px 32px;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--border));
   border-radius: var(--radius-sm);
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 15px;
-  color: #0a0708;
-  background: linear-gradient(90deg, var(--accent), var(--accent-ms));
+  color: var(--text);
+  background: transparent;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.3s, opacity 0.3s;
+  transition: color 0.35s, border-color 0.35s,
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s;
+}
+/* le dégradé rose→or glisse depuis la gauche au survol (ignition) */
+.c-submit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, var(--accent), var(--accent-ms));
+  transform: translateX(-101%);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .c-submit:hover {
+  color: #160d02;
+  border-color: transparent;
   transform: translateY(-2px);
-  filter: brightness(1.07);
+  box-shadow: 0 14px 34px -12px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.c-submit:hover::before {
+  transform: translateX(0);
 }
 .c-submit:disabled {
-  opacity: 0.65;
+  opacity: 0.7;
   cursor: default;
   transform: none;
+  box-shadow: none;
 }
 .c-submit .c-spin {
   width: 15px;
   height: 15px;
   display: none;
-  border: 2px solid rgba(0, 0, 0, 0.35);
-  border-top-color: #0a0708;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--text);
   border-radius: 50%;
   animation: c-spin 0.7s linear infinite;
 }
@@ -2183,6 +2232,11 @@ html[lang="en"] .lang-opt[data-lang="en"] {
   color: var(--text-muted);
   max-width: 34ch;
   line-height: 1.7;
+}
+/* force block layout — override the global `nav { display:flex }` on <nav class="foot-col"> */
+.foot-col {
+  display: block;
+  font-size: 14px;
 }
 .foot-col h4 {
   font-family: "JetBrains Mono", monospace;

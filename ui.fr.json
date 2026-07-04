@@ -17,7 +17,7 @@
   "about.body": "Je viens de la restauration, et c'est en voulant résoudre des problèmes réels que je suis devenu développeur. Depuis, je construis des produits <span class='hl-strong'>de bout en bout</span> : une app de voyage publiée sur iOS et Android (<span class='hl-rose'>STOW</span>), un « deuxième cerveau » iOS boosté à l'IA (<span class='hl-rose'>DUMP</span> — transcription Whisper + classification Claude), une plateforme de mise en relation pour l'hôtellerie-restauration (<span class='hl-rose'>EXTRALIMO</span>) et un site de vente d'une offre Microsoft (<span class='hl-gold'>Ticketing IT</span>). Mobile (Flutter, Swift/SwiftUI), web (Laravel, Next.js, React) et <span class='hl-gold'>Microsoft/Power Platform</span> : mon fil rouge, <span class='hl-strong'>comprendre l'utilisateur, livrer, itérer</span> — et apprendre en construisant. Après deux ans chez Avanade, je continue à empiler les vrais projets.",
   "about.availability": "En recherche d'une alternance.",
   "btn.downloadCv": "Télécharger le CV",
-  "btn.seeMore": "Voir plus",
+  "btn.seeMore": "Voir plus ↗",
   "btn.send": "Envoyer →",
   "form.name": "Votre nom",
   "form.email": "Votre email",
