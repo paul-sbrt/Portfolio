@@ -1729,7 +1729,7 @@ h1.sub-title {
   color: var(--text);
   background: transparent;
   border: 1px solid var(--border);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-sm); /* moins arrondi (plus pill) */
   padding: 13px 28px;
   text-decoration: none;
   transition: color 0.35s, border-color 0.35s,
@@ -2016,7 +2016,8 @@ h1.sub-title {
   transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .c-submit:hover {
-  color: #160d02;
+  color: #fff; /* texte blanc sur le remplissage (mieux lisible) */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.32);
   border-color: transparent;
   transform: translateY(-2px);
   box-shadow: 0 14px 34px -12px color-mix(in srgb, var(--accent) 45%, transparent);
