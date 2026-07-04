@@ -1444,6 +1444,8 @@ h1.sub-title {
 /* Projects  */
 
 #projects {
+  flex-basis: 100%; /* enfant flex de .row — sinon rétrécit à son contenu (grille filtrée = cartes minuscules) */
+  width: 100%;
   margin: 50px 0;
 }
 
@@ -1679,8 +1681,21 @@ h1.sub-title {
   }
 }
 
-/* NB : pas d'animation de sortie au scroll sur les cartes — elle laissait les
-   cartes filtrées (liste courte) estompées/floutées, hors plage de scroll. */
+/* Per-card scroll-exit (section peel, same family as skills/registre). */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .proj-card {
+      animation: proj-exit linear both;
+      animation-timeline: view();
+      animation-range: cover 60% cover 100%;
+      animation-fill-mode: forwards;
+      will-change: opacity, transform, filter;
+    }
+    @keyframes proj-exit {
+      to { opacity: 0; transform: translateY(-20px) scale(0.985); filter: blur(3px); }
+    }
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .proj-card {
     opacity: 1;
