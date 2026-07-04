@@ -93,7 +93,10 @@ def charte(project):
 
 
 # ---- visual (real image or duotone placeholder) -----------------------------
-def visual_inner(img_src, alt, label):
+def visual_inner(img_src, alt, label, logo=False):
+    if img_src and logo:
+        # logo d'outil (pas une capture) → carte de marque : logo centré, contain, de l'air
+        return f'<div class="dt-logofield"><img class="dt-logo" src="{img_src}" alt="{alt}" loading="lazy" /></div>'
     if img_src:
         return f'<img class="dt-img" src="{img_src}" alt="{alt}" loading="lazy" />'
     return f'<div class="dt-ph"></div><span class="dt-ph-label">{label}</span>'
@@ -127,8 +130,11 @@ def render_hero(project, detail, lang, ui, base, is_app, ext_url, ext_label):
           {link_html}
         </div>"""
 
+    logo = bool(project.get("coverLogo")) and bool(img_src)
+    inner = visual_inner(img_src, cap, label, logo)
+    cap_html = "" if logo else f'<span class="dt-cap">{cap}</span>'  # le logo EST l'identité
     if is_app:
-        media = f"""<div class="dt-device rv">{visual_inner(img_src, cap, label)}<span class="dt-cap">{cap}</span></div>"""
+        media = f"""<div class="dt-device rv">{inner}{cap_html}</div>"""
         return f"""    <header class="dt-hero dt-hero--app dt-wrap" id="detail-top">
         {text}
         {media}
@@ -137,7 +143,7 @@ def render_hero(project, detail, lang, ui, base, is_app, ext_url, ext_label):
     url_txt = esc((ext_url or "").replace("https://", "").replace("http://", "").rstrip("/")) or cap
     media = f"""<div class="dt-browser rv">
           <div class="dt-browser-bar"><i></i><i></i><i></i><span class="dt-url">{url_txt}</span></div>
-          <div class="dt-browser-shot">{visual_inner(img_src, cap, label)}<span class="dt-cap">{cap}</span></div>
+          <div class="dt-browser-shot">{inner}{cap_html}</div>
         </div>"""
     return f"""    <header class="dt-hero dt-hero--web dt-wrap" id="detail-top">
         {text}
@@ -243,21 +249,58 @@ def render_gallery(detail, base, lang, ui):
     tiles = []
     real = [s for s in shots if s.get("src") and not is_placeholder(s.get("src"))]
     if real:
-        for s in real[:3]:
+        for s in real:  # TOUTES les images (plus de plafond à 3)
             src = asset(s.get("src"), base)
             alt = esc(T(s.get("caption") or s.get("alt"), lang))
             tiles.append(f'<div class="dt-shot"><img class="dt-img" src="{src}" alt="{alt}" loading="lazy" /><div class="dt-sweep"></div></div>')
+        gal_class = "dt-gal dt-gal--full rv"  # grille adaptative au nombre
     else:
         to_come = esc(ui.get("detail.gallery", "Gallery"))
         for i in range(3):
             tiles.append(f'<div class="dt-shot"><div class="dt-ph"></div><div class="dt-sweep"></div><span class="dt-ph-label">{to_come} {i + 1} — …</span></div>')
+        gal_class = "dt-gal rv"  # 3 placeholders, grille "vedette"
     tiles_html = "\n        ".join(tiles)
     return f"""
     <div class="dt-wrap"><section class="dt-gallery">
       <p class="dt-sec-eyebrow rv">{label}</p>
-      <div class="dt-gal rv">
+      <div class="{gal_class}">
         {tiles_html}
       </div>
+    </section></div>"""
+
+
+def _embed(url):
+    """YouTube / Vimeo watch URL -> embeddable URL. '' if unknown (block skipped)."""
+    import re
+    u = str(url or "")
+    yt = re.search(r"(?:youtu\.be/|youtube\.com/(?:watch\?v=|embed/|shorts/))([\w-]+)", u)
+    if yt:
+        return "https://www.youtube.com/embed/" + yt.group(1)
+    if "vimeo.com/" in u:
+        vid = u.rstrip("/").split("/")[-1]
+        if vid.isdigit():
+            return "https://player.vimeo.com/video/" + vid
+    return ""
+
+
+def render_video(detail, lang, ui):
+    """Optional demo video -> a play card that opens a modal (lightbox.js). Absent /
+    unknown provider -> nothing (no empty block, no dead link)."""
+    v = detail.get("video") or {}
+    embed = _embed(v.get("url"))
+    if not embed:
+        return ""
+    heading = esc(T(v.get("heading", ui.get("detail.demo", "Demo")), lang))
+    body = esc(T(v.get("body", ""), lang))
+    body_html = f'<p class="dt-videobody rv">{body}</p>' if body else ""
+    return f"""
+    <div class="dt-wrap"><section class="dt-video">
+      <p class="dt-sec-eyebrow rv">{heading}</p>
+      <button class="dt-videocard rv" type="button" data-video="{embed}" aria-label="{heading}">
+        <div class="dt-ph"></div>
+        <span class="dt-playbtn" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+      </button>
+      {body_html}
     </section></div>"""
 
 
@@ -319,6 +362,7 @@ def render_page(project, lang, ui):
     result = render_result(detail, lang, ui)
     statusband = render_statusband(detail, lang, ui)
     gallery = render_gallery(detail, base, lang, ui)
+    video = render_video(detail, lang, ui)
     stack = render_stack(project, ui)
 
     return f"""<!DOCTYPE html>
@@ -408,6 +452,7 @@ def render_page(project, lang, ui):
 {result}
 {statusband}
 {gallery}
+{video}
       <div class="dt-wrap">{stack}
         <div class="dt-end"><a class="dt-back" href="{base}index.html#projects"><i class="fa-solid fa-arrow-left"></i> {back}</a></div>
       </div>

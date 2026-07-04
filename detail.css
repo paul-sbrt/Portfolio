@@ -115,6 +115,14 @@
 [data-detail] .dt-gal{display:grid;grid-template-columns:1.5fr 1fr;grid-template-rows:1fr 1fr;gap:16px;aspect-ratio:16/9}
 [data-detail] .dt-shot{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--border);cursor:pointer;background:var(--ink2)}
 [data-detail] .dt-shot:nth-child(1){grid-row:1/3}
+/* galerie réelle (N images) — grille adaptative, s'ajuste au nombre */
+[data-detail] .dt-gal--full{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));grid-template-rows:auto;aspect-ratio:auto}
+[data-detail] .dt-gal--full .dt-shot{aspect-ratio:16/10}
+[data-detail] .dt-gal--full .dt-shot:nth-child(1){grid-row:auto}
+/* cover LOGO d'outil → carte de marque (logo centré, contain, de l'air — pas d'étirement) */
+[data-detail] .dt-logofield{position:absolute;inset:0;display:grid;place-items:center;padding:11%;background:linear-gradient(150deg,color-mix(in srgb,var(--brand) 16%,var(--ink2)),var(--ink2) 88%)}
+[data-detail] .dt-logofield::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 1px,transparent 1px 26px)}
+[data-detail] .dt-logo{position:relative;max-width:56%;max-height:60%;object-fit:contain;filter:drop-shadow(0 12px 34px rgba(0,0,0,.45))}
 [data-detail] .dt-shot .dt-ph,[data-detail] .dt-shot .dt-img{transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 [data-detail] .dt-shot .dt-sweep{position:absolute;inset:0;background:linear-gradient(100deg,transparent 34%,color-mix(in srgb,var(--brand) 55%,transparent) 50%,transparent 66%);background-size:250% 100%;background-position:130% 0;transition:background-position 1s cubic-bezier(.2,.8,.2,1)}
 @media(hover:hover){[data-detail] .dt-shot:hover .dt-ph,[data-detail] .dt-shot:hover .dt-img{transform:scale(1.05)}[data-detail] .dt-shot:hover .dt-sweep{background-position:-30% 0}}
@@ -131,6 +139,15 @@
 [data-detail] footer{padding:36px var(--gut);border-top:1px solid var(--border);text-align:center;font-family:var(--mono);font-size:12px;color:var(--text-muted)}
 [data-detail] footer .dt-r{background:linear-gradient(90deg,var(--accent),var(--accent-ms));-webkit-background-clip:text;background-clip:text;color:transparent}
 
+/* ===== VIDÉO — carte "play" (ouvre la modale via lightbox.js) ; s'efface si absente ===== */
+[data-detail] .dt-video{padding:12vh 0}
+[data-detail] .dt-videocard{position:relative;display:block;width:100%;aspect-ratio:16/9;border:1px solid color-mix(in srgb,var(--brand) 30%,var(--border));border-radius:16px;overflow:hidden;cursor:pointer;background:var(--ink2);padding:0}
+[data-detail] .dt-videocard .dt-ph{background:linear-gradient(150deg,color-mix(in srgb,var(--brand) 46%,var(--ink2)),color-mix(in srgb,var(--brand2) 30%,var(--ink2)) 86%)}
+[data-detail] .dt-playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:76px;height:76px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--g2));color:#160d02;font-size:23px;box-shadow:0 20px 50px -14px color-mix(in srgb,var(--brand) 60%,transparent);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+[data-detail] .dt-playbtn i{margin-left:4px}
+@media(hover:hover){[data-detail] .dt-videocard:hover .dt-playbtn{transform:translate(-50%,-50%) scale(1.08)}}
+[data-detail] .dt-videobody{margin-top:18px;max-width:60ch;font-size:15px;line-height:1.7;color:var(--text-muted);font-weight:300}
+
 /* ===== LIGHTBOX (DA) — construit par lightbox.js, appended au body[data-detail] ===== */
 [data-detail] .dt-lb{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:5vh 5vw;
   background:color-mix(in srgb,var(--ink2) 90%,transparent);backdrop-filter:blur(6px);
@@ -139,6 +156,9 @@
 [data-detail] .dt-lb-fig{margin:0;max-width:min(1100px,94vw);display:flex;flex-direction:column;align-items:center;gap:14px;transform:scale(.96);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 [data-detail] .dt-lb.open .dt-lb-fig{transform:none}
 [data-detail] .dt-lb img{max-width:100%;max-height:80vh;object-fit:contain;border-radius:14px;border:1px solid color-mix(in srgb,var(--brand) 40%,var(--border));box-shadow:0 40px 90px -30px rgba(0,0,0,.8)}
+[data-detail] .dt-lb-video{display:none;width:min(1040px,92vw);aspect-ratio:16/9;transform:scale(.96);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+[data-detail] .dt-lb.open .dt-lb-video{transform:none}
+[data-detail] .dt-lb-video iframe{width:100%;height:100%;border:1px solid color-mix(in srgb,var(--brand) 40%,var(--border));border-radius:14px;box-shadow:0 40px 90px -30px rgba(0,0,0,.8)}
 [data-detail] .dt-lb figcaption{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);text-align:center}
 [data-detail] .dt-lb-close{position:absolute;top:20px;right:24px;display:grid;place-items:center;width:42px;height:42px;font-family:var(--mono);font-size:15px;color:#fff;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:999px;cursor:pointer;transition:border-color .25s,color .25s,transform .25s}
 [data-detail] .dt-lb-close:hover{border-color:var(--brand);color:var(--brand);transform:rotate(90deg)}

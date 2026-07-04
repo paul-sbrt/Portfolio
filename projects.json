@@ -937,7 +937,9 @@
         }
       }
     },
-    "brand": "#f7c948"
+    "brand": "#f7c948",
+    "brand2": "#D9A441",
+    "coverLogo": true
   },
   {
     "slug": "mscd-application",
@@ -1088,7 +1090,9 @@
         }
       }
     },
-    "brand": "#f7c948"
+    "brand": "#f7c948",
+    "brand2": "#D9A441",
+    "coverLogo": true
   },
   {
     "slug": "suez-dashboard",
@@ -1211,7 +1215,9 @@
         }
       }
     },
-    "brand": "#f7c948"
+    "brand": "#f7c948",
+    "brand2": "#D9A441",
+    "coverLogo": true
   },
   {
     "slug": "powerflows",
