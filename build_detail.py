@@ -400,6 +400,7 @@ def render_page(project, lang, ui):
     </div>
 
     <main>
+      <div class="dt-wrap"><a class="dt-topback" href="{base}index.html#projects"><i class="fa-solid fa-arrow-left"></i> {back}</a></div>
 {hero}
 {band}
 {why}
@@ -417,6 +418,7 @@ def render_page(project, lang, ui):
     </main>
 
     <script src="{base}app.js" defer></script>
+    <script src="{base}lightbox.js" defer></script>
     <script>
       (function () {{
         var els = document.querySelectorAll(".rv");

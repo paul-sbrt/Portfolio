@@ -1,82 +1,63 @@
+/* Lightbox — pages détail (DA). Auto-init : toute image .dt-img (cover, galerie,
+   visuel démarche) devient cliquable → s'ouvre en plein écran sur fond assombri.
+   Clic hors image, croix ou Échap → ferme. Fail-safe : ne fait rien s'il n'y a pas
+   d'images réelles (placeholders duotone non cliquables). */
 (function () {
-  function initLightbox(config) {
-    if (!config) return;
-    const shots = document.querySelectorAll(config.shotSelector);
-    const lightbox = document.getElementById(config.lightboxId);
-    const lightboxImg = document.getElementById(config.lightboxImgId);
-    const captionEl = config.captionId
-      ? document.getElementById(config.captionId)
-      : null;
-    const closeBtn = config.closeBtnId
-      ? document.getElementById(config.closeBtnId)
-      : null;
+  function init() {
+    var root = document.querySelector("[data-detail]");
+    if (!root) return;
+    var imgs = document.querySelectorAll("[data-detail] .dt-img");
+    if (!imgs.length) return;
 
-    if (!shots.length || !lightbox || !lightboxImg) return;
+    var lb = document.createElement("div");
+    lb.className = "dt-lb";
+    lb.setAttribute("aria-hidden", "true");
+    lb.innerHTML =
+      '<button class="dt-lb-close" type="button" aria-label="Fermer">✕</button>' +
+      '<figure class="dt-lb-fig"><img alt="" /><figcaption></figcaption></figure>';
+    document.body.appendChild(lb);
 
-    const toggleBodyScroll = (enable) => {
-      if (!config.bodyClass) return;
-      document.body.classList.toggle(config.bodyClass, enable);
-    };
+    var lbImg = lb.querySelector("img");
+    var lbCap = lb.querySelector("figcaption");
+    var closeBtn = lb.querySelector(".dt-lb-close");
+    var lastFocus = null;
 
-    const setCaption = (text) => {
-      if (!captionEl) return;
-      captionEl.textContent = text || "";
-      captionEl.style.display = text ? "block" : "none";
-    };
+    function open(src, alt) {
+      if (!src) return;
+      lastFocus = document.activeElement;
+      lbImg.src = src;
+      lbImg.alt = alt || "";
+      lbCap.textContent = alt || "";
+      lbCap.style.display = alt ? "" : "none";
+      lb.classList.add("open");
+      lb.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      closeBtn.focus();
+    }
+    function close() {
+      lb.classList.remove("open");
+      lb.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      window.setTimeout(function () { lbImg.src = ""; }, 300);
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
 
-    const openLightbox = (imgSrc, imgAlt, caption) => {
-      lightboxImg.src = imgSrc;
-      lightboxImg.alt = imgAlt || "";
-      setCaption(caption);
-      lightbox.classList.add("is-visible");
-      lightbox.setAttribute("aria-hidden", "false");
-      toggleBodyScroll(true);
-    };
-
-    const closeLightbox = () => {
-      lightbox.classList.remove("is-visible");
-      lightbox.setAttribute("aria-hidden", "true");
-      lightboxImg.src = "";
-      lightboxImg.alt = "";
-      setCaption("");
-      toggleBodyScroll(false);
-    };
-
-    shots.forEach((shot) => {
-      shot.addEventListener("click", () => {
-        const img = shot.querySelector("img");
-        if (!img) return;
-        const caption = shot.querySelector("figcaption");
-        openLightbox(
-          img.getAttribute("data-full") || img.src,
-          img.alt || "",
-          caption ? caption.textContent.trim() : ""
-        );
+    imgs.forEach(function (img) {
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", function () {
+        open(img.currentSrc || img.src, img.alt);
       });
     });
-
-    closeBtn && closeBtn.addEventListener("click", closeLightbox);
-    lightbox.addEventListener("click", (event) => {
-      if (event.target === lightbox) {
-        closeLightbox();
-      }
-    });
-    window.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && lightbox.classList.contains("is-visible")) {
-        closeLightbox();
-      }
+    closeBtn.addEventListener("click", close);
+    lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && lb.classList.contains("open")) close();
     });
   }
 
-  // Single generic config shared by every generated project detail page.
-  document.addEventListener("DOMContentLoaded", () => {
-    initLightbox({
-      shotSelector: ".detail-shot",
-      lightboxId: "detailLightbox",
-      lightboxImgId: "detailLightboxImg",
-      captionId: "detailLightboxCaption",
-      closeBtnId: "detailLightboxClose",
-      bodyClass: "detail-lightbox-open",
-    });
-  });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();

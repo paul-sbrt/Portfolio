@@ -19,6 +19,12 @@
 [data-detail] .dt-nav-shell{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
 [data-detail] .dt-nav-shell .header-sticky{display:flex;align-items:center;justify-content:space-between;padding:13px 0;position:static}
 
+/* bouton RETOUR en haut (sous le nav, intégré au hero) — mono, accent charte */
+[data-detail] .dt-topback{display:inline-flex;align-items:center;gap:9px;margin-top:28px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color .25s,gap .25s}
+[data-detail] .dt-topback i{color:var(--brand);transition:transform .3s}
+[data-detail] .dt-topback:hover{color:var(--text);gap:13px}
+[data-detail] .dt-topback:hover i{transform:translateX(-3px)}
+
 /* petits utilitaires typo */
 [data-detail] .dt-eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);display:flex;align-items:center;gap:14px;margin-bottom:22px}
 [data-detail] .dt-eyebrow::before{content:"";width:38px;height:2px;background:linear-gradient(90deg,var(--brand),var(--g2))}
@@ -35,7 +41,7 @@
 [data-detail] .dt-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 
 /* ===== HERO ===== */
-[data-detail] .dt-hero{padding:12vh 0 9vh}
+[data-detail] .dt-hero{padding:5vh 0 9vh}
 [data-detail] .dt-hero--app{display:grid;grid-template-columns:1.05fr .82fr;gap:56px;align-items:center}
 [data-detail] .dt-hero--web{padding-bottom:0}
 [data-detail] .dt-htext{max-width:60ch}
@@ -124,6 +130,19 @@
 [data-detail] .dt-back:hover{border-color:var(--brand);color:var(--brand)}
 [data-detail] footer{padding:36px var(--gut);border-top:1px solid var(--border);text-align:center;font-family:var(--mono);font-size:12px;color:var(--text-muted)}
 [data-detail] footer .dt-r{background:linear-gradient(90deg,var(--accent),var(--accent-ms));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ===== LIGHTBOX (DA) — construit par lightbox.js, appended au body[data-detail] ===== */
+[data-detail] .dt-lb{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:5vh 5vw;
+  background:color-mix(in srgb,var(--ink2) 90%,transparent);backdrop-filter:blur(6px);
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s ease,visibility .3s}
+[data-detail] .dt-lb.open{opacity:1;visibility:visible;pointer-events:auto}
+[data-detail] .dt-lb-fig{margin:0;max-width:min(1100px,94vw);display:flex;flex-direction:column;align-items:center;gap:14px;transform:scale(.96);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+[data-detail] .dt-lb.open .dt-lb-fig{transform:none}
+[data-detail] .dt-lb img{max-width:100%;max-height:80vh;object-fit:contain;border-radius:14px;border:1px solid color-mix(in srgb,var(--brand) 40%,var(--border));box-shadow:0 40px 90px -30px rgba(0,0,0,.8)}
+[data-detail] .dt-lb figcaption{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);text-align:center}
+[data-detail] .dt-lb-close{position:absolute;top:20px;right:24px;display:grid;place-items:center;width:42px;height:42px;font-family:var(--mono);font-size:15px;color:#fff;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:999px;cursor:pointer;transition:border-color .25s,color .25s,transform .25s}
+[data-detail] .dt-lb-close:hover{border-color:var(--brand);color:var(--brand);transform:rotate(90deg)}
+@media(prefers-reduced-motion:reduce){[data-detail] .dt-lb,[data-detail] .dt-lb-fig,[data-detail] .dt-lb-close{transition:none}}
 
 /* ===== motion — famille du site ===== */
 [data-detail] .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
