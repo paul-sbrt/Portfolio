@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Registre — Exp / Études / Certifs (composant unique, lignes de registre)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;900&family=JetBrains+Mono:wght@500;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#080808;--text:#fff;--muted:#9a949f;--accent:#ff004f;--gold:#f7c948;--border:rgba(255,255,255,.12);
+    --disp:"Archivo",sans-serif;--mono:"JetBrains Mono",monospace;--body:"Poppins",sans-serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .tag{position:fixed;top:12px;left:12px;z-index:30;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);background:rgba(0,0,0,.6);padding:7px 12px;border-radius:20px;max-width:94vw}
+  .wrap{max-width:1180px;margin:0 auto;padding:15vh 10% 22vh}
+  .kicker{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px;margin-bottom:34px}
+  .kicker::before{content:"";width:38px;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold))}
+
+  /* ---- Filet selector (comme le vrai site) ---- */
+  .rtabs{position:relative;display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(20px,4vw,44px);margin:0 0 40px}
+  .rtab{background:none;border:none;cursor:pointer;font-family:var(--mono);font-weight:600;font-size:15.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:2px 2px 16px;transition:color .3s ease}
+  .rtab:hover{color:var(--text)}.rtab.on{color:var(--text)}
+  .rtab:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+  .rind{position:absolute;top:0;left:0;width:0;height:2px;opacity:0;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--gold));
+    transition:transform .42s cubic-bezier(.2,.8,.2,1),width .42s cubic-bezier(.2,.8,.2,1),opacity .3s}
+
+  /* ================= COMPOSANT UNIQUE : ligne de registre ================= */
+  .reg{border-top:1px solid transparent}
+  .reg-item{position:relative;display:flex;align-items:flex-start;gap:24px;padding:26px 2px;
+    text-decoration:none;color:inherit;view-timeline-name:--reg;view-timeline-axis:block;outline:none;
+    opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+  .reg-item.in{opacity:1;transform:none}
+  .reg-item:not(:last-child)::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--border)}
+  .reg-item[tabindex],.reg-item.is-link{cursor:pointer}
+  .reg-item:focus-visible{outline:2px solid var(--accent);outline-offset:6px;border-radius:6px}
+
+  .reg-head{flex:1 1 auto;min-width:0}
+  .reg-titleline{display:flex;align-items:baseline;flex-wrap:wrap;gap:12px}
+  .reg-tag{font-family:var(--mono);font-weight:600;font-size:11.5px;letter-spacing:.1em;
+    background:linear-gradient(90deg,var(--accent),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .reg-title{font-family:var(--disp);font-weight:700;font-size:clamp(19px,2.5vw,28px);line-height:1.08;letter-spacing:-.01em;color:var(--text);
+    transition:transform .5s;will-change:transform}
+  .reg-meta{margin-top:8px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+  .reg-cue{margin-left:10px;color:var(--accent);opacity:.7;transition:opacity .3s,transform .4s cubic-bezier(.2,.8,.2,1);display:inline-block}
+  .reg-item:hover .reg-cue,.reg-item:focus-visible .reg-cue,.reg-item.open .reg-cue{opacity:0;transform:translateY(-3px)}
+
+  /* dates-épine : mono tabulaire, alignées à droite */
+  .reg-side{flex:0 0 auto;display:flex;align-items:baseline;gap:12px;padding-top:5px}
+  .reg-dates{font-family:var(--mono);font-size:13px;letter-spacing:.03em;color:var(--muted);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .reg-arrow{font-family:var(--mono);font-size:15px;color:var(--accent);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+  .reg-item.is-link:hover .reg-arrow,.reg-item.is-link:focus-visible .reg-arrow{transform:translate(3px,-3px)}
+
+  /* détail révélé (identique famille ③) */
+  .reg-detail{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.2,.8,.2,1)}
+  .reg-item:hover .reg-detail,.reg-item:focus-visible .reg-detail,.reg-item.open .reg-detail{grid-template-rows:1fr}
+  .reg-detail-in{min-height:0;overflow:hidden}
+  .reg-drow{position:relative;display:flex;flex-wrap:wrap;gap:10px 22px;padding:14px 0 2px 18px;max-width:70ch}
+  .reg-drow::before{content:"";position:absolute;left:0;top:14px;bottom:2px;width:2px;border-radius:2px;
+    background:linear-gradient(180deg,var(--accent),var(--gold));transform:scaleY(0);transform-origin:top;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+  .reg-item:hover .reg-drow::before,.reg-item:focus-visible .reg-drow::before,.reg-item.open .reg-drow::before{transform:scaleY(1)}
+  .reg-ignite{font-family:var(--mono);font-size:13px;letter-spacing:.03em;line-height:1.7;
+    background:linear-gradient(100deg,var(--text) 0 38%,var(--accent) 44%,#fff2cf 50%,var(--gold) 56%,var(--text) 62% 100%);
+    background-size:300% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:var(--text);-webkit-text-fill-color:transparent;
+    transform:translateY(8px);transition:background-position 1.4s cubic-bezier(.33,0,.2,1),transform .55s cubic-bezier(.22,1,.36,1)}
+  .reg-item:hover .reg-ignite,.reg-item:focus-visible .reg-ignite,.reg-item.open .reg-ignite{background-position:0 0;transform:none}
+  .reg-ignite:nth-child(1){transition-delay:.06s}.reg-ignite:nth-child(2){transition-delay:.16s}
+  .reg-ignite:nth-child(3){transition-delay:.26s}.reg-ignite:nth-child(4){transition-delay:.36s}
+  .reg-ignite:nth-child(5){transition-delay:.46s}
+
+  /* scroll motion — même famille : drift du titre + peel de sortie */
+  @supports (animation-timeline: view()){@media (prefers-reduced-motion:no-preference){
+    .reg-title{animation:reg-drift linear both;animation-timeline:--reg;animation-range:cover 0% cover 100%}
+    .reg-item:nth-child(even) .reg-title{animation-name:reg-driftr}
+    @keyframes reg-drift{from{transform:translateX(-1vw)}to{transform:translateX(1vw)}}
+    @keyframes reg-driftr{from{transform:translateX(1vw)}to{transform:translateX(-1vw)}}
+    .reg-item{animation:reg-exit linear both;animation-timeline:view();animation-range:exit 0% exit 100%;animation-fill-mode:forwards;will-change:opacity,transform,filter}
+    .reg-item:nth-child(even){animation-name:reg-exit-r}
+    @keyframes reg-exit{to{opacity:0;transform:translate(-2vw,-18px);filter:blur(3px)}}
+    @keyframes reg-exit-r{to{opacity:0;transform:translate(2vw,-18px);filter:blur(3px)}}
+  }}
+  @media(max-width:600px){
+    .reg-item{gap:14px}.reg-title{font-size:clamp(18px,6vw,24px)}
+    .reg-dates{font-size:12px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reg-item{opacity:1;transform:none;transition:none}
+    .reg-detail{grid-template-rows:1fr}.reg-drow::before{transform:scaleY(1)}
+    .reg-ignite{background-position:0 0;transform:none;transition:none}.reg-cue{display:none}
+  }
+</style>
+</head>
+<body>
+  <span class="tag">Registre — 1 composant, 3 données · dates-épine à droite · survol/focus/tap = détail qui s'embrase (clique les onglets)</span>
+  <div class="wrap">
+    <p class="kicker">À propos — le registre</p>
+    <div class="rtabs" id="rtabs" role="tablist">
+      <span class="rind" id="rind" aria-hidden="true"></span>
+      <button class="rtab on" role="tab">Expérience</button>
+      <button class="rtab" role="tab">Études</button>
+      <button class="rtab" role="tab">Certifications</button>
+    </div>
+    <div class="reg" id="reg"></div>
+  </div>
+
+<script>
+  // Vraies données, déjà mappées vers le record commun {title, org, place, dates, detail?, detailList?, href?, tag?}
+  const DATA = {
+    exp: [
+      {title:"Lead SI", org:"IPMS", place:"Freelance", dates:"depuis avril 2026", detail:"Refonte de back-office, pilotage des tableaux de bord et gestion de projets."},
+      {title:"Développeur", org:"AVANADE FRANCE", place:"Paris", dates:"oct 2023 – sept 2025"},
+      {title:"Parcours restauration & jobs étudiants", org:"Tours / Vancouver", place:"", dates:"2019 – 2023"},
+    ],
+    etudes: [
+      {title:"CEFIM — CDA & DWWM", place:"Tours", dates:"2023 – 2025"},
+      {title:"Kaplan English School", place:"Vancouver", dates:"Fin 2022"},
+      {title:"CFA CAP cuisine", place:"Tours", dates:"2019 – 2020"},
+      {title:"Lycée Descartes — filière scientifique", place:"Tours", dates:"2016 – 2019"},
+    ],
+    certif: [
+      {title:"Microsoft Power Platform Fundamentals", org:"Microsoft", dates:"2025", tag:"PL-900",
+       detailList:["Power Apps","Power Automate","Power BI basics","Dataverse basics"],
+       href:"https://learn.microsoft.com/api/credentials/share/en-us/PaulSabourault-8053/95034692C7F11F51?sharingId=2EAFB87FFBC14C01"},
+    ],
+  };
+  const KEYS = ["exp","etudes","certif"];
+  const reg = document.getElementById("reg");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let io;
+
+  function esc(s){return String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
+
+  function rowHTML(r){
+    const meta=[r.org,r.place].filter(Boolean).join(" · ");
+    const hasDetail = r.detail || (r.detailList && r.detailList.length);
+    const tag = r.tag?`<span class="reg-tag">${esc(r.tag)}</span>`:"";
+    const cue = hasDetail?`<span class="reg-cue" aria-hidden="true">＋</span>`:"";
+    let detail="";
+    if(r.detailList) detail=`<div class="reg-detail"><div class="reg-detail-in"><div class="reg-drow">`+
+      r.detailList.map(s=>`<span class="reg-ignite">${esc(s)}</span>`).join("")+`</div></div></div>`;
+    else if(r.detail) detail=`<div class="reg-detail"><div class="reg-detail-in"><div class="reg-drow"><span class="reg-ignite">${esc(r.detail)}</span></div></div></div>`;
+    const arrow = r.href?`<span class="reg-arrow" aria-hidden="true">↗</span>`:"";
+    const head=`<div class="reg-head"><div class="reg-titleline">${tag}<span class="reg-title">${esc(r.title)}</span>${cue}</div>`+
+      (meta?`<div class="reg-meta">${esc(meta)}</div>`:"")+detail+`</div>`;
+    const side=`<div class="reg-side"><span class="reg-dates">${esc(r.dates)}</span>${arrow}</div>`;
+    return head+side;
+  }
+
+  function render(key){
+    reg.innerHTML="";
+    if(io)io.disconnect();
+    io = ("IntersectionObserver" in window)?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{threshold:.15}):null;
+    DATA[key].forEach((r,i)=>{
+      const hasDetail = r.detail || (r.detailList && r.detailList.length);
+      const el=document.createElement(r.href?"a":"div");
+      el.className="reg-item"+(r.href?" is-link":"");
+      el.style.transitionDelay=(0.04+i*0.06)+"s";
+      if(r.href){el.href=r.href;el.target="_blank";el.rel="noopener noreferrer";}
+      else if(hasDetail){el.tabIndex=0;el.setAttribute("role","button");el.setAttribute("aria-expanded","false");}
+      el.innerHTML=rowHTML(r);
+      reg.appendChild(el);
+      if(!r.href && hasDetail){
+        const t=()=>{const on=el.classList.toggle("open");el.setAttribute("aria-expanded",on?"true":"false");};
+        el.addEventListener("click",t);
+        el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();t();}});
+      }
+      if(reduce||!io)el.classList.add("in");else io.observe(el);
+    });
+  }
+
+  // filet tab switcher
+  const rtabs=[...document.querySelectorAll(".rtab")], rind=document.getElementById("rind");
+  let active=0;
+  function placeInd(){const t=rtabs[active];rind.style.width=t.offsetWidth+"px";rind.style.transform="translate("+t.offsetLeft+"px,"+(t.offsetTop+t.offsetHeight-2)+"px)";rind.style.opacity="1";}
+  function select(i){active=i;rtabs.forEach((t,k)=>t.classList.toggle("on",k===i));render(KEYS[i]);placeInd();}
+  rtabs.forEach((t,i)=>t.addEventListener("click",()=>select(i)));
+  select(0);
+  addEventListener("resize",placeInd);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(placeInd);
+</script>
+</body>
+</html>

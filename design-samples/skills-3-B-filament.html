@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Skills ③ — B premium « Filament » (montée en présence + souligné dégradé qui se dessine)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=JetBrains+Mono:wght@500;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#080808;--text:#fff;--muted:#ababab;--accent:#ff004f;--gold:#f7c948;
+    --border:rgba(255,255,255,.12);
+    --disp:"Archivo",sans-serif;--mono:"JetBrains Mono",monospace;--body:"Poppins",sans-serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .tag{position:fixed;top:12px;left:12px;z-index:30;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);background:rgba(0,0,0,.6);padding:7px 12px;border-radius:20px;max-width:94vw}
+  .wrap{max-width:1180px;margin:0 auto;padding:15vh 10% 24vh}
+  .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px;margin-bottom:20px}
+  .eyebrow::before{content:"";width:38px;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold))}
+  h2{font-family:var(--disp);font-weight:900;font-size:clamp(28px,4vw,46px);letter-spacing:-.02em;margin-bottom:38px}
+
+  .bands{border-top:1px solid var(--border)}
+  .band{--c:var(--accent);padding:26px 0 26px;border-bottom:1px solid var(--border);view-timeline-name:--band;view-timeline-axis:block;
+    cursor:pointer;transition:opacity .45s;outline:none}
+  .band[data-hat="ms"]{--c:var(--gold)}
+  .band:focus-visible{outline:2px solid var(--c);outline-offset:6px;border-radius:6px}
+  .b-eyebrow{font-family:var(--mono);font-weight:600;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .b-eyebrow::before{content:"";width:26px;height:2px;background:linear-gradient(90deg,var(--c),var(--gold))}
+  .line{font-family:var(--disp);font-weight:900;font-size:clamp(26px,5.2vw,58px);line-height:1.02;letter-spacing:-.02em;display:flex;flex-wrap:wrap;gap:.35em;align-items:baseline;will-change:transform}
+  .line .anchor{background:linear-gradient(110deg,var(--c),var(--gold) 42%,#fff2cf 50%,var(--gold) 58%,var(--c));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+  .line .sep{color:var(--muted);font-weight:700;font-size:.5em;align-self:center}
+
+  /* ===== B premium — FILAMENT : fantômes = petite typo mono sur un rail discret ;
+          au réveil ils montent en présence (rise + brighten) et un souligné rose->or
+          se DESSINE sous chacun, en cascade. ===== */
+  .ghosts{margin-top:20px;display:flex;flex-wrap:wrap;align-items:baseline;gap:14px 24px}
+  .g{position:relative;font-family:var(--mono);font-weight:500;font-size:13.5px;letter-spacing:.06em;
+     color:rgba(255,255,255,.40);padding-bottom:7px;transform:translateY(3px);
+     transition:color .5s cubic-bezier(.2,.8,.2,1),letter-spacing .5s cubic-bezier(.2,.8,.2,1),transform .55s cubic-bezier(.22,1,.36,1)}
+  /* resting rail — a faint baseline under each (elegant, not a pill) */
+  .g::before{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:rgba(255,255,255,.12)}
+  /* drawn gradient underline that grows on lit */
+  .g::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;transform:scaleX(0);transform-origin:left;
+     background:linear-gradient(90deg,var(--c),var(--gold));transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+  .band:hover .g,.band:focus-visible .g,.band.lit .g{color:#fff;letter-spacing:.09em;transform:none}
+  .band:hover .g::after,.band:focus-visible .g::after,.band.lit .g::after{transform:scaleX(1)}
+  /* elegant left->right cascade */
+  .g:nth-child(1){transition-delay:.00s}.g:nth-child(1)::after{transition-delay:.02s}
+  .g:nth-child(2){transition-delay:.06s}.g:nth-child(2)::after{transition-delay:.08s}
+  .g:nth-child(3){transition-delay:.12s}.g:nth-child(3)::after{transition-delay:.14s}
+  .g:nth-child(4){transition-delay:.18s}.g:nth-child(4)::after{transition-delay:.20s}
+  .g:nth-child(5){transition-delay:.24s}.g:nth-child(5)::after{transition-delay:.26s}
+  .g:nth-child(6){transition-delay:.30s}.g:nth-child(6)::after{transition-delay:.32s}
+  .g:nth-child(7){transition-delay:.36s}.g:nth-child(7)::after{transition-delay:.38s}
+  .g:nth-child(8){transition-delay:.42s}.g:nth-child(8)::after{transition-delay:.44s}
+  .hint{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--muted);opacity:.45;align-self:center;transition:opacity .4s}
+  .band:hover .hint,.band:focus-visible .hint,.band.lit .hint{opacity:0}
+
+  @supports (animation-timeline: view()){@media (prefers-reduced-motion:no-preference){
+    .line{animation:drift linear both;animation-timeline:--band;animation-range:cover 0% cover 100%}
+    .band:nth-child(even) .line{animation-name:driftr}
+    @keyframes drift{from{transform:translateX(-2vw)}to{transform:translateX(2vw)}}
+    @keyframes driftr{from{transform:translateX(2vw)}to{transform:translateX(-2vw)}}
+    .line .anchor{animation:sweep linear both;animation-timeline:--band;animation-range:entry 20% cover 60%}
+    @keyframes sweep{from{background-position:160% 0}to{background-position:-60% 0}}
+  }}
+  .rv{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+  .rv.in{opacity:1;transform:none}
+  @media(max-width:820px){.line{font-size:clamp(22px,7vw,30px)}.ghosts{gap:12px 18px}}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}
+    .g{color:rgba(255,255,255,.7);transform:none;transition:none}.g::after{transform:scaleX(1);transition:none}}
+</style>
+</head>
+<body>
+  <span class="tag">③-B « Filament » — montée en présence + souligné rose→or qui se dessine sous chaque mot, en cascade (survol / focus / tap)</span>
+  <div class="wrap">
+    <p class="eyebrow">Compétences — sur la ligne</p>
+    <h2>B premium · filament.</h2>
+    <div class="bands" id="bands"></div>
+  </div>
+<script>
+  const DATA=[
+    {name:"Mobile",hat:null,featured:["Flutter","Swift"],detail:["Dart","Firebase"]},
+    {name:"Web",hat:null,featured:["Laravel","Next.js","React"],detail:["Symfony","WordPress","HTML/CSS","JavaScript","PHP","SQL","Cloudflare Workers"]},
+    {name:"IA",hat:null,featured:["Claude","Whisper"],detail:["Python"]},
+    {name:"Microsoft & Power Platform",hat:"ms",featured:["Power Apps","Power BI"],detail:["Power Automate","SharePoint","Excel","Azure DevOps"]},
+    {name:"Design & Outils",hat:null,featured:["Figma","Photoshop"],detail:[]},
+  ];
+  const bands=document.getElementById("bands");
+  DATA.forEach(g=>{
+    const el=document.createElement("div");el.className="band rv";if(g.hat)el.dataset.hat=g.hat;
+    if(g.detail.length){el.tabIndex=0;el.setAttribute("role","button");el.setAttribute("aria-pressed","false");el.setAttribute("aria-label",g.name+" — révéler le détail");}
+    const line=g.featured.map((s,i)=>`<span class="sk ${i===0?'anchor':''}">${s}</span>`).join('<span class="sep">/</span>');
+    const ghosts=g.detail.map(s=>`<span class="g">${s}</span>`).join("");
+    const hint=g.detail.length?`<span class="hint">+${g.detail.length}</span>`:"";
+    el.innerHTML=`<div class="b-eyebrow">${g.name}</div><div class="line">${line}</div><div class="ghosts">${ghosts}${hint}</div>`;
+    bands.appendChild(el);
+    if(g.detail.length){const t=()=>{const on=el.classList.toggle("lit");el.setAttribute("aria-pressed",on);};
+      el.addEventListener("click",t);el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();t();}});}
+  });
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{threshold:.2});
+  document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hero — scroll option S2 (fondu + léger zoom/flou)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@900&family=JetBrains+Mono:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#09070a;--text:#fafafa;--muted:#8f8994;--accent:#ff004f;--gold:#f7c948;
+    --disp:"Archivo",sans-serif;--mono:"JetBrains Mono",monospace;--body:"Poppins",sans-serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--body)}
+  .header{position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center}
+  .header::before{content:"";position:absolute;z-index:0;aspect-ratio:1;width:min(56vw,700px);right:-6vw;top:-8vw;border-radius:50%;filter:blur(64px);background:radial-gradient(circle,rgba(255,0,79,.11),transparent 68%);animation:glow 24s ease-in-out infinite alternate}
+  @keyframes glow{from{transform:translate3d(0,0,0) scale(1);opacity:.6}to{transform:translate3d(-5%,6%,0) scale(1.14);opacity:1}}
+  .copy{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:6vh clamp(24px,6vw,80px);width:100%}
+  .tag{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px;margin-bottom:28px}
+  .eyebrow::before{content:"";width:40px;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold))}
+  h1{font-family:var(--disp);font-weight:900;font-size:clamp(44px,7vw,88px);line-height:1;letter-spacing:-.03em;max-width:15ch}
+  h1 span{background:linear-gradient(120deg,var(--accent),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{margin-top:30px;max-width:50ch;color:#cfc9d3;font-size:18px;line-height:1.65;font-weight:300}
+  .below{min-height:120vh;padding:14vh clamp(24px,6vw,80px);border-top:1px solid rgba(255,255,255,.08)}
+  .below h2{font-family:var(--disp);font-weight:900;font-size:40px;color:var(--muted)}
+  /* S2 — dissolve : fondu + léger zoom arrière + flou léger au scroll */
+  @media (prefers-reduced-motion: no-preference){
+    @supports (animation-timeline: scroll()){
+      .copy{animation:s2 linear both;animation-timeline:scroll(root);animation-range:0 82vh;will-change:transform,opacity,filter}
+      @keyframes s2{to{opacity:.05;transform:scale(.93) translateY(26px);filter:blur(6px)}}
+    }
+  }
+</style>
+</head>
+<body>
+  <header class="header">
+    <div class="copy">
+      <p class="tag">Scroll S2 — fondu + léger zoom arrière + flou (descends lentement)</p>
+      <p class="eyebrow">Builder — mobile · web · IA · Microsoft</p>
+      <h1>J'aime construire, penser, donner vie à mes <span>idées.</span></h1>
+      <p class="sub">Développeur — solo comme en entreprise. Je conçois, je code, j'apprends, et j'utilise l'IA pour aller plus loin.</p>
+    </div>
+  </header>
+  <section class="below"><h2>Section suivante — le hero s'est dissous en douceur au-dessus.</h2></section>
+</body>
+</html>

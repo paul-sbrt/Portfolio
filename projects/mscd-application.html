@@ -3,14 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <script>
-      // Set theme before paint to avoid flash of incorrect theme.
       (function () {
         try {
           var t = localStorage.getItem("theme");
-          if (!t)
-            t = matchMedia("(prefers-color-scheme: light)").matches
-              ? "light"
-              : "dark";
+          if (!t) t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
           document.documentElement.setAttribute("data-theme", t);
         } catch (e) {}
       })();
@@ -18,7 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MSCD — Internal Contract &amp; Quality Management Application — Paul Sabourault</title>
     <meta name="description" content="Application interne construite pendant mon passage chez Avanade pour suivre les contrats signés de bout en bout. La solution couvrait l&#x27;ensemble des process et étapes de validation nécessaires à un suivi cohérent et à une gestion de la qualité dans la durée." />
-    <!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
     <link rel="canonical" href="https://YOUR-DOMAIN.com/projects/mscd-application.html" />
     <link rel="alternate" hreflang="fr" href="https://YOUR-DOMAIN.com/projects/mscd-application.html" />
     <link rel="alternate" hreflang="en" href="https://YOUR-DOMAIN.com/en/projects/mscd-application.html" />
@@ -32,22 +27,20 @@
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=JetBrains+Mono:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="../microsoft.css" />
+    <link rel="stylesheet" href="../detail.css" />
     <script src="https://kit.fontawesome.com/5d10eb0d43.js" defer crossorigin="anonymous"></script>
     <script src="../theme.js" defer></script>
     <script src="../i18n.js" defer></script>
   </head>
 
-  <body data-hat="Microsoft" data-detail data-i18n-base="../" data-alt-en="../en/projects/mscd-application.html">
-    <div class="ms-nav-shell">
+  <body data-detail data-i18n-base="../" data-alt-en="../en/projects/mscd-application.html" style="--brand:#f7c948;--brand2:#f7c948;--g2:#f7c948;">
+    <div class="dt-nav-shell">
       <div class="container">
         <div class="header-sticky">
           <div class="nom">
-            <a href="../index.html#header"
-              ><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a
-            >
+            <a href="../index.html#header"><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a>
           </div>
           <nav>
             <ul id="sidemenu">
@@ -70,14 +63,10 @@
                 </mask>
                 <circle class="theme-orb" cx="12" cy="12" r="6" fill="currentColor" mask="url(#theme-moon-mask)" />
                 <g class="theme-rays" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-                  <line x1="12" y1="1.6" x2="12" y2="4" />
-                  <line x1="12" y1="20" x2="12" y2="22.4" />
-                  <line x1="1.6" y1="12" x2="4" y2="12" />
-                  <line x1="20" y1="12" x2="22.4" y2="12" />
-                  <line x1="4.4" y1="4.4" x2="6.1" y2="6.1" />
-                  <line x1="17.9" y1="17.9" x2="19.6" y2="19.6" />
-                  <line x1="19.6" y1="4.4" x2="17.9" y2="6.1" />
-                  <line x1="6.1" y1="17.9" x2="4.4" y2="19.6" />
+                  <line x1="12" y1="1.6" x2="12" y2="4" /><line x1="12" y1="20" x2="12" y2="22.4" />
+                  <line x1="1.6" y1="12" x2="4" y2="12" /><line x1="20" y1="12" x2="22.4" y2="12" />
+                  <line x1="4.4" y1="4.4" x2="6.1" y2="6.1" /><line x1="17.9" y1="17.9" x2="19.6" y2="19.6" />
+                  <line x1="19.6" y1="4.4" x2="17.9" y2="6.1" /><line x1="6.1" y1="17.9" x2="4.4" y2="19.6" />
                 </g>
               </svg>
             </button>
@@ -87,110 +76,57 @@
       </div>
     </div>
 
-    <main class="ms-report-shell detail-shell">
-      <header class="container ms-section ms-hero detail-hero--simple" id="detail-top">
-        <div class="ms-hero-copy">
-          <p class="ms-tagline">Cas interne</p>
-          <h1 class="sub-title">
-            <span class="ms-highlight">MSCD</span> application de gestion des contrats
-          </h1>
-          <p class="ms-lead">Une solution Power Apps déployée chez Avanade pour maîtriser chaque étape d&#x27;un contrat — de la prise en charge au suivi qualité. Cette page rassemble les écrans partagés avec les parties prenantes pour raconter l&#x27;application, tout en gardant les données client confidentielles.</p>
-          <p class="detail-status">Projet interne développé chez Avanade — accès en ligne plus disponible. Présenté via des captures pour raisons de confidentialité.</p>
-          <div class="ms-note-card">
-            <h3>Contexte du projet</h3>
-            <p>MSCD orchestre des flux SharePoint, Dataverse et Power Automate pour que les équipes de livraison tracent les validations, déclenchent des alertes et mettent à jour les KPI de direction sans changer d&#x27;outil. L&#x27;interface reprend le Microsoft Design System pour la familiarité et une adoption rapide.</p>
-          </div>
+    <main>
+    <header class="dt-hero dt-hero--web dt-wrap" id="detail-top">
+        <div class="dt-htext">
+          <p class="dt-eyebrow rv">Microsoft · 2023</p>
+          <h1 class="rv"><span class="dt-b">MSCD</span></h1>
+          <p class="dt-sub rv">application de gestion des contrats</p>
+          <p class="dt-lead rv">Une solution Power Apps déployée chez Avanade pour maîtriser chaque étape d&#x27;un contrat — de la prise en charge au suivi qualité. Cette page rassemble les écrans partagés avec les parties prenantes pour raconter l&#x27;application, tout en gardant les données client confidentielles.</p>
+          
+        </div>
+        <div class="dt-browser rv">
+          <div class="dt-browser-bar"><i></i><i></i><i></i><span class="dt-url">MSCD — Internal Contract &amp; Quality Management Application</span></div>
+          <div class="dt-browser-shot"><img class="dt-img" src="../images/power-app-removebg-preview.webp" alt="MSCD — Internal Contract &amp; Quality Management Application" loading="lazy" /><span class="dt-cap">MSCD — Internal Contract &amp; Quality Management Application</span></div>
         </div>
       </header>
 
-      <section class="container ms-section" id="detail-outcomes">
-        <h2 class="sub-title">Points clés</h2>
-        <div class="ms-panel">
-          <ul class="ms-impact">
-            <li>Suivi centralisé des contrats, de la signature à la livraison</li>
-            <li>Process et étapes de validation standardisés entre les équipes</li>
-            <li>Meilleure visibilité et traçabilité pour la gestion de la qualité</li>
-            <li>Suivi manuel réduit grâce à des workflows automatisés</li>
-          </ul>
-        </div>
-      </section>
+    <section class="dt-band">
+      <div class="dt-wm" aria-hidden="true">M</div>
+      <div class="dt-wrap"><p class="dt-k rv">L&#x27;idée</p><h2 class="rv">Cas interne</h2></div>
+    </section>
 
-      <section class="container ms-section" id="detail-gallery">
-        <h2 class="sub-title">Galerie de l&#x27;application</h2>
-        <p class="ms-lead ms-lead--compact">Sept captures couvrant les métriques d&#x27;ensemble, le pipeline de validation, les journaux d&#x27;automatisation et les états responsives mobile.</p>
 
-        <div class="ms-panel">
-          <div class="detail-gallery">
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../images/msdc1.webp" alt="MSCD overview dashboard" loading="lazy" data-full="../images/msdc1.webp" />
-              </div>
-              <figcaption>Vue d&#x27;ensemble — KPI globaux tirant les données qualité, livraison et SLA.</figcaption>
-            </figure>
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../images/msdc2.webp" alt="Approval queue" loading="lazy" data-full="../images/msdc2.webp" />
-              </div>
-              <figcaption>Validations — file d&#x27;attente priorisant les validations, avec minuteurs SLA et rappels.</figcaption>
-            </figure>
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../images/msdc3.webp" alt="Quality and automation KPIs" loading="lazy" data-full="../images/msdc3.webp" />
-              </div>
-              <figcaption>Qualité — KPI consolidés avec un flux en direct depuis Power Automate.</figcaption>
-            </figure>
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../images/msdc4.webp" alt="Delivery pipeline visualization" loading="lazy" data-full="../images/msdc4.webp" />
-              </div>
-              <figcaption>Pipeline — indicateurs de progression par étape mettant en évidence les goulots d&#x27;étranglement.</figcaption>
-            </figure>
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../images/msdc5.webp" alt="SLA heatmap" loading="lazy" data-full="../images/msdc5.webp" />
-              </div>
-              <figcaption>Heatmap SLA — mise en évidence des validations en retard par entité.</figcaption>
-            </figure>
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../images/msdc6.webp" alt="Process flow map" loading="lazy" data-full="../images/msdc6.webp" />
-              </div>
-              <figcaption>Process — le flux type, de la prise en charge au suivi de livraison.</figcaption>
-            </figure>
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../images/msdc7.webp" alt="Mobile layout and quick actions" loading="lazy" data-full="../images/msdc7.webp" />
-              </div>
-              <figcaption>Mobile — interface responsive avec des actions rapides pour les utilisateurs terrain.</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
 
-      <div class="detail-lightbox" id="detailLightbox" aria-hidden="true">
-        <button class="detail-lightbox-close" id="detailLightboxClose" aria-label="Fermer la galerie">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="detail-lightbox-media">
-          <img id="detailLightboxImg" src="" alt="" />
-          <p id="detailLightboxCaption"></p>
-        </div>
+    <div class="dt-wrap"><section class="dt-result">
+      <p class="dt-sec-eyebrow rv"><span class="dt-num">03</span> — Le résultat</p>
+      <div class="dt-features">
+        <div class="dt-feat rv"><b>Suivi centralisé des contrats, de la signature à la livraison</b></div>
+        <div class="dt-feat rv"><b>Process et étapes de validation standardisés entre les équipes</b></div>
+        <div class="dt-feat rv"><b>Meilleure visibilité et traçabilité pour la gestion de la qualité</b></div>
+        <div class="dt-feat rv"><b>Suivi manuel réduit grâce à des workflows automatisés</b></div>
       </div>
+    </section></div>
 
-      <section class="container ms-section">
-        <div class="ms-panel detail-cta">
-          <div>
-            <h2 class="sub-title">Envie de voir le modèle de données ?</h2>
-            <p class="ms-lead ms-lead--compact">Je peux présenter l&#x27;approche de gouvernance, les étapes d&#x27;automatisation et les patterns UX qui ont fait de MSCD un outil interne fiable.</p>
-          </div>
-          <div class="detail-cta-actions">
-            <a class="btn btn2" href="../index.html#contact">Réserver une démo</a>
-            <a class="btn detail-back-btn" href="../index.html#projects"
-              ><i class="fa-solid fa-arrow-left"></i> Retour aux projets</a
-            >
-          </div>
-        </div>
-      </section>
+    <section class="dt-statusband">
+      <div class="dt-wrap"><div class="dt-in rv"><span class="dt-lab">Où ça en est</span><p>Projet interne développé chez Avanade — accès en ligne plus disponible. Présenté via des captures pour raisons de confidentialité.</p></div></div>
+    </section>
+
+    <div class="dt-wrap"><section class="dt-gallery">
+      <p class="dt-sec-eyebrow rv">Galerie</p>
+      <div class="dt-gal rv">
+        <div class="dt-shot"><img class="dt-img" src="../images/msdc1.webp" alt="Vue d&#x27;ensemble — KPI globaux tirant les données qualité, livraison et SLA." loading="lazy" /><div class="dt-sweep"></div></div>
+        <div class="dt-shot"><img class="dt-img" src="../images/msdc2.webp" alt="Validations — file d&#x27;attente priorisant les validations, avec minuteurs SLA et rappels." loading="lazy" /><div class="dt-sweep"></div></div>
+        <div class="dt-shot"><img class="dt-img" src="../images/msdc3.webp" alt="Qualité — KPI consolidés avec un flux en direct depuis Power Automate." loading="lazy" /><div class="dt-sweep"></div></div>
+      </div>
+    </section></div>
+      <div class="dt-wrap">
+      <div class="dt-stack rv">
+        <span class="dt-lab">Construit avec</span>
+        <div class="dt-chips"><span class="dt-chip">Power Apps</span><span class="dt-chip">SharePoint</span><span class="dt-chip">Power Automate</span></div>
+      </div>
+        <div class="dt-end"><a class="dt-back" href="../index.html#projects"><i class="fa-solid fa-arrow-left"></i> Tous les projets</a></div>
+      </div>
 
       <footer>
         <p>Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
@@ -198,6 +134,19 @@
     </main>
 
     <script src="../app.js" defer></script>
-    <script src="../lightbox.js"></script>
+    <script>
+      (function () {
+        var els = document.querySelectorAll(".rv");
+        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce || !("IntersectionObserver" in window)) {
+          els.forEach(function (el) { el.classList.add("in"); }); return;
+        }
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+        }, { threshold: 0.14 });
+        els.forEach(function (el, i) { el.style.transitionDelay = ((i % 5) * 0.06).toFixed(2) + "s"; io.observe(el); });
+        setTimeout(function () { els.forEach(function (el) { var r = el.getBoundingClientRect(); if (r.top < (window.innerHeight || 0) && r.bottom > 0) el.classList.add("in"); }); }, 1800);
+      })();
+    </script>
   </body>
 </html>

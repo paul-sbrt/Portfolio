@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Direction A×B aéré — charte réelle par app</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#09070a; --surface:#100d12; --text:#fafafa; --muted:#8f8994;
+    --brand:#ff004f; --gold:#f7c948; --line:rgba(255,255,255,.08);
+    --disp:"Archivo",sans-serif; --mono:"JetBrains Mono",monospace; --body:"Poppins",sans-serif;
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 34px}
+  .mono{font-family:var(--mono)}
+
+  /* reveal (progressive on scroll) */
+  .rev{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+  .rev.in{opacity:1;transform:none}
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+  @media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none}}
+
+  /* ---------- top ---------- */
+  .top{position:sticky;top:0;z-index:50;background:rgba(9,7,10,.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .top .in{display:flex;justify-content:space-between;align-items:center;padding:18px 34px;max-width:var(--maxw);margin:0 auto}
+  .top .name{font-family:var(--disp);font-weight:900;font-size:18px}.top .name span{color:var(--brand)}
+  .top .avail{font-family:var(--mono);font-size:12px;color:var(--muted)}.top .avail b{color:var(--gold);font-weight:400}
+
+  /* ---------- hero (aéré : un message, beaucoup d'air) ---------- */
+  .hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:12vh 0 8vh}
+  .hero .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:34px;display:flex;gap:14px;align-items:center}
+  .hero .eyebrow::before{content:"";width:40px;height:2px;background:linear-gradient(90deg,var(--brand),var(--gold))}
+  .hero h1{font-family:var(--disp);font-weight:900;font-size:clamp(46px,7.4vw,104px);line-height:.98;letter-spacing:-.03em;max-width:15ch}
+  .hero h1 .accent{background:linear-gradient(120deg,var(--brand),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .sub{margin-top:38px;max-width:50ch;color:#cfc9d3;font-size:19px;line-height:1.65;font-weight:300}
+  .hero .cue{margin-top:64px;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.1em;display:flex;align-items:center;gap:10px}
+  .hero .cue .bar{width:1px;height:34px;background:linear-gradient(var(--brand),transparent);display:inline-block}
+
+  /* ---------- grid ---------- */
+  .section{padding:12vh 0}
+  .lead-label{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .lead-h{font-family:var(--disp);font-weight:900;font-size:clamp(28px,3.6vw,44px);letter-spacing:-.02em;margin-bottom:44px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .card{--c:var(--brand);position:relative;border-radius:20px;overflow:hidden;text-decoration:none;color:var(--text);border:1px solid var(--line);background:var(--surface);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+  .card .thumb{position:relative;aspect-ratio:16/9;overflow:hidden}
+  .card .thumb .m{position:absolute;inset:-14%;background:radial-gradient(60% 70% at 24% 22%,var(--c),transparent 62%),radial-gradient(56% 60% at 82% 84%,var(--c2,var(--gold)),transparent 58%),linear-gradient(150deg,#140810,#0d0a10);transition:transform .6s ease}
+  .card .thumb .cap{position:absolute;left:20px;bottom:16px;font-family:var(--disp);font-weight:900;font-size:34px;text-transform:uppercase;color:#0a0708;mix-blend-mode:screen}
+  .card .body{padding:20px 20px 22px;transition:background .35s}
+  .card .meta{font-family:var(--mono);font-size:11px;color:var(--muted);display:flex;gap:14px;letter-spacing:.05em}
+  .card .meta .hat{color:var(--c)}
+  .card h3{font-family:var(--disp);font-weight:700;font-size:22px;margin:10px 0 5px}
+  .card .stack{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .card .swatch{position:absolute;top:16px;right:16px;width:22px;height:22px;border-radius:50%;background:var(--c);box-shadow:0 0 0 3px rgba(0,0,0,.25)}
+  .card:hover{transform:translateY(-8px);box-shadow:0 26px 60px color-mix(in srgb,var(--c) 38%,transparent)}
+  .card:hover .body{background:var(--c)}
+  .card:hover h3,.card:hover .meta,.card:hover .meta .hat,.card:hover .stack{color:#0a0708}
+  .card:hover .thumb .m{transform:scale(1.07)}
+
+  /* ---------- DUMP detail preview : app charter within the constant frame ---------- */
+  .detail{
+    /* DUMP real charter (extracted from DesignSystemV3.swift) */
+    --accent:#E8A44A; --accent-2:#E07A5F; --warm-surface:#1a1512; --warm-line:rgba(232,164,74,.16);
+    background:radial-gradient(120% 80% at 50% -10%,rgba(232,164,74,.10),transparent 60%),var(--bg);
+    border-top:1px solid var(--line);padding:14vh 0}
+  .detail .frame-note{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:40px;display:flex;gap:12px;align-items:center}
+  .detail .frame-note b{color:var(--accent);font-weight:400}
+  .detail .d-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .detail .tagline{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+  .detail h2{font-family:var(--disp);font-weight:900;font-size:clamp(38px,5vw,66px);line-height:1;letter-spacing:-.025em}
+  .detail h2 .hl{color:var(--accent)}
+  .detail .lead{margin-top:26px;max-width:46ch;color:#d7d0c6;font-size:18px;line-height:1.65;font-weight:300}
+  .detail .status{margin-top:20px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .detail .actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+  .detail .btn{font-family:var(--body);font-size:14px;text-decoration:none;padding:13px 26px;border-radius:30px;transition:transform .2s,filter .2s}
+  .detail .btn.primary{background:var(--accent);color:#1a1208;font-weight:500}
+  .detail .btn.ghost{border:1px solid var(--warm-line);color:var(--accent)}
+  .detail .btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  /* warm duotone panel */
+  .detail .panel{position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;box-shadow:0 30px 80px rgba(232,164,74,.16)}
+  .detail .panel .m{position:absolute;inset:-12%;background:radial-gradient(58% 58% at 24% 20%,var(--accent),transparent 62%),radial-gradient(56% 56% at 82% 84%,var(--accent-2),transparent 58%),linear-gradient(150deg,#241a12,#160f0b);filter:saturate(1.05);animation:drift 16s ease-in-out infinite alternate}
+  .detail .panel .lbl{position:absolute;left:22px;bottom:20px;font-family:var(--disp);font-weight:900;font-size:40px;text-transform:uppercase;color:#160f0b;mix-blend-mode:screen}
+  @keyframes drift{to{transform:scale(1.1) translate(-2%,-2%)}}
+  .detail .outcomes{margin-top:9vh;max-width:760px}
+  .detail .outcomes h3{font-family:var(--disp);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:24px}
+  .detail .outcomes li{list-style:none;display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--warm-line);color:#e6ddd2;font-size:17px}
+  .detail .outcomes li::before{content:"";flex:0 0 auto;width:8px;height:8px;margin-top:9px;border-radius:50%;background:var(--accent)}
+  @media(prefers-reduced-motion:reduce){.detail .panel .m{animation:none}}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}.detail .d-hero{grid-template-columns:1fr;gap:30px}.detail .panel{max-width:340px}}
+</style>
+</head>
+<body>
+  <div class="top"><div class="in"><div class="name">PAUL<span>.</span>SABOURAULT</div><div class="avail">● <b>en recherche d'une alternance</b></div></div></div>
+
+  <div class="wrap">
+    <!-- HERO : aéré, un seul message -->
+    <section class="hero">
+      <p class="eyebrow rev in">Builder — mobile · web · IA · Microsoft</p>
+      <h1 class="rev in d1">J'aime construire, penser,<br>donner vie à mes <span class="accent">idées.</span></h1>
+      <p class="sub rev in d2">Je conçois, je code, je déploie — solo comme en entreprise. Et j'utilise l'IA pour aller plus loin.</p>
+      <p class="cue rev in d3"><span class="bar"></span> Défile — chaque projet, sa couleur</p>
+    </section>
+
+    <!-- GRID -->
+    <section class="section">
+      <p class="lead-label rev">01 — Réalisations</p>
+      <h2 class="lead-h rev d1">Projets vedette</h2>
+      <div class="grid">
+        <a class="card rev" style="--c:#E8A44A;--c2:#E07A5F" href="#detail"><span class="swatch"></span><div class="thumb"><div class="m"></div><span class="cap">DUMP</span></div><div class="body"><div class="meta"><span>N°01</span><span class="hat">App · IA</span></div><h3>DUMP</h3><div class="stack">Swift · Claude · Whisper — charte ambre</div></div></a>
+        <a class="card rev d1" style="--c:#FF4F00;--c2:#39D2C0" href="#"><span class="swatch"></span><div class="thumb"><div class="m"></div><span class="cap">STOW</span></div><div class="body"><div class="meta"><span>N°02</span><span class="hat">App</span></div><h3>STOW</h3><div class="stack">Flutter · Firebase — orange/teal</div></div></a>
+        <a class="card rev" style="--c:#E8A93F;--c2:#c0392b" href="#"><span class="swatch"></span><div class="thumb"><div class="m"></div><span class="cap">EXTRA</span></div><div class="body"><div class="meta"><span>N°03</span><span class="hat">Web</span></div><h3>EXTRALIMO</h3><div class="stack">Laravel · MySQL — or/brique</div></div></a>
+        <a class="card rev d1" style="--c:#f7c948;--c2:#E8A93F" href="#"><span class="swatch"></span><div class="thumb"><div class="m"></div><span class="cap">TICKET</span></div><div class="body"><div class="meta"><span>N°04</span><span class="hat">Microsoft</span></div><h3>Ticketing IT</h3><div class="stack">Power Platform — or Microsoft</div></div></a>
+      </div>
+    </section>
+  </div>
+
+  <!-- DETAIL PREVIEW : DUMP à sa charte, dans le cadre constant -->
+  <section class="detail" id="detail">
+    <div class="wrap">
+      <p class="frame-note rev"><span>Page détail — cadre portfolio constant,</span> <b>ambiance = charte de l'app (DUMP · ambre #E8A44A)</b></p>
+      <div class="d-hero">
+        <div>
+          <p class="tagline rev">Second cerveau augmenté par l'IA</p>
+          <h2 class="rev d1"><span class="hl">DUMP</span><br>second cerveau iOS</h2>
+          <p class="lead rev d2">On capture une idée en vrac — texte ou voix — et l'IA la trie automatiquement en catégories et niveaux d'urgence. Construit d'abord pour moi.</p>
+          <p class="status rev d2">● Sur TestFlight (build 2) · 503 commits · design system v2</p>
+          <div class="actions rev d3">
+            <a class="btn primary" href="#">Voir les points clés</a>
+            <a class="btn ghost" href="#">TestFlight</a>
+          </div>
+        </div>
+        <div class="panel rev d2"><div class="m"></div><span class="lbl">DUMP</span></div>
+      </div>
+      <div class="outcomes rev">
+        <h3>Points clés</h3>
+        <ul>
+          <li>Capture texte + voix, transcription des vocaux via Whisper</li>
+          <li>Classification automatique par Claude (ACTION / INFO / IDÉE / VRAC)</li>
+          <li>Suggestions de connexions entre notes, extraction d'entités anonymisées</li>
+          <li>Modèle freemium — 25 classifications IA/semaine, illimité en premium</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Progressive reveal on scroll (richness via timing, not clutter)
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.rev:not(.in)').forEach(function(el){io.observe(el)});
+  </script>
+</body>
+</html>

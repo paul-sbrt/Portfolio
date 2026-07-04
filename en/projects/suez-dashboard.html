@@ -3,14 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <script>
-      // Set theme before paint to avoid flash of incorrect theme.
       (function () {
         try {
           var t = localStorage.getItem("theme");
-          if (!t)
-            t = matchMedia("(prefers-color-scheme: light)").matches
-              ? "light"
-              : "dark";
+          if (!t) t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
           document.documentElement.setAttribute("data-theme", t);
         } catch (e) {}
       })();
@@ -18,7 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SUEZ — Power BI Certification Progress Dashboard — Paul Sabourault</title>
     <meta name="description" content="Power BI dashboard built for a SUEZ project to help stakeholders track certification progress across teams and support decision-making." />
-    <!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
     <link rel="canonical" href="https://YOUR-DOMAIN.com/en/projects/suez-dashboard.html" />
     <link rel="alternate" hreflang="fr" href="https://YOUR-DOMAIN.com/projects/suez-dashboard.html" />
     <link rel="alternate" hreflang="en" href="https://YOUR-DOMAIN.com/en/projects/suez-dashboard.html" />
@@ -32,22 +27,20 @@
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=JetBrains+Mono:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../../style.css" />
-    <link rel="stylesheet" href="../../microsoft.css" />
+    <link rel="stylesheet" href="../../detail.css" />
     <script src="https://kit.fontawesome.com/5d10eb0d43.js" defer crossorigin="anonymous"></script>
     <script src="../../theme.js" defer></script>
     <script src="../../i18n.js" defer></script>
   </head>
 
-  <body data-hat="Microsoft" data-detail data-i18n-base="../../" data-alt-fr="../../projects/suez-dashboard.html">
-    <div class="ms-nav-shell">
+  <body data-detail data-i18n-base="../../" data-alt-fr="../../projects/suez-dashboard.html" style="--brand:#f7c948;--brand2:#f7c948;--g2:#f7c948;">
+    <div class="dt-nav-shell">
       <div class="container">
         <div class="header-sticky">
           <div class="nom">
-            <a href="../../index.html#header"
-              ><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a
-            >
+            <a href="../../index.html#header"><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a>
           </div>
           <nav>
             <ul id="sidemenu">
@@ -70,14 +63,10 @@
                 </mask>
                 <circle class="theme-orb" cx="12" cy="12" r="6" fill="currentColor" mask="url(#theme-moon-mask)" />
                 <g class="theme-rays" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-                  <line x1="12" y1="1.6" x2="12" y2="4" />
-                  <line x1="12" y1="20" x2="12" y2="22.4" />
-                  <line x1="1.6" y1="12" x2="4" y2="12" />
-                  <line x1="20" y1="12" x2="22.4" y2="12" />
-                  <line x1="4.4" y1="4.4" x2="6.1" y2="6.1" />
-                  <line x1="17.9" y1="17.9" x2="19.6" y2="19.6" />
-                  <line x1="19.6" y1="4.4" x2="17.9" y2="6.1" />
-                  <line x1="6.1" y1="17.9" x2="4.4" y2="19.6" />
+                  <line x1="12" y1="1.6" x2="12" y2="4" /><line x1="12" y1="20" x2="12" y2="22.4" />
+                  <line x1="1.6" y1="12" x2="4" y2="12" /><line x1="20" y1="12" x2="22.4" y2="12" />
+                  <line x1="4.4" y1="4.4" x2="6.1" y2="6.1" /><line x1="17.9" y1="17.9" x2="19.6" y2="19.6" />
+                  <line x1="19.6" y1="4.4" x2="17.9" y2="6.1" /><line x1="6.1" y1="17.9" x2="4.4" y2="19.6" />
                 </g>
               </svg>
             </button>
@@ -87,91 +76,56 @@
       </div>
     </div>
 
-    <main class="ms-report-shell detail-shell">
-      <header class="container ms-section ms-hero detail-hero--simple" id="detail-top">
-        <div class="ms-hero-copy">
-          <p class="ms-tagline">Client case study</p>
-          <h1 class="sub-title">
-            <span class="ms-highlight">SUEZ</span> Certification Dashboard
-          </h1>
-          <p class="ms-lead">Dashboard created at Avanade for SUEZ to monitor Power Platform certifications across teams. This page highlights the key views used to track progress, spot gaps and prepare leadership reviews.</p>
-          <p class="detail-status">Internal project developed at Avanade — live access no longer available</p>
-          <div class="ms-note-card">
-            <h3>Project context</h3>
-            <p>The report blends Power BI, Power Query and DAX measures to expose KPIs in a modern Microsoft look-and-feel. It consolidates pipelines and training data so managers can act before deadlines.</p>
-          </div>
+    <main>
+    <header class="dt-hero dt-hero--web dt-wrap" id="detail-top">
+        <div class="dt-htext">
+          <p class="dt-eyebrow rv">Microsoft · 2023</p>
+          <h1 class="rv"><span class="dt-b">SUEZ</span></h1>
+          <p class="dt-sub rv">Certification Dashboard</p>
+          <p class="dt-lead rv">Dashboard created at Avanade for SUEZ to monitor Power Platform certifications across teams. This page highlights the key views used to track progress, spot gaps and prepare leadership reviews.</p>
+          
+        </div>
+        <div class="dt-browser rv">
+          <div class="dt-browser-bar"><i></i><i></i><i></i><span class="dt-url">SUEZ — Power BI Certification Progress Dashboard</span></div>
+          <div class="dt-browser-shot"><img class="dt-img" src="../../images/powerbi.webp" alt="SUEZ — Power BI Certification Progress Dashboard" loading="lazy" /><span class="dt-cap">SUEZ — Power BI Certification Progress Dashboard</span></div>
         </div>
       </header>
 
-      <section class="container ms-section" id="detail-outcomes">
-        <h2 class="sub-title">Key outcomes</h2>
-        <div class="ms-panel">
-          <ul class="ms-impact">
-            <li>Centralized certification progress tracking for multiple teams</li>
-            <li>Improved visibility for managers with clear KPIs and drill-down views</li>
-            <li>Reduced manual reporting by consolidating data into a single dashboard</li>
-          </ul>
-        </div>
-      </section>
+    <section class="dt-band">
+      <div class="dt-wm" aria-hidden="true">S</div>
+      <div class="dt-wrap"><p class="dt-k rv">The idea</p><h2 class="rv">Client case study</h2></div>
+    </section>
 
-      <section class="container ms-section" id="detail-gallery">
-        <h2 class="sub-title">Report gallery</h2>
-        <p class="ms-lead ms-lead--compact">Four snapshots covering the executive summary, certification details, completion timelines and mobile-ready canvas.</p>
 
-        <div class="ms-panel">
-          <div class="detail-gallery">
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../../images/screenshot-2025-10-01-210737.webp" alt="SUEZ overview page with KPIs" loading="lazy" data-full="../../images/screenshot-2025-10-01-210737.webp" />
-              </div>
-              <figcaption>Overview — global KPIs and segment filters.</figcaption>
-            </figure>
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../../images/screenshot-2025-10-01-210750.webp" alt="Team comparison view" loading="lazy" data-full="../../images/screenshot-2025-10-01-210750.webp" />
-              </div>
-              <figcaption>Teams — focus on completion rate by business unit.</figcaption>
-            </figure>
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../../images/screenshot-2025-10-01-210802.webp" alt="Certification breakdown cards" loading="lazy" data-full="../../images/screenshot-2025-10-01-210802.webp" />
-              </div>
-              <figcaption>Certifications — status cards filtered by product.</figcaption>
-            </figure>
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../../images/screenshot-2025-10-01-210814.webp" alt="Mobile responsive page" loading="lazy" data-full="../../images/screenshot-2025-10-01-210814.webp" />
-              </div>
-              <figcaption>Mobile — responsive view for managers on-the-go.</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
 
-      <div class="detail-lightbox" id="detailLightbox" aria-hidden="true">
-        <button class="detail-lightbox-close" id="detailLightboxClose" aria-label="Close gallery view">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="detail-lightbox-media">
-          <img id="detailLightboxImg" src="" alt="" />
-          <p id="detailLightboxCaption"></p>
-        </div>
+    <div class="dt-wrap"><section class="dt-result">
+      <p class="dt-sec-eyebrow rv"><span class="dt-num">03</span> — The result</p>
+      <div class="dt-features">
+        <div class="dt-feat rv"><b>Centralized certification progress tracking for multiple teams</b></div>
+        <div class="dt-feat rv"><b>Improved visibility for managers with clear KPIs and drill-down views</b></div>
+        <div class="dt-feat rv"><b>Reduced manual reporting by consolidating data into a single dashboard</b></div>
       </div>
+    </section></div>
 
-      <section class="container ms-section">
-        <div class="ms-panel detail-cta">
-          <div>
-            <h2 class="sub-title">Need a similar dashboard?</h2>
-            <p class="ms-lead ms-lead--compact">I can walk you through the data model, KPIs and UX choices that made this project successful, then adapt them to your context.</p>
-          </div>
-          <div class="detail-cta-actions">
-            <a class="btn btn2" href="../../index.html#contact">Book a walkthrough</a>
-            <a class="btn detail-back-btn" href="../../index.html#projects"
-              ><i class="fa-solid fa-arrow-left"></i> Back to all projects</a
-            >
-          </div>
-        </div>
-      </section>
+    <section class="dt-statusband">
+      <div class="dt-wrap"><div class="dt-in rv"><span class="dt-lab">Where it stands</span><p>Internal project developed at Avanade — live access no longer available</p></div></div>
+    </section>
+
+    <div class="dt-wrap"><section class="dt-gallery">
+      <p class="dt-sec-eyebrow rv">Gallery</p>
+      <div class="dt-gal rv">
+        <div class="dt-shot"><img class="dt-img" src="../../images/screenshot-2025-10-01-210737.webp" alt="Overview — global KPIs and segment filters." loading="lazy" /><div class="dt-sweep"></div></div>
+        <div class="dt-shot"><img class="dt-img" src="../../images/screenshot-2025-10-01-210750.webp" alt="Teams — focus on completion rate by business unit." loading="lazy" /><div class="dt-sweep"></div></div>
+        <div class="dt-shot"><img class="dt-img" src="../../images/screenshot-2025-10-01-210802.webp" alt="Certifications — status cards filtered by product." loading="lazy" /><div class="dt-sweep"></div></div>
+      </div>
+    </section></div>
+      <div class="dt-wrap">
+      <div class="dt-stack rv">
+        <span class="dt-lab">Built with</span>
+        <div class="dt-chips"><span class="dt-chip">Power BI</span><span class="dt-chip">Power Query</span><span class="dt-chip">DAX</span></div>
+      </div>
+        <div class="dt-end"><a class="dt-back" href="../../index.html#projects"><i class="fa-solid fa-arrow-left"></i> All projects</a></div>
+      </div>
 
       <footer>
         <p>Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
@@ -179,6 +133,19 @@
     </main>
 
     <script src="../../app.js" defer></script>
-    <script src="../../lightbox.js"></script>
+    <script>
+      (function () {
+        var els = document.querySelectorAll(".rv");
+        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce || !("IntersectionObserver" in window)) {
+          els.forEach(function (el) { el.classList.add("in"); }); return;
+        }
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+        }, { threshold: 0.14 });
+        els.forEach(function (el, i) { el.style.transitionDelay = ((i % 5) * 0.06).toFixed(2) + "s"; io.observe(el); });
+        setTimeout(function () { els.forEach(function (el) { var r = el.getBoundingClientRect(); if (r.top < (window.innerHeight || 0) && r.bottom > 0) el.classList.add("in"); }); }, 1800);
+      })();
+    </script>
   </body>
 </html>

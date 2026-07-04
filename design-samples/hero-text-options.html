@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hero — effet texte : T1 (reveal masqué) vs T2 (balayage lumineux)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@900&family=JetBrains+Mono:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#09070a;--text:#fafafa;--muted:#8f8994;--accent:#ff004f;--gold:#f7c948;
+    --disp:"Archivo",sans-serif;--mono:"JetBrains Mono",monospace;--body:"Poppins",sans-serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--body)}
+  .hero{position:relative;overflow:hidden;min-height:74vh;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.08)}
+  /* discreet single glow (the recalibrated background) */
+  .hero::before{content:"";position:absolute;z-index:0;aspect-ratio:1;width:min(56vw,700px);right:-6vw;top:-8vw;border-radius:50%;filter:blur(64px);background:radial-gradient(circle,rgba(255,0,79,.11),transparent 68%);animation:glow 24s ease-in-out infinite alternate}
+  @keyframes glow{from{transform:translate3d(0,0,0) scale(1);opacity:.6}to{transform:translate3d(-5%,6%,0) scale(1.14);opacity:1}}
+  .copy{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:6vh clamp(24px,6vw,80px);width:100%}
+  .tag{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px;margin-bottom:28px}
+  .eyebrow::before{content:"";width:40px;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold))}
+  h1{font-family:var(--disp);font-weight:900;font-size:clamp(44px,7vw,88px);line-height:1;letter-spacing:-.03em;max-width:15ch}
+  .sub{margin-top:30px;max-width:50ch;color:#cfc9d3;font-size:18px;line-height:1.65;font-weight:300}
+  .again{position:absolute;z-index:2;bottom:16px;right:20px;font-family:var(--mono);font-size:11px;color:var(--muted);cursor:pointer;border:1px solid rgba(255,255,255,.15);padding:6px 12px;border-radius:20px;background:none}
+
+  /* ============ T1 — reveal masqué (le titre "monte" derrière un masque) ============ */
+  .t1 .mask{overflow:hidden;padding-bottom:.08em}
+  .t1 h1{transform:translateY(112%);animation:t1 .95s .15s cubic-bezier(.19,1,.22,1) forwards}
+  @keyframes t1{to{transform:translateY(0)}}
+  .t1 .accent{background:linear-gradient(120deg,var(--accent),var(--gold),var(--accent));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 6s ease-in-out infinite alternate}
+  @keyframes flow{to{background-position:100% 0}}
+  .t1 .eyebrow,.t1 .sub{opacity:0;transform:translateY(16px);animation:rise .8s cubic-bezier(.2,.8,.2,1) forwards}
+  .t1 .eyebrow{animation-delay:.05s}.t1 .sub{animation-delay:.5s}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* ============ T2 — balayage lumineux périodique sur "idées" ============ */
+  .t2 h1,.t2 .eyebrow,.t2 .sub{opacity:0;transform:translateY(16px);animation:rise .8s cubic-bezier(.2,.8,.2,1) forwards}
+  .t2 h1{animation-delay:.12s}.t2 .sub{animation-delay:.34s}
+  .t2 .accent{background:linear-gradient(110deg,var(--accent) 0%,var(--gold) 38%,#fff2cf 50%,var(--gold) 62%,var(--accent) 100%);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sweep 4.5s cubic-bezier(.6,0,.4,1) infinite}
+  @keyframes sweep{0%,15%{background-position:160% 0}85%,100%{background-position:-60% 0}}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important;transform:none!important}.t1 h1{transform:none}}
+</style>
+</head>
+<body>
+  <!-- T1 -->
+  <section class="hero t1" id="t1">
+    <div class="copy">
+      <p class="tag">Option T1 — reveal masqué (le titre monte) + dégradé qui vit</p>
+      <p class="eyebrow">Builder — mobile · web · IA · Microsoft</p>
+      <div class="mask"><h1>J'aime construire, penser, donner vie à mes <span class="accent">idées.</span></h1></div>
+      <p class="sub">Développeur — solo comme en entreprise. Je conçois, je code, j'apprends, et j'utilise l'IA pour aller plus loin.</p>
+    </div>
+    <button class="again" onclick="location.reload()">↻ rejouer</button>
+  </section>
+
+  <!-- T2 -->
+  <section class="hero t2" id="t2" style="border-bottom:0">
+    <div class="copy">
+      <p class="tag">Option T2 — balayage lumineux périodique sur « idées »</p>
+      <p class="eyebrow">Builder — mobile · web · IA · Microsoft</p>
+      <h1>J'aime construire, penser, donner vie à mes <span class="accent">idées.</span></h1>
+      <p class="sub">Développeur — solo comme en entreprise. Je conçois, je code, j'apprends, et j'utilise l'IA pour aller plus loin.</p>
+    </div>
+  </section>
+</body>
+</html>

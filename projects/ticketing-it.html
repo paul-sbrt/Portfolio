@@ -3,14 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <script>
-      // Set theme before paint to avoid flash of incorrect theme.
       (function () {
         try {
           var t = localStorage.getItem("theme");
-          if (!t)
-            t = matchMedia("(prefers-color-scheme: light)").matches
-              ? "light"
-              : "dark";
+          if (!t) t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
           document.documentElement.setAttribute("data-theme", t);
         } catch (e) {}
       })();
@@ -18,7 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ticketing IT — Paul Sabourault</title>
     <meta name="description" content="Le produit Power Platform que j&#x27;ai construit : un système de ticketing IT intégré à Microsoft 365 (portail utilisateur, dashboard admin avec SLA, notifications Email + Teams, reporting Power BI). Sans nouvel outil à adopter." />
-    <!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
     <link rel="canonical" href="https://YOUR-DOMAIN.com/projects/ticketing-it.html" />
     <link rel="alternate" hreflang="fr" href="https://YOUR-DOMAIN.com/projects/ticketing-it.html" />
     <link rel="alternate" hreflang="en" href="https://YOUR-DOMAIN.com/en/projects/ticketing-it.html" />
@@ -32,22 +27,20 @@
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=JetBrains+Mono:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="../microsoft.css" />
+    <link rel="stylesheet" href="../detail.css" />
     <script src="https://kit.fontawesome.com/5d10eb0d43.js" defer crossorigin="anonymous"></script>
     <script src="../theme.js" defer></script>
     <script src="../i18n.js" defer></script>
   </head>
 
-  <body data-hat="Microsoft" data-detail data-i18n-base="../" data-alt-en="../en/projects/ticketing-it.html">
-    <div class="ms-nav-shell">
+  <body data-detail data-i18n-base="../" data-alt-en="../en/projects/ticketing-it.html" style="--brand:#F5822E;--brand2:#0A2463;--g2:#F9B686;">
+    <div class="dt-nav-shell">
       <div class="container">
         <div class="header-sticky">
           <div class="nom">
-            <a href="../index.html#header"
-              ><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a
-            >
+            <a href="../index.html#header"><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a>
           </div>
           <nav>
             <ul id="sidemenu">
@@ -70,14 +63,10 @@
                 </mask>
                 <circle class="theme-orb" cx="12" cy="12" r="6" fill="currentColor" mask="url(#theme-moon-mask)" />
                 <g class="theme-rays" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-                  <line x1="12" y1="1.6" x2="12" y2="4" />
-                  <line x1="12" y1="20" x2="12" y2="22.4" />
-                  <line x1="1.6" y1="12" x2="4" y2="12" />
-                  <line x1="20" y1="12" x2="22.4" y2="12" />
-                  <line x1="4.4" y1="4.4" x2="6.1" y2="6.1" />
-                  <line x1="17.9" y1="17.9" x2="19.6" y2="19.6" />
-                  <line x1="19.6" y1="4.4" x2="17.9" y2="6.1" />
-                  <line x1="6.1" y1="17.9" x2="4.4" y2="19.6" />
+                  <line x1="12" y1="1.6" x2="12" y2="4" /><line x1="12" y1="20" x2="12" y2="22.4" />
+                  <line x1="1.6" y1="12" x2="4" y2="12" /><line x1="20" y1="12" x2="22.4" y2="12" />
+                  <line x1="4.4" y1="4.4" x2="6.1" y2="6.1" /><line x1="17.9" y1="17.9" x2="19.6" y2="19.6" />
+                  <line x1="19.6" y1="4.4" x2="17.9" y2="6.1" /><line x1="6.1" y1="17.9" x2="4.4" y2="19.6" />
                 </g>
               </svg>
             </button>
@@ -87,50 +76,72 @@
       </div>
     </div>
 
-    <main class="ms-report-shell detail-shell">
-      <header class="container ms-section ms-hero detail-hero--simple" id="detail-top">
-        <div class="ms-hero-copy">
-          <p class="ms-tagline">Votre support IT, simplifié</p>
-          <h1 class="sub-title">
-            <span class="ms-highlight">Ticketing IT</span> intégré à Microsoft 365
-          </h1>
-          <p class="ms-lead">Les PME noient leurs demandes IT dans les emails, Teams et le téléphone : aucune visibilité, des process manuels, et une Power Platform déjà incluse dans leur licence Microsoft 365 mais sous-exploitée.</p>
-          <p class="detail-status">Solution présentée sur powerflows.fr — déployable en une demi-journée dans un tenant Microsoft 365 existant, formation incluse.</p>
-          <div class="detail-actions"><a class="btn detail-live-btn" href="https://www.powerflows.fr/solutions/ticketing-it" target="_blank" rel="noopener noreferrer">Voir la solution</a></div>
-          <div class="ms-note-card">
-            <h3>La solution</h3>
-            <p>Un système de ticketing intégré à Microsoft 365 : pas de nouvel outil à adopter, tout vit dans l&#x27;écosystème que l&#x27;entreprise utilise déjà. Mise en place type : Échange → Démo → Déploiement → Formation.</p>
-          </div>
+    <main>
+    <header class="dt-hero dt-hero--web dt-wrap" id="detail-top">
+        <div class="dt-htext">
+          <p class="dt-eyebrow rv">Microsoft · 2026</p>
+          <h1 class="rv"><span class="dt-b">Ticketing IT</span></h1>
+          <p class="dt-sub rv">intégré à Microsoft 365</p>
+          <p class="dt-lead rv">Les PME noient leurs demandes IT dans les emails, Teams et le téléphone : aucune visibilité, des process manuels, et une Power Platform déjà incluse dans leur licence Microsoft 365 mais sous-exploitée.</p>
+          <div class="dt-meta rv"><a href="https://www.powerflows.fr/solutions/ticketing-it" target="_blank" rel="noopener noreferrer">Voir la solution ↗</a></div>
+        </div>
+        <div class="dt-browser rv">
+          <div class="dt-browser-bar"><i></i><i></i><i></i><span class="dt-url">www.powerflows.fr/solutions/ticketing-it</span></div>
+          <div class="dt-browser-shot"><div class="dt-ph"></div><span class="dt-ph-label">Votre support IT, simplifié</span><span class="dt-cap">Ticketing IT</span></div>
         </div>
       </header>
 
-      <section class="container ms-section" id="detail-outcomes">
-        <h2 class="sub-title">Points clés</h2>
-        <div class="ms-panel">
-          <ul class="ms-impact">
-            <li>Portail utilisateur : une demande créée en 30 secondes (3 champs)</li>
-            <li>Dashboard admin : KPI temps réel, filtres, recherche et badges SLA (vert / orange / rouge)</li>
-            <li>Notifications automatiques par Email et Teams</li>
-            <li>Reporting Power BI</li>
-            <li>Deux formules (Essentielle / Complète), maintenance en option</li>
-          </ul>
-        </div>
-      </section>
+    <section class="dt-band">
+      <div class="dt-wm" aria-hidden="true">T</div>
+      <div class="dt-wrap"><p class="dt-k rv">L&#x27;idée</p><h2 class="rv">Votre support IT, simplifié</h2></div>
+    </section>
 
-      <section class="container ms-section">
-        <div class="ms-panel detail-cta">
-          <div>
-            <h2 class="sub-title">Voir la solution</h2>
-            <p class="ms-lead ms-lead--compact">La solution est présentée en ligne sur PowerFlows — je peux détailler l&#x27;architecture Power Platform (Power Apps, Power Automate, Power BI, SharePoint) et une démo.</p>
-          </div>
-          <div class="detail-cta-actions">
-            <a class="btn btn2" href="../index.html#contact">Réserver une démo</a>
-            <a class="btn detail-back-btn" href="../index.html#projects"
-              ><i class="fa-solid fa-arrow-left"></i> Retour aux projets</a
-            >
-          </div>
-        </div>
-      </section>
+    <div class="dt-wrap"><section class="dt-why">
+      <p class="dt-sec-eyebrow rv"><span class="dt-num">01</span> — Le pourquoi</p>
+      <p class="dt-prose dt-txt rv">Les PME noient leurs demandes IT dans les emails, Teams et le téléphone : aucune visibilité, des process manuels — alors qu&#x27;une Power Platform est déjà incluse dans leur licence Microsoft 365, mais sous-exploitée. Ticketing IT part de ce gâchis.</p>
+      <div class="dt-quote rv"><p class="dt-pullquote">“ La Power Platform qu&#x27;ils paient déjà — enfin exploitée. ”</p></div>
+    </section></div>
+
+    <div class="dt-wrap"><section class="dt-how dt-how--web">
+      <div class="dt-how-media rv"><div class="dt-float"><div class="dt-ph"></div><span class="dt-ph-label">Galerie —</span></div></div>
+      <div>
+        <p class="dt-sec-eyebrow rv"><span class="dt-num">02</span> — La démarche</p>
+        <div class="dt-choice rv"><h3><span>a.</span>Sur l&#x27;existant</h3><p>Bâti sur le Microsoft 365 déjà en place — pas de nouvel outil, pas de nouvelle licence.</p></div>
+        <div class="dt-choice rv"><h3><span>b.</span>Une demande en 30 s</h3><p>Portail utilisateur minimaliste : trois champs, et c&#x27;est envoyé.</p></div>
+        <div class="dt-choice rv"><h3><span>c.</span>Piloté par le SLA</h3><p>Dashboard admin avec KPI temps réel et badges SLA (vert / orange / rouge).</p></div>
+        <div class="dt-choice rv"><h3><span>d.</span>Déployable en ½ journée</h3><p>Mise en place dans un tenant existant, formation incluse.</p></div>
+      </div>
+    </section></div>
+
+    <div class="dt-wrap"><section class="dt-result">
+      <p class="dt-sec-eyebrow rv"><span class="dt-num">03</span> — Le résultat</p>
+      <div class="dt-features">
+        <div class="dt-feat rv"><b>Portail en 30 secondes</b><span>Une demande créée en trois champs.</span></div>
+        <div class="dt-feat rv"><b>Dashboard temps réel</b><span>KPI, filtres, recherche et badges SLA.</span></div>
+        <div class="dt-feat rv"><b>Notifications Email &amp; Teams</b><span>Automatiques, là où les équipes travaillent déjà.</span></div>
+        <div class="dt-feat rv"><b>Reporting Power BI</b><span>Le suivi et l&#x27;analyse intégrés.</span></div>
+      </div>
+    </section></div>
+
+    <section class="dt-statusband">
+      <div class="dt-wrap"><div class="dt-in rv"><span class="dt-lab">Où ça en est</span><p>Solution présentée sur powerflows.fr — déployable en une demi-journée dans un tenant Microsoft 365 existant, formation incluse.</p></div></div>
+    </section>
+
+    <div class="dt-wrap"><section class="dt-gallery">
+      <p class="dt-sec-eyebrow rv">Galerie</p>
+      <div class="dt-gal rv">
+        <div class="dt-shot"><div class="dt-ph"></div><div class="dt-sweep"></div><span class="dt-ph-label">Galerie 1 — …</span></div>
+        <div class="dt-shot"><div class="dt-ph"></div><div class="dt-sweep"></div><span class="dt-ph-label">Galerie 2 — …</span></div>
+        <div class="dt-shot"><div class="dt-ph"></div><div class="dt-sweep"></div><span class="dt-ph-label">Galerie 3 — …</span></div>
+      </div>
+    </section></div>
+      <div class="dt-wrap">
+      <div class="dt-stack rv">
+        <span class="dt-lab">Construit avec</span>
+        <div class="dt-chips"><span class="dt-chip">Power Apps</span><span class="dt-chip">Power Automate</span><span class="dt-chip">Power BI</span><span class="dt-chip">SharePoint</span><span class="dt-chip">Teams</span></div>
+      </div>
+        <div class="dt-end"><a class="dt-back" href="../index.html#projects"><i class="fa-solid fa-arrow-left"></i> Tous les projets</a></div>
+      </div>
 
       <footer>
         <p>Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
@@ -138,6 +149,19 @@
     </main>
 
     <script src="../app.js" defer></script>
-    <script src="../lightbox.js"></script>
+    <script>
+      (function () {
+        var els = document.querySelectorAll(".rv");
+        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce || !("IntersectionObserver" in window)) {
+          els.forEach(function (el) { el.classList.add("in"); }); return;
+        }
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+        }, { threshold: 0.14 });
+        els.forEach(function (el, i) { el.style.transitionDelay = ((i % 5) * 0.06).toFixed(2) + "s"; io.observe(el); });
+        setTimeout(function () { els.forEach(function (el) { var r = el.getBoundingClientRect(); if (r.top < (window.innerHeight || 0) && r.bottom > 0) el.classList.add("in"); }); }, 1800);
+      })();
+    </script>
   </body>
 </html>

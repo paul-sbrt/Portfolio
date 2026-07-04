@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Direction C — Minimal précis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#08080a; --text:#f6f6f7; --muted:#7d7d84;
+    --pink:#ff004f; --gold:#f7c948;
+    --line:rgba(255,255,255,.09);
+    --body:"Poppins",sans-serif; --mono:"JetBrains Mono",monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);min-height:100vh;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 40px}
+  .top{display:flex;justify-content:space-between;align-items:center;padding:34px 0;
+    font-size:14px;border-bottom:1px solid var(--line)}
+  .top .name{font-weight:600;letter-spacing:-.01em}
+  .top .name span{color:var(--pink)}
+  .top .nav{display:flex;gap:34px;color:var(--muted);font-size:13.5px}
+  .top .nav a{color:var(--muted);text-decoration:none;transition:color .2s}.top .nav a:hover{color:var(--text)}
+  .hero{padding:20vh 0 16vh;max-width:20ch}
+  .cap{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+    display:flex;align-items:center;gap:14px;margin-bottom:40px}
+  /* signature: one accent line that draws itself */
+  .cap::before{content:"";height:1px;width:0;background:var(--pink);animation:draw 1s .3s cubic-bezier(.2,.8,.2,1) forwards}
+  @keyframes draw{to{width:56px}}
+  h1{font-weight:600;font-size:clamp(38px,5.4vw,68px);line-height:1.08;letter-spacing:-.025em;max-width:16ch}
+  h1 .accent{color:var(--pink)}
+  .sub{margin-top:34px;max-width:56ch;color:#c4c4ca;font-size:19px;line-height:1.7;font-weight:300}
+  .foot{margin-top:56px;display:flex;align-items:center;gap:26px;font-size:14px}
+  .foot .cta{color:var(--text);text-decoration:none;border-bottom:1px solid var(--pink);padding-bottom:3px;font-weight:500}
+  .foot .avail{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .foot .avail b{color:var(--gold);font-weight:400}
+  .fade{opacity:0;transform:translateY(14px);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+  .fade.d1{animation-delay:.15s}.fade.d2{animation-delay:.3s}.fade.d3{animation-delay:.45s}
+  @keyframes up{to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important;transform:none!important}.cap::before{width:56px}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="name">Paul Sabourault<span>.</span></div>
+      <nav class="nav"><a href="#">Projets</a><a href="#">À propos</a><a href="#">Contact</a></nav>
+    </div>
+    <section class="hero">
+      <p class="cap fade">Développeur — builder polyvalent</p>
+      <h1 class="fade d1">J'aime construire, penser, et donner vie à mes <span class="accent">idées.</span></h1>
+      <p class="sub fade d2">Solo comme en entreprise. Je conçois, je code, j'apprends, et j'utilise l'IA pour aller plus loin.</p>
+      <div class="foot fade d3">
+        <a class="cta" href="#">Voir les projets →</a>
+        <span class="avail">● <b>en recherche d'une alternance</b></span>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

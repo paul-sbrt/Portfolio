@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About — Sortie A : parallax différentiel + halo qui se sépare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@900&family=JetBrains+Mono:wght@500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#080808;--surface:#100d12;--text:#fff;--muted:#ababab;--accent:#ff004f;--gold:#f7c948;
+    --border:rgba(255,255,255,.12);--img-outline:#fff;--radius-xl:16px;
+    --disp:"Archivo",sans-serif;--mono:"JetBrains Mono",monospace;--body:"Poppins",sans-serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);-webkit-font-smoothing:antialiased}
+  .tag{position:fixed;top:14px;left:14px;z-index:30;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--gold);background:rgba(0,0,0,.6);padding:7px 13px;border-radius:20px;max-width:92vw}
+  .spacer{min-height:62vh;display:flex;align-items:flex-end;justify-content:center;padding:0 24px 5vh}
+  .spacer p{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .spacer.tall{min-height:170vh;align-items:flex-start;padding-top:8vh}
+
+  .about{padding:6vh 0}
+  .container{padding:10px 10%}
+  .about-story{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(36px,5vw,72px);align-items:start}
+  /* copy */
+  .about-eyebrow{font-family:var(--mono);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+    display:flex;align-items:center;gap:14px;margin-bottom:22px}
+  .about-eyebrow::before{content:"";width:38px;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold))}
+  .about-headline{font-family:var(--disp);font-weight:900;font-size:clamp(30px,3.8vw,50px);line-height:1.02;
+    letter-spacing:-.02em;margin-bottom:26px}
+  .about-body{max-width:60ch;color:var(--muted);font-size:1.125rem;line-height:1.8;font-weight:300}
+  .about-body .hl-rose{color:var(--accent);font-weight:500}
+  .about-body .hl-gold{color:var(--gold);font-weight:500}
+  .about-body .hl-strong{color:var(--text);font-weight:500}
+  .about-availability{margin-top:16px;font-size:.8rem;color:var(--muted);font-style:italic}
+  .btn-cv{display:inline-flex;align-items:center;gap:10px;margin-top:32px;padding:13px 30px;border:1px solid var(--accent);
+    border-radius:6px;color:var(--text);font-weight:500;text-decoration:none}
+  /* photo + halo */
+  .about-photo{position:relative;max-width:400px;justify-self:end}
+  .about-frame{position:relative;z-index:0}
+  .about-frame::before{content:"";position:absolute;inset:14px -20px -18px 14px;
+    background:linear-gradient(135deg,var(--accent),var(--gold));border-radius:var(--radius-xl);opacity:.85;transform-origin:top left}
+  .about-mask{position:relative;z-index:1;overflow:hidden;border-radius:var(--radius-xl);border:1px solid var(--img-outline)}
+  .about-portrait{display:block;width:100%}
+  .about-cap{position:relative;z-index:1;margin-top:34px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+
+  /* ============ SORTIE A — parallax différentiel + séparation du halo ============
+     Le texte glisse vers le HAUT en se fondant (plus vite, léger flou). La photo
+     part plus DOUCEMENT (moins haut, léger recul). Le HALO se DÉTACHE : il dérive
+     vers le bas-droite en s'éclaircissant → photo et accent se séparent en sortant.
+     Timeline partagée (view-timeline sur .about-story) pour que tout reste synchro. */
+  @media (prefers-reduced-motion: no-preference){
+    @supports (animation-timeline: view()){
+      .about-story{view-timeline-name:--about;view-timeline-axis:block}
+      .about-copy,.about-photo,.about-frame::before{animation-timeline:--about;animation-range:exit 0% exit 100%;
+        animation-fill-mode:both;animation-timing-function:linear;will-change:transform,opacity,filter}
+      .about-copy{animation-name:A-copy}
+      .about-photo{animation-name:A-photo}
+      .about-frame::before{animation-name:A-halo}
+      @keyframes A-copy{to{opacity:0;transform:translateY(-52px);filter:blur(4px)}}
+      @keyframes A-photo{to{opacity:0;transform:translateY(-16px) scale(.975);filter:blur(2px)}}
+      @keyframes A-halo{to{opacity:.15;transform:translate(26px,34px) scale(1.05)}}
+    }
+  }
+  @media(max-width:820px){.about-story{grid-template-columns:1fr;gap:40px}.about-photo{justify-self:center;margin-top:8px}}
+</style>
+</head>
+<body>
+  <span class="tag">Sortie A — parallax différentiel : le texte s'envole, la photo suit, le halo se détache (scrolle lentement)</span>
+
+  <section class="spacer"><p>↓ Défile lentement — regarde le About quitter le haut de l'écran ↓</p></section>
+
+  <section class="about">
+    <div class="container">
+      <div class="about-story">
+        <div class="about-copy">
+          <p class="about-eyebrow">À propos — le parcours</p>
+          <h2 class="about-headline">De la cuisine au code.</h2>
+          <p class="about-body">Je viens de la restauration, et c'est en voulant résoudre des problèmes réels que je suis devenu développeur. Depuis, je construis des produits <span class="hl-strong">de bout en bout</span> : une app de voyage (<span class="hl-rose">STOW</span>), un « deuxième cerveau » iOS boosté à l'IA (<span class="hl-rose">DUMP</span>), une plateforme pour l'hôtellerie-restauration (<span class="hl-rose">EXTRALIMO</span>) et un site de vente d'une offre Microsoft (<span class="hl-gold">Ticketing IT</span>). Mobile, web et <span class="hl-gold">Microsoft/Power Platform</span> : mon fil rouge, <span class="hl-strong">comprendre l'utilisateur, livrer, itérer</span>.</p>
+          <p class="about-availability">En recherche d'une alternance.</p>
+          <a class="btn-cv" href="#">Télécharger le CV ↓</a>
+        </div>
+        <div class="about-photo">
+          <div class="about-frame">
+            <div class="about-mask">
+              <img class="about-portrait" src="../images/image-2-portfolio-paul.webp" alt="Paul Sabourault" />
+            </div>
+          </div>
+          <p class="about-cap">Paul Sabourault</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="spacer tall"><p>Section suivante — le About est sorti au-dessus.</p></section>
+</body>
+</html>

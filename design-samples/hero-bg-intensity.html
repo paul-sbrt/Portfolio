@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hero — intensité du fond animé : présent vs très présent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@900&family=JetBrains+Mono:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#09070a;--text:#fafafa;--muted:#8f8994;--accent:#ff004f;--gold:#f7c948;
+    --disp:"Archivo",sans-serif;--mono:"JetBrains Mono",monospace;--body:"Poppins",sans-serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--body)}
+  .hero{position:relative;overflow:hidden;min-height:82vh;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.08)}
+  .hero::before,.hero::after{content:"";position:absolute;z-index:0;aspect-ratio:1;border-radius:50%;filter:blur(48px);pointer-events:none}
+  .hero::before{width:min(62vw,780px);right:-6vw;top:-8vw;background:radial-gradient(circle,var(--g1),transparent 70%);animation:a 15s ease-in-out infinite alternate}
+  .hero::after{width:min(48vw,620px);right:4vw;bottom:-14vw;background:radial-gradient(circle,var(--g2),transparent 70%);animation:b 19s ease-in-out infinite alternate}
+  @keyframes a{from{transform:translate3d(0,0,0) scale(1);opacity:.85}to{transform:translate3d(-9%,12%,0) scale(1.22);opacity:1}}
+  @keyframes b{from{transform:translate3d(0,0,0) scale(1);opacity:1}to{transform:translate3d(12%,-10%,0) scale(1.15);opacity:.8}}
+  .copy{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:6vh clamp(24px,6vw,80px)}
+  .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px;margin-bottom:28px}
+  .eyebrow::before{content:"";width:40px;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold),var(--accent));background-size:300% 100%;animation:bar 4.5s ease-in-out infinite alternate}
+  @keyframes bar{to{background-position:100% 0}}
+  h1{font-family:var(--disp);font-weight:900;font-size:clamp(44px,7vw,92px);line-height:.98;letter-spacing:-.03em;max-width:15ch}
+  h1 span{background:linear-gradient(120deg,var(--accent),var(--gold),var(--accent));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:hue 6s ease-in-out infinite alternate}
+  @keyframes hue{to{background-position:100% 0}}
+  .sub{margin-top:30px;max-width:50ch;color:#cfc9d3;font-size:18px;line-height:1.65;font-weight:300}
+  .tag{position:absolute;z-index:2;top:20px;left:24px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  /* PRESENT (site level) */
+  .present{--g1:rgba(255,0,79,.5);--g2:rgba(247,201,72,.42)}
+  /* VERY PRESENT */
+  .strong{--g1:rgba(255,0,79,.72);--g2:rgba(247,201,72,.6)}
+  .strong::before{filter:blur(40px);animation-duration:12s}
+  .strong::after{filter:blur(40px);animation-duration:15s}
+  @media(prefers-reduced-motion:reduce){.hero::before,.hero::after,h1 span,.eyebrow::before{animation:none}}
+</style>
+</head>
+<body>
+  <section class="hero present">
+    <span class="tag">Intensité — PRÉSENT (niveau actuel du site)</span>
+    <div class="copy">
+      <p class="eyebrow">Builder — mobile · web · IA · Microsoft</p>
+      <h1>J'aime construire, penser, donner vie à mes <span>idées.</span></h1>
+      <p class="sub">Développeur — solo comme en entreprise. Je conçois, je code, j'apprends, et j'utilise l'IA pour aller plus loin.</p>
+    </div>
+  </section>
+  <section class="hero strong" style="border-bottom:0">
+    <span class="tag">Intensité — TRÈS PRÉSENT</span>
+    <div class="copy">
+      <p class="eyebrow">Builder — mobile · web · IA · Microsoft</p>
+      <h1>J'aime construire, penser, donner vie à mes <span>idées.</span></h1>
+      <p class="sub">Développeur — solo comme en entreprise. Je conçois, je code, j'apprends, et j'utilise l'IA pour aller plus loin.</p>
+    </div>
+  </section>
+</body>
+</html>

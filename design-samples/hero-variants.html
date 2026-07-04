@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hero — élément graphique : variante A (mesh) vs B (géométrique)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@300;400&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#09070a;--text:#fafafa;--muted:#8f8994;--accent:#ff004f;--gold:#f7c948;
+    --disp:"Archivo",sans-serif;--mono:"JetBrains Mono",monospace;--body:"Poppins",sans-serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--body)}
+  .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);padding:40px 40px 0}
+  .hero{max-width:1180px;margin:0 auto;padding:5vh 40px 8vh;display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center;
+    border-bottom:1px solid rgba(255,255,255,.08)}
+  .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px;margin-bottom:28px}
+  .eyebrow::before{content:"";width:40px;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold))}
+  h1{font-family:var(--disp);font-weight:900;font-size:clamp(40px,5.2vw,80px);line-height:.98;letter-spacing:-.03em;max-width:15ch}
+  h1 span{background:linear-gradient(120deg,var(--accent),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{margin-top:30px;max-width:48ch;color:#cfc9d3;font-size:18px;line-height:1.65;font-weight:300}
+  .visual{position:relative;aspect-ratio:4/5;border-radius:24px;overflow:hidden;isolation:isolate;box-shadow:0 30px 80px rgba(255,0,79,.16)}
+
+  /* ---- Variant A : fluid mesh ---- */
+  .mesh{position:absolute;inset:-14%;filter:saturate(1.12);
+    background:
+      radial-gradient(58% 58% at 22% 18%,var(--accent),transparent 62%),
+      radial-gradient(56% 56% at 82% 84%,var(--gold),transparent 60%),
+      radial-gradient(42% 42% at 62% 46%,#ff5c3a,transparent 70%),
+      linear-gradient(140deg,#1a0710,var(--bg));
+    animation:drift 18s ease-in-out infinite alternate}
+  .grain{position:absolute;inset:0;mix-blend-mode:soft-light;opacity:.5;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.06) 0 1px,transparent 1px 3px)}
+  @keyframes drift{to{transform:scale(1.12) translate(-3%,-3%)}}
+
+  /* ---- Variant B : flat geometric composition ---- */
+  .geo{position:absolute;inset:0;background:linear-gradient(150deg,#160810,var(--bg));overflow:hidden}
+  .geo .disc{position:absolute;width:120%;height:120%;left:-10%;top:-10%;border-radius:50%;
+    background:conic-gradient(from 0deg,var(--accent),var(--gold),#ff5c3a,var(--accent));
+    -webkit-mask:radial-gradient(closest-side,transparent 58%,#000 60%,#000 66%,transparent 68%);
+            mask:radial-gradient(closest-side,transparent 58%,#000 60%,#000 66%,transparent 68%);
+    opacity:.85;animation:spin 28s linear infinite}
+  .geo .ring{position:absolute;border-radius:50%}
+  .geo .r1{width:64%;height:64%;left:8%;top:12%;border:2px solid var(--accent);opacity:.55}
+  .geo .r2{width:38%;height:38%;right:10%;bottom:14%;border:2px solid var(--gold);opacity:.7}
+  .geo .dot{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--gold)}
+  .geo .d1{left:18%;bottom:20%}.geo .d2{right:22%;top:18%;background:var(--accent);width:14px;height:14px}
+  .geo .grid{position:absolute;inset:0;opacity:.5;
+    background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:26px 26px;
+    -webkit-mask:linear-gradient(120deg,#000,transparent 70%);mask:linear-gradient(120deg,#000,transparent 70%)}
+  .geo .slash{position:absolute;width:150%;height:2px;left:-25%;top:62%;transform:rotate(-24deg);
+    background:linear-gradient(90deg,transparent,var(--accent),var(--gold),transparent)}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media(prefers-reduced-motion:reduce){.mesh,.geo .disc{animation:none}}
+  @media(max-width:820px){.hero{grid-template-columns:1fr}.visual{max-width:360px}}
+</style>
+</head>
+<body>
+  <!-- VARIANT A -->
+  <p class="lbl">Variante A — mesh fluide (celle en place sur le site)</p>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Builder — mobile · web · IA · Microsoft</p>
+      <h1>J'aime construire, penser, donner vie à mes <span>idées.</span></h1>
+      <p class="sub">Développeur — solo comme en entreprise. Je conçois, je code, j'apprends, et j'utilise l'IA pour aller plus loin.</p>
+    </div>
+    <div class="visual"><div class="mesh"></div><div class="grain"></div></div>
+  </section>
+
+  <!-- VARIANT B -->
+  <p class="lbl">Variante B — composition géométrique flat</p>
+  <section class="hero" style="border-bottom:0">
+    <div>
+      <p class="eyebrow">Builder — mobile · web · IA · Microsoft</p>
+      <h1>J'aime construire, penser, donner vie à mes <span>idées.</span></h1>
+      <p class="sub">Développeur — solo comme en entreprise. Je conçois, je code, j'apprends, et j'utilise l'IA pour aller plus loin.</p>
+    </div>
+    <div class="visual">
+      <div class="geo">
+        <div class="disc"></div>
+        <div class="grid"></div>
+        <div class="ring r1"></div><div class="ring r2"></div>
+        <div class="slash"></div>
+        <div class="dot d1"></div><div class="dot d2"></div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

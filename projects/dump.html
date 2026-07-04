@@ -3,14 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <script>
-      // Set theme before paint to avoid flash of incorrect theme.
       (function () {
         try {
           var t = localStorage.getItem("theme");
-          if (!t)
-            t = matchMedia("(prefers-color-scheme: light)").matches
-              ? "light"
-              : "dark";
+          if (!t) t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
           document.documentElement.setAttribute("data-theme", t);
         } catch (e) {}
       })();
@@ -18,7 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DUMP — Paul Sabourault</title>
     <meta name="description" content="« Deuxième cerveau » iOS : on capture texte ou voix en vrac, l&#x27;IA (Claude + Whisper) trie automatiquement en catégories et niveaux d&#x27;urgence, suggère des connexions et des rappels. Modèle freemium via StoreKit 2." />
-    <!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
     <link rel="canonical" href="https://YOUR-DOMAIN.com/projects/dump.html" />
     <link rel="alternate" hreflang="fr" href="https://YOUR-DOMAIN.com/projects/dump.html" />
     <link rel="alternate" hreflang="en" href="https://YOUR-DOMAIN.com/en/projects/dump.html" />
@@ -32,22 +27,20 @@
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=JetBrains+Mono:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="../microsoft.css" />
+    <link rel="stylesheet" href="../detail.css" />
     <script src="https://kit.fontawesome.com/5d10eb0d43.js" defer crossorigin="anonymous"></script>
     <script src="../theme.js" defer></script>
     <script src="../i18n.js" defer></script>
   </head>
 
-  <body data-hat="App" data-detail data-i18n-base="../" data-alt-en="../en/projects/dump.html">
-    <div class="ms-nav-shell">
+  <body data-detail data-i18n-base="../" data-alt-en="../en/projects/dump.html" style="--brand:#E8A44A;--brand2:#F2CC8F;--g2:#F2CC8F;">
+    <div class="dt-nav-shell">
       <div class="container">
         <div class="header-sticky">
           <div class="nom">
-            <a href="../index.html#header"
-              ><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a
-            >
+            <a href="../index.html#header"><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a>
           </div>
           <nav>
             <ul id="sidemenu">
@@ -70,14 +63,10 @@
                 </mask>
                 <circle class="theme-orb" cx="12" cy="12" r="6" fill="currentColor" mask="url(#theme-moon-mask)" />
                 <g class="theme-rays" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-                  <line x1="12" y1="1.6" x2="12" y2="4" />
-                  <line x1="12" y1="20" x2="12" y2="22.4" />
-                  <line x1="1.6" y1="12" x2="4" y2="12" />
-                  <line x1="20" y1="12" x2="22.4" y2="12" />
-                  <line x1="4.4" y1="4.4" x2="6.1" y2="6.1" />
-                  <line x1="17.9" y1="17.9" x2="19.6" y2="19.6" />
-                  <line x1="19.6" y1="4.4" x2="17.9" y2="6.1" />
-                  <line x1="6.1" y1="17.9" x2="4.4" y2="19.6" />
+                  <line x1="12" y1="1.6" x2="12" y2="4" /><line x1="12" y1="20" x2="12" y2="22.4" />
+                  <line x1="1.6" y1="12" x2="4" y2="12" /><line x1="20" y1="12" x2="22.4" y2="12" />
+                  <line x1="4.4" y1="4.4" x2="6.1" y2="6.1" /><line x1="17.9" y1="17.9" x2="19.6" y2="19.6" />
+                  <line x1="19.6" y1="4.4" x2="17.9" y2="6.1" /><line x1="6.1" y1="17.9" x2="4.4" y2="19.6" />
                 </g>
               </svg>
             </button>
@@ -87,49 +76,69 @@
       </div>
     </div>
 
-    <main class="ms-report-shell detail-shell">
-      <header class="container ms-section ms-hero detail-hero--simple" id="detail-top">
-        <div class="ms-hero-copy">
-          <p class="ms-tagline">Second cerveau augmenté par l&#x27;IA</p>
-          <h1 class="sub-title">
-            <span class="ms-highlight">DUMP</span> second cerveau iOS
-          </h1>
-          <p class="ms-lead">On capture une idée, une note ou un vocal en vrac — et on la perd, ou on ne la retrouve pas structurée. DUMP est un assistant cognitif : on parle ou on écrit en vrac, l&#x27;IA trie automatiquement. Particulièrement utile aux profils qui débordent d&#x27;idées et se dispersent (TDAH inclus), comme outil d&#x27;organisation au quotidien. Paul l&#x27;a d&#x27;abord construit pour lui-même.</p>
-          <p class="detail-status">Sur TestFlight (build 2) — le projet le plus actif de Paul (503 commits, mise à jour juin 2026), design system v2, widgets « production ready ».</p>
-          <div class="ms-note-card">
-            <h3>La solution</h3>
-            <p>App iOS native qui transforme un flux brut en notes triées : capture texte et voix (transcription Whisper), classification IA (Claude) en catégories ACTION / INFO / IDÉE / VRAC et niveaux d&#x27;urgence, suggestions de connexions entre notes, extraction d&#x27;entités anonymisées, rappels datés, apprentissage des corrections. Onboarding zéro friction (pas de compte), widgets et extension de partage.</p>
-          </div>
+    <main>
+    <header class="dt-hero dt-hero--app dt-wrap" id="detail-top">
+        <div class="dt-htext">
+          <p class="dt-eyebrow rv">App · IA · 2026</p>
+          <h1 class="rv"><span class="dt-b">DUMP</span></h1>
+          <p class="dt-sub rv">second cerveau iOS</p>
+          <p class="dt-lead rv">On capture une idée, une note ou un vocal en vrac — et on la perd, ou on ne la retrouve pas structurée. DUMP est un assistant cognitif : on parle ou on écrit en vrac, l&#x27;IA trie automatiquement. Particulièrement utile aux profils qui débordent d&#x27;idées et se dispersent (TDAH inclus), comme outil d&#x27;organisation au quotidien. Paul l&#x27;a d&#x27;abord construit pour lui-même.</p>
+          
         </div>
+        <div class="dt-device rv"><div class="dt-ph"></div><span class="dt-ph-label">Second cerveau augmenté par l&#x27;IA</span><span class="dt-cap">DUMP</span></div>
       </header>
 
-      <section class="container ms-section" id="detail-outcomes">
-        <h2 class="sub-title">Points clés</h2>
-        <div class="ms-panel">
-          <ul class="ms-impact">
-            <li>Capture texte + voix, avec transcription des vocaux via Whisper</li>
-            <li>Classification automatique par Claude (ACTION / INFO / IDÉE / VRAC + catégories custom apprises) et niveaux d&#x27;urgence</li>
-            <li>Suggestions de connexions entre notes et extraction d&#x27;entités (anonymisées avant envoi)</li>
-            <li>Rappels datés, buffer d&#x27;impulsivité et apprentissage des corrections de l&#x27;utilisateur</li>
-            <li>Modèle freemium : gratuit jusqu&#x27;à 25 classifications IA/semaine, premium illimité via StoreKit 2</li>
-          </ul>
-        </div>
-      </section>
+    <section class="dt-band">
+      <div class="dt-wm" aria-hidden="true">D</div>
+      <div class="dt-wrap"><p class="dt-k rv">L&#x27;idée</p><h2 class="rv">Second cerveau augmenté par l&#x27;IA</h2></div>
+    </section>
 
-      <section class="container ms-section">
-        <div class="ms-panel detail-cta">
-          <div>
-            <h2 class="sub-title">Envie d&#x27;en voir plus ?</h2>
-            <p class="ms-lead ms-lead--compact">Je peux présenter l&#x27;architecture (proxy Cloudflare, clés IA côté serveur), le design system et le fonctionnement de la classification.</p>
-          </div>
-          <div class="detail-cta-actions">
-            <a class="btn btn2" href="../index.html#contact">Réserver une démo</a>
-            <a class="btn detail-back-btn" href="../index.html#projects"
-              ><i class="fa-solid fa-arrow-left"></i> Retour aux projets</a
-            >
-          </div>
-        </div>
-      </section>
+    <div class="dt-wrap"><section class="dt-why">
+      <p class="dt-sec-eyebrow rv"><span class="dt-num">01</span> — Le pourquoi</p>
+      <p class="dt-prose dt-txt rv">On capture une idée, une note, un vocal — et on la perd, ou on ne la retrouve jamais structurée. Le constat de départ de DUMP : et si on pouvait tout jeter en vrac, et laisser l&#x27;IA ranger ? Pensé pour les gens qui débordent d&#x27;idées et veulent y voir clair — un outil d&#x27;organisation, jamais de thérapie.</p>
+      <div class="dt-quote rv"><p class="dt-pullquote">“ Je l&#x27;ai d&#x27;abord construit pour moi. ”</p></div>
+    </section></div>
+
+    <div class="dt-wrap"><section class="dt-how">
+      <div class="dt-how-media rv"><div class="dt-float"><div class="dt-ph"></div><span class="dt-ph-label">Galerie —</span></div></div>
+      <div>
+        <p class="dt-sec-eyebrow rv"><span class="dt-num">02</span> — La démarche</p>
+        <div class="dt-choice rv"><h3><span>a.</span>Zéro friction</h3><p>Pas de compte, pas d&#x27;email : l&#x27;app est utile dès la première seconde — widgets et extension de partage compris.</p></div>
+        <div class="dt-choice rv"><h3><span>b.</span>La confidentialité d&#x27;abord</h3><p>Les entités (noms, lieux, dates) sont anonymisées avant tout envoi ; les clés IA restent côté serveur, derrière un proxy Cloudflare.</p></div>
+        <div class="dt-choice rv"><h3><span>c.</span>L&#x27;IA au bon endroit</h3><p>Whisper transcrit la voix, Claude classe (ACTION / INFO / IDÉE / VRAC) et suggère des connexions — l&#x27;app apprend de tes corrections.</p></div>
+        <div class="dt-choice rv"><h3><span>d.</span>Crédible dès le jour 1</h3><p>Design system, niveaux d&#x27;urgence, rappels datés, buffer d&#x27;impulsivité : pas une démo, un produit.</p></div>
+      </div>
+    </section></div>
+
+    <div class="dt-wrap"><section class="dt-result">
+      <p class="dt-sec-eyebrow rv"><span class="dt-num">03</span> — Le résultat</p>
+      <div class="dt-features">
+        <div class="dt-feat rv"><b>Capture texte + voix</b><span>On jette en vrac ; les vocaux sont transcrits automatiquement.</span></div>
+        <div class="dt-feat rv"><b>Classement automatique</b><span>Action, info, idée ou vrac — avec un niveau d&#x27;urgence.</span></div>
+        <div class="dt-feat rv"><b>Connexions entre notes</b><span>DUMP relie ce qui va ensemble et extrait les entités clés.</span></div>
+        <div class="dt-feat rv"><b>Rappels au bon moment</b><span>Rappels datés et buffer d&#x27;impulsivité pour ne rien laisser filer.</span></div>
+      </div>
+    </section></div>
+
+    <section class="dt-statusband">
+      <div class="dt-wrap"><div class="dt-in rv"><span class="dt-lab">Où ça en est</span><p>Sur TestFlight (build 2) — le projet le plus actif de Paul (503 commits, mise à jour juin 2026), design system v2, widgets « production ready ».</p></div></div>
+    </section>
+
+    <div class="dt-wrap"><section class="dt-gallery">
+      <p class="dt-sec-eyebrow rv">Galerie</p>
+      <div class="dt-gal rv">
+        <div class="dt-shot"><div class="dt-ph"></div><div class="dt-sweep"></div><span class="dt-ph-label">Galerie 1 — …</span></div>
+        <div class="dt-shot"><div class="dt-ph"></div><div class="dt-sweep"></div><span class="dt-ph-label">Galerie 2 — …</span></div>
+        <div class="dt-shot"><div class="dt-ph"></div><div class="dt-sweep"></div><span class="dt-ph-label">Galerie 3 — …</span></div>
+      </div>
+    </section></div>
+      <div class="dt-wrap">
+      <div class="dt-stack rv">
+        <span class="dt-lab">Construit avec</span>
+        <div class="dt-chips"><span class="dt-chip">Swift</span><span class="dt-chip">SwiftUI</span><span class="dt-chip">SwiftData</span><span class="dt-chip">Claude API</span><span class="dt-chip">Whisper</span><span class="dt-chip">Cloudflare Workers</span><span class="dt-chip">StoreKit 2</span></div>
+      </div>
+        <div class="dt-end"><a class="dt-back" href="../index.html#projects"><i class="fa-solid fa-arrow-left"></i> Tous les projets</a></div>
+      </div>
 
       <footer>
         <p>Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
@@ -137,6 +146,19 @@
     </main>
 
     <script src="../app.js" defer></script>
-    <script src="../lightbox.js"></script>
+    <script>
+      (function () {
+        var els = document.querySelectorAll(".rv");
+        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce || !("IntersectionObserver" in window)) {
+          els.forEach(function (el) { el.classList.add("in"); }); return;
+        }
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+        }, { threshold: 0.14 });
+        els.forEach(function (el, i) { el.style.transitionDelay = ((i % 5) * 0.06).toFixed(2) + "s"; io.observe(el); });
+        setTimeout(function () { els.forEach(function (el) { var r = el.getBoundingClientRect(); if (r.top < (window.innerHeight || 0) && r.bottom > 0) el.classList.add("in"); }); }, 1800);
+      })();
+    </script>
   </body>
 </html>

@@ -28,5 +28,14 @@
   "detail.outcomes": "Points clés",
   "detail.book": "Réserver une démo",
   "detail.back": "Retour aux projets",
-  "detail.close": "Fermer la galerie"
+  "detail.close": "Fermer la galerie",
+  "detail.idea": "L'idée",
+  "detail.why": "Le pourquoi",
+  "detail.approach": "La démarche",
+  "detail.result": "Le résultat",
+  "detail.gallery": "Galerie",
+  "detail.builtwith": "Construit avec",
+  "detail.statusLabel": "Où ça en est",
+  "detail.allProjects": "Tous les projets",
+  "detail.visit": "Voir le projet"
 }

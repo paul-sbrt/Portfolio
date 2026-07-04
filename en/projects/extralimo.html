@@ -3,14 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <script>
-      // Set theme before paint to avoid flash of incorrect theme.
       (function () {
         try {
           var t = localStorage.getItem("theme");
-          if (!t)
-            t = matchMedia("(prefers-color-scheme: light)").matches
-              ? "light"
-              : "dark";
+          if (!t) t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
           document.documentElement.setAttribute("data-theme", t);
         } catch (e) {}
       })();
@@ -18,7 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EXTRALIMO — Paul Sabourault</title>
     <meta name="description" content="A human-led staffing web platform for the hospitality industry: candidates, businesses and admins around a “match”, with privacy by design. Built with his co-founders." />
-    <!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
     <link rel="canonical" href="https://YOUR-DOMAIN.com/en/projects/extralimo.html" />
     <link rel="alternate" hreflang="fr" href="https://YOUR-DOMAIN.com/projects/extralimo.html" />
     <link rel="alternate" hreflang="en" href="https://YOUR-DOMAIN.com/en/projects/extralimo.html" />
@@ -32,22 +27,20 @@
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=JetBrains+Mono:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../../style.css" />
-    <link rel="stylesheet" href="../../microsoft.css" />
+    <link rel="stylesheet" href="../../detail.css" />
     <script src="https://kit.fontawesome.com/5d10eb0d43.js" defer crossorigin="anonymous"></script>
     <script src="../../theme.js" defer></script>
     <script src="../../i18n.js" defer></script>
   </head>
 
-  <body data-hat="Web" data-detail data-i18n-base="../../" data-alt-fr="../../projects/extralimo.html">
-    <div class="ms-nav-shell">
+  <body data-detail data-i18n-base="../../" data-alt-fr="../../projects/extralimo.html" style="--brand:#E8A93F;--brand2:#1B2B4D;--g2:#F2CD90;">
+    <div class="dt-nav-shell">
       <div class="container">
         <div class="header-sticky">
           <div class="nom">
-            <a href="../../index.html#header"
-              ><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a
-            >
+            <a href="../../index.html#header"><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a>
           </div>
           <nav>
             <ul id="sidemenu">
@@ -70,14 +63,10 @@
                 </mask>
                 <circle class="theme-orb" cx="12" cy="12" r="6" fill="currentColor" mask="url(#theme-moon-mask)" />
                 <g class="theme-rays" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-                  <line x1="12" y1="1.6" x2="12" y2="4" />
-                  <line x1="12" y1="20" x2="12" y2="22.4" />
-                  <line x1="1.6" y1="12" x2="4" y2="12" />
-                  <line x1="20" y1="12" x2="22.4" y2="12" />
-                  <line x1="4.4" y1="4.4" x2="6.1" y2="6.1" />
-                  <line x1="17.9" y1="17.9" x2="19.6" y2="19.6" />
-                  <line x1="19.6" y1="4.4" x2="17.9" y2="6.1" />
-                  <line x1="6.1" y1="17.9" x2="4.4" y2="19.6" />
+                  <line x1="12" y1="1.6" x2="12" y2="4" /><line x1="12" y1="20" x2="12" y2="22.4" />
+                  <line x1="1.6" y1="12" x2="4" y2="12" /><line x1="20" y1="12" x2="22.4" y2="12" />
+                  <line x1="4.4" y1="4.4" x2="6.1" y2="6.1" /><line x1="17.9" y1="17.9" x2="19.6" y2="19.6" />
+                  <line x1="19.6" y1="4.4" x2="17.9" y2="6.1" /><line x1="6.1" y1="17.9" x2="4.4" y2="19.6" />
                 </g>
               </svg>
             </button>
@@ -87,50 +76,72 @@
       </div>
     </div>
 
-    <main class="ms-report-shell detail-shell">
-      <header class="container ms-section ms-hero detail-hero--simple" id="detail-top">
-        <div class="ms-hero-copy">
-          <p class="ms-tagline">We find them, you shine.</p>
-          <h1 class="sub-title">
-            <span class="ms-highlight">EXTRALIMO</span> hospitality staffing
-          </h1>
-          <p class="ms-lead">Hospitality struggles to find the right extra staff; candidates lack visibility. EXTRALIMO connects them — but it&#x27;s not a self-service job board: the value is the human touch, a small team of admins who select, propose and support.</p>
-          <p class="detail-status">Live at extralimo.portfolio-sbrt.com (52 commits, updated June 2026). Built with his co-founders.</p>
-          <div class="detail-actions"><a class="btn detail-live-btn" href="https://extralimo.portfolio-sbrt.com" target="_blank" rel="noopener noreferrer">Visit the site</a></div>
-          <div class="ms-note-card">
-            <h3>The solution</h3>
-            <p>A web platform built around 3 roles (candidate / business / admin) and one central object, the “match” (suggested → in progress → contact unlocked → placed). Privacy by design: contact details stay hidden until an admin unlocks the match. Public mobile-first sign-ups, GDPR consent.</p>
-          </div>
+    <main>
+    <header class="dt-hero dt-hero--web dt-wrap" id="detail-top">
+        <div class="dt-htext">
+          <p class="dt-eyebrow rv">Web · 2026</p>
+          <h1 class="rv"><span class="dt-b">EXTRALIMO</span></h1>
+          <p class="dt-sub rv">hospitality staffing</p>
+          <p class="dt-lead rv">Hospitality struggles to find the right extra staff; candidates lack visibility. EXTRALIMO connects them — but it&#x27;s not a self-service job board: the value is the human touch, a small team of admins who select, propose and support.</p>
+          <div class="dt-meta rv"><a href="https://extralimo.portfolio-sbrt.com" target="_blank" rel="noopener noreferrer">Visit the site ↗</a></div>
+        </div>
+        <div class="dt-browser rv">
+          <div class="dt-browser-bar"><i></i><i></i><i></i><span class="dt-url">extralimo.portfolio-sbrt.com</span></div>
+          <div class="dt-browser-shot"><div class="dt-ph"></div><span class="dt-ph-label">We find them, you shine.</span><span class="dt-cap">EXTRALIMO</span></div>
         </div>
       </header>
 
-      <section class="container ms-section" id="detail-outcomes">
-        <h2 class="sub-title">Key outcomes</h2>
-        <div class="ms-panel">
-          <ul class="ms-impact">
-            <li>Three roles (candidate / business / admin) around a “match” object</li>
-            <li>Privacy by design: contact details hidden until an admin unlocks them</li>
-            <li>Matches created manually, placement based on contract type and role fit</li>
-            <li>Public mobile-first sign-ups, GDPR consent</li>
-            <li>Business model: commission per contract (a percentage of the placement)</li>
-          </ul>
-        </div>
-      </section>
+    <section class="dt-band">
+      <div class="dt-wm" aria-hidden="true">E</div>
+      <div class="dt-wrap"><p class="dt-k rv">The idea</p><h2 class="rv">We find them, you shine.</h2></div>
+    </section>
 
-      <section class="container ms-section">
-        <div class="ms-panel detail-cta">
-          <div>
-            <h2 class="sub-title">See the platform</h2>
-            <p class="ms-lead ms-lead--compact">The product is live — I can walk through the data model, the lifecycle of a “match” and the privacy approach.</p>
-          </div>
-          <div class="detail-cta-actions">
-            <a class="btn btn2" href="../../index.html#contact">Book a walkthrough</a>
-            <a class="btn detail-back-btn" href="../../index.html#projects"
-              ><i class="fa-solid fa-arrow-left"></i> Back to all projects</a
-            >
-          </div>
-        </div>
-      </section>
+    <div class="dt-wrap"><section class="dt-why">
+      <p class="dt-sec-eyebrow rv"><span class="dt-num">01</span> — Why</p>
+      <p class="dt-prose dt-txt rv">Hospitality struggles to find the right extras; candidates lack visibility. EXTRALIMO connects them — but it&#x27;s not a self-service job board: the value is the human intermediation that guarantees a relevant match.</p>
+      <div class="dt-quote rv"><p class="dt-pullquote">“ Not one more job board: a match validated by a human. ”</p></div>
+    </section></div>
+
+    <div class="dt-wrap"><section class="dt-how dt-how--web">
+      <div class="dt-how-media rv"><div class="dt-float"><div class="dt-ph"></div><span class="dt-ph-label">Gallery —</span></div></div>
+      <div>
+        <p class="dt-sec-eyebrow rv"><span class="dt-num">02</span> — The approach</p>
+        <div class="dt-choice rv"><h3><span>a.</span>Three roles, one “match”</h3><p>Candidate, company and admin revolve around a single connection.</p></div>
+        <div class="dt-choice rv"><h3><span>b.</span>Confidentiality by design</h3><p>Contact details stay hidden until an admin unlocks them.</p></div>
+        <div class="dt-choice rv"><h3><span>c.</span>Human intermediation</h3><p>Matches created manually, by contract type and role affinity.</p></div>
+        <div class="dt-choice rv"><h3><span>d.</span>Mobile-first, GDPR</h3><p>Public sign-ups designed mobile-first, with GDPR consent.</p></div>
+      </div>
+    </section></div>
+
+    <div class="dt-wrap"><section class="dt-result">
+      <p class="dt-sec-eyebrow rv"><span class="dt-num">03</span> — The result</p>
+      <div class="dt-features">
+        <div class="dt-feat rv"><b>Validated connection</b><span>A match created and validated by an admin, not self-service.</span></div>
+        <div class="dt-feat rv"><b>Protected contact details</b><span>Unlocked only once the match is confirmed.</span></div>
+        <div class="dt-feat rv"><b>Placement by affinity</b><span>By contract type and target role.</span></div>
+        <div class="dt-feat rv"><b>Commission model</b><span>Paid per placed contract (percentage).</span></div>
+      </div>
+    </section></div>
+
+    <section class="dt-statusband">
+      <div class="dt-wrap"><div class="dt-in rv"><span class="dt-lab">Where it stands</span><p>Live at extralimo.portfolio-sbrt.com (52 commits, updated June 2026). Built with his co-founders.</p></div></div>
+    </section>
+
+    <div class="dt-wrap"><section class="dt-gallery">
+      <p class="dt-sec-eyebrow rv">Gallery</p>
+      <div class="dt-gal rv">
+        <div class="dt-shot"><div class="dt-ph"></div><div class="dt-sweep"></div><span class="dt-ph-label">Gallery 1 — …</span></div>
+        <div class="dt-shot"><div class="dt-ph"></div><div class="dt-sweep"></div><span class="dt-ph-label">Gallery 2 — …</span></div>
+        <div class="dt-shot"><div class="dt-ph"></div><div class="dt-sweep"></div><span class="dt-ph-label">Gallery 3 — …</span></div>
+      </div>
+    </section></div>
+      <div class="dt-wrap">
+      <div class="dt-stack rv">
+        <span class="dt-lab">Built with</span>
+        <div class="dt-chips"><span class="dt-chip">Laravel</span><span class="dt-chip">Blade</span><span class="dt-chip">MySQL</span><span class="dt-chip">Alpine.js</span><span class="dt-chip">O2switch</span></div>
+      </div>
+        <div class="dt-end"><a class="dt-back" href="../../index.html#projects"><i class="fa-solid fa-arrow-left"></i> All projects</a></div>
+      </div>
 
       <footer>
         <p>Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
@@ -138,6 +149,19 @@
     </main>
 
     <script src="../../app.js" defer></script>
-    <script src="../../lightbox.js"></script>
+    <script>
+      (function () {
+        var els = document.querySelectorAll(".rv");
+        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce || !("IntersectionObserver" in window)) {
+          els.forEach(function (el) { el.classList.add("in"); }); return;
+        }
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+        }, { threshold: 0.14 });
+        els.forEach(function (el, i) { el.style.transitionDelay = ((i % 5) * 0.06).toFixed(2) + "s"; io.observe(el); });
+        setTimeout(function () { els.forEach(function (el) { var r = el.getBoundingClientRect(); if (r.top < (window.innerHeight || 0) && r.bottom > 0) el.classList.add("in"); }); }, 1800);
+      })();
+    </script>
   </body>
 </html>

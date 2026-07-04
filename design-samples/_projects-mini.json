@@ -1,0 +1,425 @@
+[
+{
+"slug": "dump",
+"title": "DUMP",
+"hats": [
+"App",
+"IA"
+],
+"tags": [
+"Swift",
+"SwiftUI",
+"SwiftData",
+"Claude API",
+"Whisper",
+"Cloudflare Workers",
+"StoreKit 2"
+],
+"type": "Application mobile (iOS)",
+"year": 2026,
+"featured": true,
+"brand": "#E8A44A",
+"tagline": "Second cerveau augmenté par l'IA",
+"summary": "« Deuxième cerveau » iOS : on capture texte ou voix en vrac, l'IA (Claude + Whisper) trie automatiquement en catégories "
+},
+{
+"slug": "stow",
+"title": "STOW",
+"hats": [
+"App"
+],
+"tags": [
+"Flutter",
+"Dart",
+"FlutterFlow",
+"Firebase",
+"Firestore"
+],
+"type": "Application mobile (iOS & Android)",
+"year": "",
+"featured": true,
+"brand": "#FF4F00",
+"tagline": "Le coffre-fort de vos voyages en groupe",
+"summary": "Coffre-fort de documents de voyage partagé : on crée un voyage, on invite ses amis, chacun ajoute ses documents (billets"
+},
+{
+"slug": "extralimo",
+"title": "EXTRALIMO",
+"hats": [
+"Web"
+],
+"tags": [
+"Laravel",
+"Blade",
+"MySQL",
+"Alpine.js",
+"O2switch"
+],
+"type": "Plateforme web",
+"year": 2026,
+"featured": true,
+"brand": "#E8A93F",
+"tagline": "On trouve, vous brillez.",
+"summary": "Plateforme web de mise en relation à intermédiation humaine pour l'hôtellerie-restauration : candidats, entreprises et a"
+},
+{
+"slug": "ticketing-it",
+"title": "Ticketing IT",
+"hats": [
+"Microsoft"
+],
+"tags": [
+"Power Apps",
+"Power Automate",
+"Power BI",
+"SharePoint",
+"Teams"
+],
+"type": "Solution Power Platform",
+"year": 2026,
+"featured": true,
+"brand": "#E85D26",
+"tagline": "Votre support IT, simplifié",
+"summary": "Le produit Power Platform que j'ai construit : un système de ticketing IT intégré à Microsoft 365 (portail utilisateur, "
+},
+{
+"slug": "video-game-sales-powerbi",
+"title": "Video Game Sales Analysis — Power BI",
+"hats": [
+"Microsoft"
+],
+"tags": [
+"Power BI",
+"Power Query",
+"DAX",
+"Data Modeling"
+],
+"type": "Tableau de bord",
+"year": 2025,
+"featured": true,
+"brand": "#f7c948",
+"tagline": "Cas portfolio",
+"summary": "Rapport Power BI interactif construit à partir d'un jeu de données Kaggle public pour analyser les ventes mondiales de j"
+},
+{
+"slug": "mscd-application",
+"title": "MSCD — Internal Contract & Quality Management Application",
+"hats": [
+"Microsoft"
+],
+"tags": [
+"Power Apps",
+"SharePoint",
+"Power Automate"
+],
+"type": "Application métier",
+"year": 2023,
+"featured": true,
+"brand": "#f7c948",
+"tagline": "Cas interne",
+"summary": "Application interne construite pendant mon passage chez Avanade pour suivre les contrats signés de bout en bout. La solu"
+},
+{
+"slug": "suez-dashboard",
+"title": "SUEZ — Power BI Certification Progress Dashboard",
+"hats": [
+"Microsoft"
+],
+"tags": [
+"Power BI",
+"Power Query",
+"DAX"
+],
+"type": "Tableau de bord",
+"year": 2023,
+"featured": true,
+"brand": "#f7c948",
+"tagline": "Cas client",
+"summary": "Dashboard Power BI réalisé pour un projet SUEZ afin d'aider les responsables à suivre l'avancement des certifications en"
+},
+{
+"slug": "powerflows",
+"title": "Solutions Microsoft",
+"hats": [
+"Microsoft"
+],
+"tags": [
+"Next.js",
+"TypeScript",
+"Tailwind",
+"Power Platform"
+],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "#E85D26",
+"tagline": "",
+"summary": "PowerFlows — mon site vitrine qui vend des solutions Power Platform aux PME : apps métier, automatisations et dashboards"
+},
+{
+"slug": "professional-wordpress-website",
+"title": "Professional Wordpress Website",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Un site vitrine WordPress sur mesure, pensé pour mettre en avant les services et l'engagement client : prise de rendez-v"
+},
+{
+"slug": "wheretowatch",
+"title": "WhereToWatch",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Une app React pour chercher des films et savoir où les regarder. Elle s'appuie sur l'API TMDB pour afficher genres, note"
+},
+{
+"slug": "password-generator",
+"title": "Password Generator",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Un projet JavaScript pour générer des mots de passe sûrs et personnalisables — de quoi travailler les fonctions, la mani"
+},
+{
+"slug": "to-do-list",
+"title": "To Do List",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Une to-do list web pour ajouter, gérer et supprimer des tâches — pour pratiquer la manipulation du DOM, la gestion d'évé"
+},
+{
+"slug": "age-calculator",
+"title": "Age Calculator",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Une app web qui calcule l'âge en années, mois et jours à partir de la date de naissance. On saisit une date, on clique, "
+},
+{
+"slug": "bricotips",
+"title": "Bricotips",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Un projet où j'ai creusé WordPress : documentation développeur, création d'un thème enfant et personnalisation de son CS"
+},
+{
+"slug": "banana-design",
+"title": "Banana Design",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Un site WordPress simple pour apprendre les bases — installation, personnalisation du thème, création de pages et gestio"
+},
+{
+"slug": "advice-generator",
+"title": "Advice Generator",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Une app front-end qui interroge une API pour récupérer et afficher des conseils : un clic, un nouveau conseil à l'écran."
+},
+{
+"slug": "wish-project",
+"title": "Wish Project",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Un projet de cours pour apprendre les bases du framework Symfony : contrôleur, entité, formulaire, repository, et ajout,"
+},
+{
+"slug": "twitthor",
+"title": "TwitThor",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Un projet de cours fait avec React — une app façon Twitter pour prendre en main les concepts clés du framework : composa"
+},
+{
+"slug": "la-maison-jungle",
+"title": "La Maison Jungle",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Un site e-commerce de plantes pour pratiquer React, réalisé pendant un cours OpenClassrooms. On parcourt et on achète de"
+},
+{
+"slug": "favfilm",
+"title": "FavFilm",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Un site que j'ai fait pour apprendre React à l'école : parcourir une collection de films, les afficher et les trier. Un "
+},
+{
+"slug": "news-home-page",
+"title": "New Home Page",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "La page d'accueil responsive d'un site d'actualités, centrée sur HTML, CSS et un peu de JavaScript — reproduire le desig"
+},
+{
+"slug": "newsletter-sign-up",
+"title": "Newsletter Sign Up",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Un formulaire d'inscription à une newsletter, interactif, réalisé à partir d'un design : l'utilisateur saisit son email "
+},
+{
+"slug": "interactive-rating",
+"title": "Interactive Rating",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Un composant de notation responsive avec effets au survol, réalisé à partir d'un design pour encourager l'interaction. A"
+},
+{
+"slug": "taxifood",
+"title": "Taxifood",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Un projet de groupe pour une évaluation CEFIM. J'ai conçu la page équipe qui présente les membres du magasin avec photos"
+},
+{
+"slug": "superapp",
+"title": "SuperApp",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Une intégration soignée de la landing page « Super App » conçue sous Adobe XD — une démo de mes compétences front-end et"
+},
+{
+"slug": "excursion-site",
+"title": "Excursion Site",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Quelques-uns de mes tout premiers exercices de débutant, pour travailler mon HTML et mon CSS sur Codecademy."
+},
+{
+"slug": "tea-cozy",
+"title": "Tea Cozy",
+"hats": [
+"Web"
+],
+"tags": [],
+"type": "",
+"year": "",
+"featured": false,
+"brand": "",
+"tagline": "",
+"summary": "Quelques-uns de mes tout premiers exercices de débutant, pour travailler mon HTML et mon CSS sur Codecademy."
+}
+]

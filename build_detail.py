@@ -1,16 +1,26 @@
 #!/usr/bin/env python3
-"""Generate bilingual detail pages (one per featured project, per language).
+"""Generate bilingual project detail pages — direction D1 (récit produit, rythme
+horizontal aéré, charte DUO par projet). One template, N data.
 
-For every projects.json entry with "featured": true, this writes:
+For every projects.json entry with "featured": true, writes:
   - FR:  projects/<slug>.html          (root, x-default)
   - EN:  en/projects/<slug>.html
 
-Each page has the correct <html lang>, translated <title>/description/OG,
-UI chrome baked from ui.<lang>.json, hreflang alternates between the pair,
-and a body[data-alt-*] so the header FR|EN toggle can navigate to the other
-language. One flexible template adapts to the data (hero, optional status,
-live-link buttons, key outcomes, variable gallery, optional video, CTA).
+Data-driven rules:
+  - hats: "App" -> portrait device hero + démarche visual ; else -> browser (paysage).
+  - charte DUO: project.brand (principale) + project.brand2 (secondaire) ; --g2
+    (gradient partner) computed = brand2 if light enough, else a lightened brand
+    (so navy secondaries stay legible in the title while dominating the bands).
+  - detail.quote optional -> "Le pourquoi" quote (else section shows prose only ;
+    if neither why nor quote -> section skipped).
+  - detail.approach[] optional -> "La démarche" (skipped if absent, e.g. MS cases).
+  - detail.outcomes[] (structured) or detail.impact[] (flat) -> "Le résultat".
+  - externalUrl / detail.links -> hero link (absent -> no link).
+  - real image (project.image not a placeholder) -> shown in the frame ; else a
+    duotone brand→brand2 placeholder. Same for the gallery.
+  - tags -> discreet stack (section skipped if empty).
 
+Loads detail.css + Archivo + JetBrains Mono (no microsoft.css / Poppins-only).
 Run from the repo root:  python3 build_detail.py
 """
 import html
@@ -19,10 +29,7 @@ import os
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, "projects.json")
-
-# Kept identical to the other pages so Chantier 5 can swap it everywhere at once.
 DOMAIN = "https://YOUR-DOMAIN.com"
-
 LANGS = ("fr", "en")
 
 
@@ -31,14 +38,12 @@ def esc(text):
 
 
 def T(value, lang):
-    """Pick a language from a {fr,en} pair; pass plain strings through."""
     if isinstance(value, dict):
         return value.get(lang) or value.get("fr") or value.get("en") or ""
     return value if value is not None else ""
 
 
 def asset(path, base):
-    """Rewrite a data asset path (./images/x) for the page's directory depth."""
     p = str(path or "")
     if p.startswith("./"):
         return base + p[2:]
@@ -56,122 +61,228 @@ def og_abs(path):
 
 
 def is_placeholder(value):
-    return "À COMPLÉTER" in str(value or "")
+    v = str(value or "")
+    return ("À COMPLÉTER" in v) or ("placeholder" in v) or (v == "")
 
 
-def render_actions(links, external_url, lang):
-    items = list(links or [])
-    if not items and external_url and not is_placeholder(external_url):
-        items = [{"label": "Visiter", "url": external_url}]
-    btns = []
-    for link in items:
-        url = link.get("url", "")
-        if not url or is_placeholder(url):
-            continue
-        label = esc(T(link.get("label", "Visiter"), lang))
-        btns.append(
-            f'<a class="btn detail-live-btn" href="{esc(url)}" target="_blank" rel="noopener noreferrer">{label}</a>'
-        )
-    if not btns:
+# ---- charte DUO helpers -----------------------------------------------------
+def _rgb(hx):
+    h = str(hx or "#000000").lstrip("#")
+    if len(h) == 3:
+        h = "".join(c * 2 for c in h)
+    return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+
+
+def _lum(hx):
+    r, g, b = _rgb(hx)
+    return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255.0
+
+
+def _mix_white(hx, t):
+    r, g, b = _rgb(hx)
+    f = lambda c: round(c + (255 - c) * t)
+    return "#%02X%02X%02X" % (f(r), f(g), f(b))
+
+
+def charte(project):
+    brand = project.get("brand") or "#ff004f"
+    brand2 = project.get("brand2") or brand
+    # navy/dark secondaries can't carry bright text → light warm partner for --g2
+    g2 = brand2 if _lum(brand2) >= 0.22 else _mix_white(brand, 0.42)
+    return brand, brand2, g2
+
+
+# ---- visual (real image or duotone placeholder) -----------------------------
+def visual_inner(img_src, alt, label):
+    if img_src:
+        return f'<img class="dt-img" src="{img_src}" alt="{alt}" loading="lazy" />'
+    return f'<div class="dt-ph"></div><span class="dt-ph-label">{label}</span>'
+
+
+def render_hero(project, detail, lang, ui, base, is_app, ext_url, ext_label):
+    highlight = esc(T(detail.get("highlight", project["title"]), lang))
+    heading = esc(T(detail.get("heading", ""), lang))
+    lead = esc(T(detail.get("lead", project.get("summary", "")), lang))
+    hats = " · ".join(project.get("hats") or [])
+    year = project.get("year")
+    eyebrow = esc(hats + (f" · {year}" if year else ""))
+    cap = esc(project["title"])
+
+    cover = project.get("image")
+    img_src = asset(cover, base) if not is_placeholder(cover) else ""
+    to_come = esc(ui.get("detail.gallery", "Gallery")) + " —"
+    label = esc(T(detail.get("tagline", ""), lang)) or cap
+
+    sub_html = f'<p class="dt-sub rv">{heading}</p>' if heading else ""
+    link_html = ""
+    if ext_url:
+        link_html = (f'<div class="dt-meta rv"><a href="{esc(ext_url)}" target="_blank" '
+                     f'rel="noopener noreferrer">{ext_label} ↗</a></div>')
+
+    text = f"""<div class="dt-htext">
+          <p class="dt-eyebrow rv">{eyebrow}</p>
+          <h1 class="rv"><span class="dt-b">{highlight}</span></h1>
+          {sub_html}
+          <p class="dt-lead rv">{lead}</p>
+          {link_html}
+        </div>"""
+
+    if is_app:
+        media = f"""<div class="dt-device rv">{visual_inner(img_src, cap, label)}<span class="dt-cap">{cap}</span></div>"""
+        return f"""    <header class="dt-hero dt-hero--app dt-wrap" id="detail-top">
+        {text}
+        {media}
+      </header>"""
+    # web / MS : browser paysage
+    url_txt = esc((ext_url or "").replace("https://", "").replace("http://", "").rstrip("/")) or cap
+    media = f"""<div class="dt-browser rv">
+          <div class="dt-browser-bar"><i></i><i></i><i></i><span class="dt-url">{url_txt}</span></div>
+          <div class="dt-browser-shot">{visual_inner(img_src, cap, label)}<span class="dt-cap">{cap}</span></div>
+        </div>"""
+    return f"""    <header class="dt-hero dt-hero--web dt-wrap" id="detail-top">
+        {text}
+        {media}
+      </header>"""
+
+
+def render_band(detail, lang, ui):
+    tagline = esc(T(detail.get("tagline", ""), lang))
+    if not tagline:
         return ""
-    return '\n          <div class="detail-actions">' + "".join(btns) + "</div>"
-
-
-def render_gallery(gallery, base, lang):
-    figs = []
-    for shot in gallery:
-        src = asset(shot.get("src"), base)
-        alt = esc(T(shot.get("alt"), lang))
-        caption = esc(T(shot.get("caption"), lang))
-        figcaption = f"\n              <figcaption>{caption}</figcaption>" if caption else ""
-        figs.append(
-            f"""            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="{src}" alt="{alt}" loading="lazy" data-full="{src}" />
-              </div>{figcaption}
-            </figure>"""
-        )
-    return "\n".join(figs)
-
-
-def render_gallery_section(detail, base, lang, ui):
-    gallery = detail.get("gallery", [])
-    if not gallery:
-        return ""
-    gallery_title = esc(T(detail.get("galleryTitle", "Gallery"), lang))
-    gallery_lead = esc(T(detail.get("galleryLead", ""), lang))
-    gallery_lead_html = (
-        f'\n        <p class="ms-lead ms-lead--compact">{gallery_lead}</p>' if gallery_lead else ""
-    )
+    letter = esc((esc(T(detail.get("highlight", ""), lang)) or "•")[0])
+    idea = esc(ui.get("detail.idea", "The idea"))
     return f"""
-      <section class="container ms-section" id="detail-gallery">
-        <h2 class="sub-title">{gallery_title}</h2>{gallery_lead_html}
+    <section class="dt-band">
+      <div class="dt-wm" aria-hidden="true">{letter}</div>
+      <div class="dt-wrap"><p class="dt-k rv">{idea}</p><h2 class="rv">{tagline}</h2></div>
+    </section>"""
 
-        <div class="ms-panel">
-          <div class="detail-gallery">
-{render_gallery(gallery, base, lang)}
-          </div>
-        </div>
-{render_video(detail.get("video"), lang)}      </section>
 
-      <div class="detail-lightbox" id="detailLightbox" aria-hidden="true">
-        <button class="detail-lightbox-close" id="detailLightboxClose" aria-label="{esc(ui.get('detail.close', 'Close gallery view'))}">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="detail-lightbox-media">
-          <img id="detailLightboxImg" src="" alt="" />
-          <p id="detailLightboxCaption"></p>
-        </div>
+def render_why(detail, lang, ui):
+    why = esc(T(detail.get("why", ""), lang))
+    quote = esc(T(detail.get("quote", ""), lang))
+    if not why and not quote:
+        return ""
+    label = esc(ui.get("detail.why", "Why"))
+    prose = f'<p class="dt-prose dt-txt rv">{why}</p>' if why else ""
+    quote_html = (f'<div class="dt-quote rv"><p class="dt-pullquote">“ {quote} ”</p></div>'
+                  if quote else "")
+    return f"""
+    <div class="dt-wrap"><section class="dt-why">
+      <p class="dt-sec-eyebrow rv"><span class="dt-num">01</span> — {label}</p>
+      {prose}
+      {quote_html}
+    </section></div>"""
+
+
+def render_approach(detail, lang, ui, base, is_app):
+    approach = detail.get("approach") or []
+    if not approach:
+        return ""
+    label = esc(ui.get("detail.approach", "Approach"))
+    letters = "abcdefghij"
+    rows = []
+    for i, ch in enumerate(approach):
+        t = esc(T(ch.get("title"), lang))
+        b = esc(T(ch.get("body"), lang))
+        rows.append(f'<div class="dt-choice rv"><h3><span>{letters[i]}.</span>{t}</h3><p>{b}</p></div>')
+    choices = "\n        ".join(rows)
+    mode = "" if is_app else " dt-how--web"
+    lbl = esc(ui.get("detail.gallery", "Gallery")) + " —"
+    media = f'<div class="dt-how-media rv"><div class="dt-float">{visual_inner("", "", lbl)}</div></div>'
+    return f"""
+    <div class="dt-wrap"><section class="dt-how{mode}">
+      {media}
+      <div>
+        <p class="dt-sec-eyebrow rv"><span class="dt-num">02</span> — {label}</p>
+        {choices}
       </div>
-"""
+    </section></div>"""
 
 
-def render_impact(impact, lang, ui):
-    if not impact:
+def render_result(detail, lang, ui):
+    outcomes = detail.get("outcomes")
+    impact = detail.get("impact")
+    label = esc(ui.get("detail.result", "Result"))
+    feats = []
+    if outcomes:
+        for o in outcomes:
+            t = esc(T(o.get("title"), lang))
+            b = esc(T(o.get("body"), lang))
+            feats.append(f'<div class="dt-feat rv"><b>{t}</b><span>{b}</span></div>')
+    elif impact:
+        for it in impact:
+            feats.append(f'<div class="dt-feat rv"><b>{esc(T(it, lang))}</b></div>')
+    if not feats:
         return ""
-    items = "\n".join(f"            <li>{esc(T(i, lang))}</li>" for i in impact)
-    heading = esc(ui.get("detail.outcomes", "Key outcomes"))
+    one = " dt-features--one" if len(feats) <= 1 else ""
+    items = "\n        ".join(feats)
     return f"""
-      <section class="container ms-section" id="detail-outcomes">
-        <h2 class="sub-title">{heading}</h2>
-        <div class="ms-panel">
-          <ul class="ms-impact">
-{items}
-          </ul>
-        </div>
-      </section>
-"""
+    <div class="dt-wrap"><section class="dt-result">
+      <p class="dt-sec-eyebrow rv"><span class="dt-num">03</span> — {label}</p>
+      <div class="dt-features{one}">
+        {items}
+      </div>
+    </section></div>"""
 
 
-def render_video(video, lang):
-    if not video or not video.get("url"):
+def render_statusband(detail, lang, ui):
+    status = esc(T(detail.get("status", ""), lang))
+    if not status:
         return ""
-    heading = esc(T(video.get("heading", "Video walkthrough"), lang))
-    body = esc(T(video.get("body", ""), lang))
-    url = esc(video.get("url"))
-    label = esc(T(video.get("label", "Watch the video"), lang))
-    body_html = f'\n            <p class="ms-lead ms-lead--compact">{body}</p>' if body else ""
+    label = esc(ui.get("detail.statusLabel", "Where it stands"))
     return f"""
-        <div class="ms-panel detail-video-panel">
-          <div class="detail-video-copy">
-            <h2 class="sub-title">{heading}</h2>{body_html}
-          </div>
-          <a class="btn detail-video-btn" href="{url}" target="_blank" rel="noopener noreferrer"
-            ><i class="fa-solid fa-circle-play"></i> {label}</a
-          >
-        </div>
-"""
+    <section class="dt-statusband">
+      <div class="dt-wrap"><div class="dt-in rv"><span class="dt-lab">{label}</span><p>{status}</p></div></div>
+    </section>"""
+
+
+def render_gallery(detail, base, lang, ui):
+    label = esc(ui.get("detail.gallery", "Gallery"))
+    shots = detail.get("gallery") or []
+    tiles = []
+    real = [s for s in shots if s.get("src") and not is_placeholder(s.get("src"))]
+    if real:
+        for s in real[:3]:
+            src = asset(s.get("src"), base)
+            alt = esc(T(s.get("caption") or s.get("alt"), lang))
+            tiles.append(f'<div class="dt-shot"><img class="dt-img" src="{src}" alt="{alt}" loading="lazy" /><div class="dt-sweep"></div></div>')
+    else:
+        to_come = esc(ui.get("detail.gallery", "Gallery"))
+        for i in range(3):
+            tiles.append(f'<div class="dt-shot"><div class="dt-ph"></div><div class="dt-sweep"></div><span class="dt-ph-label">{to_come} {i + 1} — …</span></div>')
+    tiles_html = "\n        ".join(tiles)
+    return f"""
+    <div class="dt-wrap"><section class="dt-gallery">
+      <p class="dt-sec-eyebrow rv">{label}</p>
+      <div class="dt-gal rv">
+        {tiles_html}
+      </div>
+    </section></div>"""
+
+
+def render_stack(project, ui):
+    tags = project.get("tags") or []
+    if not tags:
+        return ""
+    label = esc(ui.get("detail.builtwith", "Built with"))
+    chips = "".join(f'<span class="dt-chip">{esc(t)}</span>' for t in tags)
+    return f"""
+      <div class="dt-stack rv">
+        <span class="dt-lab">{label}</span>
+        <div class="dt-chips">{chips}</div>
+      </div>"""
 
 
 def render_page(project, lang, ui):
-    """Render one detail page. FR lives in projects/, EN in en/projects/."""
     detail = project.get("detail", {})
     slug = project["slug"]
     title = esc(project["title"])
     summary = esc(T(project.get("summary", ""), lang))
-    hat = (project.get("hats") or ["Web"])[0]
+    hats = project.get("hats") or ["Web"]
+    is_app = "App" in hats
+    brand, brand2, g2 = charte(project)
 
-    # Directory depth + URLs per language.
     if lang == "fr":
         base = "../"
         self_url = f"{DOMAIN}/projects/{slug}.html"
@@ -183,56 +294,42 @@ def render_page(project, lang, ui):
     fr_url = f"{DOMAIN}/projects/{slug}.html"
     en_url = f"{DOMAIN}/en/projects/{slug}.html"
 
-    tagline = esc(T(detail.get("tagline", ""), lang))
-    highlight = esc(T(detail.get("highlight", project["title"]), lang))
-    heading = esc(T(detail.get("heading", ""), lang))
-    lead = esc(T(detail.get("lead", project.get("summary", "")), lang))
-    status = esc(T(detail.get("status", ""), lang))
-    context = detail.get("context") or {}
-    context_heading = esc(T(context.get("heading", "Project context"), lang))
-    context_body = esc(T(context.get("body", ""), lang))
-    cta = detail.get("cta") or {}
-    cta_heading = esc(T(cta.get("heading", "Interested?"), lang))
-    cta_body = esc(T(cta.get("body", ""), lang))
+    # external link (detail.links first, else externalUrl)
+    ext_url, ext_label = "", esc(ui.get("detail.visit", "View project"))
+    links = detail.get("links") or []
+    if links and links[0].get("url") and not is_placeholder(links[0]["url"]):
+        ext_url = links[0]["url"]
+        ext_label = esc(T(links[0].get("label", ui.get("detail.visit", "View project")), lang))
+    elif project.get("externalUrl") and not is_placeholder(project.get("externalUrl")):
+        ext_url = project["externalUrl"]
 
     og_image = og_abs(project.get("image"))
-    status_html = f'\n          <p class="detail-status">{status}</p>' if status else ""
-    tagline_html = f'<p class="ms-tagline">{tagline}</p>\n          ' if tagline else ""
-    context_html = (
-        f"""
-          <div class="ms-note-card">
-            <h3>{context_heading}</h3>
-            <p>{context_body}</p>
-          </div>"""
-        if context_body
-        else ""
-    )
-    actions_html = render_actions(detail.get("links"), project.get("externalUrl"), lang)
-    gallery_section = render_gallery_section(detail, base, lang, ui)
-
     nav_home = esc(ui.get("nav.home", "Home"))
     nav_about = esc(ui.get("nav.about", "About"))
     nav_projects = esc(ui.get("nav.projects", "Projects"))
     nav_contact = esc(ui.get("nav.contact", "Contact"))
     copyright_word = esc(ui.get("footer.copyright", "Copyright"))
-    book = esc(ui.get("detail.book", "Book a walkthrough"))
-    back = esc(ui.get("detail.back", "Back to all projects"))
-    toggle_label = "EN" if lang == "fr" else "FR"
+    back = esc(ui.get("detail.allProjects", "All projects"))
     toggle_aria = "Switch to English" if lang == "fr" else "Passer en français"
+
+    hero = render_hero(project, detail, lang, ui, base, is_app, ext_url, ext_label)
+    band = render_band(detail, lang, ui)
+    why = render_why(detail, lang, ui)
+    approach = render_approach(detail, lang, ui, base, is_app)
+    result = render_result(detail, lang, ui)
+    statusband = render_statusband(detail, lang, ui)
+    gallery = render_gallery(detail, base, lang, ui)
+    stack = render_stack(project, ui)
 
     return f"""<!DOCTYPE html>
 <html lang="{lang}">
   <head>
     <meta charset="utf-8" />
     <script>
-      // Set theme before paint to avoid flash of incorrect theme.
       (function () {{
         try {{
           var t = localStorage.getItem("theme");
-          if (!t)
-            t = matchMedia("(prefers-color-scheme: light)").matches
-              ? "light"
-              : "dark";
+          if (!t) t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
           document.documentElement.setAttribute("data-theme", t);
         }} catch (e) {{}}
       }})();
@@ -240,7 +337,6 @@ def render_page(project, lang, ui):
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title} — Paul Sabourault</title>
     <meta name="description" content="{summary}" />
-    <!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
     <link rel="canonical" href="{self_url}" />
     <link rel="alternate" hreflang="fr" href="{fr_url}" />
     <link rel="alternate" hreflang="en" href="{en_url}" />
@@ -254,22 +350,20 @@ def render_page(project, lang, ui):
     <link rel="icon" type="image/svg+xml" href="{base}favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=JetBrains+Mono:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{base}style.css" />
-    <link rel="stylesheet" href="{base}microsoft.css" />
+    <link rel="stylesheet" href="{base}detail.css" />
     <script src="https://kit.fontawesome.com/5d10eb0d43.js" defer crossorigin="anonymous"></script>
     <script src="{base}theme.js" defer></script>
     <script src="{base}i18n.js" defer></script>
   </head>
 
-  <body data-hat="{esc(hat)}" data-detail data-i18n-base="{base}" data-alt-{alt_lang}="{alt_rel}">
-    <div class="ms-nav-shell">
+  <body data-detail data-i18n-base="{base}" data-alt-{alt_lang}="{alt_rel}" style="--brand:{brand};--brand2:{brand2};--g2:{g2};">
+    <div class="dt-nav-shell">
       <div class="container">
         <div class="header-sticky">
           <div class="nom">
-            <a href="{base}index.html#header"
-              ><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a
-            >
+            <a href="{base}index.html#header"><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a>
           </div>
           <nav>
             <ul id="sidemenu">
@@ -292,14 +386,10 @@ def render_page(project, lang, ui):
                 </mask>
                 <circle class="theme-orb" cx="12" cy="12" r="6" fill="currentColor" mask="url(#theme-moon-mask)" />
                 <g class="theme-rays" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-                  <line x1="12" y1="1.6" x2="12" y2="4" />
-                  <line x1="12" y1="20" x2="12" y2="22.4" />
-                  <line x1="1.6" y1="12" x2="4" y2="12" />
-                  <line x1="20" y1="12" x2="22.4" y2="12" />
-                  <line x1="4.4" y1="4.4" x2="6.1" y2="6.1" />
-                  <line x1="17.9" y1="17.9" x2="19.6" y2="19.6" />
-                  <line x1="19.6" y1="4.4" x2="17.9" y2="6.1" />
-                  <line x1="6.1" y1="17.9" x2="4.4" y2="19.6" />
+                  <line x1="12" y1="1.6" x2="12" y2="4" /><line x1="12" y1="20" x2="12" y2="22.4" />
+                  <line x1="1.6" y1="12" x2="4" y2="12" /><line x1="20" y1="12" x2="22.4" y2="12" />
+                  <line x1="4.4" y1="4.4" x2="6.1" y2="6.1" /><line x1="17.9" y1="17.9" x2="19.6" y2="19.6" />
+                  <line x1="19.6" y1="4.4" x2="17.9" y2="6.1" /><line x1="6.1" y1="17.9" x2="4.4" y2="19.6" />
                 </g>
               </svg>
             </button>
@@ -309,30 +399,17 @@ def render_page(project, lang, ui):
       </div>
     </div>
 
-    <main class="ms-report-shell detail-shell">
-      <header class="container ms-section ms-hero detail-hero--simple" id="detail-top">
-        <div class="ms-hero-copy">
-          {tagline_html}<h1 class="sub-title">
-            <span class="ms-highlight">{highlight}</span> {heading}
-          </h1>
-          <p class="ms-lead">{lead}</p>{status_html}{actions_html}{context_html}
-        </div>
-      </header>
-{render_impact(detail.get("impact"), lang, ui)}{gallery_section}
-      <section class="container ms-section">
-        <div class="ms-panel detail-cta">
-          <div>
-            <h2 class="sub-title">{cta_heading}</h2>
-            <p class="ms-lead ms-lead--compact">{cta_body}</p>
-          </div>
-          <div class="detail-cta-actions">
-            <a class="btn btn2" href="{base}index.html#contact">{book}</a>
-            <a class="btn detail-back-btn" href="{base}index.html#projects"
-              ><i class="fa-solid fa-arrow-left"></i> {back}</a
-            >
-          </div>
-        </div>
-      </section>
+    <main>
+{hero}
+{band}
+{why}
+{approach}
+{result}
+{statusband}
+{gallery}
+      <div class="dt-wrap">{stack}
+        <div class="dt-end"><a class="dt-back" href="{base}index.html#projects"><i class="fa-solid fa-arrow-left"></i> {back}</a></div>
+      </div>
 
       <footer>
         <p>{copyright_word}<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
@@ -340,7 +417,20 @@ def render_page(project, lang, ui):
     </main>
 
     <script src="{base}app.js" defer></script>
-    <script src="{base}lightbox.js"></script>
+    <script>
+      (function () {{
+        var els = document.querySelectorAll(".rv");
+        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce || !("IntersectionObserver" in window)) {{
+          els.forEach(function (el) {{ el.classList.add("in"); }}); return;
+        }}
+        var io = new IntersectionObserver(function (es) {{
+          es.forEach(function (e) {{ if (e.isIntersecting) {{ e.target.classList.add("in"); io.unobserve(e.target); }} }});
+        }}, {{ threshold: 0.14 }});
+        els.forEach(function (el, i) {{ el.style.transitionDelay = ((i % 5) * 0.06).toFixed(2) + "s"; io.observe(el); }});
+        setTimeout(function () {{ els.forEach(function (el) {{ var r = el.getBoundingClientRect(); if (r.top < (window.innerHeight || 0) && r.bottom > 0) el.classList.add("in"); }}); }}, 1800);
+      }})();
+    </script>
   </body>
 </html>
 """

@@ -91,9 +91,102 @@
           "fr": "Je peux présenter l'architecture (proxy Cloudflare, clés IA côté serveur), le design system et le fonctionnement de la classification.",
           "en": "I can walk through the architecture (Cloudflare proxy, AI keys kept server-side), the design system and how the classification works."
         }
-      }
+      },
+      "quote": {
+        "fr": "Je l'ai d'abord construit pour moi.",
+        "en": "I built it for myself first."
+      },
+      "why": {
+        "fr": "On capture une idée, une note, un vocal — et on la perd, ou on ne la retrouve jamais structurée. Le constat de départ de DUMP : et si on pouvait tout jeter en vrac, et laisser l'IA ranger ? Pensé pour les gens qui débordent d'idées et veulent y voir clair — un outil d'organisation, jamais de thérapie.",
+        "en": "You capture an idea, a note, a voice memo — then lose it, or never find it structured. DUMP starts there: what if you could dump everything in bulk and let the AI sort it? Made for people overflowing with ideas who want to see clearly — an organization tool, never therapy."
+      },
+      "approach": [
+        {
+          "title": {
+            "fr": "Zéro friction",
+            "en": "Zero friction"
+          },
+          "body": {
+            "fr": "Pas de compte, pas d'email : l'app est utile dès la première seconde — widgets et extension de partage compris.",
+            "en": "No account, no email: useful from the very first second — widgets and share extension included."
+          }
+        },
+        {
+          "title": {
+            "fr": "La confidentialité d'abord",
+            "en": "Privacy first"
+          },
+          "body": {
+            "fr": "Les entités (noms, lieux, dates) sont anonymisées avant tout envoi ; les clés IA restent côté serveur, derrière un proxy Cloudflare.",
+            "en": "Entities (names, places, dates) are anonymized before any send; AI keys stay server-side behind a Cloudflare proxy."
+          }
+        },
+        {
+          "title": {
+            "fr": "L'IA au bon endroit",
+            "en": "AI in the right place"
+          },
+          "body": {
+            "fr": "Whisper transcrit la voix, Claude classe (ACTION / INFO / IDÉE / VRAC) et suggère des connexions — l'app apprend de tes corrections.",
+            "en": "Whisper transcribes voice, Claude classifies (ACTION / INFO / IDEA / MISC) and suggests connections — the app learns from your corrections."
+          }
+        },
+        {
+          "title": {
+            "fr": "Crédible dès le jour 1",
+            "en": "Credible from day one"
+          },
+          "body": {
+            "fr": "Design system, niveaux d'urgence, rappels datés, buffer d'impulsivité : pas une démo, un produit.",
+            "en": "Design system, urgency levels, dated reminders, impulse buffer: not a demo, a product."
+          }
+        }
+      ],
+      "outcomes": [
+        {
+          "title": {
+            "fr": "Capture texte + voix",
+            "en": "Text + voice capture"
+          },
+          "body": {
+            "fr": "On jette en vrac ; les vocaux sont transcrits automatiquement.",
+            "en": "Dump in bulk; voice memos are transcribed automatically."
+          }
+        },
+        {
+          "title": {
+            "fr": "Classement automatique",
+            "en": "Automatic sorting"
+          },
+          "body": {
+            "fr": "Action, info, idée ou vrac — avec un niveau d'urgence.",
+            "en": "Action, info, idea or misc — with an urgency level."
+          }
+        },
+        {
+          "title": {
+            "fr": "Connexions entre notes",
+            "en": "Connections between notes"
+          },
+          "body": {
+            "fr": "DUMP relie ce qui va ensemble et extrait les entités clés.",
+            "en": "DUMP links what belongs together and extracts key entities."
+          }
+        },
+        {
+          "title": {
+            "fr": "Rappels au bon moment",
+            "en": "Reminders at the right time"
+          },
+          "body": {
+            "fr": "Rappels datés et buffer d'impulsivité pour ne rien laisser filer.",
+            "en": "Dated reminders and an impulse buffer so nothing slips."
+          }
+        }
+      ]
     },
-    "brand": "#E8A44A"
+    "brand": "#E8A44A",
+    "brand2": "#F2CC8F"
   },
   {
     "slug": "stow",
@@ -201,9 +294,102 @@
           "fr": "L'app est disponible gratuitement sur l'App Store et le Google Play Store.",
           "en": "The app is available for free on the App Store and the Google Play Store."
         }
-      }
+      },
+      "quote": {
+        "fr": "Fini le PDF perdu entre un meme et un vocal de 4 minutes.",
+        "en": "No more PDF lost between a meme and a 4-minute voice note."
+      },
+      "why": {
+        "fr": "En voyage de groupe, les documents sont éparpillés dans WhatsApp et introuvables au mauvais moment, sans accès hors ligne à la douane ou à l'arrivée. STOW transforme le stress du départ en zénitude : un coffre-fort partagé, à jour, accessible même sans réseau.",
+        "en": "On group trips, documents are scattered across WhatsApp and impossible to find at the wrong moment, with no offline access at customs or on arrival. STOW turns departure stress into calm: a shared vault, up to date, reachable even offline."
+      },
+      "approach": [
+        {
+          "title": {
+            "fr": "Hors ligne d'abord",
+            "en": "Offline first"
+          },
+          "body": {
+            "fr": "Les documents importants restent accessibles sans réseau — douane, aéroport, arrivée.",
+            "en": "Key documents stay reachable without a network — customs, airport, arrival."
+          }
+        },
+        {
+          "title": {
+            "fr": "Partagé par design",
+            "en": "Shared by design"
+          },
+          "body": {
+            "fr": "Chaque membre du groupe contribue ses propres documents ; tout le monde y accède.",
+            "en": "Each group member contributes their own documents; everyone can access them."
+          }
+        },
+        {
+          "title": {
+            "fr": "Zéro setup",
+            "en": "Zero setup"
+          },
+          "body": {
+            "fr": "Login rapide Apple ou Google, gratuit — utile dès la première seconde.",
+            "en": "Quick Apple or Google login, free — useful from the first second."
+          }
+        },
+        {
+          "title": {
+            "fr": "Chaque doc à sa place",
+            "en": "Every doc in its place"
+          },
+          "body": {
+            "fr": "Fini le mélange avec le chat de groupe : un rangement clair et dédié.",
+            "en": "No more mixing with the group chat: clear, dedicated storage."
+          }
+        }
+      ],
+      "outcomes": [
+        {
+          "title": {
+            "fr": "Voyage partagé",
+            "en": "Shared trip"
+          },
+          "body": {
+            "fr": "Chaque membre ajoute ses documents au coffre commun.",
+            "en": "Each member adds their documents to the shared vault."
+          }
+        },
+        {
+          "title": {
+            "fr": "Accès hors ligne",
+            "en": "Offline access"
+          },
+          "body": {
+            "fr": "Les documents clés disponibles sans connexion.",
+            "en": "Key documents available without a connection."
+          }
+        },
+        {
+          "title": {
+            "fr": "Rangement clair",
+            "en": "Clear storage"
+          },
+          "body": {
+            "fr": "Chaque document à sa place, plus de perte dans le chat.",
+            "en": "Every document in its place, no more losing it in the chat."
+          }
+        },
+        {
+          "title": {
+            "fr": "Gratuit, sans friction",
+            "en": "Free, frictionless"
+          },
+          "body": {
+            "fr": "Login Apple ou Google, prêt en quelques secondes.",
+            "en": "Apple or Google login, ready in seconds."
+          }
+        }
+      ]
     },
-    "brand": "#FF4F00"
+    "brand": "#FF4F00",
+    "brand2": "#39D2C0"
   },
   {
     "slug": "extralimo",
@@ -302,9 +488,102 @@
           "fr": "Le produit est en ligne — je peux présenter le modèle de données, le cycle de vie d'un « match » et l'approche confidentialité.",
           "en": "The product is live — I can walk through the data model, the lifecycle of a “match” and the privacy approach."
         }
-      }
+      },
+      "quote": {
+        "fr": "Pas un job board de plus : un match validé par un humain.",
+        "en": "Not one more job board: a match validated by a human."
+      },
+      "why": {
+        "fr": "L'hôtellerie-restauration peine à trouver les bons extras ; les candidats manquent de visibilité. EXTRALIMO les relie — mais ce n'est pas un job board en libre-service : la valeur, c'est l'intermédiation humaine qui garantit un match pertinent.",
+        "en": "Hospitality struggles to find the right extras; candidates lack visibility. EXTRALIMO connects them — but it's not a self-service job board: the value is the human intermediation that guarantees a relevant match."
+      },
+      "approach": [
+        {
+          "title": {
+            "fr": "Trois rôles, un objet « match »",
+            "en": "Three roles, one “match”"
+          },
+          "body": {
+            "fr": "Candidat, entreprise et admin s'articulent autour d'une mise en relation.",
+            "en": "Candidate, company and admin revolve around a single connection."
+          }
+        },
+        {
+          "title": {
+            "fr": "Confidentialité by design",
+            "en": "Confidentiality by design"
+          },
+          "body": {
+            "fr": "Les coordonnées restent masquées jusqu'au déblocage par un admin.",
+            "en": "Contact details stay hidden until an admin unlocks them."
+          }
+        },
+        {
+          "title": {
+            "fr": "Intermédiation humaine",
+            "en": "Human intermediation"
+          },
+          "body": {
+            "fr": "Matchs créés manuellement, selon le type de contrat et l'affinité de poste.",
+            "en": "Matches created manually, by contract type and role affinity."
+          }
+        },
+        {
+          "title": {
+            "fr": "Mobile-first, RGPD",
+            "en": "Mobile-first, GDPR"
+          },
+          "body": {
+            "fr": "Inscriptions publiques pensées mobile, avec consentement RGPD.",
+            "en": "Public sign-ups designed mobile-first, with GDPR consent."
+          }
+        }
+      ],
+      "outcomes": [
+        {
+          "title": {
+            "fr": "Mise en relation validée",
+            "en": "Validated connection"
+          },
+          "body": {
+            "fr": "Un match créé et validé par un admin, pas un self-service.",
+            "en": "A match created and validated by an admin, not self-service."
+          }
+        },
+        {
+          "title": {
+            "fr": "Coordonnées protégées",
+            "en": "Protected contact details"
+          },
+          "body": {
+            "fr": "Débloquées seulement une fois le match confirmé.",
+            "en": "Unlocked only once the match is confirmed."
+          }
+        },
+        {
+          "title": {
+            "fr": "Placement par affinité",
+            "en": "Placement by affinity"
+          },
+          "body": {
+            "fr": "Selon le type de contrat et le poste recherché.",
+            "en": "By contract type and target role."
+          }
+        },
+        {
+          "title": {
+            "fr": "Modèle à la commission",
+            "en": "Commission model"
+          },
+          "body": {
+            "fr": "Rémunération au contrat placé (pourcentage).",
+            "en": "Paid per placed contract (percentage)."
+          }
+        }
+      ]
     },
-    "brand": "#E8A93F"
+    "brand": "#E8A93F",
+    "brand2": "#1B2B4D"
   },
   {
     "slug": "ticketing-it",
@@ -403,9 +682,102 @@
           "fr": "La solution est présentée en ligne sur PowerFlows — je peux détailler l'architecture Power Platform (Power Apps, Power Automate, Power BI, SharePoint) et une démo.",
           "en": "The solution is presented online on PowerFlows — I can walk through the Power Platform architecture (Power Apps, Power Automate, Power BI, SharePoint) and a demo."
         }
-      }
+      },
+      "quote": {
+        "fr": "La Power Platform qu'ils paient déjà — enfin exploitée.",
+        "en": "The Power Platform they already pay for — finally put to use."
+      },
+      "why": {
+        "fr": "Les PME noient leurs demandes IT dans les emails, Teams et le téléphone : aucune visibilité, des process manuels — alors qu'une Power Platform est déjà incluse dans leur licence Microsoft 365, mais sous-exploitée. Ticketing IT part de ce gâchis.",
+        "en": "SMEs drown their IT requests in emails, Teams and phone calls: no visibility, manual processes — while a Power Platform is already included in their Microsoft 365 license, but underused. Ticketing IT starts from that waste."
+      },
+      "approach": [
+        {
+          "title": {
+            "fr": "Sur l'existant",
+            "en": "On top of the existing"
+          },
+          "body": {
+            "fr": "Bâti sur le Microsoft 365 déjà en place — pas de nouvel outil, pas de nouvelle licence.",
+            "en": "Built on the Microsoft 365 already in place — no new tool, no new license."
+          }
+        },
+        {
+          "title": {
+            "fr": "Une demande en 30 s",
+            "en": "A request in 30s"
+          },
+          "body": {
+            "fr": "Portail utilisateur minimaliste : trois champs, et c'est envoyé.",
+            "en": "Minimal user portal: three fields, and it's sent."
+          }
+        },
+        {
+          "title": {
+            "fr": "Piloté par le SLA",
+            "en": "SLA-driven"
+          },
+          "body": {
+            "fr": "Dashboard admin avec KPI temps réel et badges SLA (vert / orange / rouge).",
+            "en": "Admin dashboard with real-time KPIs and SLA badges (green / orange / red)."
+          }
+        },
+        {
+          "title": {
+            "fr": "Déployable en ½ journée",
+            "en": "Deployable in half a day"
+          },
+          "body": {
+            "fr": "Mise en place dans un tenant existant, formation incluse.",
+            "en": "Set up in an existing tenant, training included."
+          }
+        }
+      ],
+      "outcomes": [
+        {
+          "title": {
+            "fr": "Portail en 30 secondes",
+            "en": "Portal in 30 seconds"
+          },
+          "body": {
+            "fr": "Une demande créée en trois champs.",
+            "en": "A request created in three fields."
+          }
+        },
+        {
+          "title": {
+            "fr": "Dashboard temps réel",
+            "en": "Real-time dashboard"
+          },
+          "body": {
+            "fr": "KPI, filtres, recherche et badges SLA.",
+            "en": "KPIs, filters, search and SLA badges."
+          }
+        },
+        {
+          "title": {
+            "fr": "Notifications Email & Teams",
+            "en": "Email & Teams notifications"
+          },
+          "body": {
+            "fr": "Automatiques, là où les équipes travaillent déjà.",
+            "en": "Automatic, where teams already work."
+          }
+        },
+        {
+          "title": {
+            "fr": "Reporting Power BI",
+            "en": "Power BI reporting"
+          },
+          "body": {
+            "fr": "Le suivi et l'analyse intégrés.",
+            "en": "Tracking and analysis built in."
+          }
+        }
+      ]
     },
-    "brand": "#E85D26"
+    "brand": "#F5822E",
+    "brand2": "#0A2463"
   },
   {
     "slug": "video-game-sales-powerbi",

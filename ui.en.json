@@ -28,5 +28,14 @@
   "detail.outcomes": "Key outcomes",
   "detail.book": "Book a walkthrough",
   "detail.back": "Back to all projects",
-  "detail.close": "Close gallery view"
+  "detail.close": "Close gallery view",
+  "detail.idea": "The idea",
+  "detail.why": "Why",
+  "detail.approach": "The approach",
+  "detail.result": "The result",
+  "detail.gallery": "Gallery",
+  "detail.builtwith": "Built with",
+  "detail.statusLabel": "Where it stands",
+  "detail.allProjects": "All projects",
+  "detail.visit": "View project"
 }

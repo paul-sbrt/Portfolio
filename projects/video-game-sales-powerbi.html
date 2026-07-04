@@ -3,14 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <script>
-      // Set theme before paint to avoid flash of incorrect theme.
       (function () {
         try {
           var t = localStorage.getItem("theme");
-          if (!t)
-            t = matchMedia("(prefers-color-scheme: light)").matches
-              ? "light"
-              : "dark";
+          if (!t) t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
           document.documentElement.setAttribute("data-theme", t);
         } catch (e) {}
       })();
@@ -18,7 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Video Game Sales Analysis — Power BI — Paul Sabourault</title>
     <meta name="description" content="Rapport Power BI interactif construit à partir d&#x27;un jeu de données Kaggle public pour analyser les ventes mondiales de jeux vidéo. Pensé à la fois comme cas portfolio et comme préparation concrète à la certification PL-300 : modélisation de données, mesures DAX et reporting interactif." />
-    <!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
     <link rel="canonical" href="https://YOUR-DOMAIN.com/projects/video-game-sales-powerbi.html" />
     <link rel="alternate" hreflang="fr" href="https://YOUR-DOMAIN.com/projects/video-game-sales-powerbi.html" />
     <link rel="alternate" hreflang="en" href="https://YOUR-DOMAIN.com/en/projects/video-game-sales-powerbi.html" />
@@ -32,22 +27,20 @@
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=JetBrains+Mono:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="../microsoft.css" />
+    <link rel="stylesheet" href="../detail.css" />
     <script src="https://kit.fontawesome.com/5d10eb0d43.js" defer crossorigin="anonymous"></script>
     <script src="../theme.js" defer></script>
     <script src="../i18n.js" defer></script>
   </head>
 
-  <body data-hat="Microsoft" data-detail data-i18n-base="../" data-alt-en="../en/projects/video-game-sales-powerbi.html">
-    <div class="ms-nav-shell">
+  <body data-detail data-i18n-base="../" data-alt-en="../en/projects/video-game-sales-powerbi.html" style="--brand:#f7c948;--brand2:#f7c948;--g2:#f7c948;">
+    <div class="dt-nav-shell">
       <div class="container">
         <div class="header-sticky">
           <div class="nom">
-            <a href="../index.html#header"
-              ><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a
-            >
+            <a href="../index.html#header"><div class="nom-text"><span>P</span>aul <span>S</span>abourault</div></a>
           </div>
           <nav>
             <ul id="sidemenu">
@@ -70,14 +63,10 @@
                 </mask>
                 <circle class="theme-orb" cx="12" cy="12" r="6" fill="currentColor" mask="url(#theme-moon-mask)" />
                 <g class="theme-rays" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-                  <line x1="12" y1="1.6" x2="12" y2="4" />
-                  <line x1="12" y1="20" x2="12" y2="22.4" />
-                  <line x1="1.6" y1="12" x2="4" y2="12" />
-                  <line x1="20" y1="12" x2="22.4" y2="12" />
-                  <line x1="4.4" y1="4.4" x2="6.1" y2="6.1" />
-                  <line x1="17.9" y1="17.9" x2="19.6" y2="19.6" />
-                  <line x1="19.6" y1="4.4" x2="17.9" y2="6.1" />
-                  <line x1="6.1" y1="17.9" x2="4.4" y2="19.6" />
+                  <line x1="12" y1="1.6" x2="12" y2="4" /><line x1="12" y1="20" x2="12" y2="22.4" />
+                  <line x1="1.6" y1="12" x2="4" y2="12" /><line x1="20" y1="12" x2="22.4" y2="12" />
+                  <line x1="4.4" y1="4.4" x2="6.1" y2="6.1" /><line x1="17.9" y1="17.9" x2="19.6" y2="19.6" />
+                  <line x1="19.6" y1="4.4" x2="17.9" y2="6.1" /><line x1="6.1" y1="17.9" x2="4.4" y2="19.6" />
                 </g>
               </svg>
             </button>
@@ -87,114 +76,57 @@
       </div>
     </div>
 
-    <main class="ms-report-shell detail-shell">
-      <header class="container ms-section ms-hero detail-hero--simple" id="detail-top">
-        <div class="ms-hero-copy">
-          <p class="ms-tagline">Cas portfolio</p>
-          <h1 class="sub-title">
-            <span class="ms-highlight">Video Game Sales</span> rapport Power BI
-          </h1>
-          <p class="ms-lead">Dashboard interactif créé à partir du jeu de données Kaggle sur les ventes de jeux vidéo. Je m&#x27;en suis servi comme terrain d&#x27;entraînement pour les compétences PL-300 : modélisation, mesures DAX, infobulles dynamiques et mises en page responsives. Cette page résume l&#x27;histoire du rapport et les enseignements de chaque onglet.</p>
-          <p class="detail-status">Projet portfolio personnel — démo interactive disponible via captures et vidéo.</p>
-          <div class="ms-note-card">
-            <h3>Contexte du projet</h3>
-            <p>Le modèle combine cinq dimensions (Genre, Plateforme, Éditeur, Région et Calendrier) autour d&#x27;une table de faits des ventes. À partir de là, j&#x27;ai construit des cartes de KPI, des parcours de drill-through et une mise en page narrative inspirée du langage Fluent de Microsoft.</p>
-          </div>
+    <main>
+    <header class="dt-hero dt-hero--web dt-wrap" id="detail-top">
+        <div class="dt-htext">
+          <p class="dt-eyebrow rv">Microsoft · 2025</p>
+          <h1 class="rv"><span class="dt-b">Video Game Sales</span></h1>
+          <p class="dt-sub rv">rapport Power BI</p>
+          <p class="dt-lead rv">Dashboard interactif créé à partir du jeu de données Kaggle sur les ventes de jeux vidéo. Je m&#x27;en suis servi comme terrain d&#x27;entraînement pour les compétences PL-300 : modélisation, mesures DAX, infobulles dynamiques et mises en page responsives. Cette page résume l&#x27;histoire du rapport et les enseignements de chaque onglet.</p>
+          
+        </div>
+        <div class="dt-browser rv">
+          <div class="dt-browser-bar"><i></i><i></i><i></i><span class="dt-url">Video Game Sales Analysis — Power BI</span></div>
+          <div class="dt-browser-shot"><img class="dt-img" src="../images/powerbi.webp" alt="Video Game Sales Analysis — Power BI" loading="lazy" /><span class="dt-cap">Video Game Sales Analysis — Power BI</span></div>
         </div>
       </header>
 
-      <section class="container ms-section" id="detail-outcomes">
-        <h2 class="sub-title">Points clés</h2>
-        <div class="ms-panel">
-          <ul class="ms-impact">
-            <li>Modèle en étoile avec tables de faits et de dimensions (Date, Genre, Plateforme, Éditeur, Jeu)</li>
-            <li>KPI dynamiques, analyses temporelles et classements Top N en DAX</li>
-            <li>Pages interactives avec segments, exploration en drill-down et infobulles intelligentes</li>
-            <li>Lisibilité et enseignements améliorés grâce à une UX soignée et des pages structurées</li>
-          </ul>
-        </div>
-      </section>
+    <section class="dt-band">
+      <div class="dt-wm" aria-hidden="true">V</div>
+      <div class="dt-wrap"><p class="dt-k rv">L&#x27;idée</p><h2 class="rv">Cas portfolio</h2></div>
+    </section>
 
-      <section class="container ms-section" id="detail-gallery">
-        <h2 class="sub-title">Galerie du rapport</h2>
-        <p class="ms-lead ms-lead--compact">Extraits de la vue d&#x27;ensemble, des zooms régionaux, du scorecard des franchises et de la vue mobile utilisée en démo.</p>
 
-        <div class="ms-panel">
-          <div class="detail-gallery">
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../images/screen-sale1-copie.webp" alt="Overview KPIs for the video game sales dashboard" loading="lazy" data-full="../images/screen-sale1-copie.webp" />
-              </div>
-              <figcaption>Vue d&#x27;ensemble — KPI de revenus, indicateurs de croissance et barre de filtre par genre pour dérouler l&#x27;analyse.</figcaption>
-            </figure>
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../images/screen-sale1-5-copie.webp" alt="Regional performance heatmap" loading="lazy" data-full="../images/screen-sale1-5-copie.webp" />
-              </div>
-              <figcaption>Régions — carte synchronisée + histogrammes pour comparer Amérique du Nord, Europe, Japon et reste du monde.</figcaption>
-            </figure>
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../images/screen-sale2-copie.webp" alt="Franchise ranking leaderboard" loading="lazy" data-full="../images/screen-sale2-copie.webp" />
-              </div>
-              <figcaption>Franchises — sélecteur Top N basé sur des mesures de classement DAX, avec infobulles pour les titres de longue traîne.</figcaption>
-            </figure>
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../images/screen-sale2-5-copie.webp" alt="Platform lifecycle timeline" loading="lazy" data-full="../images/screen-sale2-5-copie.webp" />
-              </div>
-              <figcaption>Plateformes — courbe de cycle de vie confrontant lancements et maturité des revenus pour orienter les choix de plateforme.</figcaption>
-            </figure>
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../images/screen-sale3-copie.webp" alt="Datamodel view showing fact and dimension tables" loading="lazy" data-full="../images/screen-sale3-copie.webp" />
-              </div>
-              <figcaption>Modèle de données — schéma en étoile construit dans Power BI Desktop, avec la table de faits Sales et les dimensions Date/Genre/Plateforme/Éditeur.</figcaption>
-            </figure>
-            <figure class="detail-shot">
-              <div class="detail-shot-frame">
-                <img src="../images/screen-sale3-5-copie.webp" alt="Mobile-ready layout" loading="lazy" data-full="../images/screen-sale3-5-copie.webp" />
-              </div>
-              <figcaption>Mobile — interface responsive avec des KPI simplifiés pour une consultation sur mobile en démo.</figcaption>
-            </figure>
-          </div>
-        </div>
 
-        <div class="ms-panel detail-video-panel">
-          <div class="detail-video-copy">
-            <h2 class="sub-title">Démo vidéo</h2>
-            <p class="ms-lead ms-lead--compact">Court enregistrement de démo montrant la navigation entre les onglets, les interactions avec les segments et la façon dont les enseignements sont présentés en direct.</p>
-          </div>
-          <a class="btn detail-video-btn" href="https://youtu.be/wg360XzBvso" target="_blank" rel="noopener noreferrer"
-            ><i class="fa-solid fa-circle-play"></i> Voir la vidéo</a
-          >
-        </div>
-      </section>
-
-      <div class="detail-lightbox" id="detailLightbox" aria-hidden="true">
-        <button class="detail-lightbox-close" id="detailLightboxClose" aria-label="Fermer la galerie">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="detail-lightbox-media">
-          <img id="detailLightboxImg" src="" alt="" />
-          <p id="detailLightboxCaption"></p>
-        </div>
+    <div class="dt-wrap"><section class="dt-result">
+      <p class="dt-sec-eyebrow rv"><span class="dt-num">03</span> — Le résultat</p>
+      <div class="dt-features">
+        <div class="dt-feat rv"><b>Modèle en étoile avec tables de faits et de dimensions (Date, Genre, Plateforme, Éditeur, Jeu)</b></div>
+        <div class="dt-feat rv"><b>KPI dynamiques, analyses temporelles et classements Top N en DAX</b></div>
+        <div class="dt-feat rv"><b>Pages interactives avec segments, exploration en drill-down et infobulles intelligentes</b></div>
+        <div class="dt-feat rv"><b>Lisibilité et enseignements améliorés grâce à une UX soignée et des pages structurées</b></div>
       </div>
+    </section></div>
 
-      <section class="container ms-section">
-        <div class="ms-panel detail-cta">
-          <div>
-            <h2 class="sub-title">Envie d&#x27;une démo façon PL-300 ?</h2>
-            <p class="ms-lead ms-lead--compact">Je peux faire une démo du modèle, des techniques DAX et des principes UX utilisés ici, pour les reproduire sur un autre jeu de données.</p>
-          </div>
-          <div class="detail-cta-actions">
-            <a class="btn btn2" href="../index.html#contact">Réserver une démo</a>
-            <a class="btn detail-back-btn" href="../index.html#projects"
-              ><i class="fa-solid fa-arrow-left"></i> Retour aux projets</a
-            >
-          </div>
-        </div>
-      </section>
+    <section class="dt-statusband">
+      <div class="dt-wrap"><div class="dt-in rv"><span class="dt-lab">Où ça en est</span><p>Projet portfolio personnel — démo interactive disponible via captures et vidéo.</p></div></div>
+    </section>
+
+    <div class="dt-wrap"><section class="dt-gallery">
+      <p class="dt-sec-eyebrow rv">Galerie</p>
+      <div class="dt-gal rv">
+        <div class="dt-shot"><img class="dt-img" src="../images/screen-sale1-copie.webp" alt="Vue d&#x27;ensemble — KPI de revenus, indicateurs de croissance et barre de filtre par genre pour dérouler l&#x27;analyse." loading="lazy" /><div class="dt-sweep"></div></div>
+        <div class="dt-shot"><img class="dt-img" src="../images/screen-sale1-5-copie.webp" alt="Régions — carte synchronisée + histogrammes pour comparer Amérique du Nord, Europe, Japon et reste du monde." loading="lazy" /><div class="dt-sweep"></div></div>
+        <div class="dt-shot"><img class="dt-img" src="../images/screen-sale2-copie.webp" alt="Franchises — sélecteur Top N basé sur des mesures de classement DAX, avec infobulles pour les titres de longue traîne." loading="lazy" /><div class="dt-sweep"></div></div>
+      </div>
+    </section></div>
+      <div class="dt-wrap">
+      <div class="dt-stack rv">
+        <span class="dt-lab">Construit avec</span>
+        <div class="dt-chips"><span class="dt-chip">Power BI</span><span class="dt-chip">Power Query</span><span class="dt-chip">DAX</span><span class="dt-chip">Data Modeling</span></div>
+      </div>
+        <div class="dt-end"><a class="dt-back" href="../index.html#projects"><i class="fa-solid fa-arrow-left"></i> Tous les projets</a></div>
+      </div>
 
       <footer>
         <p>Copyright<i class="fa-regular fa-copyright"></i> Paul Sabourault</p>
@@ -202,6 +134,19 @@
     </main>
 
     <script src="../app.js" defer></script>
-    <script src="../lightbox.js"></script>
+    <script>
+      (function () {
+        var els = document.querySelectorAll(".rv");
+        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce || !("IntersectionObserver" in window)) {
+          els.forEach(function (el) { el.classList.add("in"); }); return;
+        }
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+        }, { threshold: 0.14 });
+        els.forEach(function (el, i) { el.style.transitionDelay = ((i % 5) * 0.06).toFixed(2) + "s"; io.observe(el); });
+        setTimeout(function () { els.forEach(function (el) { var r = el.getBoundingClientRect(); if (r.top < (window.innerHeight || 0) && r.bottom > 0) el.classList.add("in"); }); }, 1800);
+      })();
+    </script>
   </body>
 </html>
