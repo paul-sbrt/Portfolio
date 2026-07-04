@@ -6,8 +6,16 @@
   function init() {
     var root = document.querySelector("[data-detail]");
     if (!root) return;
-    var imgs = document.querySelectorAll("[data-detail] .dt-img");
-    if (!imgs.length) return;
+    // Bind on the whole frame (not the <img>): overlays like .dt-sweep sit above
+    // the image and would otherwise swallow the click.
+    var frames = document.querySelectorAll(
+      "[data-detail] .dt-shot, [data-detail] .dt-device, [data-detail] .dt-browser-shot, [data-detail] .dt-how-media"
+    );
+    var clickable = [];
+    frames.forEach(function (fr) {
+      if (fr.querySelector(".dt-img")) clickable.push(fr);
+    });
+    if (!clickable.length) return;
 
     var lb = document.createElement("div");
     lb.className = "dt-lb";
@@ -42,10 +50,11 @@
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     }
 
-    imgs.forEach(function (img) {
-      img.style.cursor = "zoom-in";
-      img.addEventListener("click", function () {
-        open(img.currentSrc || img.src, img.alt);
+    clickable.forEach(function (fr) {
+      fr.style.cursor = "zoom-in";
+      fr.addEventListener("click", function () {
+        var img = fr.querySelector(".dt-img");
+        if (img) open(img.currentSrc || img.src, img.alt);
       });
     });
     closeBtn.addEventListener("click", close);
