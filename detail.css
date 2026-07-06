@@ -186,17 +186,41 @@
   @keyframes dt-exit{to{opacity:0;transform:translateY(-16px);filter:blur(3px)}}
 }}
 
-@media(max-width:820px){
+/* ===== DÉTAIL — tablette/mobile (≤768, breakpoint unifié) ===== */
+@media(max-width:768px){
   [data-detail]{--gut:7%}
-  [data-detail] .dt-hero--app{grid-template-columns:1fr;gap:34px}
-  [data-detail] .dt-device{max-width:320px}
-  [data-detail] .dt-why .dt-quote{max-width:100%;margin-left:0}
-  [data-detail] .dt-how{grid-template-columns:1fr;gap:34px}
-  [data-detail] .dt-how-media{max-width:340px}
+  /* HERO 1 colonne ; titres longs (Ticketing IT) ne débordent pas → min réduit */
+  [data-detail] .dt-hero{padding:4vh 0 7vh}
+  [data-detail] .dt-hero--app{grid-template-columns:1fr;gap:30px}
+  [data-detail] .dt-hero h1{font-size:clamp(33px,9vw,60px)}
+  [data-detail] .dt-device{max-width:300px}
+  /* POURQUOI : citation pleine largeur */
+  [data-detail] .dt-why{padding:8vh 0}
+  [data-detail] .dt-why .dt-quote{max-width:100%;margin:5vh 0 0;padding:26px 24px}
+  /* DÉMARCHE (split) 1 colonne */
+  [data-detail] .dt-how{grid-template-columns:1fr;gap:28px;padding:8vh 0}
+  [data-detail] .dt-how-media{max-width:320px}
+  /* RÉSULTAT 1 colonne */
+  [data-detail] .dt-result{padding:8vh 0}
   [data-detail] .dt-features{grid-template-columns:1fr}
+  /* BANDES : moins d'air ; watermark géant contenu (poussé hors champ à droite,
+     overflow:hidden → aucun scroll horizontal, pas de clash avec le titre) */
+  [data-detail] .dt-band{padding:7vh 0;margin-top:7vh}
+  [data-detail] .dt-band .dt-wm{font-size:42vw;right:-12%;opacity:.6}
+  [data-detail] .dt-statusband{padding:7vh 0}
+  /* GALERIE 1 colonne, images cadrées */
+  [data-detail] .dt-gallery{padding:8vh 0}
   [data-detail] .dt-gal{grid-template-columns:1fr;grid-template-rows:none;aspect-ratio:auto}
   [data-detail] .dt-shot{aspect-ratio:16/10}
   [data-detail] .dt-shot:nth-child(1){grid-row:auto}
+  /* VIDÉO / sections : padding réduit */
+  [data-detail] .dt-video{padding:8vh 0}
+  [data-detail] .dt-section{padding:8vh 0}
+  /* STACK / RETOUR / CTA : lisibles, cibles tactiles ≥44px */
+  [data-detail] .dt-stack{padding:6vh 0}
+  [data-detail] .dt-end{padding:7vh 0}
+  [data-detail] .dt-topback{margin-top:20px;padding:13px 0} /* zone de tap ≥44px */
+  [data-detail] .dt-lb-close{width:44px;height:44px;top:14px;right:14px}
 }
 @media(prefers-reduced-motion:reduce){[data-detail] .rv{opacity:1;transform:none;transition:none}[data-detail] .dt-shot .dt-sweep{display:none}}
 
@@ -212,3 +236,13 @@
   [data-detail] .dt-why .rv,[data-detail] .dt-result .rv,[data-detail] .dt-gallery .rv,[data-detail] .dt-hero .rv,[data-detail] .dt-band .rv{animation:dt-exit-m linear both;animation-timeline:view();animation-range:exit 10% exit 100%;animation-fill-mode:forwards}
   @keyframes dt-exit-m{to{opacity:.05;transform:scale(.94) translateY(16px);filter:blur(2px)}}
 }}
+
+/* Menu burger mobile (≤768) : la nav détail doit passer AU-DESSUS du backdrop du
+   menu (body.menu-open::after, z-199) — sinon le panneau reste masqué. Même logique
+   que le header de l'index (z-200). La lightbox (z-200, ajoutée en fin de DOM) reste
+   au-dessus. */
+@media (max-width: 768px) {
+  [data-detail] .dt-nav-shell {
+    z-index: 200;
+  }
+}
