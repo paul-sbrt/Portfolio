@@ -421,9 +421,45 @@ function displayProjects() {
       });
       buildProjectFilters(projectData, filtersContainer, grid);
       revealCards(cards);
+      // Decide which cards need a "voir plus" (summary actually truncated) once the
+      // clamp + fonts have laid out.
+      requestAnimationFrame(function () {
+        measureProjectClamp(cards);
+      });
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () {
+          measureProjectClamp(cards);
+        });
+      }
     })
     .catch((error) => console.error("Error fetching projects:", error));
 }
+
+// Flag cards whose summary overflows its clamp so CSS can show "voir plus" (touch
+// only). Skips already-expanded cards so re-measuring never drops the toggle.
+function measureProjectClamp(cards) {
+  cards.forEach(function (card) {
+    if (card.classList.contains("sum-open")) return;
+    const sum = card.querySelector(".proj-sum");
+    if (!sum) return;
+    card.classList.toggle("has-more", sum.scrollHeight > sum.clientHeight + 2);
+  });
+}
+
+// Re-measure on resize (the clamp height differs between mobile and desktop).
+let projClampRAF = 0;
+window.addEventListener("resize", function () {
+  if (projClampRAF) return;
+  projClampRAF = requestAnimationFrame(function () {
+    projClampRAF = 0;
+    const grid = document.querySelector("#project-grid");
+    if (grid) {
+      measureProjectClamp(
+        Array.prototype.slice.call(grid.querySelectorAll(".proj-card"))
+      );
+    }
+  });
+});
 
 // Scroll reveal for cards, with a strong fail-safe: cards are never left
 // hidden. No IntersectionObserver / reduced-motion -> show immediately; and a
@@ -532,6 +568,39 @@ function buildProjectCard(project) {
     sum.className = "proj-sum";
     sum.textContent = line;
     body.appendChild(sum);
+
+    // Conditional "voir plus" — a fine mono toggle, shown (via .has-more, measured
+    // after layout) ONLY when the summary is actually truncated, on touch. It is
+    // DISTINCT from the card link: tapping it expands the text in place and stops
+    // the tap from opening the project (preventDefault + stopPropagation).
+    const more = document.createElement("span");
+    more.className = "proj-more";
+    more.setAttribute("role", "button");
+    more.tabIndex = 0;
+    more.setAttribute("aria-expanded", "false");
+    const mRule = document.createElement("span");
+    mRule.className = "proj-more-rule";
+    const mTxt = document.createElement("span");
+    mTxt.className = "proj-more-txt";
+    mTxt.textContent = t({ fr: "voir plus", en: "see more" });
+    const mArw = document.createElement("span");
+    mArw.className = "proj-more-arw";
+    mArw.textContent = "↓";
+    more.append(mRule, mTxt, mArw);
+    const toggleMore = function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const open = card.classList.toggle("sum-open");
+      more.setAttribute("aria-expanded", open ? "true" : "false");
+      mTxt.textContent = open
+        ? t({ fr: "voir moins", en: "see less" })
+        : t({ fr: "voir plus", en: "see more" });
+    };
+    more.addEventListener("click", toggleMore);
+    more.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") toggleMore(e);
+    });
+    body.appendChild(more);
   }
 
   const foot = document.createElement("div");

@@ -1711,6 +1711,36 @@ h1.sub-title {
   transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+/* "Voir plus" conditionnel (mobile) — repère fin : petit filet + mono + chevron.
+   Masqué par défaut ; affiché seulement si le résumé est tronqué (.has-more, mesuré)
+   ET au tactile (règle @media hover:none). Distinct du lien de la carte. */
+.proj-more {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 5px 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.proj-more-rule {
+  width: 22px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--c), var(--accent-ms));
+}
+.proj-more-arw {
+  color: var(--c);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.proj-card.sum-open .proj-more-arw {
+  transform: rotate(180deg); /* ↓ → ↑ (voir moins) */
+}
+
 /* HOVER calmé (validé) : wash discret + sweep dégradé + liseré ; texte reste blanc.
    Plus : la carte GRANDIT en place — le texte de présentation se déroule en entier
    à son emplacement (max-height), la grille suit en douceur. */
@@ -1783,12 +1813,15 @@ h1.sub-title {
   .proj-card.is-feat .proj-thumb {
     aspect-ratio: 4 / 3;
   }
-  /* Pas de survol → on montre le résumé COMPLET direct (fini clamp + hover-grow).
-     Le tap sur la carte = aller au lien / à la page détail. */
+  /* Cartes COMPACTES qui respirent : résumé tronqué (~3 lignes). Un "voir plus"
+     conditionnel (plus bas) étend le texte sur place, distinct du tap-carte. */
   .proj-sum {
     min-height: 0;
-    max-height: none;
-    overflow: visible;
+    max-height: 4.7em; /* ~3 lignes */
+    overflow: hidden;
+  }
+  .proj-card.sum-open .proj-sum {
+    max-height: 40em; /* étendu au tap (transition douce via max-height) */
   }
   /* Filtres : chips qui wrappent, centrés, cibles ≥44px. */
   .project-filters {
@@ -1805,6 +1838,10 @@ h1.sub-title {
 /* Tactile : le hover (sweep/wash/liseré) dégrade proprement ; on ajoute un léger
    état au TAP (teinte marque), sans transform pour ne pas gêner reveal/sortie. */
 @media (hover: none) {
+  /* Le "voir plus" n'apparaît qu'au tactile ET si le résumé est tronqué. */
+  .proj-card.has-more .proj-more {
+    display: inline-flex;
+  }
   .proj-card:active {
     border-color: color-mix(in srgb, var(--c) 45%, var(--border));
     background: color-mix(in srgb, var(--c) 12%, var(--surface-raised));
