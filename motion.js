@@ -97,7 +97,9 @@
   var reduce =
     window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduce) return;
+  // No scroll parallax on mobile/tablet (≤768): heavy on touch scroll + the stacked
+  // layout makes vertical drift pointless. CSS also forces transform:none there.
+  if (reduce || (window.innerWidth || 0) <= 768) return;
 
   document.addEventListener("DOMContentLoaded", function () {
     var host = document.querySelector(".about-photo");

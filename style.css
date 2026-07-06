@@ -308,7 +308,7 @@ nav ul li a.active-link {
    down — a clean, discreet take on the old header feel. Scroll-driven (runs
    on the compositor, 60fps) and progressive: browsers without scroll timelines
    simply skip it. Disabled under reduced-motion. */
-@media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) and (min-width: 769px) {
   @supports (animation-timeline: scroll()) {
     .header-text {
       animation: hero-dissolve linear both;
@@ -763,7 +763,7 @@ nav ul li a.active-link {
    the exit range, so the one-shot entrance (transitions on the same elements) and
    the photo hover both play untouched — the exit only takes over as it leaves.
    Progressive + reduced-motion safe: no scroll-timeline → nothing moves. ---- */
-@media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) and (min-width: 769px) {
   @supports (animation-timeline: view()) {
     .about-story {
       view-timeline-name: --about-story;
@@ -830,6 +830,11 @@ nav ul li a.active-link {
   }
   .about-frame::before {
     inset: 12px -12px -12px 12px; /* halo moins débordant → pas de scroll horizontal */
+  }
+  .about-frame,
+  .about-cap {
+    transform: none; /* parallax coupé sur mobile (perf + n'a pas de sens en empilé) */
+    will-change: auto;
   }
   .about-body {
     max-width: none;
@@ -1195,7 +1200,7 @@ h1.sub-title {
    each band PEELS off the top on exit (fade + lift + lateral drift + soft blur).
    The panel is overflow:visible on desktop so none of this is clipped; fill:forwards
    keeps the exit from fighting the one-shot entrance. */
-@media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) and (min-width: 769px) {
   @supports (animation-timeline: view()) {
     .skl-line {
       animation: skl-drift linear both;
@@ -1458,7 +1463,7 @@ h1.sub-title {
    row files away as it scrolls off the top (lift + lateral drift + fade + soft blur),
    alternating direction. Viewport-sized rows → actually visible (unlike a whole-tall-
    section dissolve). fill:forwards so it never fights the one-shot entrance. */
-@media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) and (min-width: 769px) {
   @supports (animation-timeline: view()) {
     .reg-title {
       animation: reg-drift linear both;
@@ -1739,7 +1744,7 @@ h1.sub-title {
 }
 
 /* Per-card scroll-exit (section peel, same family as skills/registre). */
-@media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) and (min-width: 769px) {
   @supports (animation-timeline: view()) {
     .proj-card {
       animation: proj-exit linear both;

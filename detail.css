@@ -181,7 +181,7 @@
 /* ===== motion — famille du site ===== */
 [data-detail] .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
 [data-detail] .rv.in{opacity:1;transform:none}
-@supports(animation-timeline:view()){@media(prefers-reduced-motion:no-preference){
+@supports(animation-timeline:view()){@media(prefers-reduced-motion:no-preference) and (min-width:769px){
   [data-detail] .dt-why .rv,[data-detail] .dt-result .rv,[data-detail] .dt-gallery .rv,[data-detail] .dt-hero .rv,[data-detail] .dt-band .rv{animation:dt-exit linear both;animation-timeline:view();animation-range:exit 8% exit 100%;animation-fill-mode:forwards}
   @keyframes dt-exit{to{opacity:0;transform:translateY(-16px);filter:blur(3px)}}
 }}
