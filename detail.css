@@ -237,12 +237,24 @@
   @keyframes dt-exit-m{to{opacity:.05;transform:scale(.94) translateY(16px);filter:blur(2px)}}
 }}
 
-/* Menu burger mobile (≤768) : la nav détail doit passer AU-DESSUS du backdrop du
-   menu (body.menu-open::after, z-199) — sinon le panneau reste masqué. Même logique
-   que le header de l'index (z-200). La lightbox (z-200, ajoutée en fin de DOM) reste
-   au-dessus. */
+/* Menu burger mobile (≤768).
+   1) VRAIE CAUSE du panneau transparent + liens coupés sur les pages détail :
+      style.css .header-sticky est fixed+backdrop-filter ; detail.css le repasse en
+      `position: static` MAIS garde le backdrop-filter → .header-sticky (static, inset
+      dans .container) devient le containing-block du #sidemenu fixed → il se place
+      dans la BARRE au lieu du viewport. On retire les backdrop-filter des ancêtres
+      nav → le #sidemenu (fixed) retrouve le viewport : 100dvh plein écran, opaque,
+      liens visibles (exactement comme l'index, dont .header-sticky est fixed).
+   2) z-index 200 pour passer au-dessus du backdrop du menu (z-199 ; lightbox z-200
+      ajoutée en fin de DOM reste au-dessus). */
 @media (max-width: 768px) {
   [data-detail] .dt-nav-shell {
     z-index: 200;
+    background: var(--bg); /* opaque : le blur est retiré ci-dessous */
+  }
+  [data-detail] .dt-nav-shell,
+  [data-detail] .dt-nav-shell .header-sticky {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 }
