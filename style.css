@@ -2792,25 +2792,24 @@ nav .fa-solid {
     grid-template-rows: 0fr;
   }
 
-  /* Skills — "+N · voir plus" en pastille clairement tappable (la band entière
-     reste la cible de tap ≥44px ; la pastille est l'indice visuel). */
+  /* Skills — "+N · voir plus ↓" : traitement fin & éditorial (filet + mono +
+     chevron vers le bas), SANS encadré. La band entière est la cible de tap
+     (≥44px) ; le padding vertical donne une zone confortable sur le repère. */
   .skl-invite {
     height: auto;
-    min-height: 40px;
-    padding: 9px 15px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-pill);
-    background: var(--surface-raised);
+    padding: 11px 0;
     font-size: 12px;
+    gap: 12px;
   }
-  /* Déployée : la pastille se replie (pas de trou sous le détail ouvert). */
+  .skl-invite-arw {
+    transform: rotate(90deg); /* → devient ↓ : indique le déploiement */
+  }
+  /* Déployée : le repère se replie (pas de trou sous le détail ouvert). */
   .skl-band.lit .skl-invite {
-    min-height: 0;
     height: 0;
     padding-top: 0;
     padding-bottom: 0;
     margin-top: 0;
-    border-color: transparent;
     overflow: hidden;
   }
 
@@ -2829,9 +2828,20 @@ nav .fa-solid {
     transform: rotate(45deg);
     color: var(--accent-ms);
   }
-  /* Un item-LIEN (certifs) : le tap ouvre l'URL → pas de "＋" d'expansion
-     trompeur ; la flèche ↗ suffit comme repère de lien externe. */
+  /* Certifs (item-LIEN) : un seul geste = le tap ouvre l'URL (↗). Donc PAS de
+     "＋"/déploiement trompeur → on affiche les skills DIRECTEMENT (détail ouvert,
+     settled), le filet et la typo mono restent dans la DA du registre. */
   .reg-item.is-link .reg-cue {
     display: none;
+  }
+  .reg-item.is-link .reg-detail {
+    grid-template-rows: 1fr;
+  }
+  .reg-item.is-link .reg-drow::before {
+    transform: scaleY(1);
+  }
+  .reg-item.is-link .reg-ignite {
+    background-position: 0 0;
+    transform: none;
   }
 }
