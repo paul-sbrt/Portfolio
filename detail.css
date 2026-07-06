@@ -199,3 +199,8 @@
   [data-detail] .dt-shot:nth-child(1){grid-row:auto}
 }
 @media(prefers-reduced-motion:reduce){[data-detail] .rv{opacity:1;transform:none;transition:none}[data-detail] .dt-shot .dt-sweep{display:none}}
+
+/* Grands écrans (≥1680px) — le case-study gagne un peu de largeur (13" inchangé). */
+@media (min-width: 1680px) {
+  [data-detail] .dt-wrap { max-width: 1300px; }
+}

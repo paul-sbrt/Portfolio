@@ -102,6 +102,8 @@ body {
 /*HEADER*/
 
 .container {
+  max-width: 1520px; /* cappe + centre sur grand écran (≤1520 : inchangé, gouttière 10%) */
+  margin: 0 auto;
   padding: 10px 10%;
 }
 
@@ -2511,4 +2513,31 @@ nav .fa-solid {
 [data-hat="Web"] {
   --hat: var(--accent);
   --hat-text: var(--accent);
+}
+
+/* ===================================================================
+   GRANDS ÉCRANS (≥1680px) — les grands moments profitent de l'espace.
+   13" et écrans normaux inchangés (l'échelle typo de base reste en dessous).
+   =================================================================== */
+@media (min-width: 1680px) {
+  /* le contenu gagne un poil de largeur (gouttière un peu resserrée) */
+  .container {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  /* hero — le titre grandit un peu */
+  .header-text {
+    max-width: 1320px;
+  }
+  .header-text h1 {
+    font-size: clamp(92px, 6.4vw, 118px);
+  }
+  /* titres de section — un cran plus grands */
+  .sub-title {
+    font-size: clamp(48px, 3.4vw, 60px);
+  }
+  /* contact — l'accroche profite de la place */
+  .c-title {
+    font-size: clamp(58px, 4.4vw, 72px);
+  }
 }
