@@ -21,13 +21,13 @@
 [data-detail] main::before{
   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;will-change:opacity;
   background:
-    radial-gradient(38% 22% at 88% 7%, color-mix(in srgb,var(--brand) 8%,transparent), transparent 62%),
-    radial-gradient(42% 24% at 10% 44%, color-mix(in srgb,var(--accent) 5%,transparent), transparent 64%),
-    radial-gradient(40% 22% at 86% 82%, color-mix(in srgb,var(--brand) 6%,transparent), transparent 62%);
+    radial-gradient(50% 28% at 88% 7%, color-mix(in srgb,var(--brand) 4%,transparent), transparent 56%),
+    radial-gradient(56% 30% at 10% 44%, color-mix(in srgb,var(--accent) 3%,transparent), transparent 58%),
+    radial-gradient(52% 28% at 86% 82%, color-mix(in srgb,var(--brand) 3%,transparent), transparent 56%);
   animation:dt-page-breathe 16s ease-in-out infinite alternate;
 }
-@keyframes dt-page-breathe{from{opacity:.55}to{opacity:.95}}
-@media(prefers-reduced-motion:reduce){[data-detail] main::before{animation:none;opacity:.8}}
+@keyframes dt-page-breathe{from{opacity:.4}to{opacity:.72}}
+@media(prefers-reduced-motion:reduce){[data-detail] main::before{animation:none;opacity:.6}}
 
 /* nav slim — chrome portfolio CONSTANT (rose→or), réutilise les toggles du site */
 [data-detail] .dt-nav-shell{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}

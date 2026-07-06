@@ -198,18 +198,18 @@ body {
   pointer-events: none;
   will-change: opacity;
   background:
-    radial-gradient(36% 20% at 84% 5%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 60%),
-    radial-gradient(40% 20% at 10% 27%, color-mix(in srgb, var(--accent-ms) 7%, transparent), transparent 62%),
-    radial-gradient(42% 22% at 90% 54%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 60%),
-    radial-gradient(38% 20% at 12% 80%, color-mix(in srgb, var(--accent-ms) 6%, transparent), transparent 62%);
+    radial-gradient(50% 28% at 84% 5%, color-mix(in srgb, var(--accent) 4%, transparent), transparent 54%),
+    radial-gradient(54% 28% at 10% 27%, color-mix(in srgb, var(--accent-ms) 3%, transparent), transparent 56%),
+    radial-gradient(54% 30% at 90% 54%, color-mix(in srgb, var(--accent) 4%, transparent), transparent 54%),
+    radial-gradient(50% 28% at 12% 80%, color-mix(in srgb, var(--accent-ms) 3%, transparent), transparent 56%);
   animation: page-breathe 16s ease-in-out infinite alternate;
 }
 @keyframes page-breathe {
-  from { opacity: 0.6; }
-  to { opacity: 1; }
+  from { opacity: 0.45; }
+  to { opacity: 0.8; }
 }
 @media (prefers-reduced-motion: reduce) {
-  #about::before { animation: none; opacity: 0.85; }
+  #about::before { animation: none; opacity: 0.65; }
 }
 
 .nom {
