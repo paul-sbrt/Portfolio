@@ -2678,10 +2678,17 @@ nav .fa-solid {
    =================================================================== */
 @media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
+    /* view() se mesure contre le scrollport le plus proche : un ancêtre
+       overflow:hidden le "capture" et l'anim ne progresse jamais. overflow:clip
+       clippe pareil SANS créer de scrollport → l'anim retrouve la racine (comme
+       l'about). Pour parcours, les bands sont piégés dans le slider d'onglets
+       (.tab-content/.tab-panels) → on anime la SECTION #parcours, hors du slider. */
+    .header {
+      overflow: clip;
+    }
     .header-text,
     .about-story,
-    .skl-band,
-    .reg-item,
+    #parcours,
     .proj-card {
       animation: mob-exit linear both;
       animation-timeline: view();
