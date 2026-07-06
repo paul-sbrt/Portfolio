@@ -2668,3 +2668,32 @@ nav .fa-solid {
     font-size: clamp(58px, 4.4vw, 72px);
   }
 }
+
+/* ===================================================================
+   MOBILE (≤768) — sorties de section ALLÉGÉES. On remet un dissolve simple
+   (fondu + léger translate vers le haut) quand une section quitte l'écran,
+   MAIS sans le peel latéral / blur / drift / parallax du desktop → GPU
+   (opacity + transform seulement), fluide au scroll tactile. Le desktop garde
+   ses sorties riches (blocs min-width:769). reduced-motion : rien.
+   =================================================================== */
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .header-text,
+    .about-story,
+    .skl-band,
+    .reg-item,
+    .proj-card {
+      animation: mob-exit linear both;
+      animation-timeline: view();
+      animation-range: cover 62% cover 100%;
+      animation-fill-mode: forwards;
+      will-change: opacity, transform;
+    }
+    @keyframes mob-exit {
+      to {
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+    }
+  }
+}
