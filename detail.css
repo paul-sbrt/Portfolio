@@ -209,5 +209,5 @@
    translate), SANS le blur du desktop (coûteux au scroll tactile). Fluide. */
 @media(max-width:768px) and (prefers-reduced-motion:no-preference){@supports(animation-timeline:view()){
   [data-detail] .dt-why .rv,[data-detail] .dt-result .rv,[data-detail] .dt-gallery .rv,[data-detail] .dt-hero .rv,[data-detail] .dt-band .rv{animation:dt-exit-m linear both;animation-timeline:view();animation-range:exit 10% exit 100%;animation-fill-mode:forwards}
-  @keyframes dt-exit-m{to{opacity:0;transform:translateY(-14px)}}
+  @keyframes dt-exit-m{to{opacity:.05;transform:scale(.94) translateY(16px);filter:blur(2px)}}
 }}

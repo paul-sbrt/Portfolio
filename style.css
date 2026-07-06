@@ -2687,12 +2687,16 @@ nav .fa-solid {
       animation-timeline: view();
       animation-range: cover 62% cover 100%;
       animation-fill-mode: forwards;
-      will-change: opacity, transform;
+      will-change: opacity, transform, filter;
     }
+    /* SIGNATURE UNIQUE — le dissolve du hero desktop, version mobile simple :
+       fondu + zoom arrière subtil + touche de flou. Seule la section en cours de
+       sortie anime (view-timeline) → le flou léger reste fluide. */
     @keyframes mob-exit {
       to {
-        opacity: 0;
-        transform: translateY(-18px);
+        opacity: 0.05;
+        transform: scale(0.94) translateY(16px);
+        filter: blur(2px);
       }
     }
   }
