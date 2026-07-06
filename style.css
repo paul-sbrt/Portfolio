@@ -2375,7 +2375,10 @@ nav .fa-solid {
   }
   #sidemenu {
     position: fixed;
-    inset: 0 0 0 auto;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    height: 100dvh; /* pleine hauteur — échappe au containing-block de la barre (backdrop-filter) */
     width: min(84vw, 320px);
     flex-direction: column;
     justify-content: flex-start;
@@ -2383,9 +2386,7 @@ nav .fa-solid {
     gap: 2px;
     text-align: left;
     padding: 88px 26px 40px;
-    background: color-mix(in srgb, var(--bg) 95%, transparent);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    background: color-mix(in srgb, var(--text) 5%, var(--bg)); /* PLEIN opaque — masque la page */
     border-left: 1px solid var(--border);
     box-shadow: -24px 0 70px -24px rgba(0, 0, 0, 0.7);
     transform: translateX(100%);
@@ -2396,6 +2397,9 @@ nav .fa-solid {
   body.menu-open #sidemenu {
     transform: translateX(0);
   }
+  body.menu-open nav .fa-bars {
+    display: none; /* le × du panneau ferme */
+  }
   body.menu-open {
     overflow: hidden; /* le fond ne scrolle plus */
   }
@@ -2403,7 +2407,7 @@ nav .fa-solid {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: 205;
+    z-index: 199; /* sous la barre + le menu (contexte 200), au-dessus de la page */
     background: rgba(4, 3, 4, 0.55);
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
