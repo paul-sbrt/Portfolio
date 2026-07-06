@@ -73,6 +73,25 @@ const ensurePanelsBefore = (index) => {
 // Gliding rose→gold indicator under the active tab (segmented switch motion).
 const tabTitle = document.querySelector(".tab-title");
 const tabIndicator = tabTitle ? tabTitle.querySelector(".tab-ind") : null;
+
+// Fade hint on the horizontally-scrollable selector (mobile): the fade shows on the
+// side(s) where tabs remain, so it's obvious you can swipe to Études / Certifications.
+const updateTabScrollHint = () => {
+  if (!tabTitle) return;
+  const max = tabTitle.scrollWidth - tabTitle.clientWidth;
+  if (max <= 2) {
+    tabTitle.classList.add("no-scroll");
+    tabTitle.classList.remove("at-start", "at-end");
+    return;
+  }
+  tabTitle.classList.remove("no-scroll");
+  tabTitle.classList.toggle("at-start", tabTitle.scrollLeft <= 2);
+  tabTitle.classList.toggle("at-end", tabTitle.scrollLeft >= max - 2);
+};
+if (tabTitle) {
+  tabTitle.addEventListener("scroll", updateTabScrollHint, { passive: true });
+}
+
 const positionTabIndicator = () => {
   if (!tabIndicator || !tabLinks.length) return;
   const active = tabLinks[activeTabIndex];
@@ -91,6 +110,7 @@ const positionTabIndicator = () => {
       active.offsetLeft - (tabTitle.clientWidth - active.offsetWidth) / 2;
     tabTitle.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
   }
+  updateTabScrollHint();
 };
 
 const setActiveTab = (index, options = {}) => {
