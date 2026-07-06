@@ -2476,6 +2476,7 @@ nav .fa-solid {
   }
   .header-text h1 {
     font-size: clamp(40px, 6vw, 62px);
+    letter-spacing: -0.015em; /* moins serré qu'en desktop */
   }
   .hero-cue {
     margin-top: clamp(30px, 6vw, 48px);
@@ -2488,7 +2489,9 @@ nav .fa-solid {
   }
   .header-text h1 {
     font-size: clamp(33px, 8.8vw, 44px);
-    line-height: 1.04;
+    line-height: 1.06;
+    letter-spacing: 0; /* annule le -0.03em desktop → les mots respirent */
+    word-spacing: 0.06em; /* espaces inter-mots bien visibles */
   }
   .header-text h1 br {
     display: none; /* le titre se répartit naturellement, pas de coupure figée */
