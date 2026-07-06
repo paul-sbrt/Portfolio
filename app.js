@@ -178,45 +178,45 @@ if (stickyBar) {
 
 // ------ menu mobile ------
 
-let sideMenu = document.getElementById("sidemenu");
-let openIcon = document.querySelector(".fa-solid.fa-bars");
-let closeIcon = document.querySelector("#sidemenu .fa-solid.fa-xmark");
+// Mobile burger menu — CSS drives the slide (body.menu-open); JS just toggles the
+// class + locks background scroll. Closes on a nav-link tap, outside click, Escape,
+// or resize. Toggling language/theme (inside the menu) does NOT close it.
+const sideMenu = document.getElementById("sidemenu");
+const openIcon = document.querySelector(".fa-solid.fa-bars");
+const closeIcon = document.querySelector("#sidemenu .fa-solid.fa-xmark");
 
-function openMenu() {
-  if (!sideMenu) return;
-  sideMenu.style.right = "0";
-  if (openIcon && window.innerWidth <= 600) {
-    openIcon.style.display = "none";
-  }
-}
-
-function closeMenu() {
-  if (!sideMenu) return;
-  sideMenu.style.right = "-200px";
-  if (openIcon) {
-    openIcon.style.display = window.innerWidth <= 600 ? "block" : "none";
-  }
+function setMenu(open) {
+  document.body.classList.toggle("menu-open", open);
+  if (openIcon) openIcon.setAttribute("aria-expanded", open ? "true" : "false");
 }
 
 if (openIcon) {
   openIcon.addEventListener("click", (event) => {
     event.stopPropagation();
-    openMenu();
+    setMenu(true);
   });
 }
-
 if (closeIcon) {
   closeIcon.addEventListener("click", (event) => {
     event.stopPropagation();
-    closeMenu();
+    setMenu(false);
   });
 }
-
 if (sideMenu) {
-  sideMenu.addEventListener("click", () => {
-    closeMenu();
-  });
+  // close only when an actual nav link is tapped (not the toggles)
+  sideMenu.querySelectorAll('a[href]').forEach((a) =>
+    a.addEventListener("click", () => setMenu(false))
+  );
 }
-
-window.addEventListener("resize", closeMenu);
-closeMenu();
+// click outside the panel (incl. the backdrop) closes
+document.addEventListener("click", (event) => {
+  if (!document.body.classList.contains("menu-open")) return;
+  if (sideMenu && sideMenu.contains(event.target)) return;
+  if (openIcon && openIcon.contains(event.target)) return;
+  setMenu(false);
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") setMenu(false);
+});
+window.addEventListener("resize", () => setMenu(false));
+setMenu(false);
