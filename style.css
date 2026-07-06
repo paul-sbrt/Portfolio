@@ -2466,13 +2466,19 @@ nav .fa-solid {
    =================================================================== */
 @media (max-width: 768px) {
   .header {
+    display: block; /* le nav (.container) ne pousse plus le hero vers la droite */
     min-height: auto; /* pas de 100vh forcé → ne pousse pas le contenu trop bas */
-    padding-top: 96px; /* dégage la barre fixe (72px) */
+    padding-top: 92px; /* dégage la barre fixe (72px) */
     padding-bottom: 48px;
     margin-bottom: clamp(48px, 10vw, 80px);
   }
+  .header > .container {
+    padding: 0; /* wrapper du nav (fixe) : ne prend plus de hauteur/place ici */
+  }
   .header-text {
-    padding: 0 clamp(22px, 6vw, 40px) 8px;
+    max-width: none;
+    margin: 0;
+    padding: 0 10% 8px; /* gouttière standard (comme .container) → aligné à gauche comme le about */
   }
   .header-text h1 {
     font-size: clamp(40px, 6vw, 62px);
