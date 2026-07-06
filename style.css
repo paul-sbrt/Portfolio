@@ -1768,9 +1768,50 @@ h1.sub-title {
     display: none;
   }
 }
-@media (max-width: 640px) {
+/* ===================================================================
+   PROJETS — tablette/mobile (≤768) : 1 colonne (2 col trop serré à 768),
+   texte de présentation COMPLET d'emblée, filtres tappables.
+   =================================================================== */
+@media (max-width: 768px) {
   .project-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 36px;
+  }
+  /* Hiérarchie en 1 colonne : vedettes en 4/3 (plus de présence),
+     web en 16/9 (secondaire, plus court). */
+  .proj-card.is-feat .proj-thumb {
+    aspect-ratio: 4 / 3;
+  }
+  /* Pas de survol → on montre le résumé COMPLET direct (fini clamp + hover-grow).
+     Le tap sur la carte = aller au lien / à la page détail. */
+  .proj-sum {
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+  }
+  /* Filtres : chips qui wrappent, centrés, cibles ≥44px. */
+  .project-filters {
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 11px 16px;
+  }
+}
+/* Tactile : le hover (sweep/wash/liseré) dégrade proprement ; on ajoute un léger
+   état au TAP (teinte marque), sans transform pour ne pas gêner reveal/sortie. */
+@media (hover: none) {
+  .proj-card:active {
+    border-color: color-mix(in srgb, var(--c) 45%, var(--border));
+    background: color-mix(in srgb, var(--c) 12%, var(--surface-raised));
+  }
+  .filter-chip:active {
+    color: var(--text);
+    border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
   }
 }
 
