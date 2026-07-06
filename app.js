@@ -84,6 +84,13 @@ const positionTabIndicator = () => {
     "translate(" + active.offsetLeft + "px, " +
     (active.offsetTop + active.offsetHeight - 2) + "px)";
   tabIndicator.style.opacity = "1";
+
+  // Mobile: the selector scrolls horizontally — keep the active tab in view.
+  if (tabTitle && tabTitle.scrollWidth > tabTitle.clientWidth + 4) {
+    const target =
+      active.offsetLeft - (tabTitle.clientWidth - active.offsetWidth) / 2;
+    tabTitle.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
+  }
 };
 
 const setActiveTab = (index, options = {}) => {

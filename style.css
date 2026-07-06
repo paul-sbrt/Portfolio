@@ -2708,3 +2708,106 @@ nav .fa-solid {
     }
   }
 }
+
+/* ===================================================================
+   PARCOURS — tablette/mobile (≤768) : sélecteur d'onglets scrollable,
+   registre lisible, cibles ≥44px.
+   =================================================================== */
+@media (max-width: 768px) {
+  /* Onglets : une seule ligne, scroll horizontal (swipe) — plus de wrap qui
+     casserait le filet. Le filet (.tab-ind, absolute) scrolle avec le contenu. */
+  .tab-title {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 4px;
+    margin-bottom: 26px;
+    padding-bottom: 3px; /* garde le filet dans le clip */
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+  .tab-title::-webkit-scrollbar {
+    display: none;
+  }
+  .tab-links {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    padding: 13px 8px 15px; /* cible tactile ≥44px */
+  }
+
+  /* Registre : titre et dates-épine ne se collent pas ; tailles adaptées. */
+  .reg-item {
+    gap: 14px;
+    padding: 22px 2px;
+  }
+  .reg-title {
+    font-size: clamp(18px, 5.4vw, 24px);
+  }
+  .reg-side {
+    padding-top: 3px;
+  }
+  .reg-dates {
+    font-size: 12px;
+  }
+}
+
+/* ===================================================================
+   PARCOURS — affordance TACTILE (hover:none). Skills/registre = TAP.
+   =================================================================== */
+@media (hover: none) {
+  /* Pas de survol réel → seul le TAP (.lit/.open) déploie. On force l'état FERMÉ
+     tant que non déployé, pour neutraliser le :hover "collant" du tactile (sinon
+     impossible de refermer au re-tap). */
+  .skl-band:not(.lit) .skl-detail {
+    grid-template-rows: 0fr;
+  }
+  .skl-band:not(.lit) .skl-invite {
+    opacity: 1;
+    transform: none;
+  }
+  .reg-item:not(.open) .reg-detail {
+    grid-template-rows: 0fr;
+  }
+
+  /* Skills — "+N · voir plus" en pastille clairement tappable (la band entière
+     reste la cible de tap ≥44px ; la pastille est l'indice visuel). */
+  .skl-invite {
+    height: auto;
+    min-height: 40px;
+    padding: 9px 15px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    background: var(--surface-raised);
+    font-size: 12px;
+  }
+  /* Déployée : la pastille se replie (pas de trou sous le détail ouvert). */
+  .skl-band.lit .skl-invite {
+    min-height: 0;
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    border-color: transparent;
+    overflow: hidden;
+  }
+
+  /* Registre — le "＋" reste visible (affordance) et pivote en "×" à l'ouverture. */
+  .reg-cue {
+    opacity: 1;
+    font-size: 18px;
+    margin-left: 8px;
+  }
+  .reg-item:not(.open) .reg-cue {
+    opacity: 1;
+    transform: none;
+  }
+  .reg-item.open .reg-cue {
+    opacity: 1;
+    transform: rotate(45deg);
+    color: var(--accent-ms);
+  }
+}
