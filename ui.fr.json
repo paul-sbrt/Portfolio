@@ -15,7 +15,7 @@
   "about.title": "Le code n'est qu'un moyen.",
   "about.body": "Je ne viens pas du code, et c'est peut-être ça mon truc. Il y a trois ans, j'avais <span class=\"hl-rose\">des idées plein la tête</span> et envie de les faire exister. Le développement était le chemin le plus direct, alors je l'ai appris. Depuis, ma façon de travailler a évolué : <span class=\"hl-gold\">je pilote l'IA</span> autant que je code, et je passe plus de temps à <span class=\"hl-strong\">imaginer et tester</span> qu'à écrire des lignes. Ce qui me motive, c'est tout ce que le code et l'IA rendent possible quand on a des idées et l'envie de les <span class=\"hl-rose\">concrétiser</span>.",
   "btn.downloadCv": "Télécharger le CV",
-  "btn.seeMore": "Voir plus ↗",
+  "btn.seeMore": "Curieux ? Tout est sur mon GitHub →",
   "btn.send": "Envoyer →",
   "form.name": "Votre nom",
   "form.email": "Votre email",
