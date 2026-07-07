@@ -60,7 +60,7 @@ function certUrl(cert) {
 // Data groupée ([{group:{fr,en}, skills:[{name, featured?, image?}]}]) ; icône ignorée
 // (TEXTE ONLY). Bilingue via t() ; re-render sur langChanged (renderAllData).
 function displaySkills() {
-  fetch("skill.json")
+  fetch("skill.json", { cache: "no-store" })
     .then((response) => response.json())
     .then((skillsData) => {
       const panel = document.querySelector(".tab-content.skills");
@@ -367,7 +367,7 @@ function renderRegistre(records, container) {
 
 // Adapter — Experience → record.
 function displayExperience() {
-  fetch("experience.json")
+  fetch("experience.json", { cache: "no-store" })
     .then((response) => response.json())
     .then((data) => {
       const records = data.map(function (e) {
@@ -387,7 +387,7 @@ function displayExperience() {
 
 // Adapter — Studies → record (no detail: just title + place + dates).
 function displayStudies() {
-  fetch("studies.json")
+  fetch("studies.json", { cache: "no-store" })
     .then((response) => response.json())
     .then((data) => {
       const records = data.map(function (s) {
@@ -406,7 +406,7 @@ function displayStudies() {
 
 // Adapter — Certifications → record (the row is an external link; skills = detail).
 function displayCertifications() {
-  fetch("certifications.json")
+  fetch("certifications.json", { cache: "no-store" })
     .then((response) => response.json())
     .then((data) => {
       const records = data.map(function (c) {
@@ -431,7 +431,7 @@ function displayProjects() {
   if (!grid) return;
   const filtersContainer = document.querySelector("#project-filters");
 
-  fetch("projects.json")
+  fetch("projects.json", { cache: "no-store" })
     .then((response) => response.json())
     .then((projectData) => {
       grid.innerHTML = "";

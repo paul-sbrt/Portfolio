@@ -16,7 +16,7 @@
   var cache = {};
   function loadUI(lang) {
     if (cache[lang]) return Promise.resolve(cache[lang]);
-    return fetch(base + "ui." + lang + ".json")
+    return fetch(base + "ui." + lang + ".json", { cache: "no-store" })
       .then(function (r) { return r.json(); })
       .then(function (d) { cache[lang] = d; return d; })
       .catch(function () { return {}; });
