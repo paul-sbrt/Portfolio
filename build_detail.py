@@ -84,12 +84,29 @@ def _mix_white(hx, t):
     return "#%02X%02X%02X" % (f(r), f(g), f(b))
 
 
+def _ink(hx):
+    """Light-theme variant of a brand colour: darken (hue kept) until it is AA-legible
+    as text/accent on the light bg (#faf9f7). Colours already dark enough — navy — are
+    returned unchanged, so navy stays an elegant accent instead of a heavy block."""
+    r, g, b = _rgb(hx)
+    if _lum(hx) <= 0.34:
+        return "#%02X%02X%02X" % (r, g, b)
+    k = 1.0
+    while k > 0.06:
+        k -= 0.02
+        rr, gg, bb = round(r * k), round(g * k), round(b * k)
+        if (0.2126 * rr + 0.7152 * gg + 0.0722 * bb) / 255.0 <= 0.34:
+            return "#%02X%02X%02X" % (rr, gg, bb)
+    return "#%02X%02X%02X" % (round(r * k), round(g * k), round(b * k))
+
+
 def charte(project):
     brand = project.get("brand") or "#ff004f"
     brand2 = project.get("brand2") or brand
     # navy/dark secondaries can't carry bright text → light warm partner for --g2
     g2 = brand2 if _lum(brand2) >= 0.22 else _mix_white(brand, 0.42)
-    return brand, brand2, g2
+    # light-theme "ink" variants (accents/text) — darkened, AA on the light bg
+    return brand, brand2, g2, _ink(brand), _ink(brand2)
 
 
 # ---- visual (real image or duotone placeholder) -----------------------------
@@ -324,7 +341,7 @@ def render_page(project, lang, ui):
     summary = esc(T(project.get("summary", ""), lang))
     hats = project.get("hats") or ["Web"]
     is_app = "App" in hats
-    brand, brand2, g2 = charte(project)
+    brand, brand2, g2, brand_ink, brand2_ink = charte(project)
 
     if lang == "fr":
         base = "../"
@@ -402,7 +419,7 @@ def render_page(project, lang, ui):
     <script src="{base}i18n.js" defer></script>
   </head>
 
-  <body data-detail data-i18n-base="{base}" data-alt-{alt_lang}="{alt_rel}" style="--brand:{brand};--brand2:{brand2};--g2:{g2};">
+  <body data-detail data-i18n-base="{base}" data-alt-{alt_lang}="{alt_rel}" style="--brand:{brand};--brand2:{brand2};--g2:{g2};--brand-ink:{brand_ink};--brand2-ink:{brand2_ink};">
     <div class="dt-nav-shell">
       <div class="container">
         <div class="header-sticky">

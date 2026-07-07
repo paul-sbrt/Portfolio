@@ -3030,3 +3030,29 @@ nav .fa-solid {
     padding-right: 0;
   }
 }
+
+/* ===================================================================
+   GRILLE PROJETS — LIGHT. Thumbs duotone de marque → pastel clair, cap assombri,
+   image/wash éclaircis. La carte (blanc + ombre) et le liseré rose→ambre suivent
+   déjà les tokens. Additif : dark intact.
+   =================================================================== */
+[data-theme="light"] .proj-thumb {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--c) 24%, #fff), #f1eee9 82%);
+}
+[data-theme="light"] .proj-mesh {
+  background: repeating-linear-gradient(135deg, rgba(26, 22, 19, 0.045) 0 1px, transparent 1px 22px);
+}
+[data-theme="light"] .proj-cap {
+  color: color-mix(in srgb, var(--c) 58%, #1c1712); /* nom de projet : marque assombrie, lisible sur pastel */
+}
+[data-theme="light"] .proj-card.is-feat .proj-eyebrow {
+  color: color-mix(in srgb, var(--c) 48%, #2a2622);
+}
+/* vraie capture : moins assombrie sur clair ; wash de marque léger (pas un voile sombre) */
+[data-theme="light"] .proj-img {
+  filter: saturate(0.92) brightness(0.99) contrast(1.02);
+}
+[data-theme="light"] .proj-wash {
+  background: linear-gradient(155deg, color-mix(in srgb, var(--c) 20%, transparent), transparent 55%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.04));
+}

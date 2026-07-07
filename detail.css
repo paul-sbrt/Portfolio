@@ -249,3 +249,78 @@
   @keyframes dt-exit-m{to{opacity:.05;transform:scale(.94) translateY(16px);filter:blur(2px)}}
 }}
 
+
+/* ===================================================================
+   CHARTE PROJET — LIGHT. Additif : ne touche PAS le dark. Les vars --brand-ink /
+   --brand2-ink sont injectées inline par build_detail.py (assombries AA). Principe :
+   couleur brute pour thumbs/placeholders (pastel clair), variante -ink pour tout
+   accent/texte, panneaux médias clairs teintés, bandes claires teintées, navy en
+   accent. La lightbox reste sombre (l'image ressort).
+   =================================================================== */
+[data-theme="light"] [data-detail] {
+  --ink2: #efece8; /* base panneaux médias : neutre clair chaud (au lieu du noir) */
+}
+[data-theme="light"] [data-detail] main::before { display: none; } /* souffle coloré coupé */
+
+/* Texte "dur codé pour le dark" à corriger */
+[data-theme="light"] [data-detail] .dt-sub { color: #2a2622; }
+[data-theme="light"] [data-detail] .dt-device .dt-cap,
+[data-theme="light"] [data-detail] .dt-browser-shot .dt-cap { color: color-mix(in srgb, var(--brand-ink) 78%, transparent); }
+[data-theme="light"] [data-detail] .dt-how-media .dt-float { border-color: rgba(26, 22, 19, 0.14); }
+
+/* Accents texte → ink */
+[data-theme="light"] [data-detail] .dt-topback i,
+[data-theme="light"] [data-detail] .dt-sec-eyebrow .dt-num,
+[data-theme="light"] [data-detail] .dt-meta b,
+[data-theme="light"] [data-detail] .dt-choice h3 span,
+[data-theme="light"] [data-detail] .dt-band .dt-k,
+[data-theme="light"] [data-detail] .dt-statusband .dt-lab,
+[data-theme="light"] [data-detail] .dt-ph-label { color: var(--brand-ink); }
+[data-theme="light"] [data-detail] .dt-meta a { color: var(--brand-ink); border-bottom-color: color-mix(in srgb, var(--brand-ink) 45%, transparent); }
+
+/* Filets (::before) → dégradé ink */
+[data-theme="light"] [data-detail] .dt-eyebrow::before,
+[data-theme="light"] [data-detail] .dt-sec-eyebrow::before,
+[data-theme="light"] [data-detail] .dt-feat::before { background: linear-gradient(90deg, var(--brand-ink), var(--brand2-ink)); }
+
+/* Titres/em en dégradé → ink */
+[data-theme="light"] [data-detail] .dt-hero h1 .dt-b,
+[data-theme="light"] [data-detail] .dt-band h2 em,
+[data-theme="light"] [data-detail] .dt-pullquote em { background: linear-gradient(120deg, var(--brand-ink), var(--brand2-ink)); -webkit-background-clip: text; background-clip: text; }
+
+/* Bandes → panneau clair à peine teinté + watermark très doux */
+[data-theme="light"] [data-detail] .dt-band { background: linear-gradient(115deg, color-mix(in srgb, var(--brand2) 12%, var(--bg)), var(--bg) 74%); }
+[data-theme="light"] [data-detail] .dt-statusband { background: linear-gradient(250deg, color-mix(in srgb, var(--brand2) 11%, var(--bg)), var(--bg) 72%); }
+[data-theme="light"] [data-detail] .dt-band .dt-wm { color: color-mix(in srgb, var(--brand2) 10%, transparent); }
+
+/* Citation (pourquoi) : tint clair + filet ink */
+[data-theme="light"] [data-detail] .dt-why .dt-quote { background: color-mix(in srgb, var(--brand) 7%, var(--bg)); border-color: color-mix(in srgb, var(--brand) 22%, var(--border)); border-left-color: var(--brand-ink); }
+
+/* Panneaux médias : liseré ink + ombre douce (bg suit --ink2 clair pour dt-shot) */
+[data-theme="light"] [data-detail] .dt-device,
+[data-theme="light"] [data-detail] .dt-browser,
+[data-theme="light"] [data-detail] .dt-videocard,
+[data-theme="light"] [data-detail] .dt-shot { border-color: color-mix(in srgb, var(--brand) 24%, var(--border)); box-shadow: 0 26px 56px -34px color-mix(in srgb, var(--brand-ink) 28%, transparent); }
+/* placeholders / panneaux teintés → tint léger clair */
+[data-theme="light"] [data-detail] .dt-how-media { background: linear-gradient(150deg, color-mix(in srgb, var(--brand) 14%, #f1eee9), color-mix(in srgb, var(--brand2) 11%, #f1eee9) 86%); }
+[data-theme="light"] [data-detail] .dt-videocard .dt-ph { background: linear-gradient(150deg, color-mix(in srgb, var(--brand) 16%, #f1eee9), color-mix(in srgb, var(--brand2) 12%, #f1eee9) 86%); }
+[data-theme="light"] [data-detail] .dt-logofield { background: linear-gradient(150deg, color-mix(in srgb, var(--brand) 8%, #f1eee9), #f1eee9 88%); }
+/* placeholder duotone → pastel clair (orange→teal clairs) */
+[data-theme="light"] [data-detail] .dt-ph { background: linear-gradient(150deg, color-mix(in srgb, var(--brand) 22%, #fff), color-mix(in srgb, var(--brand2) 15%, #fff) 84%); }
+/* meshes : lignes claires → lignes sombres discrètes sur clair */
+[data-theme="light"] [data-detail] .dt-ph::after,
+[data-theme="light"] [data-detail] .dt-how-media::before,
+[data-theme="light"] [data-detail] .dt-logofield::after { background: repeating-linear-gradient(135deg, rgba(26, 22, 19, 0.04) 0 1px, transparent 1px 24px); }
+
+/* Sweep hover → ink, doux */
+[data-theme="light"] [data-detail] .dt-shot .dt-sweep { background: linear-gradient(100deg, transparent 34%, color-mix(in srgb, var(--brand-ink) 26%, transparent) 50%, transparent 66%); background-size: 250% 100%; background-position: 130% 0; }
+
+/* Boutons play / retour / lightbox-close → ink */
+[data-theme="light"] [data-detail] .dt-playbtn { background: linear-gradient(135deg, var(--brand-ink), var(--brand2-ink)); color: #fff; }
+[data-theme="light"] [data-detail] .dt-back:hover { border-color: var(--brand-ink); color: var(--brand-ink); }
+[data-theme="light"] [data-detail] .dt-lb-close:hover { border-color: var(--brand-ink); color: var(--brand-ink); }
+
+/* Lightbox : reste SOMBRE en light (l'image zoomée ressort), liseré ink */
+[data-theme="light"] [data-detail] .dt-lb { background: color-mix(in srgb, #0a0708 88%, transparent); }
+[data-theme="light"] [data-detail] .dt-lb img,
+[data-theme="light"] [data-detail] .dt-lb-video iframe { border-color: color-mix(in srgb, var(--brand-ink) 42%, var(--border)); }
