@@ -5,13 +5,21 @@
    Se raccorde aux tokens du site (--bg, --text, --text-muted, --accent, --accent-ms,
    --border) → suit le thème. Dark = priorité ; light = passe finale.
    ============================================================================ */
+/* Clippe l'overflow horizontal à la RACINE : le #sidemenu fermé (position:fixed,
+   translateX(100%)) est relatif à <html>, pas au body → overflow-x:hidden sur le body
+   ne le clippe pas. Sans ça, le panneau hors-champ à droite étend la largeur scrollable
+   (bande sombre à droite + page décalée à gauche). overflow-x:clip = pas de scrollport
+   (la sticky .dt-nav-shell reste OK). */
+html {
+  overflow-x: clip;
+}
 [data-detail]{
   --gut:9%;
   --disp:"Archivo",sans-serif;--mono:"JetBrains Mono",monospace;--body:"Poppins",sans-serif;
   /* garde-fous si un projet n'a pas de duo : mono sur la principale */
   --brand:var(--accent);--brand2:var(--brand);--g2:var(--brand2);
   --ink2:#0a0708; /* base sombre des panneaux colorés (médias) */
-  background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden;
+  background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:clip;
 }
 [data-detail] .dt-wrap{max-width:1140px;margin:0 auto;padding:0 var(--gut)}
 
