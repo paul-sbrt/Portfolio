@@ -8,10 +8,9 @@
       { "name": "ChatGPT" },
       { "name": "Gemini" },
       { "name": "Claude Code" },
-      { "name": { "fr": "Agents & agentique", "en": "Agents & agentic" } },
+      { "name": "Agents" },
+      { "name": "MCP" },
       { "name": "Cowork" },
-      { "name": { "fr": "Génération d'images", "en": "Image generation" } },
-      { "name": "Whisper" },
       { "name": "Python" }
     ]
   },
