@@ -392,10 +392,11 @@ function displayStudies() {
     .then((data) => {
       const records = data.map(function (s) {
         return {
-          title: t(s.institution),
-          org: "",
+          title: t(s.title || s.institution), // `title` = diplôme ; fallback ancien `institution`
+          org: s.org || "", // école (chaîne simple, comme company)
           place: t(s.place),
           dates: t(s.dates),
+          detail: s.detail ? t(s.detail) : null,
         };
       });
       renderRegistre(records, document.querySelector(".tab-content.studies"));

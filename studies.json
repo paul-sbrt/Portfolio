@@ -1,62 +1,58 @@
 [
   {
-    "institution": {
-      "fr": "CEFIM — CDA & DWWM",
-      "en": "CEFIM — CDA & DWWM"
+    "title": {
+      "fr": "CDA — Concepteur Développeur d'Applications",
+      "en": "CDA — Application Designer-Developer"
     },
-    "dates": {
-      "fr": "2023-2025",
-      "en": "2023-2025"
-    },
-    "place": {
-      "fr": "Tours",
-      "en": "Tours"
-    },
-    "image": "./images/cefim.webp"
+    "org": "CEFIM",
+    "place": { "fr": "Tours", "en": "Tours" },
+    "dates": { "fr": "2024 – 2025", "en": "2024 – 2025" },
+    "detail": {
+      "fr": "Titre professionnel niveau 6 (Bac+3/4). Reconnu par l'État (RNCP).",
+      "en": "Level 6 professional certification (equiv. Bac+3/4). State-recognized (RNCP)."
+    }
   },
   {
-    "institution": {
-      "fr": "Kaplan English School",
-      "en": "Kaplan English School"
+    "title": {
+      "fr": "DWWM — Développeur Web et Web Mobile",
+      "en": "DWWM — Web & Mobile Developer"
     },
-    "dates": {
-      "fr": "Fin 2022",
-      "en": "End 2022"
-    },
-    "place": {
-      "fr": "Vancouver",
-      "en": "Vancouver"
-    },
-    "image": "./images/kaplan.webp"
+    "org": "CEFIM",
+    "place": { "fr": "Tours", "en": "Tours" },
+    "dates": { "fr": "2023 – 2024", "en": "2023 – 2024" },
+    "detail": {
+      "fr": "Titre professionnel niveau 5 (Bac+2). Reconnu par l'État (RNCP).",
+      "en": "Level 5 professional certification (equiv. Bac+2). State-recognized (RNCP)."
+    }
   },
   {
-    "institution": {
-      "fr": "CFA CAP cuisine",
-      "en": "CFA CAP cuisine"
-    },
-    "dates": {
-      "fr": "2019-2020",
-      "en": "2019-2020"
-    },
-    "place": {
-      "fr": "Tours",
-      "en": "Tours"
-    },
-    "image": "./images/cfa.webp"
+    "title": { "fr": "Kaplan English School", "en": "Kaplan English School" },
+    "org": "",
+    "place": { "fr": "Vancouver", "en": "Vancouver" },
+    "dates": { "fr": "2022", "en": "2022" },
+    "detail": {
+      "fr": "Immersion et perfectionnement en anglais.",
+      "en": "English immersion program."
+    }
   },
   {
-    "institution": {
-      "fr": "Lycée Descartes — filière scientifique",
-      "en": "Lycée Descartes — Science track"
-    },
-    "dates": {
-      "fr": "2016-2019",
-      "en": "2016-2019"
-    },
-    "place": {
-      "fr": "Tours",
-      "en": "Tours"
-    },
-    "image": "./images/descartes.webp"
+    "title": { "fr": "CAP Cuisine", "en": "CAP Cuisine" },
+    "org": "CFA",
+    "place": { "fr": "Tours", "en": "Tours" },
+    "dates": { "fr": "2019 – 2020", "en": "2019 – 2020" },
+    "detail": {
+      "fr": "Diplôme professionnel.",
+      "en": "Vocational diploma."
+    }
+  },
+  {
+    "title": { "fr": "Baccalauréat scientifique", "en": "Scientific Baccalaureate" },
+    "org": "Lycée Descartes",
+    "place": { "fr": "Tours", "en": "Tours" },
+    "dates": { "fr": "", "en": "" },
+    "detail": {
+      "fr": "Filière scientifique.",
+      "en": "Science track."
+    }
   }
 ]
