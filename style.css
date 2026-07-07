@@ -18,6 +18,7 @@
   --border-line: #130f0f;                   /* footer / pagination */
   --grid-line: rgba(255, 255, 255, 0.05);   /* report-canvas grid */
   --img-outline: #fff;                      /* about photo outline */
+  --shadow-card: none;                      /* dark = pas d'ombre (bord + lueur) ; light = ombre douce */
 
   /* ===== Spacing scale (4 / 8px grid) ===== */
   --space-1: 4px;
@@ -55,18 +56,23 @@
 
 /* ===== Light theme — overrides only the theme tokens (accents stay constant) ===== */
 [data-theme="light"] {
-  --bg: #eef0f4;
-  --text: #14161b;
-  --text-muted: #4b5563; /* ~7:1 on --bg, AA on white surfaces */
-  --surface: #ffffff;
-  --surface-raised: rgba(0, 0, 0, 0.04);
-  --surface-sunken: rgba(0, 0, 0, 0.06);
-  --border: rgba(0, 0, 0, 0.16);
-  --border-soft: rgba(0, 0, 0, 0.1);
-  --border-line: rgba(0, 0, 0, 0.12);
-  --grid-line: rgba(0, 0, 0, 0.06);
-  --img-outline: rgba(0, 0, 0, 0.18);
-  --accent-ms-text: #7a5e00; /* darkened amber: AA-readable on light */
+  /* Light = SA PROPRE palette chaude (blanc cassé + rose profond + ambre), pas le dark
+     inversé. Profondeur par surfaces contrastées + ombres douces — pas de lueurs. */
+  --bg: #faf9f7;              /* blanc cassé chaud, premium */
+  --text: #1a1613;           /* presque-noir chaud */
+  --text-muted: #605850;     /* gris chaud, ~6:1 sur --bg (AA) */
+  --surface: #ffffff;        /* cartes/inputs pleins (blanc → flottent sur le fond) */
+  --surface-raised: #ffffff; /* panneaux élevés = blanc + ombre (profondeur) */
+  --surface-sunken: #efece8; /* creux : un cran plus chaud/sombre que le fond */
+  --border: rgba(26, 22, 19, 0.14);
+  --border-soft: rgba(26, 22, 19, 0.08);
+  --border-line: rgba(26, 22, 19, 0.12);
+  --grid-line: rgba(26, 22, 19, 0.06);
+  --img-outline: rgba(26, 22, 19, 0.16);
+  --accent: #d11346;         /* ROSE profond : vif mais AA-lisible sur clair (fini le fluo qui vibre) */
+  --accent-ms: #c6912e;      /* OR → ambre riche : le dégradé rose→or ne s'efface plus sur clair */
+  --accent-ms-text: #7a5e00; /* ambre assombri pour l'or en TEXTE pur */
+  --shadow-card: 0 1px 2px rgba(26, 22, 19, 0.05), 0 16px 34px -16px rgba(26, 22, 19, 0.17);
 }
 
 * {
@@ -138,7 +144,7 @@ body {
   --hero-glow: rgba(255, 0, 79, 0.11);
 }
 [data-theme="light"] {
-  --hero-glow: rgba(255, 0, 79, 0.06);
+  --hero-glow: transparent; /* light : pas de lueur colorée (fait délavé/sale) → profondeur par ombres */
 }
 
 .header {
@@ -209,6 +215,11 @@ body {
 @keyframes page-breathe {
   from { opacity: 0.45; }
   to { opacity: 0.8; }
+}
+/* Light : les radiales colorées (rose/or à 3-4%) font délavé/sale sur clair — coupées.
+   La profondeur vient des surfaces contrastées + ombres douces. */
+[data-theme="light"] #about::before {
+  display: none;
 }
 @media (prefers-reduced-motion: reduce) {
   #about::before { animation: none; opacity: 0.65; }
@@ -1576,6 +1587,7 @@ h1.sub-title {
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   background: var(--surface-raised);
+  box-shadow: var(--shadow-card); /* none en dark ; ombre douce en light (profondeur) */
   /* one-shot reveal (display.js revealCards adds .in; fail-safe never leaves hidden) */
   opacity: 0;
   transform: translateY(26px);
