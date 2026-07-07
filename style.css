@@ -1719,7 +1719,8 @@ h1.sub-title {
   align-items: center;
   gap: 10px;
   margin-top: 10px;
-  padding: 5px 0;
+  min-height: 44px; /* cible tactile (le repère visuel reste fin, la zone de tap fait 44px) */
+  padding: 8px 0;
   font-family: "JetBrains Mono", monospace;
   font-size: 11px;
   letter-spacing: 0.1em;
@@ -3000,5 +3001,20 @@ nav .fa-solid {
   .c-channel .c-arw {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* ===================================================================
+   COHÉRENCE GOUTTIÈRE (mobile ≤768) — #projects/#contact/footer ont un .container
+   IMBRIQUÉ dans celui de #about (double 10% → ~18%), alors que about/parcours sont
+   à 10%. On neutralise la gouttière du .container imbriqué sur mobile → toutes les
+   sections partent de la MÊME gouttière (10%, celle de #about). Desktop inchangé.
+   =================================================================== */
+@media (max-width: 768px) {
+  #projects > .container,
+  #contact > .container,
+  .site-footer > .container {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
