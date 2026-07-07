@@ -5,21 +5,13 @@
    Se raccorde aux tokens du site (--bg, --text, --text-muted, --accent, --accent-ms,
    --border) → suit le thème. Dark = priorité ; light = passe finale.
    ============================================================================ */
-/* Clippe l'overflow horizontal à la RACINE : le #sidemenu fermé (position:fixed,
-   translateX(100%)) est relatif à <html>, pas au body → overflow-x:hidden sur le body
-   ne le clippe pas. Sans ça, le panneau hors-champ à droite étend la largeur scrollable
-   (bande sombre à droite + page décalée à gauche). overflow-x:clip = pas de scrollport
-   (la sticky .dt-nav-shell reste OK). */
-html {
-  overflow-x: clip;
-}
 [data-detail]{
   --gut:9%;
   --disp:"Archivo",sans-serif;--mono:"JetBrains Mono",monospace;--body:"Poppins",sans-serif;
   /* garde-fous si un projet n'a pas de duo : mono sur la principale */
   --brand:var(--accent);--brand2:var(--brand);--g2:var(--brand2);
   --ink2:#0a0708; /* base sombre des panneaux colorés (médias) */
-  background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:clip;
+  background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden;
 }
 [data-detail] .dt-wrap{max-width:1140px;margin:0 auto;padding:0 var(--gut)}
 
@@ -246,21 +238,25 @@ html {
 }}
 
 /* Menu burger mobile (≤768).
-   1) VRAIE CAUSE du panneau transparent + liens coupés sur les pages détail :
-      style.css .header-sticky est fixed+backdrop-filter ; detail.css le repasse en
-      `position: static` MAIS garde le backdrop-filter → .header-sticky (static, inset
-      dans .container) devient le containing-block du #sidemenu fixed → il se place
-      dans la BARRE au lieu du viewport. On retire les backdrop-filter des ancêtres
-      nav → le #sidemenu (fixed) retrouve le viewport : 100dvh plein écran, opaque,
-      liens visibles (exactement comme l'index, dont .header-sticky est fixed).
-   2) z-index 200 pour passer au-dessus du backdrop du menu (z-199 ; lightbox z-200
-      ajoutée en fin de DOM reste au-dessus). */
+   Le containing-block du #sidemenu (fixed) doit être un ancêtre PLEINE LARGEUR, sinon
+   le panneau est mal positionné (piégé dans la barre) OU, s'il n'a aucun containing-
+   block, il devient viewport-fixed et son translateX(100%) hors-champ étend l'ICB
+   (page décalée à gauche + bande à droite).
+   Sur détail, deux ancêtres avaient backdrop-filter : .header-sticky (position:static,
+   INSET dans .container → mauvais) et .dt-nav-shell (PLEINE LARGEUR → bon). On retire
+   le backdrop-filter UNIQUEMENT de .header-sticky → le containing-block devient
+   .dt-nav-shell → #sidemenu positionné plein écran ET contenu (pas d'overflow ICB),
+   exactement comme l'index. z-index 200 : le panneau passe au-dessus du backdrop du
+   menu (z-199 ; lightbox z-200, ajoutée en fin de DOM, reste au-dessus). */
 @media (max-width: 768px) {
   [data-detail] .dt-nav-shell {
-    z-index: 200;
-    background: var(--bg); /* opaque : le blur est retiré ci-dessous */
+    z-index: 200; /* garde son backdrop-filter → reste le containing-block plein écran */
+    /* clippe le #sidemenu FERMÉ (hors-champ à droite via translateX(100%)) ICI, sur
+       son containing-block pleine largeur — un overflow sur html/body ne clippe PAS
+       un élément fixed. overflow-y:visible laisse le panneau descendre sur 100dvh. */
+    overflow-x: clip;
+    overflow-y: visible;
   }
-  [data-detail] .dt-nav-shell,
   [data-detail] .dt-nav-shell .header-sticky {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
