@@ -206,7 +206,9 @@
   /* BANDES : moins d'air ; watermark géant contenu (poussé hors champ à droite,
      overflow:hidden → aucun scroll horizontal, pas de clash avec le titre) */
   [data-detail] .dt-band{padding:7vh 0;margin-top:7vh}
-  [data-detail] .dt-band .dt-wm{font-size:42vw;right:-12%;opacity:.6}
+  /* watermark géant : plaisir desktop, mais sa boîte (absolute, right négatif + 42vw)
+     déborde le viewport sur mobile → décale la page. On le masque sur mobile. */
+  [data-detail] .dt-band .dt-wm{display:none}
   [data-detail] .dt-statusband{padding:7vh 0}
   /* GALERIE 1 colonne, images cadrées */
   [data-detail] .dt-gallery{padding:8vh 0}
