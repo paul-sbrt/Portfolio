@@ -2934,3 +2934,71 @@ nav .fa-solid {
     transform: none;
   }
 }
+
+/* ===================================================================
+   CONTACT / FOOTER — tablette/mobile (≤768 + ≤480).
+   =================================================================== */
+@media (max-width: 768px) {
+  /* Contact : split → empilé (accroche + canaux directs, puis formulaire). */
+  .contact-split {
+    grid-template-columns: 1fr;
+    gap: clamp(40px, 8vw, 56px);
+  }
+  /* Inputs : ≥16px = PAS de zoom auto iOS au focus ; hauteur tactile confortable. */
+  .c-field input,
+  .c-field textarea {
+    font-size: 16px;
+    padding: 13px 2px;
+  }
+  .c-field textarea {
+    min-height: 130px;
+  }
+  /* Footer : marque pleine largeur, puis Navigation | Ailleurs en 2 colonnes. */
+  .foot-main {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(26px, 6vw, 40px);
+    padding: clamp(40px, 8vw, 56px) 0 36px;
+  }
+  .foot-brand {
+    grid-column: 1 / -1;
+  }
+  /* Liens footer : cibles tactiles ≥44px. */
+  .foot-col a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .foot-totop {
+    padding: 11px 0;
+  }
+}
+@media (max-width: 480px) {
+  /* Nom / Email empilés (fini les 2 colonnes serrées). */
+  .c-row2 {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  /* Bouton Envoyer pleine largeur = CTA clair au doigt (status en dessous). */
+  .c-form-foot {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .c-submit {
+    width: 100%;
+    justify-content: center;
+  }
+  /* Footer : tout empilé sur 1 colonne. */
+  .foot-main {
+    grid-template-columns: 1fr;
+  }
+  .foot-bottom {
+    padding: 20px 0 32px;
+  }
+}
+/* Canaux directs : la flèche ↗ reste visible au tactile (repère de lien externe). */
+@media (hover: none) {
+  .c-channel .c-arw {
+    opacity: 1;
+    transform: none;
+  }
+}
