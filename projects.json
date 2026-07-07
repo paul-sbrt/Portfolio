@@ -42,12 +42,12 @@
         "en": "iOS second brain"
       },
       "lead": {
-        "fr": "On capture une idée, une note ou un vocal en vrac et on la perd, ou on ne la retrouve pas structurée. DUMP est un assistant cognitif : on parle ou on écrit en vrac, l'IA trie automatiquement. Particulièrement utile aux profils qui débordent d'idées et se dispersent (TDAH inclus), comme outil d'organisation au quotidien. Paul l'a d'abord construit pour lui-même.",
-        "en": "You capture an idea, a note or a voice memo on the fly and then you lose it, or you can't find it in any usable shape. DUMP is a cognitive assistant: you speak or type, messy and unfiltered, and the AI sorts it automatically. Especially handy for minds that overflow with ideas and scatter easily (ADHD included), as an everyday organization tool. Paul built it for himself first."
+        "fr": "On capture une idée, une note ou un vocal en vrac et on la perd, ou on ne la retrouve pas structurée. DUMP est un assistant cognitif : on parle ou on écrit en vrac, l'IA trie automatiquement. Particulièrement utile aux profils qui débordent d'idées et se dispersent (TDAH inclus), comme outil d'organisation au quotidien. Je l'ai d'abord construit pour moi.",
+        "en": "You capture an idea, a note or a voice memo on the fly and then you lose it, or you can't find it in any usable shape. DUMP is a cognitive assistant: you speak or type, messy and unfiltered, and the AI sorts it automatically. Especially handy for minds that overflow with ideas and scatter easily (ADHD included), as an everyday organization tool. I built it for myself first."
       },
       "status": {
-        "fr": "Sur TestFlight (build 2) le projet le plus actif de Paul (503 commits, mise à jour juin 2026), design system v2, widgets « production ready ».",
-        "en": "On TestFlight (build 2) Paul's most active project (503 commits, updated June 2026), design system v2, production-ready widgets."
+        "fr": "Sur TestFlight (build 2) mon projet le plus actif (503 commits, mise à jour juin 2026), design system v2, widgets « production ready ».",
+        "en": "On TestFlight (build 2) my most active project (503 commits, updated June 2026), design system v2, production-ready widgets."
       },
       "context": {
         "heading": {
