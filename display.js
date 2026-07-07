@@ -240,7 +240,10 @@ function renderRegistre(records, container) {
       : null;
 
   records.forEach(function (r, i) {
-    const hasDetail = r.detail || (r.detailList && r.detailList.length);
+    const hasDetail =
+      r.detail ||
+      (r.detailList && r.detailList.length) ||
+      (r.bullets && r.bullets.length);
     const item = document.createElement(r.href ? "a" : "div");
     item.className = "reg-item" + (r.href ? " is-link" : "");
     item.style.transitionDelay = (0.05 + i * 0.09).toFixed(2) + "s";
@@ -293,13 +296,30 @@ function renderRegistre(records, container) {
       inner.className = "reg-detail-in";
       const drow = document.createElement("div");
       drow.className = "reg-drow";
-      const pieces = r.detailList ? r.detailList : [r.detail];
+      const pieces = r.detailList
+        ? r.detailList
+        : r.detail
+        ? [r.detail]
+        : [];
       pieces.forEach(function (p) {
         const w = document.createElement("span");
         w.className = "reg-ignite";
         w.textContent = p;
         drow.appendChild(w);
       });
+      // Optional bullet list (e.g. Avanade's realizations) — a clean vertical list
+      // below the intro, rose→gold square markers, in the registre's design.
+      if (r.bullets && r.bullets.length) {
+        const bl = document.createElement("div");
+        bl.className = "reg-bullets";
+        r.bullets.forEach(function (b) {
+          const li = document.createElement("div");
+          li.className = "reg-bullet";
+          li.textContent = b;
+          bl.appendChild(li);
+        });
+        drow.appendChild(bl);
+      }
       inner.appendChild(drow);
       detail.appendChild(inner);
       head.appendChild(detail);
@@ -357,6 +377,7 @@ function displayExperience() {
           place: t(e.location),
           dates: t(e.dates),
           detail: e.description ? t(e.description) : null,
+          bullets: Array.isArray(e.bullets) ? e.bullets.map(t) : null,
         };
       });
       renderRegistre(records, document.querySelector(".tab-content.experience"));
