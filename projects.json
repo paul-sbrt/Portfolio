@@ -1255,6 +1255,27 @@
     "externalUrl": "https://anneguillien.fr"
   },
   {
+    "slug": "le-colvert",
+    "title": "Le Colvert",
+    "image": "./images/placeholder.svg",
+    "summary": {
+      "fr": "Site vitrine d'un restaurant de spécialités de canard (Tours) — avec un CMS léger que j'ai codé main : le propriétaire met à jour lui-même plats, photos, horaires et carte, sans toucher au code. HTML/CSS/JS vanilla + back-office PHP sur mesure.",
+      "en": "Showcase site for a duck-specialty restaurant (Tours) — with a lightweight CMS I hand-coded: the owner updates the dishes, photos, hours and menu themselves, without touching the code. Vanilla HTML/CSS/JS + a bespoke PHP back-office."
+    },
+    "hats": [
+      "Web"
+    ],
+    "tags": [
+      "PHP",
+      "JavaScript",
+      "CMS custom",
+      "O2switch"
+    ],
+    "featured": false,
+    "externalUrl": "https://www.colvert-tours.fr/",
+    "year": 2025
+  },
+  {
     "slug": "wheretowatch",
     "title": "WhereToWatch",
     "image": "./images/wheretowatch2.webp",
