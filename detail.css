@@ -190,16 +190,16 @@
 @media(max-width:768px){
   [data-detail]{--gut:7%}
   /* HERO 1 colonne ; titres longs (Ticketing IT) ne débordent pas → min réduit */
-  [data-detail] .dt-hero{padding:4vh 0 7vh}
+  [data-detail] .dt-hero{padding:4vh var(--gut) 7vh} /* rend la gouttière : sinon le shorthand écrase le padding de .dt-wrap → hero collé aux bords (texte à gauche, vide à droite) */
   [data-detail] .dt-hero--app{grid-template-columns:1fr;gap:30px}
   [data-detail] .dt-hero h1{font-size:clamp(33px,9vw,60px)}
-  [data-detail] .dt-device{max-width:300px}
+  [data-detail] .dt-device{max-width:300px;justify-self:center;margin-inline:auto}
   /* POURQUOI : citation pleine largeur */
   [data-detail] .dt-why{padding:8vh 0}
   [data-detail] .dt-why .dt-quote{max-width:100%;margin:5vh 0 0;padding:26px 24px}
   /* DÉMARCHE (split) 1 colonne */
   [data-detail] .dt-how{grid-template-columns:1fr;gap:28px;padding:8vh 0}
-  [data-detail] .dt-how-media{max-width:320px}
+  [data-detail] .dt-how-media{max-width:320px;justify-self:center;margin-inline:auto}
   /* RÉSULTAT 1 colonne */
   [data-detail] .dt-result{padding:8vh 0}
   [data-detail] .dt-features{grid-template-columns:1fr}
