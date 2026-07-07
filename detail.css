@@ -29,9 +29,19 @@
 @keyframes dt-page-breathe{from{opacity:.4}to{opacity:.72}}
 @media(prefers-reduced-motion:reduce){[data-detail] main::before{animation:none;opacity:.6}}
 
-/* nav slim — chrome portfolio CONSTANT (rose→or), réutilise les toggles du site */
-[data-detail] .dt-nav-shell{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-[data-detail] .dt-nav-shell .header-sticky{display:flex;align-items:center;justify-content:space-between;padding:13px 0;position:static}
+/* nav — VISUELLEMENT IDENTIQUE à la barre de l'index (.header-sticky) : même fond
+   (bg 80%→92% au scroll), même blur 10px, même hauteur 72→58px au scroll, même filet
+   (transparent→border), même gouttière clamp. Le blur est sur ::before (un pseudo,
+   PAS un ancêtre du #sidemenu fixed) → il ne recrée pas le containing-block qui piégeait
+   le menu. .dt-nav-shell reste sticky (in-flow → réserve sa hauteur, pas de padding-top
+   à gérer). Menu : aucun ancêtre backdrop-filter → #sidemenu relatif au viewport, fermé
+   = display:none (style.css) → pas d'overflow. Scroll : app.js pose .scrolled ici. */
+[data-detail] .dt-nav-shell{position:sticky;top:0;z-index:200;height:72px;display:flex;align-items:stretch;background:transparent;border-bottom:1px solid transparent;transition:height .3s ease,border-color .3s ease}
+[data-detail] .dt-nav-shell::before{content:"";position:absolute;inset:0;z-index:-1;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .3s ease;pointer-events:none}
+[data-detail] .dt-nav-shell.scrolled{height:58px;border-bottom-color:var(--border)}
+[data-detail] .dt-nav-shell.scrolled::before{background:color-mix(in srgb,var(--bg) 92%,transparent)}
+[data-detail] .dt-nav-shell .container{max-width:none;margin:0;padding:0 clamp(20px,5vw,64px);display:flex;align-items:center;width:100%}
+[data-detail] .dt-nav-shell .header-sticky{position:static;width:100%;height:auto;padding:0;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;border:0;display:flex;align-items:center;justify-content:space-between}
 
 /* bouton RETOUR en haut (sous le nav, intégré au hero) — mono, accent charte */
 [data-detail] .dt-topback{display:inline-flex;align-items:center;gap:9px;margin-top:28px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color .25s,gap .25s}
@@ -239,28 +249,3 @@
   @keyframes dt-exit-m{to{opacity:.05;transform:scale(.94) translateY(16px);filter:blur(2px)}}
 }}
 
-/* Menu burger mobile (≤768).
-   Le containing-block du #sidemenu (fixed) doit être un ancêtre PLEINE LARGEUR, sinon
-   le panneau est mal positionné (piégé dans la barre) OU, s'il n'a aucun containing-
-   block, il devient viewport-fixed et son translateX(100%) hors-champ étend l'ICB
-   (page décalée à gauche + bande à droite).
-   Sur détail, deux ancêtres avaient backdrop-filter : .header-sticky (position:static,
-   INSET dans .container → mauvais) et .dt-nav-shell (PLEINE LARGEUR → bon). On retire
-   le backdrop-filter UNIQUEMENT de .header-sticky → le containing-block devient
-   .dt-nav-shell → #sidemenu positionné plein écran ET contenu (pas d'overflow ICB),
-   exactement comme l'index. z-index 200 : le panneau passe au-dessus du backdrop du
-   menu (z-199 ; lightbox z-200, ajoutée en fin de DOM, reste au-dessus). */
-@media (max-width: 768px) {
-  [data-detail] .dt-nav-shell {
-    z-index: 200; /* garde son backdrop-filter → containing-block PLEINE LARGEUR du panneau ouvert */
-  }
-  /* Retire le backdrop-filter seulement de .header-sticky (static, INSET dans
-     .container) : sinon c'est LUI le containing-block du #sidemenu → panneau ouvert
-     mal positionné dans la barre. Le CB devient .dt-nav-shell (pleine largeur) →
-     ouverture plein écran correcte. (Le débordement fermé est réglé par display:none
-     dans style.css.) */
-  [data-detail] .dt-nav-shell .header-sticky {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-}

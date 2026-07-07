@@ -165,7 +165,10 @@ window.addEventListener("langChanged", () => {
 
 // Header: condense + tint slightly once scrolled (subtle). Fail-safe — if this
 // never runs, the bar stays in its default, fully-usable state.
-const stickyBar = document.querySelector(".header-sticky");
+// On detail pages the bar is .dt-nav-shell (wrapping .header-sticky); on the index
+// it's .header-sticky. Pick whichever is the actual top bar so the scroll effect
+// (condense + tint) lands on it.
+const stickyBar = document.querySelector(".dt-nav-shell, .header-sticky");
 if (stickyBar) {
   const onScroll = () =>
     stickyBar.classList.toggle("scrolled", window.scrollY > 24);
