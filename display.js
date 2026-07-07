@@ -246,6 +246,7 @@ function renderRegistre(records, container) {
       (r.bullets && r.bullets.length);
     const item = document.createElement(r.href ? "a" : "div");
     item.className = "reg-item" + (r.href ? " is-link" : "");
+    if (r.hat) item.dataset.hat = r.hat; // "ms" → gold treatment (Microsoft)
     item.style.transitionDelay = (0.05 + i * 0.09).toFixed(2) + "s";
     if (r.href) {
       item.href = r.href;
@@ -339,6 +340,24 @@ function renderRegistre(records, container) {
       arw.textContent = "↗";
       side.appendChild(arw);
     }
+    // Separate verify link (certifications) — opens in a new tab; stops the click from
+    // toggling the row's detail, so hover/tap expands and ↗ opens the link, no clash.
+    if (r.verify) {
+      const vlink = document.createElement("a");
+      vlink.className = "reg-verify";
+      vlink.href = r.verify;
+      vlink.target = "_blank";
+      vlink.rel = "noopener noreferrer";
+      vlink.textContent = "↗";
+      vlink.setAttribute(
+        "aria-label",
+        t({ fr: "Vérifier la certification", en: "Verify certification" })
+      );
+      vlink.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+      side.appendChild(vlink);
+    }
     item.appendChild(side);
     list.appendChild(item);
 
@@ -405,7 +424,9 @@ function displayStudies() {
 }
 
 
-// Adapter — Certifications → record (the row is an external link; skills = detail).
+// Adapter — Certifications → record. The row EXPANDS on hover/tap (skills = detail),
+// and carries a SEPARATE ↗ verify link (not a full-row link, so the two don't clash).
+// Microsoft certs get hat:"ms" → gold treatment, like the skills bands.
 function displayCertifications() {
   fetch("certifications.json", { cache: "no-store" })
     .then((response) => response.json())
@@ -413,13 +434,15 @@ function displayCertifications() {
       const records = data.map(function (c) {
         return {
           title: certName(c),
-          org: t(c.issuer) || "Microsoft",
+          org: t(c.issuer) || "",
           place: "",
           dates: certYear(c),
-          tag: c.code || null,
           detailList:
-            Array.isArray(c.skills) && c.skills.length ? c.skills : null,
-          href: certUrl(c),
+            Array.isArray(c.skills) && c.skills.length
+              ? c.skills.map(t)
+              : null,
+          verify: certUrl(c), // ↗ separate verify link (not `href` → row stays expandable)
+          hat: /microsoft/i.test(t(c.issuer)) ? "ms" : null,
         };
       });
       renderRegistre(records, document.querySelector(".tab-content.certifications"));

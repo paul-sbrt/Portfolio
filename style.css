@@ -1497,6 +1497,57 @@ h1.sub-title {
   background: linear-gradient(135deg, var(--accent), var(--accent-ms));
 }
 
+/* Lien de vérification ↗ (certifications) — DISTINCT du toggle : le survol/tap déploie
+   le détail, le clic sur ↗ ouvre la vérif (nouvel onglet, stopPropagation en JS). */
+.reg-verify {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 6px;
+  transition: color 0.25s, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reg-verify:hover,
+.reg-verify:focus-visible {
+  color: var(--accent-ms);
+  transform: translate(2px, -2px);
+}
+@media (hover: none) {
+  .reg-verify {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 11px;
+  }
+  .reg-side {
+    align-items: center;
+  }
+}
+
+/* Microsoft (data-hat="ms") → OR au lieu de rose→or, cohérent avec les compétences.
+   Suit le thème (en light : --accent-ms = ambre, --accent-ms-text = or foncé). */
+.reg-item[data-hat="ms"] .reg-cue {
+  color: var(--accent-ms-text);
+}
+.reg-item[data-hat="ms"] .reg-drow::before {
+  background: linear-gradient(180deg, var(--accent-ms), var(--accent-ms-text));
+}
+.reg-item[data-hat="ms"] .reg-ignite {
+  background: linear-gradient(100deg, var(--text) 0 36%, var(--accent-ms) 44%, #fff2cf 50%, var(--accent-ms) 56%, var(--text) 64% 100%);
+  background-size: 300% 100%;
+  background-position: 100% 0;
+}
+.reg-item[data-hat="ms"] .reg-verify {
+  color: var(--accent-ms-text);
+}
+.reg-item[data-hat="ms"] .reg-verify:hover {
+  color: var(--accent-ms);
+}
+
 /* Scroll motion — subtle registre title drift + a per-ROW section-exit that mirrors
    the skills bands' peel (skl-exit), so BOTH tab contents leave the same way: each
    row files away as it scrolls off the top (lift + lateral drift + fade + soft blur),
