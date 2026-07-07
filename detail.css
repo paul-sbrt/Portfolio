@@ -250,13 +250,13 @@
    menu (z-199 ; lightbox z-200, ajoutée en fin de DOM, reste au-dessus). */
 @media (max-width: 768px) {
   [data-detail] .dt-nav-shell {
-    z-index: 200; /* garde son backdrop-filter → reste le containing-block plein écran */
-    /* clippe le #sidemenu FERMÉ (hors-champ à droite via translateX(100%)) ICI, sur
-       son containing-block pleine largeur — un overflow sur html/body ne clippe PAS
-       un élément fixed. overflow-y:visible laisse le panneau descendre sur 100dvh. */
-    overflow-x: clip;
-    overflow-y: visible;
+    z-index: 200; /* garde son backdrop-filter → containing-block PLEINE LARGEUR du panneau ouvert */
   }
+  /* Retire le backdrop-filter seulement de .header-sticky (static, INSET dans
+     .container) : sinon c'est LUI le containing-block du #sidemenu → panneau ouvert
+     mal positionné dans la barre. Le CB devient .dt-nav-shell (pleine largeur) →
+     ouverture plein écran correcte. (Le débordement fermé est réglé par display:none
+     dans style.css.) */
   [data-detail] .dt-nav-shell .header-sticky {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;

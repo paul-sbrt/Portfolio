@@ -2494,12 +2494,23 @@ nav .fa-solid {
     border-left: 1px solid var(--border);
     box-shadow: -24px 0 70px -24px rgba(0, 0, 0, 0.7);
     transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+      display 0.4s allow-discrete;
     z-index: 210;
     overflow-y: auto;
+    /* FERMÉ = display:none → le panneau (hors-champ à droite) ne compte PLUS dans la
+       largeur de layout → aucun overflow horizontal (un simple translateX le laissait
+       étendre la page). allow-discrete + @starting-style gardent le slide fluide. */
+    display: none;
   }
   body.menu-open #sidemenu {
+    display: flex; /* colonne : flex-direction déjà défini plus haut */
     transform: translateX(0);
+  }
+  @starting-style {
+    body.menu-open #sidemenu {
+      transform: translateX(100%);
+    }
   }
   body.menu-open nav .fa-bars {
     display: none; /* le × du panneau ferme */
