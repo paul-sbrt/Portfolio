@@ -1233,7 +1233,6 @@
     "tags": [
       "Next.js",
       "TypeScript",
-      "Tailwind",
       "Power Platform"
     ],
     "featured": false,
@@ -1260,8 +1259,8 @@
     "title": "WhereToWatch",
     "image": "./images/wheretowatch2.webp",
     "summary": {
-      "fr": "Une app React pour chercher des films et savoir où les regarder. Elle s'appuie sur l'API TMDB pour afficher genres, notes, acteurs principaux et plateformes de streaming. Faite avec React, React Router et Bootstrap, déployée sur GitHub Pages.",
-      "en": "A React app to search for movies and find where to watch them. It uses the TMDB API to show genres, ratings, main cast and streaming platforms. Built with React, React Router and Bootstrap, deployed on GitHub Pages."
+      "fr": "Une app React pour chercher des films et savoir où les regarder. Elle s'appuie sur l'API TMDB pour afficher genres, notes, acteurs principaux et plateformes de streaming. Faite avec React et React Router, déployée sur GitHub Pages.",
+      "en": "A React app to search for movies and find where to watch them. It uses the TMDB API to show genres, ratings, main cast and streaming platforms. Built with React and React Router, deployed on GitHub Pages."
     },
     "hats": [
       "Web"
