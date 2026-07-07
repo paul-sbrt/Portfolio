@@ -1536,16 +1536,27 @@ h1.sub-title {
 .reg-item[data-hat="ms"] .reg-drow::before {
   background: linear-gradient(180deg, var(--accent-ms), var(--accent-ms-text));
 }
+/* background-IMAGE (pas le shorthand) → garde le background-clip:text du base, sinon le
+   dégradé remplit la boîte (rectangle) et le texte devient transparent/invisible. */
 .reg-item[data-hat="ms"] .reg-ignite {
-  background: linear-gradient(100deg, var(--text) 0 36%, var(--accent-ms) 44%, #fff2cf 50%, var(--accent-ms) 56%, var(--text) 64% 100%);
-  background-size: 300% 100%;
-  background-position: 100% 0;
+  background-image: linear-gradient(100deg, var(--text) 0 36%, var(--accent-ms) 44%, #fff2cf 50%, var(--accent-ms) 56%, var(--text) 64% 100%);
 }
 .reg-item[data-hat="ms"] .reg-verify {
   color: var(--accent-ms-text);
 }
 .reg-item[data-hat="ms"] .reg-verify:hover {
   color: var(--accent-ms);
+}
+
+/* Certifications — les titres sont plus longs (ex. "PL-900 — Power Platform
+   Fundamentals") → un cran plus petits + interligne aéré → passe à la ligne
+   proprement, pas de débordement. Détail (tags) un peu plus aéré. */
+.tab-content.certifications .reg-title {
+  font-size: clamp(17px, 2vw, 23px);
+  line-height: 1.16;
+}
+.tab-content.certifications .reg-drow {
+  gap: 12px 24px;
 }
 
 /* Scroll motion — subtle registre title drift + a per-ROW section-exit that mirrors
