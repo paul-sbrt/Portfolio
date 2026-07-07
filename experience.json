@@ -1,27 +1,45 @@
 [
   {
-    "position": { "fr": "Lead SI & Management", "en": "IT Lead & Management" },
+    "position": {
+      "fr": "Lead SI & Management",
+      "en": "IT Lead & Management"
+    },
     "company": "IPMS",
-    "location": { "fr": "Freelance", "en": "Freelance" },
-    "dates": { "fr": "depuis avril 2026", "en": "since April 2026" },
+    "location": {
+      "fr": "Freelance",
+      "en": "Freelance"
+    },
+    "dates": {
+      "fr": "depuis avril 2026",
+      "en": "since April 2026"
+    },
     "description": {
       "fr": "Refonte du back-office, pilotage des tableaux de bord et gestion de projets. J'encadre une petite équipe (2-3 personnes) et coordonne plusieurs projets en parallèle.",
       "en": "Back-office rebuild, dashboard oversight and project management. I lead a small team (2-3 people) and coordinate several projects in parallel."
     }
   },
   {
-    "position": { "fr": "Développeur — Alternance", "en": "Developer — Apprenticeship" },
+    "position": {
+      "fr": "Développeur Alternance",
+      "en": "Developer Apprenticeship"
+    },
     "company": "Avanade France",
-    "location": { "fr": "Paris", "en": "Paris" },
-    "dates": { "fr": "2023 – 2025", "en": "2023 – 2025" },
+    "location": {
+      "fr": "Paris",
+      "en": "Paris"
+    },
+    "dates": {
+      "fr": "2023 – 2025",
+      "en": "2023 – 2025"
+    },
     "description": {
       "fr": "Deux ans au sein d'un grand cabinet Microsoft, où j'ai gagné en autonomie et maîtrisé l'écosystème Power Platform. Mes réalisations principales :",
       "en": "Two years within a large Microsoft consultancy, where I gained autonomy and mastered the Power Platform ecosystem. My main achievements:"
     },
     "bullets": [
       {
-        "fr": "Une application de certification interne (Power Platform) pour les équipes offshore du projet SUEZ — déployée en production, 200 à 300 utilisateurs, avec un tableau de bord Power BI pour le pilotage. Livrée en 3 mois.",
-        "en": "An internal certification app (Power Platform) for the SUEZ project's offshore teams — shipped to production, 200 to 300 users, with a Power BI dashboard for oversight. Delivered in 3 months."
+        "fr": "Une application de certification interne (Power Platform) pour les équipes offshore du projet SUEZ déployée en production, 200 à 300 utilisateurs, avec un tableau de bord Power BI pour le pilotage. Livrée en 3 mois.",
+        "en": "An internal certification app (Power Platform) for the SUEZ project's offshore teams shipped to production, 200 to 300 users, with a Power BI dashboard for oversight. Delivered in 3 months."
       },
       {
         "fr": "Une application de management de la qualité (usage interne).",
@@ -34,13 +52,22 @@
     ]
   },
   {
-    "position": { "fr": "Avant le code", "en": "Before code" },
+    "position": {
+      "fr": "Avant le code",
+      "en": "Before code"
+    },
     "company": "Vancouver & Tours",
-    "location": { "fr": "", "en": "" },
-    "dates": { "fr": "2019 – 2023", "en": "2019 – 2023" },
+    "location": {
+      "fr": "",
+      "en": ""
+    },
+    "dates": {
+      "fr": "2019 – 2023",
+      "en": "2019 – 2023"
+    },
     "description": {
-      "fr": "Croupier chez Evolution Gaming (Vancouver) et parcours en restauration (diplômé en cuisine). Des métiers exigeants qui m'ont appris la rigueur, le sang-froid et le sens du concret — avant de me reconvertir dans le code.",
-      "en": "Croupier at Evolution Gaming (Vancouver) and a background in hospitality (trained chef). Demanding jobs that taught me rigour, composure and a hands-on mindset — before switching to code."
+      "fr": "Croupier chez Evolution Gaming (Vancouver) et parcours en restauration (diplômé en cuisine). Des métiers exigeants qui m'ont appris la rigueur, le sang-froid et le sens du concret avant de me reconvertir dans le code.",
+      "en": "Croupier at Evolution Gaming (Vancouver) and a background in hospitality (trained chef). Demanding jobs that taught me rigour, composure and a hands-on mindset before switching to code."
     }
   }
 ]

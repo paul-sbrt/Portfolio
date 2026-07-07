@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate bilingual project detail pages — direction D1 (récit produit, rythme
+"""Generate bilingual project detail pages direction D1 (récit produit, rythme
 horizontal aéré, charte DUO par projet). One template, N data.
 
 For every projects.json entry with "featured": true, writes:
@@ -86,7 +86,7 @@ def _mix_white(hx, t):
 
 def _ink(hx):
     """Light-theme variant of a brand colour: darken (hue kept) until it is AA-legible
-    as text/accent on the light bg (#faf9f7). Colours already dark enough — navy — are
+    as text/accent on the light bg (#faf9f7). Colours already dark enough navy are
     returned unchanged, so navy stays an elegant accent instead of a heavy block."""
     r, g, b = _rgb(hx)
     if _lum(hx) <= 0.34:
@@ -105,7 +105,7 @@ def charte(project):
     brand2 = project.get("brand2") or brand
     # navy/dark secondaries can't carry bright text → light warm partner for --g2
     g2 = brand2 if _lum(brand2) >= 0.22 else _mix_white(brand, 0.42)
-    # light-theme "ink" variants (accents/text) — darkened, AA on the light bg
+    # light-theme "ink" variants (accents/text) darkened, AA on the light bg
     return brand, brand2, g2, _ink(brand), _ink(brand2)
 
 
@@ -130,7 +130,7 @@ def render_hero(project, detail, lang, ui, base, is_app, ext_url, ext_label):
 
     cover = project.get("image")
     img_src = asset(cover, base) if not is_placeholder(cover) else ""
-    to_come = esc(ui.get("detail.gallery", "Gallery")) + " —"
+    to_come = esc(ui.get("detail.gallery", "Gallery")) + " "
     label = esc(T(detail.get("tagline", ""), lang)) or cap
 
     sub_html = f'<p class="dt-sub rv">{heading}</p>' if heading else ""
@@ -192,7 +192,7 @@ def render_why(detail, lang, ui):
                   if quote else "")
     return f"""
     <div class="dt-wrap"><section class="dt-why">
-      <p class="dt-sec-eyebrow rv"><span class="dt-num">01</span> — {label}</p>
+      <p class="dt-sec-eyebrow rv"><span class="dt-num">01</span> {label}</p>
       {prose}
       {quote_html}
     </section></div>"""
@@ -211,13 +211,13 @@ def render_approach(detail, lang, ui, base, is_app):
         rows.append(f'<div class="dt-choice rv"><h3><span>{letters[i]}.</span>{t}</h3><p>{b}</p></div>')
     choices = "\n        ".join(rows)
     mode = "" if is_app else " dt-how--web"
-    lbl = esc(ui.get("detail.gallery", "Gallery")) + " —"
+    lbl = esc(ui.get("detail.gallery", "Gallery")) + " "
     media = f'<div class="dt-how-media rv"><div class="dt-float">{visual_inner("", "", lbl)}</div></div>'
     return f"""
     <div class="dt-wrap"><section class="dt-how{mode}">
       {media}
       <div>
-        <p class="dt-sec-eyebrow rv"><span class="dt-num">02</span> — {label}</p>
+        <p class="dt-sec-eyebrow rv"><span class="dt-num">02</span> {label}</p>
         {choices}
       </div>
     </section></div>"""
@@ -242,7 +242,7 @@ def render_result(detail, lang, ui):
     items = "\n        ".join(feats)
     return f"""
     <div class="dt-wrap"><section class="dt-result">
-      <p class="dt-sec-eyebrow rv"><span class="dt-num">03</span> — {label}</p>
+      <p class="dt-sec-eyebrow rv"><span class="dt-num">03</span> {label}</p>
       <div class="dt-features{one}">
         {items}
       </div>
@@ -274,7 +274,7 @@ def render_gallery(detail, base, lang, ui):
     else:
         to_come = esc(ui.get("detail.gallery", "Gallery"))
         for i in range(3):
-            tiles.append(f'<div class="dt-shot"><div class="dt-ph"></div><div class="dt-sweep"></div><span class="dt-ph-label">{to_come} {i + 1} — …</span></div>')
+            tiles.append(f'<div class="dt-shot"><div class="dt-ph"></div><div class="dt-sweep"></div><span class="dt-ph-label">{to_come} {i + 1} …</span></div>')
         gal_class = "dt-gal rv"  # 3 placeholders, grille "vedette"
     tiles_html = "\n        ".join(tiles)
     return f"""
@@ -396,7 +396,7 @@ def render_page(project, lang, ui):
       }})();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} — Paul Sabourault</title>
+    <title>{title} · Paul Sabourault</title>
     <meta name="description" content="{summary}" />
     <link rel="canonical" href="{self_url}" />
     <link rel="alternate" hreflang="fr" href="{fr_url}" />
@@ -524,7 +524,7 @@ def main():
                 f.write(render_page(project, lang, ui[lang]))
             count += 1
         print(f"generated {project['slug']} (fr + en)")
-    print(f"done — {count} detail page(s) for {len(featured)} project(s)")
+    print(f"done {count} detail page(s) for {len(featured)} project(s)")
 
 
 if __name__ == "__main__":

@@ -1,71 +1,194 @@
 [
   {
-    "group": { "fr": "IA", "en": "AI" },
+    "group": {
+      "fr": "IA",
+      "en": "AI"
+    },
     "skills": [
-      { "featured": true, "name": { "fr": "IA", "en": "AI" } },
-      { "featured": true, "name": { "fr": "Génération", "en": "Generation" } },
-      { "name": "Claude" },
-      { "name": "ChatGPT" },
-      { "name": "Gemini" },
-      { "name": "Claude Code" },
-      { "name": "Agents" },
-      { "name": "MCP" },
-      { "name": "Cowork" },
-      { "name": "Python" }
+      {
+        "featured": true,
+        "name": {
+          "fr": "IA",
+          "en": "AI"
+        }
+      },
+      {
+        "featured": true,
+        "name": {
+          "fr": "Génération",
+          "en": "Generation"
+        }
+      },
+      {
+        "name": "Claude"
+      },
+      {
+        "name": "ChatGPT"
+      },
+      {
+        "name": "Gemini"
+      },
+      {
+        "name": "Claude Code"
+      },
+      {
+        "name": "Agents"
+      },
+      {
+        "name": "MCP"
+      },
+      {
+        "name": "Cowork"
+      },
+      {
+        "name": "Python"
+      }
     ]
   },
   {
-    "group": { "fr": "Automatisation", "en": "Automation" },
+    "group": {
+      "fr": "Automatisation",
+      "en": "Automation"
+    },
     "skills": [
-      { "featured": true, "name": "Make" },
-      { "featured": true, "name": "n8n" },
-      { "name": "Workflows" },
-      { "name": { "fr": "Intégrations", "en": "Integrations" } },
-      { "name": { "fr": "Automatisation IA", "en": "AI automation" } },
-      { "name": { "fr": "Connexions d'apps", "en": "App connections" } }
+      {
+        "featured": true,
+        "name": "Make"
+      },
+      {
+        "featured": true,
+        "name": "n8n"
+      },
+      {
+        "name": "Workflows"
+      },
+      {
+        "name": {
+          "fr": "Intégrations",
+          "en": "Integrations"
+        }
+      },
+      {
+        "name": {
+          "fr": "Automatisation IA",
+          "en": "AI automation"
+        }
+      },
+      {
+        "name": {
+          "fr": "Connexions d'apps",
+          "en": "App connections"
+        }
+      }
     ]
   },
   {
-    "group": { "fr": "Microsoft & Power Platform", "en": "Microsoft & Power Platform" },
+    "group": {
+      "fr": "Microsoft & Power Platform",
+      "en": "Microsoft & Power Platform"
+    },
     "skills": [
-      { "featured": true, "name": "Power Apps" },
-      { "featured": true, "name": "Power BI" },
-      { "name": "Power Automate" },
-      { "name": "SharePoint" },
-      { "name": "Dataverse" },
-      { "name": "Excel" },
-      { "name": "Azure DevOps" }
+      {
+        "featured": true,
+        "name": "Power Apps"
+      },
+      {
+        "featured": true,
+        "name": "Power BI"
+      },
+      {
+        "name": "Power Automate"
+      },
+      {
+        "name": "SharePoint"
+      },
+      {
+        "name": "Dataverse"
+      },
+      {
+        "name": "Excel"
+      },
+      {
+        "name": "Azure DevOps"
+      }
     ]
   },
   {
-    "group": { "fr": "Développement Web", "en": "Web Development" },
+    "group": {
+      "fr": "Développement Web",
+      "en": "Web Development"
+    },
     "skills": [
-      { "featured": true, "name": "Full-stack" },
-      { "featured": true, "name": "JavaScript" },
-      { "name": "React" },
-      { "name": "PHP" },
-      { "name": "Symfony" },
-      { "name": "WordPress" },
-      { "name": "SQL" },
-      { "name": "HTML/CSS" }
+      {
+        "featured": true,
+        "name": "Full-stack"
+      },
+      {
+        "featured": true,
+        "name": "JavaScript"
+      },
+      {
+        "name": "React"
+      },
+      {
+        "name": "PHP"
+      },
+      {
+        "name": "Symfony"
+      },
+      {
+        "name": "WordPress"
+      },
+      {
+        "name": "SQL"
+      },
+      {
+        "name": "HTML/CSS"
+      }
     ]
   },
   {
-    "group": { "fr": "Mobile", "en": "Mobile" },
+    "group": {
+      "fr": "Mobile",
+      "en": "Mobile"
+    },
     "skills": [
-      { "featured": true, "name": "Swift" },
-      { "featured": true, "name": "Flutter" },
-      { "name": "Firebase" },
-      { "name": "Supabase" }
+      {
+        "featured": true,
+        "name": "Swift"
+      },
+      {
+        "featured": true,
+        "name": "Flutter"
+      },
+      {
+        "name": "Firebase"
+      },
+      {
+        "name": "Supabase"
+      }
     ]
   },
   {
-    "group": { "fr": "Design & Outils", "en": "Design & Tools" },
+    "group": {
+      "fr": "Design & Outils",
+      "en": "Design & Tools"
+    },
     "skills": [
-      { "featured": true, "name": "Figma" },
-      { "featured": true, "name": "Photoshop" },
-      { "name": "Google Cloud" },
-      { "name": "Git" }
+      {
+        "featured": true,
+        "name": "Figma"
+      },
+      {
+        "featured": true,
+        "name": "Photoshop"
+      },
+      {
+        "name": "Google Cloud"
+      },
+      {
+        "name": "Git"
+      }
     ]
   }
 ]

@@ -5,10 +5,22 @@
     "date": "2026",
     "credentialUrl": "https://verify.skilljar.com/c/hn64vkwvxkca",
     "skills": [
-      { "fr": "Collaboration humain-IA", "en": "Human-AI collaboration" },
-      { "fr": "Cadre de fluency", "en": "Fluency framework" },
-      { "fr": "Prompting efficace", "en": "Effective prompting" },
-      { "fr": "Usage responsable", "en": "Responsible use" }
+      {
+        "fr": "Collaboration humain-IA",
+        "en": "Human-AI collaboration"
+      },
+      {
+        "fr": "Cadre de fluency",
+        "en": "Fluency framework"
+      },
+      {
+        "fr": "Prompting efficace",
+        "en": "Effective prompting"
+      },
+      {
+        "fr": "Usage responsable",
+        "en": "Responsible use"
+      }
     ]
   },
   {
@@ -17,10 +29,22 @@
     "date": "2026",
     "credentialUrl": "https://verify.skilljar.com/c/m9rcjp2tsacf",
     "skills": [
-      { "fr": "Capacités des LLM", "en": "LLM capabilities" },
-      { "fr": "Limites & hallucinations", "en": "Limits & hallucinations" },
-      { "fr": "Bons cas d'usage", "en": "Good use cases" },
-      { "fr": "Esprit critique", "en": "Critical thinking" }
+      {
+        "fr": "Capacités des LLM",
+        "en": "LLM capabilities"
+      },
+      {
+        "fr": "Limites & hallucinations",
+        "en": "Limits & hallucinations"
+      },
+      {
+        "fr": "Bons cas d'usage",
+        "en": "Good use cases"
+      },
+      {
+        "fr": "Esprit critique",
+        "en": "Critical thinking"
+      }
     ]
   },
   {
@@ -29,17 +53,34 @@
     "date": "2026",
     "credentialUrl": "https://verify.skilljar.com/c/a9s9gbzfym87",
     "skills": [
-      { "fr": "Prise en main de Claude", "en": "Getting started with Claude" },
-      { "fr": "Prompting", "en": "Prompting" },
-      { "fr": "Cas d'usage", "en": "Use cases" },
-      { "fr": "Bonnes pratiques", "en": "Best practices" }
+      {
+        "fr": "Prise en main de Claude",
+        "en": "Getting started with Claude"
+      },
+      {
+        "fr": "Prompting",
+        "en": "Prompting"
+      },
+      {
+        "fr": "Cas d'usage",
+        "en": "Use cases"
+      },
+      {
+        "fr": "Bonnes pratiques",
+        "en": "Best practices"
+      }
     ]
   },
   {
-    "name": "PL-900 — Power Platform Fundamentals",
+    "name": "PL-900 Power Platform Fundamentals",
     "issuer": "Microsoft",
     "date": "2025",
     "credentialUrl": "https://learn.microsoft.com/api/credentials/share/en-us/PaulSabourault-8053/95034692C7F11F51?sharingId=2EAFB87FFBC14C01",
-    "skills": ["Power Apps", "Power Automate", "Power BI", "Dataverse"]
+    "skills": [
+      "Power Apps",
+      "Power Automate",
+      "Power BI",
+      "Dataverse"
+    ]
   }
 ]

@@ -42,12 +42,12 @@
         "en": "iOS second brain"
       },
       "lead": {
-        "fr": "On capture une idée, une note ou un vocal en vrac — et on la perd, ou on ne la retrouve pas structurée. DUMP est un assistant cognitif : on parle ou on écrit en vrac, l'IA trie automatiquement. Particulièrement utile aux profils qui débordent d'idées et se dispersent (TDAH inclus), comme outil d'organisation au quotidien. Paul l'a d'abord construit pour lui-même.",
-        "en": "You capture an idea, a note or a voice memo on the fly — and then you lose it, or you can't find it in any usable shape. DUMP is a cognitive assistant: you speak or type, messy and unfiltered, and the AI sorts it automatically. Especially handy for minds that overflow with ideas and scatter easily (ADHD included), as an everyday organization tool. Paul built it for himself first."
+        "fr": "On capture une idée, une note ou un vocal en vrac et on la perd, ou on ne la retrouve pas structurée. DUMP est un assistant cognitif : on parle ou on écrit en vrac, l'IA trie automatiquement. Particulièrement utile aux profils qui débordent d'idées et se dispersent (TDAH inclus), comme outil d'organisation au quotidien. Paul l'a d'abord construit pour lui-même.",
+        "en": "You capture an idea, a note or a voice memo on the fly and then you lose it, or you can't find it in any usable shape. DUMP is a cognitive assistant: you speak or type, messy and unfiltered, and the AI sorts it automatically. Especially handy for minds that overflow with ideas and scatter easily (ADHD included), as an everyday organization tool. Paul built it for himself first."
       },
       "status": {
-        "fr": "Sur TestFlight (build 2) — le projet le plus actif de Paul (503 commits, mise à jour juin 2026), design system v2, widgets « production ready ».",
-        "en": "On TestFlight (build 2) — Paul's most active project (503 commits, updated June 2026), design system v2, production-ready widgets."
+        "fr": "Sur TestFlight (build 2) le projet le plus actif de Paul (503 commits, mise à jour juin 2026), design system v2, widgets « production ready ».",
+        "en": "On TestFlight (build 2) Paul's most active project (503 commits, updated June 2026), design system v2, production-ready widgets."
       },
       "context": {
         "heading": {
@@ -97,8 +97,8 @@
         "en": "I built it for myself first."
       },
       "why": {
-        "fr": "On capture une idée, une note, un vocal — et on la perd, ou on ne la retrouve jamais structurée. Le constat de départ de DUMP : et si on pouvait tout jeter en vrac, et laisser l'IA ranger ? Pensé pour les gens qui débordent d'idées et veulent y voir clair — un outil d'organisation, jamais de thérapie.",
-        "en": "You capture an idea, a note, a voice memo — then lose it, or never find it structured. DUMP starts there: what if you could dump everything in bulk and let the AI sort it? Made for people overflowing with ideas who want to see clearly — an organization tool, never therapy."
+        "fr": "On capture une idée, une note, un vocal et on la perd, ou on ne la retrouve jamais structurée. Le constat de départ de DUMP : et si on pouvait tout jeter en vrac, et laisser l'IA ranger ? Pensé pour les gens qui débordent d'idées et veulent y voir clair un outil d'organisation, jamais de thérapie.",
+        "en": "You capture an idea, a note, a voice memo then lose it, or never find it structured. DUMP starts there: what if you could dump everything in bulk and let the AI sort it? Made for people overflowing with ideas who want to see clearly an organization tool, never therapy."
       },
       "approach": [
         {
@@ -107,8 +107,8 @@
             "en": "Zero friction"
           },
           "body": {
-            "fr": "Pas de compte, pas d'email : l'app est utile dès la première seconde — widgets et extension de partage compris.",
-            "en": "No account, no email: useful from the very first second — widgets and share extension included."
+            "fr": "Pas de compte, pas d'email : l'app est utile dès la première seconde widgets et extension de partage compris.",
+            "en": "No account, no email: useful from the very first second widgets and share extension included."
           }
         },
         {
@@ -127,8 +127,8 @@
             "en": "AI in the right place"
           },
           "body": {
-            "fr": "Whisper transcrit la voix, Claude classe (ACTION / INFO / IDÉE / VRAC) et suggère des connexions — l'app apprend de tes corrections.",
-            "en": "Whisper transcribes voice, Claude classifies (ACTION / INFO / IDEA / MISC) and suggests connections — the app learns from your corrections."
+            "fr": "Whisper transcrit la voix, Claude classe (ACTION / INFO / IDÉE / VRAC) et suggère des connexions l'app apprend de tes corrections.",
+            "en": "Whisper transcribes voice, Claude classifies (ACTION / INFO / IDEA / MISC) and suggests connections the app learns from your corrections."
           }
         },
         {
@@ -159,8 +159,8 @@
             "en": "Automatic sorting"
           },
           "body": {
-            "fr": "Action, info, idée ou vrac — avec un niveau d'urgence.",
-            "en": "Action, info, idea or misc — with an urgency level."
+            "fr": "Action, info, idée ou vrac avec un niveau d'urgence.",
+            "en": "Action, info, idea or misc with an urgency level."
           }
         },
         {
@@ -231,8 +231,8 @@
         "en": "On a group trip, documents (tickets, bookings, passport photos) get scattered across WhatsApp and are impossible to find at the worst moment, with no offline access at customs or on arrival. STOW is a shared vault for travel documents."
       },
       "status": {
-        "fr": "Publié sur iOS ET Android — « Stow — Voyagez serein » (v1.2), disponible sur l'App Store et le Google Play Store.",
-        "en": "Published on iOS AND Android — “Stow — Voyagez serein” (v1.2), available on the App Store and Google Play Store."
+        "fr": "Publié sur iOS ET Android « Stow Voyagez serein » (v1.2), disponible sur l'App Store et le Google Play Store.",
+        "en": "Published on iOS AND Android “Stow Voyagez serein” (v1.2), available on the App Store and Google Play Store."
       },
       "context": {
         "heading": {
@@ -255,7 +255,7 @@
         },
         {
           "fr": "Chaque document à sa place, fini le mélange avec le chat de groupe",
-          "en": "Every document in its place — no more mixing with the group chat"
+          "en": "Every document in its place no more mixing with the group chat"
         },
         {
           "fr": "Login rapide Apple ou Google, gratuit",
@@ -310,8 +310,8 @@
             "en": "Offline first"
           },
           "body": {
-            "fr": "Les documents importants restent accessibles sans réseau — douane, aéroport, arrivée.",
-            "en": "Key documents stay reachable without a network — customs, airport, arrival."
+            "fr": "Les documents importants restent accessibles sans réseau douane, aéroport, arrivée.",
+            "en": "Key documents stay reachable without a network customs, airport, arrival."
           }
         },
         {
@@ -330,8 +330,8 @@
             "en": "Zero setup"
           },
           "body": {
-            "fr": "Login rapide Apple ou Google, gratuit — utile dès la première seconde.",
-            "en": "Quick Apple or Google login, free — useful from the first second."
+            "fr": "Login rapide Apple ou Google, gratuit utile dès la première seconde.",
+            "en": "Quick Apple or Google login, free useful from the first second."
           }
         },
         {
@@ -431,8 +431,8 @@
         "en": "hospitality staffing"
       },
       "lead": {
-        "fr": "L'hôtellerie-restauration peine à trouver les bons extras ; les candidats manquent de visibilité. EXTRALIMO les relie — mais ce n'est pas un job board en libre-service : la valeur, c'est l'intermédiation humaine, une petite équipe d'admins qui sélectionne, propose et accompagne.",
-        "en": "Hospitality struggles to find the right extra staff; candidates lack visibility. EXTRALIMO connects them — but it's not a self-service job board: the value is the human touch, a small team of admins who select, propose and support."
+        "fr": "L'hôtellerie-restauration peine à trouver les bons extras ; les candidats manquent de visibilité. EXTRALIMO les relie mais ce n'est pas un job board en libre-service : la valeur, c'est l'intermédiation humaine, une petite équipe d'admins qui sélectionne, propose et accompagne.",
+        "en": "Hospitality struggles to find the right extra staff; candidates lack visibility. EXTRALIMO connects them but it's not a self-service job board: the value is the human touch, a small team of admins who select, propose and support."
       },
       "status": {
         "fr": "En ligne sur extralimo.portfolio-sbrt.com (52 commits, mise à jour juin 2026). Projet mené avec ses associés.",
@@ -485,8 +485,8 @@
           "en": "See the platform"
         },
         "body": {
-          "fr": "Le produit est en ligne — je peux présenter le modèle de données, le cycle de vie d'un « match » et l'approche confidentialité.",
-          "en": "The product is live — I can walk through the data model, the lifecycle of a “match” and the privacy approach."
+          "fr": "Le produit est en ligne je peux présenter le modèle de données, le cycle de vie d'un « match » et l'approche confidentialité.",
+          "en": "The product is live I can walk through the data model, the lifecycle of a “match” and the privacy approach."
         }
       },
       "quote": {
@@ -494,8 +494,8 @@
         "en": "Not one more job board: a match validated by a human."
       },
       "why": {
-        "fr": "L'hôtellerie-restauration peine à trouver les bons extras ; les candidats manquent de visibilité. EXTRALIMO les relie — mais ce n'est pas un job board en libre-service : la valeur, c'est l'intermédiation humaine qui garantit un match pertinent.",
-        "en": "Hospitality struggles to find the right extras; candidates lack visibility. EXTRALIMO connects them — but it's not a self-service job board: the value is the human intermediation that guarantees a relevant match."
+        "fr": "L'hôtellerie-restauration peine à trouver les bons extras ; les candidats manquent de visibilité. EXTRALIMO les relie mais ce n'est pas un job board en libre-service : la valeur, c'est l'intermédiation humaine qui garantit un match pertinent.",
+        "en": "Hospitality struggles to find the right extras; candidates lack visibility. EXTRALIMO connects them but it's not a self-service job board: the value is the human intermediation that guarantees a relevant match."
       },
       "approach": [
         {
@@ -629,8 +629,8 @@
         "en": "SMBs drown their IT requests in email, Teams and phone calls: no visibility, manual processes, and a Power Platform that's already in their Microsoft 365 license but left underused."
       },
       "status": {
-        "fr": "Solution présentée sur powerflows.fr — déployable en une demi-journée dans un tenant Microsoft 365 existant, formation incluse.",
-        "en": "Presented on powerflows.fr — deployable in half a day inside an existing Microsoft 365 tenant, training included."
+        "fr": "Solution présentée sur powerflows.fr déployable en une demi-journée dans un tenant Microsoft 365 existant, formation incluse.",
+        "en": "Presented on powerflows.fr deployable in half a day inside an existing Microsoft 365 tenant, training included."
       },
       "context": {
         "heading": {
@@ -679,17 +679,17 @@
           "en": "See the solution"
         },
         "body": {
-          "fr": "La solution est présentée en ligne sur PowerFlows — je peux détailler l'architecture Power Platform (Power Apps, Power Automate, Power BI, SharePoint) et une démo.",
-          "en": "The solution is presented online on PowerFlows — I can walk through the Power Platform architecture (Power Apps, Power Automate, Power BI, SharePoint) and a demo."
+          "fr": "La solution est présentée en ligne sur PowerFlows je peux détailler l'architecture Power Platform (Power Apps, Power Automate, Power BI, SharePoint) et une démo.",
+          "en": "The solution is presented online on PowerFlows I can walk through the Power Platform architecture (Power Apps, Power Automate, Power BI, SharePoint) and a demo."
         }
       },
       "quote": {
-        "fr": "La Power Platform qu'ils paient déjà — enfin exploitée.",
-        "en": "The Power Platform they already pay for — finally put to use."
+        "fr": "La Power Platform qu'ils paient déjà enfin exploitée.",
+        "en": "The Power Platform they already pay for finally put to use."
       },
       "why": {
-        "fr": "Les PME noient leurs demandes IT dans les emails, Teams et le téléphone : aucune visibilité, des process manuels — alors qu'une Power Platform est déjà incluse dans leur licence Microsoft 365, mais sous-exploitée. Ticketing IT part de ce gâchis.",
-        "en": "SMEs drown their IT requests in emails, Teams and phone calls: no visibility, manual processes — while a Power Platform is already included in their Microsoft 365 license, but underused. Ticketing IT starts from that waste."
+        "fr": "Les PME noient leurs demandes IT dans les emails, Teams et le téléphone : aucune visibilité, des process manuels alors qu'une Power Platform est déjà incluse dans leur licence Microsoft 365, mais sous-exploitée. Ticketing IT part de ce gâchis.",
+        "en": "SMEs drown their IT requests in emails, Teams and phone calls: no visibility, manual processes while a Power Platform is already included in their Microsoft 365 license, but underused. Ticketing IT starts from that waste."
       },
       "approach": [
         {
@@ -698,8 +698,8 @@
             "en": "On top of the existing"
           },
           "body": {
-            "fr": "Bâti sur le Microsoft 365 déjà en place — pas de nouvel outil, pas de nouvelle licence.",
-            "en": "Built on the Microsoft 365 already in place — no new tool, no new license."
+            "fr": "Bâti sur le Microsoft 365 déjà en place pas de nouvel outil, pas de nouvelle licence.",
+            "en": "Built on the Microsoft 365 already in place no new tool, no new license."
           }
         },
         {
@@ -781,7 +781,7 @@
   },
   {
     "slug": "video-game-sales-powerbi",
-    "title": "Video Game Sales Analysis — Power BI",
+    "title": "Video Game Sales Analysis Power BI",
     "image": "./images/powerbi.webp",
     "summary": {
       "fr": "Rapport Power BI interactif construit à partir d'un jeu de données Kaggle public pour analyser les ventes mondiales de jeux vidéo. Pensé à la fois comme cas portfolio et comme préparation concrète à la certification PL-300 : modélisation de données, mesures DAX et reporting interactif.",
@@ -820,10 +820,10 @@
         "fr": "Dashboard interactif créé à partir du jeu de données Kaggle sur les ventes de jeux vidéo. Je m'en suis servi comme terrain d'entraînement pour les compétences PL-300 : modélisation, mesures DAX, infobulles dynamiques et mises en page responsives. Cette page résume l'histoire du rapport et les enseignements de chaque onglet.",
         "en": "Interactive dashboard created from the Kaggle video game sales data set. I used it as a sandbox to rehearse PL-300 skills: data modeling, DAX measures, dynamic tooltips and responsive layouts. This page summarizes the report story and the insights surfaced in each tab."
       },
-      "certification": "PL-300 (Power BI Data Analyst Associate) — preparation project",
+      "certification": "PL-300 (Power BI Data Analyst Associate) preparation project",
       "status": {
-        "fr": "Projet portfolio personnel — démo interactive disponible via captures et vidéo.",
-        "en": "Personal portfolio project — interactive demo available via screenshots and video"
+        "fr": "Projet portfolio personnel démo interactive disponible via captures et vidéo.",
+        "en": "Personal portfolio project interactive demo available via screenshots and video"
       },
       "context": {
         "heading": {
@@ -866,48 +866,48 @@
           "src": "./images/screen-sale1-copie.webp",
           "alt": "Overview KPIs for the video game sales dashboard",
           "caption": {
-            "fr": "Vue d'ensemble — KPI de revenus, indicateurs de croissance et barre de filtre par genre pour dérouler l'analyse.",
-            "en": "Overview — revenue KPIs, growth indicators and a genre filter bar to steer the story."
+            "fr": "Vue d'ensemble KPI de revenus, indicateurs de croissance et barre de filtre par genre pour dérouler l'analyse.",
+            "en": "Overview revenue KPIs, growth indicators and a genre filter bar to steer the story."
           }
         },
         {
           "src": "./images/screen-sale1-5-copie.webp",
           "alt": "Regional performance heatmap",
           "caption": {
-            "fr": "Régions — carte synchronisée + histogrammes pour comparer Amérique du Nord, Europe, Japon et reste du monde.",
-            "en": "Regions — synchronized map + column charts compare North America, Europe, Japan and ROW."
+            "fr": "Régions carte synchronisée + histogrammes pour comparer Amérique du Nord, Europe, Japon et reste du monde.",
+            "en": "Regions synchronized map + column charts compare North America, Europe, Japan and ROW."
           }
         },
         {
           "src": "./images/screen-sale2-copie.webp",
           "alt": "Franchise ranking leaderboard",
           "caption": {
-            "fr": "Franchises — sélecteur Top N basé sur des mesures de classement DAX, avec infobulles pour les titres de longue traîne.",
-            "en": "Franchises — Top N selector powered by DAX ranking measures with tooltips for long-tail titles."
+            "fr": "Franchises sélecteur Top N basé sur des mesures de classement DAX, avec infobulles pour les titres de longue traîne.",
+            "en": "Franchises Top N selector powered by DAX ranking measures with tooltips for long-tail titles."
           }
         },
         {
           "src": "./images/screen-sale2-5-copie.webp",
           "alt": "Platform lifecycle timeline",
           "caption": {
-            "fr": "Plateformes — courbe de cycle de vie confrontant lancements et maturité des revenus pour orienter les choix de plateforme.",
-            "en": "Platforms — lifecycle chart showing launches vs. revenue maturity to guide platform bets."
+            "fr": "Plateformes courbe de cycle de vie confrontant lancements et maturité des revenus pour orienter les choix de plateforme.",
+            "en": "Platforms lifecycle chart showing launches vs. revenue maturity to guide platform bets."
           }
         },
         {
           "src": "./images/screen-sale3-copie.webp",
           "alt": "Datamodel view showing fact and dimension tables",
           "caption": {
-            "fr": "Modèle de données — schéma en étoile construit dans Power BI Desktop, avec la table de faits Sales et les dimensions Date/Genre/Plateforme/Éditeur.",
-            "en": "Data model — star schema built in Power BI Desktop with fact Sales and Date/Genre/Platform/Publisher dims."
+            "fr": "Modèle de données schéma en étoile construit dans Power BI Desktop, avec la table de faits Sales et les dimensions Date/Genre/Plateforme/Éditeur.",
+            "en": "Data model star schema built in Power BI Desktop with fact Sales and Date/Genre/Platform/Publisher dims."
           }
         },
         {
           "src": "./images/screen-sale3-5-copie.webp",
           "alt": "Mobile-ready layout",
           "caption": {
-            "fr": "Mobile — interface responsive avec des KPI simplifiés pour une consultation sur mobile en démo.",
-            "en": "Mobile — responsive canvas with simplified KPIs for handheld consumption during demos."
+            "fr": "Mobile interface responsive avec des KPI simplifiés pour une consultation sur mobile en démo.",
+            "en": "Mobile responsive canvas with simplified KPIs for handheld consumption during demos."
           }
         }
       ],
@@ -943,7 +943,7 @@
   },
   {
     "slug": "mscd-application",
-    "title": "MSCD — Internal Contract & Quality Management Application",
+    "title": "MSCD Internal Contract & Quality Management Application",
     "image": "./images/power-app-removebg-preview.webp",
     "summary": {
       "fr": "Application interne construite pendant mon passage chez Avanade pour suivre les contrats signés de bout en bout. La solution couvrait l'ensemble des process et étapes de validation nécessaires à un suivi cohérent et à une gestion de la qualité dans la durée.",
@@ -978,12 +978,12 @@
         "en": "Contract Management App"
       },
       "lead": {
-        "fr": "Une solution Power Apps déployée chez Avanade pour maîtriser chaque étape d'un contrat — de la prise en charge au suivi qualité. Cette page rassemble les écrans partagés avec les parties prenantes pour raconter l'application, tout en gardant les données client confidentielles.",
-        "en": "A Power Apps solution deployed at Avanade to control every contract milestone — from intake to quality monitoring. This page compiles the UI states shared with stakeholders to explain the app story while keeping client data confidential."
+        "fr": "Une solution Power Apps déployée chez Avanade pour maîtriser chaque étape d'un contrat de la prise en charge au suivi qualité. Cette page rassemble les écrans partagés avec les parties prenantes pour raconter l'application, tout en gardant les données client confidentielles.",
+        "en": "A Power Apps solution deployed at Avanade to control every contract milestone from intake to quality monitoring. This page compiles the UI states shared with stakeholders to explain the app story while keeping client data confidential."
       },
       "status": {
-        "fr": "Projet interne développé chez Avanade — accès en ligne plus disponible. Présenté via des captures pour raisons de confidentialité.",
-        "en": "Internal project developed at Avanade — live access no longer available. Presented through screenshots for confidentiality reasons."
+        "fr": "Projet interne développé chez Avanade accès en ligne plus disponible. Présenté via des captures pour raisons de confidentialité.",
+        "en": "Internal project developed at Avanade live access no longer available. Presented through screenshots for confidentiality reasons."
       },
       "context": {
         "heading": {
@@ -1026,56 +1026,56 @@
           "src": "./images/msdc1.webp",
           "alt": "MSCD overview dashboard",
           "caption": {
-            "fr": "Vue d'ensemble — KPI globaux tirant les données qualité, livraison et SLA.",
-            "en": "Overview — global KPIs pulling quality, delivery and SLA data."
+            "fr": "Vue d'ensemble KPI globaux tirant les données qualité, livraison et SLA.",
+            "en": "Overview global KPIs pulling quality, delivery and SLA data."
           }
         },
         {
           "src": "./images/msdc2.webp",
           "alt": "Approval queue",
           "caption": {
-            "fr": "Validations — file d'attente priorisant les validations, avec minuteurs SLA et rappels.",
-            "en": "Approvals — queue prioritizing validations with SLA timers and reminders."
+            "fr": "Validations file d'attente priorisant les validations, avec minuteurs SLA et rappels.",
+            "en": "Approvals queue prioritizing validations with SLA timers and reminders."
           }
         },
         {
           "src": "./images/msdc3.webp",
           "alt": "Quality and automation KPIs",
           "caption": {
-            "fr": "Qualité — KPI consolidés avec un flux en direct depuis Power Automate.",
-            "en": "Quality — consolidated KPIs with a live feed from Power Automate."
+            "fr": "Qualité KPI consolidés avec un flux en direct depuis Power Automate.",
+            "en": "Quality consolidated KPIs with a live feed from Power Automate."
           }
         },
         {
           "src": "./images/msdc4.webp",
           "alt": "Delivery pipeline visualization",
           "caption": {
-            "fr": "Pipeline — indicateurs de progression par étape mettant en évidence les goulots d'étranglement.",
-            "en": "Pipeline — stage progression indicators highlight potential bottlenecks."
+            "fr": "Pipeline indicateurs de progression par étape mettant en évidence les goulots d'étranglement.",
+            "en": "Pipeline stage progression indicators highlight potential bottlenecks."
           }
         },
         {
           "src": "./images/msdc5.webp",
           "alt": "SLA heatmap",
           "caption": {
-            "fr": "Heatmap SLA — mise en évidence des validations en retard par entité.",
-            "en": "SLA heatmap — surfacing overdue validations by entity."
+            "fr": "Heatmap SLA mise en évidence des validations en retard par entité.",
+            "en": "SLA heatmap surfacing overdue validations by entity."
           }
         },
         {
           "src": "./images/msdc6.webp",
           "alt": "Process flow map",
           "caption": {
-            "fr": "Process — le flux type, de la prise en charge au suivi de livraison.",
-            "en": "Process — the canonical flow from intake to delivery monitoring."
+            "fr": "Process le flux type, de la prise en charge au suivi de livraison.",
+            "en": "Process the canonical flow from intake to delivery monitoring."
           }
         },
         {
           "src": "./images/msdc7.webp",
           "alt": "Mobile layout and quick actions",
           "caption": {
-            "fr": "Mobile — interface responsive avec des actions rapides pour les utilisateurs terrain.",
-            "en": "Mobile — responsive canvas with quick actions for field users."
+            "fr": "Mobile interface responsive avec des actions rapides pour les utilisateurs terrain.",
+            "en": "Mobile responsive canvas with quick actions for field users."
           }
         }
       ],
@@ -1096,7 +1096,7 @@
   },
   {
     "slug": "suez-dashboard",
-    "title": "SUEZ — Power BI Certification Progress Dashboard",
+    "title": "SUEZ Power BI Certification Progress Dashboard",
     "image": "./images/powerbi.webp",
     "summary": {
       "fr": "Dashboard Power BI réalisé pour un projet SUEZ afin d'aider les responsables à suivre l'avancement des certifications entre les équipes et à appuyer la prise de décision.",
@@ -1135,8 +1135,8 @@
         "en": "Dashboard created at Avanade for SUEZ to monitor Power Platform certifications across teams. This page highlights the key views used to track progress, spot gaps and prepare leadership reviews."
       },
       "status": {
-        "fr": "Projet interne développé chez Avanade — accès en ligne plus disponible.",
-        "en": "Internal project developed at Avanade — live access no longer available"
+        "fr": "Projet interne développé chez Avanade accès en ligne plus disponible.",
+        "en": "Internal project developed at Avanade live access no longer available"
       },
       "context": {
         "heading": {
@@ -1175,32 +1175,32 @@
           "src": "./images/screenshot-2025-10-01-210737.webp",
           "alt": "SUEZ overview page with KPIs",
           "caption": {
-            "fr": "Vue d'ensemble — KPI globaux et filtres par segment.",
-            "en": "Overview — global KPIs and segment filters."
+            "fr": "Vue d'ensemble KPI globaux et filtres par segment.",
+            "en": "Overview global KPIs and segment filters."
           }
         },
         {
           "src": "./images/screenshot-2025-10-01-210750.webp",
           "alt": "Team comparison view",
           "caption": {
-            "fr": "Équipes — focus sur le taux de complétion par business unit.",
-            "en": "Teams — focus on completion rate by business unit."
+            "fr": "Équipes focus sur le taux de complétion par business unit.",
+            "en": "Teams focus on completion rate by business unit."
           }
         },
         {
           "src": "./images/screenshot-2025-10-01-210802.webp",
           "alt": "Certification breakdown cards",
           "caption": {
-            "fr": "Certifications — cartes de statut filtrées par produit.",
-            "en": "Certifications — status cards filtered by product."
+            "fr": "Certifications cartes de statut filtrées par produit.",
+            "en": "Certifications status cards filtered by product."
           }
         },
         {
           "src": "./images/screenshot-2025-10-01-210814.webp",
           "alt": "Mobile responsive page",
           "caption": {
-            "fr": "Mobile — vue responsive pour les managers en déplacement.",
-            "en": "Mobile — responsive view for managers on-the-go."
+            "fr": "Mobile vue responsive pour les managers en déplacement.",
+            "en": "Mobile responsive view for managers on-the-go."
           }
         }
       ],
@@ -1224,8 +1224,8 @@
     "title": "Solutions Microsoft",
     "image": "./images/placeholder.svg",
     "summary": {
-      "fr": "PowerFlows — mon site vitrine qui vend des solutions Power Platform aux PME : apps métier, automatisations et dashboards intégrés à Microsoft 365. Construit en Next.js.",
-      "en": "PowerFlows — my showcase site selling Power Platform solutions to SMBs: business apps, automations and dashboards integrated with Microsoft 365. Built with Next.js."
+      "fr": "PowerFlows mon site vitrine qui vend des solutions Power Platform aux PME : apps métier, automatisations et dashboards intégrés à Microsoft 365. Construit en Next.js.",
+      "en": "PowerFlows my showcase site selling Power Platform solutions to SMBs: business apps, automations and dashboards integrated with Microsoft 365. Built with Next.js."
     },
     "hats": [
       "Microsoft"
@@ -1245,7 +1245,7 @@
     "image": "./images/site-anne-guillien.webp",
     "summary": {
       "fr": "Un site vitrine WordPress sur mesure, pensé pour mettre en avant les services et l'engagement client : prise de rendez-vous en ligne, optimisation SEO et design responsive, et facile à gérer pour le client.",
-      "en": "A custom WordPress business site built to showcase services and boost client engagement, with online appointment booking, SEO optimization and responsive design — and easy for the client to manage."
+      "en": "A custom WordPress business site built to showcase services and boost client engagement, with online appointment booking, SEO optimization and responsive design and easy for the client to manage."
     },
     "hats": [
       "Web"
@@ -1259,8 +1259,8 @@
     "title": "Le Colvert",
     "image": "./images/placeholder.svg",
     "summary": {
-      "fr": "Site vitrine d'un restaurant de spécialités de canard (Tours) — avec un CMS léger que j'ai codé main : le propriétaire met à jour lui-même plats, photos, horaires et carte, sans toucher au code. HTML/CSS/JS vanilla + back-office PHP sur mesure.",
-      "en": "Showcase site for a duck-specialty restaurant (Tours) — with a lightweight CMS I hand-coded: the owner updates the dishes, photos, hours and menu themselves, without touching the code. Vanilla HTML/CSS/JS + a bespoke PHP back-office."
+      "fr": "Site vitrine d'un restaurant de spécialités de canard (Tours) avec un CMS léger que j'ai codé main : le propriétaire met à jour lui-même plats, photos, horaires et carte, sans toucher au code. HTML/CSS/JS vanilla + back-office PHP sur mesure.",
+      "en": "Showcase site for a duck-specialty restaurant (Tours) with a lightweight CMS I hand-coded: the owner updates the dishes, photos, hours and menu themselves, without touching the code. Vanilla HTML/CSS/JS + a bespoke PHP back-office."
     },
     "hats": [
       "Web"
