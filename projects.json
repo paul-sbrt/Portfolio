@@ -191,7 +191,7 @@
   {
     "slug": "stow",
     "title": "STOW",
-    "image": "./images/placeholder.svg",
+    "image": "./images/projects/stow/cover.webp",
     "summary": {
       "fr": "Coffre-fort de documents de voyage partagé : on crée un voyage, on invite ses amis, chacun ajoute ses documents (billets, passeports), accessibles hors ligne. Publié sur iOS et Android.",
       "en": "A shared vault for group-travel documents: create a trip, invite your friends, and everyone adds their documents (tickets, passports), available offline. Published on iOS and Android."
@@ -386,6 +386,36 @@
             "en": "Apple or Google login, ready in seconds."
           }
         }
+      ],
+      "gallery": [
+        {
+          "src": "./images/projects/stow/gallery-1.webp",
+          "caption": {
+            "fr": "Écran de l app STOW",
+            "en": "STOW app screen"
+          }
+        },
+        {
+          "src": "./images/projects/stow/gallery-2.webp",
+          "caption": {
+            "fr": "Écran de l app STOW",
+            "en": "STOW app screen"
+          }
+        },
+        {
+          "src": "./images/projects/stow/gallery-3.webp",
+          "caption": {
+            "fr": "Écran de l app STOW",
+            "en": "STOW app screen"
+          }
+        },
+        {
+          "src": "./images/projects/stow/gallery-4.webp",
+          "caption": {
+            "fr": "Écran de l app STOW",
+            "en": "STOW app screen"
+          }
+        }
       ]
     },
     "brand": "#FF4F00",
@@ -394,7 +424,7 @@
   {
     "slug": "extralimo",
     "title": "EXTRALIMO",
-    "image": "./images/placeholder.svg",
+    "image": "./images/projects/extralimo/cover.webp",
     "summary": {
       "fr": "Plateforme web de mise en relation à intermédiation humaine pour l'hôtellerie-restauration : candidats, entreprises et admins autour d'un « match », avec confidentialité by design. Menée avec ses associés.",
       "en": "A human-led staffing web platform for the hospitality industry: candidates, businesses and admins around a “match”, with privacy by design. Built with his co-founders."
