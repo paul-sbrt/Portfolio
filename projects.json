@@ -1440,6 +1440,28 @@
     "year": 2025
   },
   {
+    "slug": "marathon-ny",
+    "title": "Marathon NY",
+    "image": "./images/projects/marathon-ny/cover.webp",
+    "summary": {
+      "fr": "Ancien fumeur asthmatique, je me suis lancé le défi du marathon de New York. J'ai construit ce site pour raconter l'aventure : WordPress, plugins maison, intégration Strava.",
+      "en": "A former asthmatic smoker, I took on the New York marathon challenge. I built this site to tell the story: WordPress, homemade plugins, Strava integration."
+    },
+    "hats": [
+      "Web"
+    ],
+    "tags": [
+      "WordPress",
+      "PHP",
+      "Plugins custom",
+      "API Strava"
+    ],
+    "featured": false,
+    "externalUrl": "https://marathonny.portfolio-sbrt.com/",
+    "year": 2025,
+    "brand": "#E8662A"
+  },
+  {
     "slug": "wheretowatch",
     "title": "WhereToWatch",
     "image": "./images/wheretowatch2.webp",
