@@ -2772,12 +2772,12 @@ nav .fa-solid {
 
   /* Amorce (setup) : subordonnée — pose le contexte au-dessus du mot-force */
   .header-text h1 {
-    font-size: clamp(23px, 6.4vw, 28px);
-    line-height: 1.14;
-    letter-spacing: -0.014em;
+    font-size: clamp(27px, 7.6vw, 33px);
+    line-height: 1.1;
+    letter-spacing: -0.018em;
     font-weight: 700;
-    color: color-mix(in srgb, var(--text) 84%, transparent);
-    max-width: 290px;
+    color: color-mix(in srgb, var(--text) 88%, transparent);
+    max-width: 300px;
     margin-inline: auto;
   }
   .header-text h1 br { display: none; }
