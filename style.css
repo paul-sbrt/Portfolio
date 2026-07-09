@@ -2727,8 +2727,8 @@ nav .fa-solid {
     min-height: 100dvh; /* occupe tout le premier écran */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* centré, mais biaisé vers le HAUT via le padding bas */
-    padding: 72px 18px 16vh; /* top = juste sous la nav ; bottom en vh = remonte le bloc (zone de scroll en dessous, avec le fil rose) */
+    justify-content: flex-start; /* contenu ANCRÉ en haut : écart constant/maîtrisé sous la nav, plus de grand vide centré */
+    padding: 104px 18px 44px; /* top = écart net mais mesuré sous la nav ; le bas = zone de scroll */
     margin-bottom: 0;
   }
   .header-text {
@@ -2800,7 +2800,7 @@ nav .fa-solid {
     content: "";
     position: absolute;
     left: 50%;
-    bottom: 22px;
+    bottom: clamp(84px, 16vh, 160px); /* remonté dans le tiers bas : occupe la zone de scroll, pas collé au bord */
     width: 2px;
     height: 32px;
     transform: translateX(-50%);
