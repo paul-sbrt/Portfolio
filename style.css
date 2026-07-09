@@ -2780,7 +2780,7 @@ nav .fa-solid {
     width: 100%;
     max-width: 300px;
     margin-inline: auto;
-    text-align: left; /* amorce alignée à gauche… */
+    text-align: center; /* amorce recentrée */
   }
   .header-text h1 br { display: none; }
 
