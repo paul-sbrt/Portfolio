@@ -16,3 +16,6 @@ __pycache__/
 
 # Secrets — JAMAIS dans git (déposés/remplis sur le serveur au déploiement)
 contact.secret.php
+
+# Échantillons jetables + captures sources (local uniquement, hors repo)
+design-samples/
