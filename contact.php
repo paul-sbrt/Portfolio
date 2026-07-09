@@ -115,7 +115,52 @@ try {
     $mail->addReplyTo($email, $name);
 
     $mail->Subject = $CONFIG['subject_prefix'] . $subject;
-    $mail->Body    = "Nom : {$name}\nEmail : {$email}\nSujet : {$subject}\n\n{$message}\n";
+
+    // ---- Corps HTML soigné (DA portfolio) + fallback texte (AltBody) ----
+    // Valeurs échappées (anti-injection HTML dans le mail) ; message : sauts de ligne -> <br>.
+    $mail->isHTML(true);
+    $h = static function ($s) { return htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8'); };
+    $nameH    = $h($name);
+    $emailH   = $h($email);
+    $subjectH = $h($subject);
+    $messageH = nl2br($h($message));
+
+    $mail->Body = <<<HTML
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#f4f1ea;-webkit-text-size-adjust:100%;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f1ea;"><tr><td align="center" style="padding:28px 14px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:600px;background:#ffffff;border:1px solid #e7e2da;border-radius:14px;overflow:hidden;">
+<tr><td style="background:#14110f;padding:26px 30px 22px;">
+<div style="font-family:'Courier New',Consolas,monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#f7c948;">Portfolio &#183; Paul Sabourault</div>
+<div style="font-family:Arial,Helvetica,sans-serif;font-size:26px;font-weight:800;color:#ffffff;letter-spacing:-0.4px;margin-top:8px;">Nouveau message</div>
+</td></tr>
+<tr><td style="height:4px;line-height:4px;font-size:0;background:#ff004f;background:linear-gradient(90deg,#ff004f 0%,#f7c948 100%);">&nbsp;</td></tr>
+<tr><td style="padding:26px 30px 6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+<tr><td style="padding:6px 0;width:80px;vertical-align:top;font-family:'Courier New',Consolas,monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#9a8f82;">Nom</td><td style="padding:6px 0;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:600;color:#1a1613;">$nameH</td></tr>
+<tr><td style="padding:6px 0;vertical-align:top;font-family:'Courier New',Consolas,monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#9a8f82;">Email</td><td style="padding:6px 0;font-family:Arial,Helvetica,sans-serif;font-size:15px;"><a href="mailto:$emailH" style="color:#d11346;text-decoration:none;font-weight:600;">$emailH</a></td></tr>
+<tr><td style="padding:6px 0;vertical-align:top;font-family:'Courier New',Consolas,monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#9a8f82;">Sujet</td><td style="padding:6px 0;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#1a1613;">$subjectH</td></tr>
+</table>
+</td></tr>
+<tr><td style="padding:12px 30px 6px;">
+<div style="font-family:'Courier New',Consolas,monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#9a8f82;margin-bottom:10px;">Message</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#faf8f4;border-left:3px solid #f7c948;border-radius:8px;"><tr><td style="padding:16px 18px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.65;color:#28221d;">$messageH</td></tr></table>
+</td></tr>
+<tr><td style="padding:22px 30px 26px;">
+<div style="border-top:1px solid #eee6db;padding-top:16px;font-family:'Courier New',Consolas,monospace;font-size:11px;line-height:1.7;color:#a49a8d;">R&#233;ponds directement &#224; ce mail : il repart vers $nameH.<br>Envoy&#233; depuis portfolio-sbrt.com</div>
+</td></tr>
+</table>
+</td></tr></table>
+</body></html>
+HTML;
+
+    $mail->AltBody = "Nouveau message depuis le portfolio\n\n"
+        . "Nom    : {$name}\n"
+        . "Email  : {$email}\n"
+        . "Sujet  : {$subject}\n\n"
+        . "Message :\n{$message}\n\n"
+        . "--\nReponds directement a ce mail (Reply-To : {$email}).\nEnvoye depuis portfolio-sbrt.com\n";
 
     $mail->send();
     respond(true, 'Message envoyé, merci. Je te réponds vite.', $isAjax);
