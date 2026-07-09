@@ -2716,54 +2716,109 @@ nav .fa-solid {
     margin-top: clamp(30px, 6vw, 48px);
   }
 }
+/* ===================================================================
+   HERO MOBILE-FIRST (≤480) — pensé comme l'écran d'accueil d'une app :
+   plein viewport, CENTRÉ, rythme serré, lueur dosée. Refonte dédiée au
+   téléphone ; le hero desktop (aligné à gauche) reste INCHANGÉ.
+   =================================================================== */
 @media (max-width: 480px) {
   .header {
     min-height: 100vh;
-    min-height: 100dvh; /* le hero occupe TOUT le premier écran → À propos passe sous la ligne de flottaison */
+    min-height: 100dvh; /* occupe tout le premier écran */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* hero centré verticalement = il remplit l'écran et capte le regard */
-    padding-top: 84px; /* dégage la nav fixe */
-    padding-bottom: 40px;
-    margin-bottom: 40px;
+    justify-content: center; /* composition centrée verticalement */
+    padding: 96px 18px 60px; /* dégage la nav fixe en haut, ancré en bas */
+    margin-bottom: 0;
   }
   .header-text {
-    padding: 0 3% 0 8%; /* gauche 8% (léger) pour laisser respirer le grand titre ; toujours aligné à gauche */
+    padding: 0;
+    max-width: 460px;
+    margin-inline: auto;
+    text-align: center; /* mobile = centré (plus fort sur écran étroit) ; nav non affectée */
   }
-  .header-text h1 {
-    font-size: clamp(44px, 12vw, 56px); /* hero mobile encore plus grand pour l'impact, sans débordement */
-    line-height: 1; /* poster serré */
-    letter-spacing: -0.01em; /* légèrement resserré = plus affirmé, sans coller les mots */
-    word-spacing: 0.04em;
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .header-text h1 br {
-    display: none; /* le titre se répartit naturellement, pas de coupure figée */
-  }
+
+  /* Eyebrow centré : filet rose→or SYMÉTRIQUE de part et d'autre du texte mono */
   .hero-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    gap: 10px;
-    margin-bottom: 22px;
+    justify-content: center;
+    font-size: 11.5px;
+    letter-spacing: 0.2em;
+    gap: 12px;
+    margin-bottom: 24px;
+    color: var(--text-muted);
   }
-  .hero-eyebrow::before {
-    width: 28px;
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: "";
+    width: 24px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-ms), var(--accent));
+    background-size: 300% 100%;
+    animation: hero-bar 4.5s ease-in-out infinite alternate;
   }
+
+  /* Titre GÉNÉREUX, centré, poster serré ; « idées » ressort en dégradé */
+  .header-text h1 {
+    font-size: clamp(45px, 12vw, 58px);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+    word-spacing: 0.02em;
+    text-wrap: balance; /* équilibre les lignes en centré */
+    max-width: none;
+    margin-inline: auto;
+  }
+  .header-text h1 br { display: none; }
+
+  /* Sous-titre centré, mesuré (≈ 2 lignes) */
   .header-sub {
-    margin-top: 24px;
+    margin-top: 22px;
+    font-size: 15px;
+    line-height: 1.55;
+    max-width: 30ch;
+    margin-inline: auto;
   }
-  .hero-cue {
-    margin-top: 30px;
-    font-size: 11px;
-  }
+
+  /* Lueur : pool rose CENTRÉ derrière le titre — dosée, perceptible */
   .header::before {
-    width: min(86vw, 420px); /* lueur plus large/présente pour l'ambiance */
-    top: 28%; /* derrière le titre centré (plus le coin haut-droit) */
-    left: 2%;
-    right: auto;
+    width: min(92vw, 440px);
+    top: 22%;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
   }
   [data-theme="dark"] .header {
-    --hero-glow: rgba(255, 0, 79, 0.18); /* rose un peu plus marqué en dark ; light reste transparent */
+    --hero-glow: rgba(255, 0, 79, 0.22);
   }
+
+  /* Fil de scroll SANS mot : hairline rose qui respire (motif « filet » du site) */
+  .header::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 22px;
+    width: 2px;
+    height: 32px;
+    transform: translateX(-50%);
+    transform-origin: center bottom;
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
+    animation: hero-thread 2.4s ease-in-out infinite;
+  }
+  @keyframes hero-thread {
+    0%, 100% { opacity: 0.2; transform: translateX(-50%) scaleY(0.6); }
+    50% { opacity: 0.75; transform: translateX(-50%) scaleY(1); }
+  }
+}
+@media (prefers-reduced-motion: reduce) and (max-width: 480px) {
+  .header::after,
+  .hero-eyebrow::before,
+  .hero-eyebrow::after { animation: none; }
+  .header::after { opacity: 0.5; }
 }
 
 @media only screen and (max-width: 600px) {
