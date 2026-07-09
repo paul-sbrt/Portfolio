@@ -2717,96 +2717,101 @@ nav .fa-solid {
   }
 }
 /* ===================================================================
-   HERO MOBILE-FIRST (≤480) — pensé comme l'écran d'accueil d'une app :
-   plein viewport, CENTRÉ, rythme serré, lueur dosée. Refonte dédiée au
-   téléphone ; le hero desktop (aligné à gauche) reste INCHANGÉ.
+   HERO MOBILE-FIRST (≤480) — DIRECTION A « le mot-force » :
+   amorce discrète (contexte) + « idées » GÉANT en dégradé = point focal.
+   Hiérarchie par la taille, pas par la distribution. Desktop INCHANGÉ.
    =================================================================== */
 @media (max-width: 480px) {
   .header {
     min-height: 100vh;
-    min-height: 100dvh; /* occupe tout le premier écran */
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* contenu ANCRÉ en haut ; le sous-titre est poussé en bas (margin-top:auto) */
-    padding: 72px 12px 12vh; /* top = nav ; bottom en vh = biaise le cluster centré un peu vers le haut */
+    justify-content: center; /* la compo a un focal fort (le mot géant) → centrée */
+    padding: 90px 16px 52px;
     margin-bottom: 0;
   }
   .header-text {
-    flex: 1 1 auto; /* remplit la hauteur → permet de pousser le sous-titre en bas */
-    display: flex;
-    flex-direction: column;
     padding: 0;
-    max-width: 460px;
+    max-width: 500px;
     margin-inline: auto;
     width: 100%;
-    text-align: center; /* mobile = centré ; nav non affectée */
+    text-align: center;
   }
   .hero-copy {
-    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* cluster centré (gaps modérés, pas l'espace max de auto) */
   }
 
-  /* Eyebrow centré : filet rose→or SYMÉTRIQUE de part et d'autre du texte mono */
+  /* Kicker discret : filet rose→or symétrique */
   .hero-eyebrow {
     justify-content: center;
-    font-size: 11.5px;
-    letter-spacing: 0.2em;
-    gap: 12px;
-    margin-bottom: clamp(30px, 6.5vw, 42px); /* écart eyebrow→titre (modéré) */
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    gap: 10px;
+    margin-bottom: clamp(24px, 6vw, 36px);
     color: var(--text-muted);
   }
   .hero-eyebrow::before,
   .hero-eyebrow::after {
     content: "";
-    width: 24px;
+    width: 22px;
     height: 2px;
     background: linear-gradient(90deg, var(--accent), var(--accent-ms), var(--accent));
     background-size: 300% 100%;
     animation: hero-bar 4.5s ease-in-out infinite alternate;
   }
 
-  /* Titre GÉNÉREUX ; centré entre eyebrow et sous-titre via des gaps ÉGAUX ; « idées » en dégradé */
+  /* Amorce (setup) : subordonnée — pose le contexte, poids + couleur atténués */
   .header-text h1 {
-    font-size: clamp(45px, 12.2vw, 62px); /* un cran + gros sur les vrais iPhones ; sûr sur 375 (« construire, » ne déborde pas) */
-    line-height: 0.98;
-    letter-spacing: -0.015em;
-    word-spacing: 0.02em;
-    text-wrap: balance; /* équilibre les lignes en centré */
+    font-size: clamp(22px, 6.2vw, 30px);
+    line-height: 1.16;
+    letter-spacing: -0.005em;
+    font-weight: 700;
+    color: color-mix(in srgb, var(--text) 80%, transparent);
     max-width: none;
     margin-inline: auto;
   }
   .header-text h1 br { display: none; }
 
-  /* Sous-titre centré, mesuré (≈ 2 lignes) */
+  /* LE MOT-FORCE : « idées » GÉANT, dégradé rose→or, point focal (mot court → peut être énorme) */
+  .header-text h1 span {
+    display: block;
+    font-weight: 900;
+    font-size: clamp(66px, 20vw, 98px);
+    line-height: 0.88;
+    letter-spacing: -0.025em;
+    margin-top: clamp(6px, 2vw, 14px);
+  }
+
+  /* Sous-titre : discret, blotti dessous */
   .header-sub {
-    margin-top: clamp(30px, 6.5vw, 42px); /* = écart eyebrow→titre → le titre est équidistant (centré) */
-    font-size: 15px;
+    margin-top: clamp(22px, 5.5vw, 34px);
+    font-size: 14.5px;
     line-height: 1.55;
-    max-width: 30ch;
+    max-width: 32ch;
     margin-inline: auto;
   }
 
-  /* Lueur : pool rose CENTRÉ derrière le titre — dosée, perceptible */
+  /* Lueur : pool rose derrière le mot-force */
   .header::before {
-    width: min(92vw, 440px);
-    top: 22%;
+    width: min(94vw, 470px);
+    top: 30%;
     left: 0;
     right: 0;
     margin-inline: auto;
   }
   [data-theme="dark"] .header {
-    --hero-glow: rgba(255, 0, 79, 0.22);
+    --hero-glow: rgba(255, 0, 79, 0.2);
   }
 
-  /* Fil de scroll SANS mot : hairline rose qui respire (motif « filet » du site) */
+  /* Fil de scroll (motif « filet » du site) */
   .header::after {
     content: "";
     position: absolute;
     left: 50%;
-    bottom: 20px; /* juste sous la tagline (elle-même ancrée en bas) → clôt la composition */
+    bottom: 22px;
     width: 2px;
     height: 30px;
     transform: translateX(-50%);
