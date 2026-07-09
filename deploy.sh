@@ -17,7 +17,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 REMOTE="suno5661@suno5661.odns.fr"     # compte O2switch (confirmé, même qu'EXTRALIMO)
-SERVER_DIR="~/portfolio-sbrt.com"      # docroot de portfolio-sbrt.com (fourni par Paul)
+SERVER_DIR="~/sites/portfolio-sbrt.com/public"   # docroot RÉEL (vérifié : sert cgi-bin/.well-known)
 BRANCH="refonte"
 URL="https://portfolio-sbrt.com"
 STAMP="$(date +%Y%m%d-%H%M%S)"
@@ -57,6 +57,7 @@ rsync -avz --delete \
   --exclude='composer.json' \
   --exclude='composer.lock' \
   --exclude='cgi-bin/' \
+  --exclude='.well-known/' \
   ./ "$REMOTE:$SERVER_DIR/"
 
 echo ""
