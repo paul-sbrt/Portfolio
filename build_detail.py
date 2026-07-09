@@ -119,7 +119,7 @@ def visual_inner(img_src, alt, label, logo=False):
     return f'<div class="dt-ph"></div><span class="dt-ph-label">{label}</span>'
 
 
-def render_hero(project, detail, lang, ui, base, is_app, ext_url, ext_label):
+def render_hero(project, detail, lang, ui, base, is_app, ext_url, ext_links):
     highlight = esc(T(detail.get("highlight", project["title"]), lang))
     heading = esc(T(detail.get("heading", ""), lang))
     lead = esc(T(detail.get("lead", project.get("summary", "")), lang))
@@ -135,9 +135,11 @@ def render_hero(project, detail, lang, ui, base, is_app, ext_url, ext_label):
 
     sub_html = f'<p class="dt-sub rv">{heading}</p>' if heading else ""
     link_html = ""
-    if ext_url:
-        link_html = (f'<div class="dt-meta rv"><a href="{esc(ext_url)}" target="_blank" '
-                     f'rel="noopener noreferrer">{ext_label} ↗</a></div>')
+    if ext_links:
+        parts = [f'<a href="{esc(u)}" target="_blank" rel="noopener noreferrer">{esc(lbl)} ↗</a>'
+                 for u, lbl in ext_links]
+        joined = '<span class="dt-dot" aria-hidden="true"></span>'.join(parts)
+        link_html = f'<div class="dt-meta rv">{joined}</div>'
 
     text = f"""<div class="dt-htext">
           <p class="dt-eyebrow rv">{eyebrow}</p>
@@ -355,14 +357,17 @@ def render_page(project, lang, ui):
     fr_url = f"{DOMAIN}/projects/{slug}.html"
     en_url = f"{DOMAIN}/en/projects/{slug}.html"
 
-    # external link (detail.links first, else externalUrl)
-    ext_url, ext_label = "", esc(ui.get("detail.visit", "View project"))
+    # external links — ALL valid detail.links (site + store…), else externalUrl.
+    # Rendered as several buttons in the hero ("Voir le site ↗" · "App Store ↗").
     links = detail.get("links") or []
-    if links and links[0].get("url") and not is_placeholder(links[0]["url"]):
-        ext_url = links[0]["url"]
-        ext_label = esc(T(links[0].get("label", ui.get("detail.visit", "View project")), lang))
-    elif project.get("externalUrl") and not is_placeholder(project.get("externalUrl")):
-        ext_url = project["externalUrl"]
+    ext_links = [
+        (l["url"], T(l.get("label", ui.get("detail.visit", "View project")), lang))
+        for l in links
+        if l.get("url") and not is_placeholder(l["url"])
+    ]
+    if not ext_links and project.get("externalUrl") and not is_placeholder(project.get("externalUrl")):
+        ext_links = [(project["externalUrl"], ui.get("detail.visit", "View project"))]
+    ext_url = ext_links[0][0] if ext_links else ""
 
     og_image = og_abs(project.get("image"))
     nav_home = esc(ui.get("nav.home", "Home"))
@@ -373,7 +378,7 @@ def render_page(project, lang, ui):
     back = esc(ui.get("detail.allProjects", "All projects"))
     toggle_aria = "Switch to English" if lang == "fr" else "Passer en français"
 
-    hero = render_hero(project, detail, lang, ui, base, is_app, ext_url, ext_label)
+    hero = render_hero(project, detail, lang, ui, base, is_app, ext_url, ext_links)
     band = render_band(detail, lang, ui)
     why = render_why(detail, lang, ui)
     approach = render_approach(detail, lang, ui, base, is_app)

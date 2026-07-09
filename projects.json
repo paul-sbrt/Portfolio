@@ -264,7 +264,7 @@
     },
     "featured": true,
     "openInSameTab": true,
-    "externalUrl": "https://apps.apple.com/us/app/stow-voyagez-serein/id6758451337",
+    "externalUrl": "https://stow-app.fr/",
     "detail": {
       "tagline": {
         "fr": "Le coffre-fort de vos voyages en groupe",
@@ -317,24 +317,17 @@
       "links": [
         {
           "label": {
+            "fr": "Voir le site",
+            "en": "Visit the site"
+          },
+          "url": "https://stow-app.fr/"
+        },
+        {
+          "label": {
             "fr": "App Store",
             "en": "App Store"
           },
           "url": "https://apps.apple.com/us/app/stow-voyagez-serein/id6758451337"
-        },
-        {
-          "label": {
-            "fr": "Google Play",
-            "en": "Google Play"
-          },
-          "url": "[[À COMPLÉTER: lien Google Play Store]]"
-        },
-        {
-          "label": {
-            "fr": "Visiter le site",
-            "en": "Visit the site"
-          },
-          "url": "https://stow-app.fr/"
         }
       ],
       "cta": {
@@ -479,8 +472,8 @@
     "title": "EXTRALIMO",
     "image": "./images/projects/extralimo/cover.webp",
     "summary": {
-      "fr": "Plateforme web de mise en relation à intermédiation humaine pour l'hôtellerie-restauration : candidats, entreprises et admins autour d'un « match », avec confidentialité by design. Menée avec ses associés.",
-      "en": "A human-led staffing web platform for the hospitality industry: candidates, businesses and admins around a “match”, with privacy by design. Built with his co-founders."
+      "fr": "Plateforme web de mise en relation à intermédiation humaine pour l'hôtellerie-restauration : candidats, entreprises et admins autour d'un « match », avec confidentialité by design. Menée avec mes associés.",
+      "en": "A human-led staffing web platform for the hospitality industry: candidates, businesses and admins around a “match”, with privacy by design. Built with my co-founders."
     },
     "hats": [
       "Web"
@@ -499,7 +492,7 @@
     "year": 2026,
     "featured": true,
     "openInSameTab": true,
-    "externalUrl": "https://extralimo.portfolio-sbrt.com",
+    "externalUrl": "https://extralimo.fr",
     "detail": {
       "tagline": {
         "fr": "On trouve, vous brillez.",
@@ -518,8 +511,8 @@
         "en": "Hospitality struggles to find the right extra staff; candidates lack visibility. EXTRALIMO connects them but it's not a self-service job board: the value is the human touch, a small team of admins who select, propose and support."
       },
       "status": {
-        "fr": "En ligne sur extralimo.portfolio-sbrt.com (52 commits, mise à jour juin 2026). Projet mené avec ses associés.",
-        "en": "Live at extralimo.portfolio-sbrt.com (52 commits, updated June 2026). Built with his co-founders."
+        "fr": "En ligne sur extralimo.fr (52 commits, mise à jour juin 2026). Projet mené avec mes associés.",
+        "en": "Live at extralimo.fr (52 commits, updated June 2026). Built with my co-founders."
       },
       "context": {
         "heading": {
@@ -559,7 +552,7 @@
             "fr": "Visiter le site",
             "en": "Visit the site"
           },
-          "url": "https://extralimo.portfolio-sbrt.com"
+          "url": "https://extralimo.fr"
         }
       ],
       "cta": {
