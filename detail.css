@@ -113,6 +113,15 @@
 [data-detail] .dt-how-media::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 1px,transparent 1px 24px)}
 [data-detail] .dt-how-media .dt-float{position:relative;width:66%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.2);box-shadow:0 30px 60px -26px rgba(0,0,0,.6)}
 [data-detail] .dt-how--web .dt-how-media .dt-float{width:82%;aspect-ratio:16/10;border-radius:12px}
+/* Démarche : VRAIE image de process (remplace le placeholder codé en dur). Image entière
+   (contain), fond sombre pour un léger letterbox propre, cliquable → lightbox. */
+[data-detail] .dt-how-media--img{cursor:pointer}
+[data-detail] .dt-how-media--img .dt-float{background:#0a0809}
+[data-detail] .dt-how-media--img .dt-img{object-fit:contain;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+[data-detail] .dt-how-media--img .dt-sweep{position:absolute;inset:0;background:linear-gradient(100deg,transparent 34%,color-mix(in srgb,var(--brand) 55%,transparent) 50%,transparent 66%);background-size:250% 100%;background-position:130% 0;transition:background-position 1s cubic-bezier(.2,.8,.2,1)}
+@media(hover:hover){[data-detail] .dt-how-media--img:hover .dt-img{transform:scale(1.04)}[data-detail] .dt-how-media--img:hover .dt-sweep{background-position:-30% 0}}
+/* Démarche SANS image → 1 colonne, texte seul (fini le faux placeholder « Galerie »). */
+[data-detail] .dt-how--solo{grid-template-columns:1fr}
 [data-detail] .dt-choice{padding:20px 0;border-bottom:1px solid var(--border)}
 [data-detail] .dt-choice:first-of-type{border-top:1px solid var(--border)}
 [data-detail] .dt-choice h3{font-family:var(--disp);font-weight:700;font-size:18px;letter-spacing:-.01em;margin-bottom:6px}

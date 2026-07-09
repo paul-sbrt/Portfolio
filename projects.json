@@ -226,15 +226,15 @@
             "fr": "Catégories & tendances",
             "en": "Categories & trends"
           }
-        },
-        {
-          "src": "./images/projects/dump/gallery-7.webp",
-          "caption": {
-            "fr": "Tri par IA (Claude) & confidentialité",
-            "en": "AI sorting (Claude) & privacy"
-          }
         }
-      ]
+      ],
+      "processImage": {
+        "src": "./images/projects/dump/process.webp",
+        "caption": {
+          "fr": "Tri par IA (Claude · Whisper) & confidentialité",
+          "en": "AI sorting (Claude · Whisper) & privacy"
+        }
+      }
     },
     "brand": "#E8A44A",
     "brand2": "#F2CC8F",
@@ -434,13 +434,6 @@
       ],
       "gallery": [
         {
-          "src": "./images/projects/stow/gallery-1.webp",
-          "caption": {
-            "fr": "Écran de l app STOW",
-            "en": "STOW app screen"
-          }
-        },
-        {
           "src": "./images/projects/stow/gallery-2.webp",
           "caption": {
             "fr": "Écran de l app STOW",
@@ -461,7 +454,14 @@
             "en": "STOW app screen"
           }
         }
-      ]
+      ],
+      "processImage": {
+        "src": "./images/projects/stow/process.webp",
+        "caption": {
+          "fr": "Le cœur de l'app : les voyages partagés",
+          "en": "The core: shared trips"
+        }
+      }
     },
     "brand": "#FF4F00",
     "brand2": "#39D2C0",
@@ -659,13 +659,6 @@
       ],
       "gallery": [
         {
-          "src": "./images/projects/extralimo/gallery-1.webp",
-          "caption": {
-            "fr": "Le parcours en 4 étapes",
-            "en": "The 4-step flow"
-          }
-        },
-        {
           "src": "./images/projects/extralimo/gallery-2.webp",
           "caption": {
             "fr": "Pourquoi rejoindre",
@@ -679,7 +672,14 @@
             "en": "Login area"
           }
         }
-      ]
+      ],
+      "processImage": {
+        "src": "./images/projects/extralimo/process.webp",
+        "caption": {
+          "fr": "Le parcours en 4 étapes",
+          "en": "The 4-step flow"
+        }
+      }
     },
     "brand": "#E8A93F",
     "brand2": "#1B2B4D"
@@ -897,13 +897,6 @@
           }
         },
         {
-          "src": "./images/projects/ticketing-it/gallery-4.webp",
-          "caption": {
-            "fr": "Administration : SLA, catégories, équipes",
-            "en": "Admin: SLA, categories, teams"
-          }
-        },
-        {
           "src": "./images/projects/ticketing-it/gallery-5.webp",
           "caption": {
             "fr": "Notification email",
@@ -938,7 +931,14 @@
             "en": "Category analysis (Power BI)"
           }
         }
-      ]
+      ],
+      "processImage": {
+        "src": "./images/projects/ticketing-it/process.webp",
+        "caption": {
+          "fr": "La configuration admin (SLA, catégories, équipes)",
+          "en": "Admin configuration (SLA, categories, teams)"
+        }
+      }
     },
     "brand": "#F5822E",
     "brand2": "#0A2463"

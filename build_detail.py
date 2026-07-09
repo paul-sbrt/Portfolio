@@ -212,16 +212,28 @@ def render_approach(detail, lang, ui, base, is_app):
         b = esc(T(ch.get("body"), lang))
         rows.append(f'<div class="dt-choice rv"><h3><span>{letters[i]}.</span>{t}</h3><p>{b}</p></div>')
     choices = "\n        ".join(rows)
-    mode = "" if is_app else " dt-how--web"
-    lbl = esc(ui.get("detail.gallery", "Gallery")) + " "
-    media = f'<div class="dt-how-media rv"><div class="dt-float">{visual_inner("", "", lbl)}</div></div>'
-    return f"""
+    text_col = (f'<div>\n        <p class="dt-sec-eyebrow rv"><span class="dt-num">02</span> '
+                f'{label}</p>\n        {choices}\n      </div>')
+
+    # Process image (conditional) — a real "behind-the-scenes" capture. The lightbox
+    # auto-detects any .dt-how-media that holds a .dt-img, so it's zoomable like the rest.
+    # No processImage → text-only single column (the hardcoded "Gallery" placeholder is gone).
+    proc = detail.get("processImage") or {}
+    proc_src = proc.get("src") if isinstance(proc, dict) else proc
+    if proc_src and not is_placeholder(proc_src):
+        mode = "" if is_app else " dt-how--web"
+        alt = esc(T(proc.get("caption"), lang)) if isinstance(proc, dict) else ""
+        media = (f'<div class="dt-how-media dt-how-media--img rv"><div class="dt-float">'
+                 f'<img class="dt-img" src="{asset(proc_src, base)}" alt="{alt or label}" loading="lazy" />'
+                 f'<div class="dt-sweep"></div></div></div>')
+        return f"""
     <div class="dt-wrap"><section class="dt-how{mode}">
       {media}
-      <div>
-        <p class="dt-sec-eyebrow rv"><span class="dt-num">02</span> {label}</p>
-        {choices}
-      </div>
+      {text_col}
+    </section></div>"""
+    return f"""
+    <div class="dt-wrap"><section class="dt-how dt-how--solo">
+      {text_col}
     </section></div>"""
 
 
