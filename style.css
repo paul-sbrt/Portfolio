@@ -1314,8 +1314,7 @@ h1.sub-title {
   height: 1px;
   background: var(--border);
 }
-.reg-item[tabindex],
-.reg-item.is-link {
+.reg-item[tabindex] {
   cursor: pointer;
 }
 .reg-item:focus-visible {
@@ -1388,16 +1387,6 @@ h1.sub-title {
   text-align: right;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
-}
-.reg-arrow {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 15px;
-  color: var(--accent);
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-.reg-item.is-link:hover .reg-arrow,
-.reg-item.is-link:focus-visible .reg-arrow {
-  transform: translate(3px, -3px);
 }
 /* Revealed detail — grid-rows; rose→gold ignition settles to --text + vertical filet. */
 .reg-detail {
@@ -3040,22 +3029,6 @@ nav .fa-solid {
     opacity: 1;
     transform: rotate(45deg);
     color: var(--accent-ms);
-  }
-  /* Certifs (item-LIEN) : un seul geste = le tap ouvre l'URL (↗). Donc PAS de
-     "＋"/déploiement trompeur → on affiche les skills DIRECTEMENT (détail ouvert,
-     settled), le filet et la typo mono restent dans la DA du registre. */
-  .reg-item.is-link .reg-cue {
-    display: none;
-  }
-  .reg-item.is-link .reg-detail {
-    grid-template-rows: 1fr;
-  }
-  .reg-item.is-link .reg-drow::before {
-    transform: scaleY(1);
-  }
-  .reg-item.is-link .reg-ignite {
-    background-position: 0 0;
-    transform: none;
   }
 }
 

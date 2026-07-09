@@ -244,15 +244,11 @@ function renderRegistre(records, container) {
       r.detail ||
       (r.detailList && r.detailList.length) ||
       (r.bullets && r.bullets.length);
-    const item = document.createElement(r.href ? "a" : "div");
-    item.className = "reg-item" + (r.href ? " is-link" : "");
+    const item = document.createElement("div");
+    item.className = "reg-item";
     if (r.hat) item.dataset.hat = r.hat; // "ms" → gold treatment (Microsoft)
     item.style.transitionDelay = (0.05 + i * 0.09).toFixed(2) + "s";
-    if (r.href) {
-      item.href = r.href;
-      item.target = "_blank";
-      item.rel = "noopener noreferrer";
-    } else if (hasDetail) {
+    if (hasDetail) {
       item.tabIndex = 0;
       item.setAttribute("role", "button");
       item.setAttribute("aria-expanded", "false");
@@ -333,13 +329,6 @@ function renderRegistre(records, container) {
     dates.className = "reg-dates";
     dates.textContent = r.dates || "";
     side.appendChild(dates);
-    if (r.href) {
-      const arw = document.createElement("span");
-      arw.className = "reg-arrow";
-      arw.setAttribute("aria-hidden", "true");
-      arw.textContent = "↗";
-      side.appendChild(arw);
-    }
     // Separate verify link (certifications) — opens in a new tab; stops the click from
     // toggling the row's detail, so hover/tap expands and ↗ opens the link, no clash.
     if (r.verify) {
@@ -361,8 +350,8 @@ function renderRegistre(records, container) {
     item.appendChild(side);
     list.appendChild(item);
 
-    // Hover = CSS. Non-link rows with detail get a keyboard/tap toggle.
-    if (!r.href && hasDetail) {
+    // Hover = CSS. Rows with detail get a keyboard/tap toggle.
+    if (hasDetail) {
       const toggle = function () {
         const on = item.classList.toggle("open");
         item.setAttribute("aria-expanded", on ? "true" : "false");
