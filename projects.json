@@ -2,7 +2,7 @@
   {
     "slug": "dump",
     "title": "DUMP",
-    "image": "./images/projects/dump/logo.webp",
+    "image": "./images/projects/dump/cover.webp",
     "summary": {
       "fr": "« Deuxième cerveau » iOS : on capture texte ou voix en vrac, l'IA (Claude + Whisper) trie automatiquement en catégories et niveaux d'urgence, suggère des connexions et des rappels. Modèle freemium via StoreKit 2.",
       "en": "iOS “second brain”: capture text or voice on the fly, and the AI (Claude + Whisper) automatically sorts it into categories and urgency levels, suggesting connections and reminders. Freemium model via StoreKit 2."
@@ -183,11 +183,62 @@
             "en": "Dated reminders and an impulse buffer so nothing slips."
           }
         }
+      ],
+      "gallery": [
+        {
+          "src": "./images/projects/dump/gallery-1.webp",
+          "caption": {
+            "fr": "Ton cerveau : idées reliées",
+            "en": "Your brain: connected ideas"
+          }
+        },
+        {
+          "src": "./images/projects/dump/gallery-2.webp",
+          "caption": {
+            "fr": "Le récap du matin",
+            "en": "Morning recap"
+          }
+        },
+        {
+          "src": "./images/projects/dump/gallery-3.webp",
+          "caption": {
+            "fr": "Mémoire : dossiers & historique",
+            "en": "Memory: folders & history"
+          }
+        },
+        {
+          "src": "./images/projects/dump/gallery-4.webp",
+          "caption": {
+            "fr": "Une note ACTION (focus, rappel)",
+            "en": "An ACTION note (focus, reminder)"
+          }
+        },
+        {
+          "src": "./images/projects/dump/gallery-5.webp",
+          "caption": {
+            "fr": "Réglages : récaps & buffer",
+            "en": "Settings: recaps & buffer"
+          }
+        },
+        {
+          "src": "./images/projects/dump/gallery-6.webp",
+          "caption": {
+            "fr": "Catégories & tendances",
+            "en": "Categories & trends"
+          }
+        },
+        {
+          "src": "./images/projects/dump/gallery-7.webp",
+          "caption": {
+            "fr": "Tri par IA (Claude) & confidentialité",
+            "en": "AI sorting (Claude) & privacy"
+          }
+        }
       ]
     },
     "brand": "#E8A44A",
     "brand2": "#F2CC8F",
-    "coverLogo": true
+    "cardLogo": "./images/projects/dump/logo.webp"
   },
   {
     "slug": "stow",
@@ -426,7 +477,7 @@
   {
     "slug": "extralimo",
     "title": "EXTRALIMO",
-    "image": "./images/placeholder.svg",
+    "image": "./images/projects/extralimo/cover.webp",
     "summary": {
       "fr": "Plateforme web de mise en relation à intermédiation humaine pour l'hôtellerie-restauration : candidats, entreprises et admins autour d'un « match », avec confidentialité by design. Menée avec ses associés.",
       "en": "A human-led staffing web platform for the hospitality industry: candidates, businesses and admins around a “match”, with privacy by design. Built with his co-founders."
@@ -610,6 +661,29 @@
           "body": {
             "fr": "Rémunération au contrat placé (pourcentage).",
             "en": "Paid per placed contract (percentage)."
+          }
+        }
+      ],
+      "gallery": [
+        {
+          "src": "./images/projects/extralimo/gallery-1.webp",
+          "caption": {
+            "fr": "Le parcours en 4 étapes",
+            "en": "The 4-step flow"
+          }
+        },
+        {
+          "src": "./images/projects/extralimo/gallery-2.webp",
+          "caption": {
+            "fr": "Pourquoi rejoindre",
+            "en": "Why join"
+          }
+        },
+        {
+          "src": "./images/projects/extralimo/gallery-3.webp",
+          "caption": {
+            "fr": "Espace connexion",
+            "en": "Login area"
           }
         }
       ]
@@ -1319,7 +1393,7 @@
   {
     "slug": "powerflows",
     "title": "Solutions Microsoft",
-    "image": "./images/placeholder.svg",
+    "image": "./images/projects/powerflows/cover.webp",
     "summary": {
       "fr": "PowerFlows mon site vitrine qui vend des solutions Power Platform aux PME : apps métier, automatisations et dashboards intégrés à Microsoft 365. Construit en Next.js.",
       "en": "PowerFlows my showcase site selling Power Platform solutions to SMBs: business apps, automations and dashboards integrated with Microsoft 365. Built with Next.js."
@@ -1354,7 +1428,7 @@
   {
     "slug": "le-colvert",
     "title": "Le Colvert",
-    "image": "./images/placeholder.svg",
+    "image": "./images/projects/le-colvert/cover.webp",
     "summary": {
       "fr": "Site vitrine d'un restaurant de spécialités de canard (Tours) avec un CMS léger que j'ai codé main : le propriétaire met à jour lui-même plats, photos, horaires et carte, sans toucher au code. HTML/CSS/JS vanilla + back-office PHP sur mesure.",
       "en": "Showcase site for a duck-specialty restaurant (Tours) with a lightweight CMS I hand-coded: the owner updates the dishes, photos, hours and menu themselves, without touching the code. Vanilla HTML/CSS/JS + a bespoke PHP back-office."
