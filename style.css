@@ -2727,8 +2727,8 @@ nav .fa-solid {
     min-height: 100dvh; /* occupe tout le premier écran */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* composition centrée verticalement */
-    padding: 96px 18px 60px; /* dégage la nav fixe en haut, ancré en bas */
+    justify-content: center; /* centré, mais biaisé vers le HAUT via le padding bas */
+    padding: 72px 18px 16vh; /* top = juste sous la nav ; bottom en vh = remonte le bloc (zone de scroll en dessous, avec le fil rose) */
     margin-bottom: 0;
   }
   .header-text {
