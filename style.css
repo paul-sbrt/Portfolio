@@ -2728,7 +2728,7 @@ nav .fa-solid {
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* contenu ANCRÉ en haut ; le sous-titre est poussé en bas (margin-top:auto) */
-    padding: 100px 12px 30px; /* top = écart mesuré sous la nav ; latéral réduit = place pour un titre + gros */
+    padding: 72px 12px 12vh; /* top = nav ; bottom en vh = biaise le cluster centré un peu vers le haut */
     margin-bottom: 0;
   }
   .header-text {
@@ -2746,6 +2746,7 @@ nav .fa-solid {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* cluster centré (gaps modérés, pas l'espace max de auto) */
   }
 
   /* Eyebrow centré : filet rose→or SYMÉTRIQUE de part et d'autre du texte mono */
@@ -2754,7 +2755,7 @@ nav .fa-solid {
     font-size: 11.5px;
     letter-spacing: 0.2em;
     gap: 12px;
-    margin-bottom: 0; /* écart eyebrow→titre géré par le centrage auto du titre */
+    margin-bottom: clamp(30px, 6.5vw, 42px); /* écart eyebrow→titre (modéré) */
     color: var(--text-muted);
   }
   .hero-eyebrow::before,
@@ -2767,10 +2768,7 @@ nav .fa-solid {
     animation: hero-bar 4.5s ease-in-out infinite alternate;
   }
 
-  /* Titre GÉNÉREUX, centré, poster serré ; « idées » ressort en dégradé */
-  .hero-title-mask {
-    margin-top: auto; /* + le sous-titre en margin-top:auto → le TITRE se centre entre eyebrow et sous-titre */
-  }
+  /* Titre GÉNÉREUX ; centré entre eyebrow et sous-titre via des gaps ÉGAUX ; « idées » en dégradé */
   .header-text h1 {
     font-size: clamp(45px, 12.2vw, 62px); /* un cran + gros sur les vrais iPhones ; sûr sur 375 (« construire, » ne déborde pas) */
     line-height: 0.98;
@@ -2784,8 +2782,7 @@ nav .fa-solid {
 
   /* Sous-titre centré, mesuré (≈ 2 lignes) */
   .header-sub {
-    margin-top: auto; /* poussé en BAS → ancre la tagline, remplit le bas (fini le vide) */
-    margin-bottom: clamp(40px, 9vh, 76px); /* soulevé du bord : laisse la place au fil de scroll */
+    margin-top: clamp(30px, 6.5vw, 42px); /* = écart eyebrow→titre → le titre est équidistant (centré) */
     font-size: 15px;
     line-height: 1.55;
     max-width: 30ch;
