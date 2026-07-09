@@ -2777,8 +2777,10 @@ nav .fa-solid {
     letter-spacing: -0.018em;
     font-weight: 700;
     color: color-mix(in srgb, var(--text) 88%, transparent);
+    width: 100%;
     max-width: 300px;
     margin-inline: auto;
+    text-align: left; /* amorce alignée à gauche… */
   }
   .header-text h1 br { display: none; }
 
@@ -2790,6 +2792,7 @@ nav .fa-solid {
     line-height: 0.84;
     letter-spacing: -0.035em;
     margin-top: clamp(16px, 4.5vw, 24px);
+    text-align: center; /* …mais « idées » reste centré */
   }
 
   /* Sous-titre : discret, blotti sous le mot */
