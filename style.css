@@ -2754,7 +2754,7 @@ nav .fa-solid {
     letter-spacing: 0.14em;
     line-height: 1.6;
     gap: 9px;
-    margin-bottom: 26px;
+    margin-bottom: clamp(40px, 9.5vw, 54px); /* remonte l'eyebrow (plus d'air vers le titre) */
     max-width: 290px;
     text-wrap: balance;
     color: var(--text-muted);
@@ -2797,7 +2797,7 @@ nav .fa-solid {
 
   /* Sous-titre : discret, blotti sous le mot */
   .header-sub {
-    margin-top: clamp(28px, 7vw, 38px);
+    margin-top: clamp(42px, 10.5vw, 56px); /* descend le sous-titre (plus d'air sous le titre) */
     font-size: 14px;
     line-height: 1.5;
     max-width: 30ch;
