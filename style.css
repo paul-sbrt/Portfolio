@@ -2727,17 +2727,22 @@ nav .fa-solid {
     min-height: 100dvh; /* occupe tout le premier écran */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* contenu ANCRÉ en haut : écart constant/maîtrisé sous la nav, plus de grand vide centré */
-    padding: 104px 18px 44px; /* top = écart net mais mesuré sous la nav ; le bas = zone de scroll */
+    justify-content: flex-start; /* contenu ANCRÉ en haut ; le sous-titre est poussé en bas (margin-top:auto) */
+    padding: 100px 18px 30px; /* top = écart mesuré sous la nav */
     margin-bottom: 0;
   }
   .header-text {
+    flex: 1 1 auto; /* remplit la hauteur → permet de pousser le sous-titre en bas */
+    display: flex;
+    flex-direction: column;
     padding: 0;
     max-width: 460px;
     margin-inline: auto;
-    text-align: center; /* mobile = centré (plus fort sur écran étroit) ; nav non affectée */
+    width: 100%;
+    text-align: center; /* mobile = centré ; nav non affectée */
   }
   .hero-copy {
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2776,7 +2781,8 @@ nav .fa-solid {
 
   /* Sous-titre centré, mesuré (≈ 2 lignes) */
   .header-sub {
-    margin-top: clamp(38px, 10vw, 52px); /* + d'air : titre → sous-titre */
+    margin-top: auto; /* poussé en BAS → ancre la tagline, remplit le bas (fini le vide) */
+    margin-bottom: clamp(40px, 9vh, 76px); /* soulevé du bord : laisse la place au fil de scroll */
     font-size: 15px;
     line-height: 1.55;
     max-width: 30ch;
@@ -2800,9 +2806,9 @@ nav .fa-solid {
     content: "";
     position: absolute;
     left: 50%;
-    bottom: clamp(84px, 16vh, 160px); /* remonté dans le tiers bas : occupe la zone de scroll, pas collé au bord */
+    bottom: 20px; /* juste sous la tagline (elle-même ancrée en bas) → clôt la composition */
     width: 2px;
-    height: 32px;
+    height: 30px;
     transform: translateX(-50%);
     transform-origin: center bottom;
     border-radius: 2px;
