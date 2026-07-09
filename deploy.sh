@@ -54,6 +54,8 @@ rsync -avz --delete \
   --exclude='contact.secret.example.php' \
   --exclude='contact.secret.php' \
   --exclude='vendor/' \
+  --exclude='composer.json' \
+  --exclude='composer.lock' \
   --exclude='cgi-bin/' \
   ./ "$REMOTE:$SERVER_DIR/"
 
