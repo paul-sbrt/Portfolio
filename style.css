@@ -2728,10 +2728,10 @@ nav .fa-solid {
     margin-bottom: 40px;
   }
   .header-text {
-    padding: 0 3% 0 10%; /* alignement gauche (10% comme about) ; droite réduite = place pour le grand titre */
+    padding: 0 3% 0 8%; /* gauche 8% (léger) pour laisser respirer le grand titre ; toujours aligné à gauche */
   }
   .header-text h1 {
-    font-size: clamp(40px, 11.5vw, 54px); /* hero mobile IMPOSANT (avant : 33px sur 375px), sans débordement */
+    font-size: clamp(44px, 12vw, 56px); /* hero mobile encore plus grand pour l'impact, sans débordement */
     line-height: 1; /* poster serré */
     letter-spacing: -0.01em; /* légèrement resserré = plus affirmé, sans coller les mots */
     word-spacing: 0.04em;
