@@ -382,6 +382,21 @@ def render_page(project, lang, ui):
     ext_url = ext_links[0][0] if ext_links else ""
 
     og_image = og_abs(project.get("image"))
+    # JSON-LD : chaque projet = une œuvre créée par Paul Sabourault (renforce l'auteur).
+    project_ld = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": project["title"],
+        "description": T(project.get("summary", ""), lang),
+        "url": self_url,
+        "image": og_image,
+        "inLanguage": lang,
+        "author": {
+            "@type": "Person",
+            "name": "Paul Sabourault",
+            "url": f"{DOMAIN}/",
+        },
+    }, ensure_ascii=False)
     nav_home = esc(ui.get("nav.home", "Home"))
     nav_about = esc(ui.get("nav.about", "About"))
     nav_projects = esc(ui.get("nav.projects", "Projects"))
@@ -421,11 +436,14 @@ def render_page(project, lang, ui):
     <link rel="alternate" hreflang="en" href="{en_url}" />
     <link rel="alternate" hreflang="x-default" href="{fr_url}" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="{title}" />
+    <meta property="og:title" content="{title} · Paul Sabourault" />
     <meta property="og:description" content="{summary}" />
     <meta property="og:url" content="{self_url}" />
     <meta property="og:image" content="{og_image}" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="{og_image}" />
+    <meta name="author" content="Paul Sabourault" />
+    <script type="application/ld+json">{project_ld}</script>
     <link rel="icon" type="image/svg+xml" href="{base}favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
