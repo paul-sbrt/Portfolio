@@ -2728,7 +2728,7 @@ nav .fa-solid {
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* contenu ANCRÉ en haut ; le sous-titre est poussé en bas (margin-top:auto) */
-    padding: 100px 18px 30px; /* top = écart mesuré sous la nav */
+    padding: 100px 12px 30px; /* top = écart mesuré sous la nav ; latéral réduit = place pour un titre + gros */
     margin-bottom: 0;
   }
   .header-text {
@@ -2754,7 +2754,7 @@ nav .fa-solid {
     font-size: 11.5px;
     letter-spacing: 0.2em;
     gap: 12px;
-    margin-bottom: clamp(40px, 10vw, 56px); /* + d'air : eyebrow → titre */
+    margin-bottom: 0; /* écart eyebrow→titre géré par le centrage auto du titre */
     color: var(--text-muted);
   }
   .hero-eyebrow::before,
@@ -2768,8 +2768,11 @@ nav .fa-solid {
   }
 
   /* Titre GÉNÉREUX, centré, poster serré ; « idées » ressort en dégradé */
+  .hero-title-mask {
+    margin-top: auto; /* + le sous-titre en margin-top:auto → le TITRE se centre entre eyebrow et sous-titre */
+  }
   .header-text h1 {
-    font-size: clamp(45px, 12vw, 58px);
+    font-size: clamp(45px, 12.2vw, 62px); /* un cran + gros sur les vrais iPhones ; sûr sur 375 (« construire, » ne déborde pas) */
     line-height: 0.98;
     letter-spacing: -0.015em;
     word-spacing: 0.02em;
