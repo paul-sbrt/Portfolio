@@ -4,8 +4,8 @@
     "title": "DUMP",
     "image": "./images/projects/dump/cover.webp",
     "summary": {
-      "fr": "« Deuxième cerveau » iOS : on capture texte ou voix en vrac, l'IA (Claude + Whisper) trie automatiquement en catégories et niveaux d'urgence, suggère des connexions et des rappels. Modèle freemium via StoreKit 2.",
-      "en": "iOS “second brain”: capture text or voice on the fly, and the AI (Claude + Whisper) automatically sorts it into categories and urgency levels, suggesting connections and reminders. Freemium model via StoreKit 2."
+      "fr": "« Deuxième cerveau » iOS : on capture texte ou voix en vrac, l'IA (Claude) trie automatiquement en catégories et niveaux d'urgence, suggère des connexions et des rappels. Modèle freemium via StoreKit 2.",
+      "en": "iOS “second brain”: capture text or voice on the fly, and the AI (Claude) automatically sorts it into categories and urgency levels, suggesting connections and reminders. Freemium model via StoreKit 2."
     },
     "hats": [
       "App",
@@ -16,7 +16,6 @@
       "SwiftUI",
       "SwiftData",
       "Claude API",
-      "Whisper",
       "Cloudflare Workers",
       "StoreKit 2"
     ],
@@ -30,160 +29,78 @@
     "externalUrl": "[[À COMPLÉTER: lien TestFlight public]]",
     "detail": {
       "tagline": {
-        "fr": "Second cerveau augmenté par l'IA",
-        "en": "A second brain, augmented by AI"
+        "fr": "Vider sa tête, et laisser l'app s'occuper du reste.",
+        "en": "Empty your head, and let the app handle the rest."
       },
       "highlight": {
         "fr": "DUMP",
         "en": "DUMP"
       },
       "heading": {
-        "fr": "second cerveau iOS",
-        "en": "iOS second brain"
+        "fr": "Un second cerveau, trié par l'IA",
+        "en": "A second brain, sorted by AI"
       },
       "lead": {
-        "fr": "On capture une idée, une note ou un vocal en vrac et on la perd, ou on ne la retrouve pas structurée. DUMP est un assistant cognitif : on parle ou on écrit en vrac, l'IA trie automatiquement. Particulièrement utile aux profils qui débordent d'idées et se dispersent (TDAH inclus), comme outil d'organisation au quotidien. Je l'ai d'abord construit pour moi.",
-        "en": "You capture an idea, a note or a voice memo on the fly and then you lose it, or you can't find it in any usable shape. DUMP is a cognitive assistant: you speak or type, messy and unfiltered, and the AI sorts it automatically. Especially handy for minds that overflow with ideas and scatter easily (ADHD included), as an everyday organization tool. I built it for myself first."
+        "fr": "DUMP est un second cerveau : tu y jettes tes pensées à la volée, à la voix, à l'écrit, un lien, une photo, et il les trie, les relie et te les rappelle au bon moment. Pas un carnet de plus, un cerveau qui range à ta place.",
+        "en": "DUMP is a second brain: you throw your thoughts in on the fly, by voice, by text, a link, a photo, and it sorts them, connects them and reminds you at the right moment. Not one more notebook, a brain that tidies up for you."
       },
       "status": {
-        "fr": "Sur TestFlight (build 2) mon projet le plus actif (503 commits, mise à jour juin 2026), design system v2, widgets « production ready ».",
-        "en": "On TestFlight (build 2) my most active project (503 commits, updated June 2026), design system v2, production-ready widgets."
+        "fr": "DUMP est développé nativement en Swift/SwiftUI (SwiftData, Cloudflare Workers pour le proxy IA). Actuellement en test sur TestFlight, c'est un projet vivant que j'utilise et améliore en continu.",
+        "en": "DUMP is built natively in Swift/SwiftUI (SwiftData, Cloudflare Workers for the AI proxy). Currently in testing on TestFlight, it's a living project I use and improve continuously."
       },
-      "context": {
-        "heading": {
-          "fr": "La solution",
-          "en": "The solution"
-        },
-        "body": {
-          "fr": "App iOS native qui transforme un flux brut en notes triées : capture texte et voix (transcription Whisper), classification IA (Claude) en catégories ACTION / INFO / IDÉE / VRAC et niveaux d'urgence, suggestions de connexions entre notes, extraction d'entités anonymisées, rappels datés, apprentissage des corrections. Onboarding zéro friction (pas de compte), widgets et extension de partage.",
-          "en": "A native iOS app that turns a raw stream into sorted notes: text and voice capture (Whisper transcription), AI classification (Claude) into ACTION / INFO / IDEA / MISC categories and urgency levels, connection suggestions between notes, anonymized entity extraction, dated reminders, and learning from your corrections. Zero-friction onboarding (no account), widgets and a share extension."
-        }
-      },
-      "impact": [
-        {
-          "fr": "Capture texte + voix, avec transcription des vocaux via Whisper",
-          "en": "Text + voice capture, with Whisper transcription of voice memos"
-        },
-        {
-          "fr": "Classification automatique par Claude (ACTION / INFO / IDÉE / VRAC + catégories custom apprises) et niveaux d'urgence",
-          "en": "Automatic classification by Claude (ACTION / INFO / IDEA / MISC + custom categories it learns) and urgency levels"
-        },
-        {
-          "fr": "Suggestions de connexions entre notes et extraction d'entités (anonymisées avant envoi)",
-          "en": "Connection suggestions between notes and entity extraction (anonymized before sending)"
-        },
-        {
-          "fr": "Rappels datés, buffer d'impulsivité et apprentissage des corrections de l'utilisateur",
-          "en": "Dated reminders, an impulsivity buffer, and learning from the user's corrections"
-        },
-        {
-          "fr": "Modèle freemium : gratuit jusqu'à 25 classifications IA/semaine, premium illimité via StoreKit 2",
-          "en": "Freemium model: free up to 25 AI classifications/week, unlimited with premium via StoreKit 2"
-        }
-      ],
+      "impact": [],
       "links": [],
-      "cta": {
-        "heading": {
-          "fr": "Envie d'en voir plus ?",
-          "en": "Want to see more?"
-        },
-        "body": {
-          "fr": "Je peux présenter l'architecture (proxy Cloudflare, clés IA côté serveur), le design system et le fonctionnement de la classification.",
-          "en": "I can walk through the architecture (Cloudflare proxy, AI keys kept server-side), the design system and how the classification works."
-        }
-      },
       "quote": {
-        "fr": "Je l'ai d'abord construit pour moi.",
-        "en": "I built it for myself first."
+        "fr": "Ne laisse plus jamais une idée dormir.",
+        "en": "Never let an idea sleep again."
       },
       "why": {
-        "fr": "On capture une idée, une note, un vocal et on la perd, ou on ne la retrouve jamais structurée. Le constat de départ de DUMP : et si on pouvait tout jeter en vrac, et laisser l'IA ranger ? Pensé pour les gens qui débordent d'idées et veulent y voir clair un outil d'organisation, jamais de thérapie.",
-        "en": "You capture an idea, a note, a voice memo then lose it, or never find it structured. DUMP starts there: what if you could dump everything in bulk and let the AI sort it? Made for people overflowing with ideas who want to see clearly an organization tool, never therapy."
+        "fr": "Quand on a trop d'idées, on en perd la moitié. Elles arrivent n'importe quand, on se dit « je noterai plus tard », et elles s'évaporent. DUMP est né de ce constat, le mien d'abord. L'idée : un endroit où tout balancer sans réfléchir, et laisser l'app faire le tri. Pensé pour les cerveaux qui tournent trop vite, les profils TDAH et HPI.",
+        "en": "When you have too many ideas, you lose half of them. They show up anytime, you tell yourself « I'll write it down later », and they evaporate. DUMP came from that, mine first. The idea: a place to dump everything without thinking, and let the app do the sorting. Made for minds that run too fast, ADHD and gifted profiles."
       },
       "approach": [
         {
           "title": {
-            "fr": "Zéro friction",
-            "en": "Zero friction"
+            "fr": "Capturer sans friction",
+            "en": "Capture without friction"
           },
           "body": {
-            "fr": "Pas de compte, pas d'email : l'app est utile dès la première seconde widgets et extension de partage compris.",
-            "en": "No account, no email: useful from the very first second widgets and share extension included."
+            "fr": "Voix, texte, lien, note, photo. L'important c'est de sortir l'idée de sa tête en une seconde. L'OCR lit les images en local, la dictée transcrit à la volée.",
+            "en": "Voice, text, link, note, photo. What matters is getting the idea out of your head in a second. On-device OCR reads images, dictation transcribes on the fly."
           }
         },
         {
           "title": {
-            "fr": "La confidentialité d'abord",
-            "en": "Privacy first"
+            "fr": "Trier par l'IA",
+            "en": "Sort with AI"
           },
           "body": {
-            "fr": "Les entités (noms, lieux, dates) sont anonymisées avant tout envoi ; les clés IA restent côté serveur, derrière un proxy Cloudflare.",
-            "en": "Entities (names, places, dates) are anonymized before any send; AI keys stay server-side behind a Cloudflare proxy."
+            "fr": "Claude classe chaque note (action, info, idée) et lui donne un niveau d'urgence. Tu ne ranges plus, tu déposes.",
+            "en": "Claude classifies every note (action, info, idea) and gives it an urgency level. You no longer file things, you just drop them."
           }
         },
         {
           "title": {
-            "fr": "L'IA au bon endroit",
-            "en": "AI in the right place"
+            "fr": "Relier les idées",
+            "en": "Connect the ideas"
           },
           "body": {
-            "fr": "Whisper transcrit la voix, Claude classe (ACTION / INFO / IDÉE / VRAC) et suggère des connexions l'app apprend de tes corrections.",
-            "en": "Whisper transcribes voice, Claude classifies (ACTION / INFO / IDEA / MISC) and suggests connections the app learns from your corrections."
+            "fr": "L'app tisse des clusters entre les notes et fait remonter ce qui dormait, au bon moment (rappels, récaps du matin).",
+            "en": "The app weaves clusters between notes and resurfaces what was dormant, at the right moment (reminders, morning recaps)."
           }
         },
         {
           "title": {
-            "fr": "Crédible dès le jour 1",
-            "en": "Credible from day one"
+            "fr": "La confidentialité, pas en option",
+            "en": "Privacy, not optional"
           },
           "body": {
-            "fr": "Design system, niveaux d'urgence, rappels datés, buffer d'impulsivité : pas une démo, un produit.",
-            "en": "Design system, urgency levels, dated reminders, impulse buffer: not a demo, a product."
+            "fr": "Avant tout envoi à l'IA, les données sensibles (noms, emails, numéros) sont détectées et anonymisées sur l'appareil. Les clés restent côté serveur, jamais dans l'app.",
+            "en": "Before anything reaches the AI, sensitive data (names, emails, numbers) is detected and anonymized on the device. The keys stay server-side, never in the app."
           }
         }
       ],
-      "outcomes": [
-        {
-          "title": {
-            "fr": "Capture texte + voix",
-            "en": "Text + voice capture"
-          },
-          "body": {
-            "fr": "On jette en vrac ; les vocaux sont transcrits automatiquement.",
-            "en": "Dump in bulk; voice memos are transcribed automatically."
-          }
-        },
-        {
-          "title": {
-            "fr": "Classement automatique",
-            "en": "Automatic sorting"
-          },
-          "body": {
-            "fr": "Action, info, idée ou vrac avec un niveau d'urgence.",
-            "en": "Action, info, idea or misc with an urgency level."
-          }
-        },
-        {
-          "title": {
-            "fr": "Connexions entre notes",
-            "en": "Connections between notes"
-          },
-          "body": {
-            "fr": "DUMP relie ce qui va ensemble et extrait les entités clés.",
-            "en": "DUMP links what belongs together and extracts key entities."
-          }
-        },
-        {
-          "title": {
-            "fr": "Rappels au bon moment",
-            "en": "Reminders at the right time"
-          },
-          "body": {
-            "fr": "Rappels datés et buffer d'impulsivité pour ne rien laisser filer.",
-            "en": "Dated reminders and an impulse buffer so nothing slips."
-          }
-        }
-      ],
+      "outcomes": [],
       "gallery": [
         {
           "src": "./images/projects/dump/gallery-1.webp",
@@ -231,8 +148,8 @@
       "processImage": {
         "src": "./images/projects/dump/process.webp",
         "caption": {
-          "fr": "Tri par IA (Claude · Whisper) & confidentialité",
-          "en": "AI sorting (Claude · Whisper) & privacy"
+          "fr": "Tri par IA (Claude) & confidentialité",
+          "en": "AI sorting (Claude) & privacy"
         }
       }
     },
@@ -267,53 +184,26 @@
     "externalUrl": "https://stow-app.fr/",
     "detail": {
       "tagline": {
-        "fr": "Le coffre-fort de vos voyages en groupe",
-        "en": "The vault for your group trips"
+        "fr": "WhatsApp, c'est pour les memes. STOW, c'est pour vos billets.",
+        "en": "WhatsApp is for memes. STOW is for your tickets."
       },
       "highlight": {
         "fr": "STOW",
         "en": "STOW"
       },
       "heading": {
-        "fr": "voyagez serein",
-        "en": "travel worry-free"
+        "fr": "Le coffre-fort des voyages en groupe",
+        "en": "The vault for group trips"
       },
       "lead": {
-        "fr": "En voyage de groupe, les documents (billets, réservations, photos de passeport) sont éparpillés dans WhatsApp et introuvables au mauvais moment, sans accès hors ligne à la douane ou à l'arrivée. STOW est un coffre-fort de documents de voyage partagé.",
-        "en": "On a group trip, documents (tickets, bookings, passport photos) get scattered across WhatsApp and are impossible to find at the worst moment, with no offline access at customs or on arrival. STOW is a shared vault for travel documents."
+        "fr": "STOW est le coffre-fort des voyages en groupe : tous les documents importants, billets, réservations, passeports, au même endroit, partagés avec le groupe, et accessibles même hors ligne.",
+        "en": "STOW is the vault for group trips: every important document, tickets, bookings, passports, in one place, shared with the group, and available even offline."
       },
       "status": {
-        "fr": "Publié sur iOS ET Android « Stow Voyagez serein » (v1.2), disponible sur l'App Store et le Google Play Store.",
-        "en": "Published on iOS AND Android “Stow Voyagez serein” (v1.2), available on the App Store and Google Play Store."
+        "fr": "STOW est développée en Flutter (iOS et Android depuis une seule base de code), sur Firebase. Publiée sur l'App Store, avec son propre site. Un produit mené du concept jusqu'au déploiement.",
+        "en": "STOW is built in Flutter (iOS and Android from a single codebase), on Firebase. Published on the App Store, with its own site. A product taken from concept all the way to release."
       },
-      "context": {
-        "heading": {
-          "fr": "La solution",
-          "en": "The solution"
-        },
-        "body": {
-          "fr": "On crée un voyage, on invite ses amis, chacun ajoute ses documents (PDF, captures, photos de passeport). Les documents importants restent accessibles même sans réseau. Login rapide Apple ou Google, fichiers disponibles en deux clics.",
-          "en": "Create a trip, invite your friends, and everyone adds their documents (PDFs, screenshots, passport photos). The important ones stay accessible even with no signal. Quick Apple or Google sign-in, files ready in two taps."
-        }
-      },
-      "impact": [
-        {
-          "fr": "Voyage partagé : chaque membre du groupe contribue ses propres documents",
-          "en": "Shared trip: every member of the group contributes their own documents"
-        },
-        {
-          "fr": "Accès hors ligne aux documents importants (douane, aéroport sans réseau)",
-          "en": "Offline access to important documents (customs, an airport with no signal)"
-        },
-        {
-          "fr": "Chaque document à sa place, fini le mélange avec le chat de groupe",
-          "en": "Every document in its place no more mixing with the group chat"
-        },
-        {
-          "fr": "Login rapide Apple ou Google, gratuit",
-          "en": "Quick Apple or Google sign-in, free"
-        }
-      ],
+      "impact": [],
       "links": [
         {
           "label": {
@@ -330,53 +220,33 @@
           "url": "https://apps.apple.com/us/app/stow-voyagez-serein/id6758451337"
         }
       ],
-      "cta": {
-        "heading": {
-          "fr": "Envie de tester ?",
-          "en": "Want to try it?"
-        },
-        "body": {
-          "fr": "L'app est disponible gratuitement sur l'App Store et le Google Play Store.",
-          "en": "The app is available for free on the App Store and the Google Play Store."
-        }
-      },
       "quote": {
-        "fr": "Fini le PDF perdu entre un meme et un vocal de 4 minutes.",
-        "en": "No more PDF lost between a meme and a 4-minute voice note."
+        "fr": "Vos documents de voyage, tous au même endroit. Même sans réseau.",
+        "en": "Your travel documents, all in one place. Even offline."
       },
       "why": {
-        "fr": "En voyage de groupe, les documents sont éparpillés dans WhatsApp et introuvables au mauvais moment, sans accès hors ligne à la douane ou à l'arrivée. STOW transforme le stress du départ en zénitude : un coffre-fort partagé, à jour, accessible même sans réseau.",
-        "en": "On group trips, documents are scattered across WhatsApp and impossible to find at the wrong moment, with no offline access at customs or on arrival. STOW turns departure stress into calm: a shared vault, up to date, reachable even offline."
+        "fr": "L'idée est née d'un vrai voyage entre potes. Chercher un PDF perdu dans WhatsApp au moment où on en a besoin, à la douane, au sous-sol de l'aéroport, sans réseau, c'est le genre de galère qui n'arrive qu'au pire moment. J'ai voulu un endroit dédié où ne vivent que les documents du voyage, accessibles par tout le groupe.",
+        "en": "The idea came from a real trip with friends. Digging for a PDF lost in WhatsApp exactly when you need it, at customs, in the airport basement, with no signal, is the kind of mess that only hits at the worst moment. I wanted a dedicated place where only the trip's documents live, reachable by the whole group."
       },
       "approach": [
         {
           "title": {
-            "fr": "Hors ligne d'abord",
-            "en": "Offline first"
+            "fr": "L'union fait le rangement",
+            "en": "Tidy, together"
           },
           "body": {
-            "fr": "Les documents importants restent accessibles sans réseau douane, aéroport, arrivée.",
-            "en": "Key documents stay reachable without a network customs, airport, arrival."
+            "fr": "On crée un voyage, on invite ses compagnons avec un code, et chacun ajoute ses documents. Tout le groupe accède aux mêmes fichiers.",
+            "en": "Create a trip, invite your companions with a code, and everyone adds their documents. The whole group reaches the same files."
           }
         },
         {
           "title": {
-            "fr": "Partagé par design",
-            "en": "Shared by design"
+            "fr": "Accès hors ligne, le vrai",
+            "en": "Offline for real"
           },
           "body": {
-            "fr": "Chaque membre du groupe contribue ses propres documents ; tout le monde y accède.",
-            "en": "Each group member contributes their own documents; everyone can access them."
-          }
-        },
-        {
-          "title": {
-            "fr": "Zéro setup",
-            "en": "Zero setup"
-          },
-          "body": {
-            "fr": "Login rapide Apple ou Google, gratuit utile dès la première seconde.",
-            "en": "Quick Apple or Google login, free useful from the first second."
+            "fr": "Pas de Wi-Fi à la douane ? Les documents restent accessibles, téléchargés en local, lecture garantie sans réseau.",
+            "en": "No Wi-Fi at customs? The documents stay accessible, downloaded locally, readable with no signal."
           }
         },
         {
@@ -385,53 +255,22 @@
             "en": "Every doc in its place"
           },
           "body": {
-            "fr": "Fini le mélange avec le chat de groupe : un rangement clair et dédié.",
-            "en": "No more mixing with the group chat: clear, dedicated storage."
+            "fr": "Types de documents configurables, visionneuse PDF native, planning et activités, de quoi organiser tout le voyage.",
+            "en": "Configurable document types, a native PDF viewer, planning and activities, everything to organize the whole trip."
+          }
+        },
+        {
+          "title": {
+            "fr": "Simplicité radicale",
+            "en": "Radically simple"
+          },
+          "body": {
+            "fr": "Connexion Apple ou Google, verrouillage biométrique, fichiers ajoutés en deux clics.",
+            "en": "Apple or Google sign-in, biometric lock, files added in two taps."
           }
         }
       ],
-      "outcomes": [
-        {
-          "title": {
-            "fr": "Voyage partagé",
-            "en": "Shared trip"
-          },
-          "body": {
-            "fr": "Chaque membre ajoute ses documents au coffre commun.",
-            "en": "Each member adds their documents to the shared vault."
-          }
-        },
-        {
-          "title": {
-            "fr": "Accès hors ligne",
-            "en": "Offline access"
-          },
-          "body": {
-            "fr": "Les documents clés disponibles sans connexion.",
-            "en": "Key documents available without a connection."
-          }
-        },
-        {
-          "title": {
-            "fr": "Rangement clair",
-            "en": "Clear storage"
-          },
-          "body": {
-            "fr": "Chaque document à sa place, plus de perte dans le chat.",
-            "en": "Every document in its place, no more losing it in the chat."
-          }
-        },
-        {
-          "title": {
-            "fr": "Gratuit, sans friction",
-            "en": "Free, frictionless"
-          },
-          "body": {
-            "fr": "Login Apple ou Google, prêt en quelques secondes.",
-            "en": "Apple or Google login, ready in seconds."
-          }
-        }
-      ],
+      "outcomes": [],
       "gallery": [
         {
           "src": "./images/projects/stow/gallery-2.webp",
@@ -495,57 +334,26 @@
     "externalUrl": "https://extralimo.fr",
     "detail": {
       "tagline": {
-        "fr": "On trouve, vous brillez.",
-        "en": "We find them, you shine."
+        "fr": "Une équipe, pas un algorithme.",
+        "en": "A team, not an algorithm."
       },
       "highlight": {
         "fr": "EXTRALIMO",
         "en": "EXTRALIMO"
       },
       "heading": {
-        "fr": "mise en relation HCR",
-        "en": "hospitality staffing"
+        "fr": "Mise en relation, à intermédiation humaine",
+        "en": "Staffing, with a human in the loop"
       },
       "lead": {
-        "fr": "L'hôtellerie-restauration peine à trouver les bons extras ; les candidats manquent de visibilité. EXTRALIMO les relie mais ce n'est pas un job board en libre-service : la valeur, c'est l'intermédiation humaine, une petite équipe d'admins qui sélectionne, propose et accompagne.",
-        "en": "Hospitality struggles to find the right extra staff; candidates lack visibility. EXTRALIMO connects them but it's not a self-service job board: the value is the human touch, a small team of admins who select, propose and support."
+        "fr": "EXTRALIMO met en relation les talents et les entreprises de l'hôtellerie-restauration, avec un vrai accompagnement humain. Pas un job board : une équipe qui sélectionne, propose et suit chaque rapprochement.",
+        "en": "EXTRALIMO connects talents with hospitality and restaurant businesses, with real human support. Not a job board: a team that selects, proposes and follows every match."
       },
       "status": {
-        "fr": "En ligne sur extralimo.fr (52 commits, mise à jour juin 2026). Projet mené avec mes associés.",
-        "en": "Live at extralimo.fr (52 commits, updated June 2026). Built with my co-founders."
+        "fr": "EXTRALIMO est en ligne (extralimo.fr), en cours de lancement, avec un ancrage local en Touraine. J'ai développé l'ensemble de la plateforme, en apportant aussi mes idées sur le site et la logique métier, fort de mon passé en restauration. Le nom ? « Extra » pour les extras, « limo » pour le limonadier, le tire-bouchon du serveur. Un clin d'œil au métier.",
+        "en": "EXTRALIMO is online (extralimo.fr), in its launch phase, with local roots in Touraine. I developed the entire platform, also bringing my own ideas to the site and the business logic, drawing on my past in restaurants. The name? « Extra » for the extra shifts, « limo » for the limonadier, the waiter's corkscrew. A nod to the trade."
       },
-      "context": {
-        "heading": {
-          "fr": "La solution",
-          "en": "The solution"
-        },
-        "body": {
-          "fr": "Plateforme web articulée autour de 3 rôles (candidat / entreprise / admin) et d'un objet central, le « match » (suggéré → en cours → contact débloqué → placé). Confidentialité by design : les coordonnées restent masquées tant qu'un admin n'a pas débloqué le contact. Inscriptions publiques mobile-first, consentement RGPD.",
-          "en": "A web platform built around 3 roles (candidate / business / admin) and one central object, the “match” (suggested → in progress → contact unlocked → placed). Privacy by design: contact details stay hidden until an admin unlocks the match. Public mobile-first sign-ups, GDPR consent."
-        }
-      },
-      "impact": [
-        {
-          "fr": "Trois rôles (candidat / entreprise / admin) autour d'un objet « match »",
-          "en": "Three roles (candidate / business / admin) around a “match” object"
-        },
-        {
-          "fr": "Confidentialité by design : coordonnées masquées jusqu'au déblocage par un admin",
-          "en": "Privacy by design: contact details hidden until an admin unlocks them"
-        },
-        {
-          "fr": "Matchs créés manuellement, placement selon le type de contrat et l'affinité de poste",
-          "en": "Matches created manually, placement based on contract type and role fit"
-        },
-        {
-          "fr": "Inscriptions publiques mobile-first, consentement RGPD",
-          "en": "Public mobile-first sign-ups, GDPR consent"
-        },
-        {
-          "fr": "Modèle économique : commission au contrat (pourcentage sur le placement)",
-          "en": "Business model: commission per contract (a percentage of the placement)"
-        }
-      ],
+      "impact": [],
       "links": [
         {
           "label": {
@@ -555,108 +363,57 @@
           "url": "https://extralimo.fr"
         }
       ],
-      "cta": {
-        "heading": {
-          "fr": "Voir la plateforme",
-          "en": "See the platform"
-        },
-        "body": {
-          "fr": "Le produit est en ligne je peux présenter le modèle de données, le cycle de vie d'un « match » et l'approche confidentialité.",
-          "en": "The product is live I can walk through the data model, the lifecycle of a “match” and the privacy approach."
-        }
-      },
       "quote": {
-        "fr": "Pas un job board de plus : un match validé par un humain.",
-        "en": "Not one more job board: a match validated by a human."
+        "fr": "On trouve, vous brillez.",
+        "en": "We find, you shine."
       },
       "why": {
-        "fr": "L'hôtellerie-restauration peine à trouver les bons extras ; les candidats manquent de visibilité. EXTRALIMO les relie mais ce n'est pas un job board en libre-service : la valeur, c'est l'intermédiation humaine qui garantit un match pertinent.",
-        "en": "Hospitality struggles to find the right extras; candidates lack visibility. EXTRALIMO connects them but it's not a self-service job board: the value is the human intermediation that guarantees a relevant match."
+        "fr": "La restauration galère à recruter, et les candidats galèrent à trouver les bonnes places. En France, rien n'est vraiment pensé pour ce secteur. Le projet est né de deux professionnels du métier. Ayant moi-même travaillé en restauration, j'ai tout de suite vu la justesse du besoin, et j'ai construit la plateforme qui y répond.",
+        "en": "Restaurants struggle to hire, and candidates struggle to find the right spots. In France, nothing is really built for this industry. The project was born from two professionals of the trade. Having worked in restaurants myself, I immediately saw how right the need was, and I built the platform that answers it."
       },
       "approach": [
         {
           "title": {
-            "fr": "Trois rôles, un objet « match »",
-            "en": "Three roles, one “match”"
+            "fr": "L'humain avant l'algo",
+            "en": "People before the algorithm"
           },
           "body": {
-            "fr": "Candidat, entreprise et admin s'articulent autour d'une mise en relation.",
-            "en": "Candidate, company and admin revolve around a single connection."
+            "fr": "Aucun matching automatique : chaque rapprochement est décidé par l'équipe, souvent après un simple coup de fil. J'ai développé un moteur de suggestions qui aide à la décision, sans jamais la remplacer.",
+            "en": "No automatic matching: every match is decided by the team, often after a simple phone call. I built a suggestion engine that supports the decision, without ever replacing it."
           }
         },
         {
           "title": {
-            "fr": "Confidentialité by design",
-            "en": "Confidentiality by design"
+            "fr": "La confidentialité comme règle d'or",
+            "en": "Privacy as the golden rule"
           },
           "body": {
-            "fr": "Les coordonnées restent masquées jusqu'au déblocage par un admin.",
-            "en": "Contact details stay hidden until an admin unlocks them."
+            "fr": "Les coordonnées ne sont jamais exposées, ni côté candidat, ni côté entreprise. Une règle métier non négociable, inscrite dans le code.",
+            "en": "Contact details are never exposed, neither on the candidate side nor the business side. A non-negotiable business rule, written into the code."
           }
         },
         {
           "title": {
-            "fr": "Intermédiation humaine",
-            "en": "Human intermediation"
+            "fr": "Tout le secteur couvert",
+            "en": "The whole industry covered"
           },
           "body": {
-            "fr": "Matchs créés manuellement, selon le type de contrat et l'affinité de poste.",
-            "en": "Matches created manually, by contract type and role affinity."
+            "fr": "Extra, saison, CDD, CDI, apprentissage. De la plonge à la réception, la plateforme colle aux vrais besoins du terrain.",
+            "en": "Extra, seasonal, fixed-term, permanent, apprenticeship. From dishwashing to the front desk, the platform fits the real needs of the field."
           }
         },
         {
           "title": {
-            "fr": "Mobile-first, RGPD",
-            "en": "Mobile-first, GDPR"
+            "fr": "Pensée pour durer",
+            "en": "Built to last"
           },
           "body": {
-            "fr": "Inscriptions publiques pensées mobile, avec consentement RGPD.",
-            "en": "Public sign-ups designed mobile-first, with GDPR consent."
+            "fr": "Développée en Laravel : inscription sans compte, suivi des placements, import des profils, notifications. Une base solide en production.",
+            "en": "Developed in Laravel: sign-up without an account, placement tracking, profile imports, notifications. A solid base, in production."
           }
         }
       ],
-      "outcomes": [
-        {
-          "title": {
-            "fr": "Mise en relation validée",
-            "en": "Validated connection"
-          },
-          "body": {
-            "fr": "Un match créé et validé par un admin, pas un self-service.",
-            "en": "A match created and validated by an admin, not self-service."
-          }
-        },
-        {
-          "title": {
-            "fr": "Coordonnées protégées",
-            "en": "Protected contact details"
-          },
-          "body": {
-            "fr": "Débloquées seulement une fois le match confirmé.",
-            "en": "Unlocked only once the match is confirmed."
-          }
-        },
-        {
-          "title": {
-            "fr": "Placement par affinité",
-            "en": "Placement by affinity"
-          },
-          "body": {
-            "fr": "Selon le type de contrat et le poste recherché.",
-            "en": "By contract type and target role."
-          }
-        },
-        {
-          "title": {
-            "fr": "Modèle à la commission",
-            "en": "Commission model"
-          },
-          "body": {
-            "fr": "Rémunération au contrat placé (pourcentage).",
-            "en": "Paid per placed contract (percentage)."
-          }
-        }
-      ],
+      "outcomes": [],
       "gallery": [
         {
           "src": "./images/projects/extralimo/gallery-2.webp",
@@ -712,57 +469,26 @@
     "externalUrl": "https://www.powerflows.fr/solutions/ticketing-it",
     "detail": {
       "tagline": {
-        "fr": "Votre support IT, simplifié",
-        "en": "Your IT support, simplified"
+        "fr": "Le support IT, sans nouvel outil ni abonnement.",
+        "en": "IT support, with no new tool and no subscription."
       },
       "highlight": {
         "fr": "Ticketing IT",
         "en": "Ticketing IT"
       },
       "heading": {
-        "fr": "intégré à Microsoft 365",
-        "en": "integrated with Microsoft 365"
+        "fr": "Le support IT dans Microsoft 365",
+        "en": "IT support inside Microsoft 365"
       },
       "lead": {
-        "fr": "Les PME noient leurs demandes IT dans les emails, Teams et le téléphone : aucune visibilité, des process manuels, et une Power Platform déjà incluse dans leur licence Microsoft 365 mais sous-exploitée.",
-        "en": "SMBs drown their IT requests in email, Teams and phone calls: no visibility, manual processes, and a Power Platform that's already in their Microsoft 365 license but left underused."
+        "fr": "Ticketing IT, c'est le support informatique simplifié : un portail où les utilisateurs créent une demande en 30 secondes, un tableau de bord complet côté admin, et un déploiement en une demi-journée. 100% dans Microsoft 365.",
+        "en": "Ticketing IT is IT support, simplified: a portal where users file a request in 30 seconds, a complete dashboard on the admin side, and deployment in half a day. 100% inside Microsoft 365."
       },
       "status": {
-        "fr": "Solution présentée sur powerflows.fr déployable en une demi-journée dans un tenant Microsoft 365 existant, formation incluse.",
-        "en": "Presented on powerflows.fr deployable in half a day inside an existing Microsoft 365 tenant, training included."
+        "fr": "Ticketing IT est un produit abouti, déployable en une demi-journée, et commercialisé sous la marque PowerFlows. Une vraie alternative aux solutions du marché souvent coûteuses en abonnement : un achat unique, et la solution est à vous.",
+        "en": "Ticketing IT is a finished product, deployable in half a day, and sold under the PowerFlows brand. A real alternative to market solutions that often cost a fortune in subscriptions: a one-time purchase, and the solution is yours."
       },
-      "context": {
-        "heading": {
-          "fr": "La solution",
-          "en": "The solution"
-        },
-        "body": {
-          "fr": "Un système de ticketing intégré à Microsoft 365 : pas de nouvel outil à adopter, tout vit dans l'écosystème que l'entreprise utilise déjà. Mise en place type : Échange → Démo → Déploiement → Formation.",
-          "en": "An IT ticketing system integrated with Microsoft 365: no new tool to adopt, everything lives inside the ecosystem the company already uses. Typical engagement: Discovery → Demo → Deployment → Training."
-        }
-      },
-      "impact": [
-        {
-          "fr": "Portail utilisateur : une demande créée en 30 secondes (3 champs)",
-          "en": "User portal: a request created in 30 seconds (3 fields)"
-        },
-        {
-          "fr": "Dashboard admin : KPI temps réel, filtres, recherche et badges SLA (vert / orange / rouge)",
-          "en": "Admin dashboard: real-time KPIs, filters, search and SLA badges (green / amber / red)"
-        },
-        {
-          "fr": "Notifications automatiques par Email et Teams",
-          "en": "Automatic Email and Teams notifications"
-        },
-        {
-          "fr": "Reporting Power BI",
-          "en": "Power BI reporting"
-        },
-        {
-          "fr": "Deux formules (Essentielle / Complète), maintenance en option",
-          "en": "Two plans (Essential / Complete), optional maintenance"
-        }
-      ],
+      "impact": [],
       "links": [
         {
           "label": {
@@ -772,108 +498,57 @@
           "url": "https://www.powerflows.fr/solutions/ticketing-it"
         }
       ],
-      "cta": {
-        "heading": {
-          "fr": "Voir la solution",
-          "en": "See the solution"
-        },
-        "body": {
-          "fr": "La solution est présentée en ligne sur PowerFlows je peux détailler l'architecture Power Platform (Power Apps, Power Automate, Power BI, SharePoint) et une démo.",
-          "en": "The solution is presented online on PowerFlows I can walk through the Power Platform architecture (Power Apps, Power Automate, Power BI, SharePoint) and a demo."
-        }
-      },
       "quote": {
-        "fr": "La Power Platform qu'ils paient déjà enfin exploitée.",
-        "en": "The Power Platform they already pay for finally put to use."
+        "fr": "Votre support IT, enfin sous contrôle.",
+        "en": "Your IT support, finally under control."
       },
       "why": {
-        "fr": "Les PME noient leurs demandes IT dans les emails, Teams et le téléphone : aucune visibilité, des process manuels alors qu'une Power Platform est déjà incluse dans leur licence Microsoft 365, mais sous-exploitée. Ticketing IT part de ce gâchis.",
-        "en": "SMEs drown their IT requests in emails, Teams and phone calls: no visibility, manual processes while a Power Platform is already included in their Microsoft 365 license, but underused. Ticketing IT starts from that waste."
+        "fr": "Dans beaucoup d'entreprises, les demandes IT partent dans tous les sens : un email par-ci, un message Teams par-là, un coup de fil, quelqu'un qui passe au bureau. Résultat : des demandes qui se perdent, aucun historique, zéro visibilité sur ce qui bloque. Ticketing IT remet de l'ordre, sans imposer un nouvel outil à apprendre.",
+        "en": "In many companies, IT requests fly in every direction: an email here, a Teams message there, a phone call, someone stopping by the office. The result: lost requests, no history, zero visibility on what's stuck. Ticketing IT restores order, without forcing a new tool to learn."
       },
       "approach": [
         {
           "title": {
-            "fr": "Sur l'existant",
-            "en": "On top of the existing"
+            "fr": "Simple pour l'utilisateur",
+            "en": "Simple for the user"
           },
           "body": {
-            "fr": "Bâti sur le Microsoft 365 déjà en place pas de nouvel outil, pas de nouvelle licence.",
-            "en": "Built on the Microsoft 365 already in place no new tool, no new license."
+            "fr": "Un portail à trois champs, une demande créée en 30 secondes, avec suivi du statut et historique. Pas de formation nécessaire.",
+            "en": "A three-field portal, a request filed in 30 seconds, with status tracking and history. No training needed."
           }
         },
         {
           "title": {
-            "fr": "Une demande en 30 s",
-            "en": "A request in 30s"
+            "fr": "Complet pour l'admin",
+            "en": "Complete for the admin"
           },
           "body": {
-            "fr": "Portail utilisateur minimaliste : trois champs, et c'est envoyé.",
-            "en": "Minimal user portal: three fields, and it's sent."
+            "fr": "Un tableau de bord avec KPI, SLA en temps réel, gestion des rôles, catégories et équipes, administrable depuis l'application.",
+            "en": "A dashboard with KPIs, real-time SLAs, role management, categories and teams, all administered from the app."
           }
         },
         {
           "title": {
-            "fr": "Piloté par le SLA",
-            "en": "SLA-driven"
+            "fr": "Automatisé",
+            "en": "Automated"
           },
           "body": {
-            "fr": "Dashboard admin avec KPI temps réel et badges SLA (vert / orange / rouge).",
-            "en": "Admin dashboard with real-time KPIs and SLA badges (green / orange / red)."
+            "fr": "Notifications par email et Teams à chaque étape, récapitulatif quotidien. Rien ne passe à la trappe.",
+            "en": "Email and Teams notifications at every step, a daily summary. Nothing slips through the cracks."
           }
         },
         {
           "title": {
-            "fr": "Déployable en ½ journée",
-            "en": "Deployable in half a day"
+            "fr": "100% Microsoft 365",
+            "en": "100% Microsoft 365"
           },
           "body": {
-            "fr": "Mise en place dans un tenant existant, formation incluse.",
-            "en": "Set up in an existing tenant, training included."
+            "fr": "Construit sur SharePoint, Power Apps, Power Automate, Power BI et Teams. Les données restent chez le client, en France.",
+            "en": "Built on SharePoint, Power Apps, Power Automate, Power BI and Teams. The data stays with the client, in France."
           }
         }
       ],
-      "outcomes": [
-        {
-          "title": {
-            "fr": "Portail en 30 secondes",
-            "en": "Portal in 30 seconds"
-          },
-          "body": {
-            "fr": "Une demande créée en trois champs.",
-            "en": "A request created in three fields."
-          }
-        },
-        {
-          "title": {
-            "fr": "Dashboard temps réel",
-            "en": "Real-time dashboard"
-          },
-          "body": {
-            "fr": "KPI, filtres, recherche et badges SLA.",
-            "en": "KPIs, filters, search and SLA badges."
-          }
-        },
-        {
-          "title": {
-            "fr": "Notifications Email & Teams",
-            "en": "Email & Teams notifications"
-          },
-          "body": {
-            "fr": "Automatiques, là où les équipes travaillent déjà.",
-            "en": "Automatic, where teams already work."
-          }
-        },
-        {
-          "title": {
-            "fr": "Reporting Power BI",
-            "en": "Power BI reporting"
-          },
-          "body": {
-            "fr": "Le suivi et l'analyse intégrés.",
-            "en": "Tracking and analysis built in."
-          }
-        }
-      ],
+      "outcomes": [],
       "gallery": [
         {
           "src": "./images/projects/ticketing-it/gallery-1.webp",
