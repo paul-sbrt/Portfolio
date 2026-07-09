@@ -570,7 +570,21 @@ function buildProjectCard(project) {
   const sweep = document.createElement("div");
   sweep.className = "proj-sweep";
   const hasImage = project.image && project.image.indexOf("placeholder") === -1;
-  if (hasImage) {
+  // Brand card (like the Microsoft cases): a centered app/tech logo on the brand field.
+  // cardLogo wins — the card shows the logo even when the detail hero uses a real
+  // screenshot (STOW); coverLogo reuses project.image as the logo (Microsoft, DUMP).
+  const logoSrc =
+    project.cardLogo || (project.coverLogo && hasImage ? project.image : null);
+  if (logoSrc) {
+    const mesh = document.createElement("div");
+    mesh.className = "proj-mesh";
+    const logo = document.createElement("img");
+    logo.className = "proj-logo";
+    logo.src = logoSrc;
+    logo.alt = project.title;
+    logo.loading = "lazy";
+    thumb.append(mesh, logo, sweep);
+  } else if (hasImage) {
     const img = document.createElement("img");
     img.className = "proj-img";
     img.src = project.image;

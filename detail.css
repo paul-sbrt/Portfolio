@@ -143,6 +143,15 @@
 [data-detail] .dt-gal--full{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));grid-template-rows:auto;aspect-ratio:auto}
 [data-detail] .dt-gal--full .dt-shot{aspect-ratio:16/10}
 [data-detail] .dt-gal--full .dt-shot:nth-child(1){grid-row:auto}
+/* ===== Apps (data-kind="app") : médias PORTRAIT — captures téléphone ENTIÈRES ===== */
+/* Héros : le device devient un vrai format téléphone, image en contain (jamais recadrée,
+   le haut/logo n'est pas coupé). Hauteur pilotée → largeur dérivée, centré dans sa colonne. */
+[data-detail][data-kind="app"] .dt-device{aspect-ratio:9/19.5;height:min(68vh,600px);width:auto;justify-self:center;align-self:center;background:#0a0809}
+[data-detail][data-kind="app"] .dt-device .dt-img{object-fit:contain}
+/* Galerie : tuiles portrait, image entière (contain), fond sombre pour un léger letterbox propre. */
+[data-detail][data-kind="app"] .dt-gal--full{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+[data-detail][data-kind="app"] .dt-gal--full .dt-shot{aspect-ratio:9/18;background:#0a0809}
+[data-detail][data-kind="app"] .dt-gal--full .dt-shot .dt-img{object-fit:contain}
 /* cover LOGO d'outil → carte de marque (logo centré, contain, de l'air — pas d'étirement) */
 [data-detail] .dt-logofield{position:absolute;inset:0;display:grid;place-items:center;padding:11%;background:linear-gradient(150deg,color-mix(in srgb,var(--brand) 16%,var(--ink2)),var(--ink2) 88%)}
 [data-detail] .dt-logofield::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 1px,transparent 1px 26px)}

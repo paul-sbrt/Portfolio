@@ -341,6 +341,7 @@ def render_page(project, lang, ui):
     summary = esc(T(project.get("summary", ""), lang))
     hats = project.get("hats") or ["Web"]
     is_app = "App" in hats
+    app_kind = ' data-kind="app"' if is_app else ""  # → CSS portrait (héros device + galerie)
     brand, brand2, g2, brand_ink, brand2_ink = charte(project)
 
     if lang == "fr":
@@ -419,7 +420,7 @@ def render_page(project, lang, ui):
     <script src="{base}i18n.js" defer></script>
   </head>
 
-  <body data-detail data-i18n-base="{base}" data-alt-{alt_lang}="{alt_rel}" style="--brand:{brand};--brand2:{brand2};--g2:{g2};--brand-ink:{brand_ink};--brand2-ink:{brand2_ink};">
+  <body data-detail{app_kind} data-i18n-base="{base}" data-alt-{alt_lang}="{alt_rel}" style="--brand:{brand};--brand2:{brand2};--g2:{g2};--brand-ink:{brand_ink};--brand2-ink:{brand2_ink};">
     <div class="dt-nav-shell">
       <div class="container">
         <div class="header-sticky">

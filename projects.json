@@ -2,7 +2,7 @@
   {
     "slug": "dump",
     "title": "DUMP",
-    "image": "./images/placeholder.svg",
+    "image": "./images/projects/dump/logo.webp",
     "summary": {
       "fr": "« Deuxième cerveau » iOS : on capture texte ou voix en vrac, l'IA (Claude + Whisper) trie automatiquement en catégories et niveaux d'urgence, suggère des connexions et des rappels. Modèle freemium via StoreKit 2.",
       "en": "iOS “second brain”: capture text or voice on the fly, and the AI (Claude + Whisper) automatically sorts it into categories and urgency levels, suggesting connections and reminders. Freemium model via StoreKit 2."
@@ -186,7 +186,8 @@
       ]
     },
     "brand": "#E8A44A",
-    "brand2": "#F2CC8F"
+    "brand2": "#F2CC8F",
+    "coverLogo": true
   },
   {
     "slug": "stow",
@@ -419,12 +420,13 @@
       ]
     },
     "brand": "#FF4F00",
-    "brand2": "#39D2C0"
+    "brand2": "#39D2C0",
+    "cardLogo": "./images/projects/stow/logo.webp"
   },
   {
     "slug": "extralimo",
     "title": "EXTRALIMO",
-    "image": "./images/projects/extralimo/cover.webp",
+    "image": "./images/placeholder.svg",
     "summary": {
       "fr": "Plateforme web de mise en relation à intermédiation humaine pour l'hôtellerie-restauration : candidats, entreprises et admins autour d'un « match », avec confidentialité by design. Menée avec ses associés.",
       "en": "A human-led staffing web platform for the hospitality industry: candidates, businesses and admins around a “match”, with privacy by design. Built with his co-founders."
