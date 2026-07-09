@@ -18,11 +18,11 @@ return [
     'from_name'   => 'Portfolio Paul Sabourault',
 
     // SMTP O2switch (identifiants de la boîte contact@portfolio-sbrt.com).
-    'smtp_host'   => 'À REMPLIR AU DÉPLOIEMENT',            // ex. xxxxx.o2switch.net ou mail.portfolio-sbrt.com
-    'smtp_user'   => 'À REMPLIR AU DÉPLOIEMENT',            // login SMTP = souvent contact@portfolio-sbrt.com
+    'smtp_host'   => 'portfolio-sbrt.com',                  // SMTP O2switch (confirmé)
+    'smtp_user'   => 'contact@portfolio-sbrt.com',          // login SMTP = la boîte
     'smtp_pass'   => 'À REMPLIR AU DÉPLOIEMENT',            // mot de passe de la boîte (serveur uniquement)
-    'smtp_port'   => 465,                                   // 465 (SSL) ou 587 (TLS)
-    'smtp_secure' => 'ssl',                                 // 'ssl' pour 465, 'tls' pour 587
+    'smtp_port'   => 465,                                   // 465 = SSL implicite
+    'smtp_secure' => 'ssl',                                 // 'ssl' pour 465 (surtout PAS 'tls')
 
     'subject_prefix' => '[Portfolio] ',
     'min_seconds'    => 2,                                  // time-trap anti-bot

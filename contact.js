@@ -3,7 +3,7 @@
    SIMULATE = true → envoi simulé en local (pas de PHP) ; passer à false une fois
    contact.php en ligne. Sans JS : le form POST natif vers contact.php (fallback). */
 (function () {
-  var SIMULATE = true; // ⚠️ DÉPLOIEMENT : mettre à false quand contact.php est en ligne
+  var SIMULATE = false; // envoi RÉEL via contact.php (SMTP O2switch)
 
   var form = document.getElementById("contactForm");
   if (!form) return;

@@ -16,7 +16,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-REMOTE="suno5661@suno5661.odns.fr"     # ⚠️ À CONFIRMER : même compte O2switch qu'EXTRALIMO ?
+REMOTE="suno5661@suno5661.odns.fr"     # compte O2switch (confirmé, même qu'EXTRALIMO)
 SERVER_DIR="~/portfolio-sbrt.com"      # docroot de portfolio-sbrt.com (fourni par Paul)
 BRANCH="refonte"
 URL="https://portfolio-sbrt.com"
