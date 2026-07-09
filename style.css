@@ -2789,12 +2789,12 @@ nav .fa-solid {
     font-size: clamp(64px, 22vw, 100px);
     line-height: 0.84;
     letter-spacing: -0.035em;
-    margin-top: 8px;
+    margin-top: clamp(16px, 4.5vw, 24px);
   }
 
   /* Sous-titre : discret, blotti sous le mot */
   .header-sub {
-    margin-top: 24px;
+    margin-top: clamp(28px, 7vw, 38px);
     font-size: 14px;
     line-height: 1.5;
     max-width: 30ch;
