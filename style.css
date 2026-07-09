@@ -2717,21 +2717,25 @@ nav .fa-solid {
   }
 }
 /* ===================================================================
-   HERO MOBILE-FIRST (≤480) — DIRECTION A « le mot-force » :
-   amorce discrète (contexte) + « idées » GÉANT en dégradé = point focal.
-   Hiérarchie par la taille, pas par la distribution. Desktop INCHANGÉ.
+   HERO MOBILE-FIRST (≤480) — DIRECTION 02 « le mot-force centré » :
+   plein écran (le hero possède le fold, About ne dépasse pas), contenu
+   optiquement centré, « idées » GÉANT en dégradé + lueur rose = événement
+   visuel qui remplit l'écran. Le vide devient un halo, pas un manque.
+   Desktop INCHANGÉ (tout est dans ce media ≤480).
    =================================================================== */
 @media (max-width: 480px) {
   .header {
-    min-height: auto; /* OPTION 1 : annule le 100vh de base → hero À LA HAUTEUR DU CONTENU (plus de vide forcé) */
+    min-height: 100vh;
+    min-height: 100dvh; /* possède l'écran → on ne voit pas la section suivante à l'ouverture */
     display: flex;
     flex-direction: column;
-    padding: 100px 16px 76px; /* rythme vertical défini : nav+air en haut, air mesuré en bas, puis la section suivante enchaîne */
+    justify-content: center; /* composition centrée : le mot-force est l'événement */
+    padding: 84px 18px 96px; /* bas > haut → léger biais vers le centre optique (le contenu monte un peu) */
     margin-bottom: 0;
   }
   .header-text {
     padding: 0;
-    max-width: 500px;
+    max-width: 340px;
     margin-inline: auto;
     width: 100%;
     text-align: center;
@@ -2742,72 +2746,100 @@ nav .fa-solid {
     align-items: center;
   }
 
-  /* Kicker discret : filet rose→or symétrique */
+  /* Kicker : filet rose→or de part et d'autre, centré */
   .hero-eyebrow {
     justify-content: center;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    gap: 10px;
-    margin-bottom: clamp(24px, 6vw, 36px);
+    align-items: center;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    line-height: 1.6;
+    gap: 9px;
+    margin-bottom: 26px;
+    max-width: 290px;
+    text-wrap: balance;
     color: var(--text-muted);
   }
   .hero-eyebrow::before,
   .hero-eyebrow::after {
     content: "";
-    width: 22px;
+    flex: none;
+    width: 16px;
     height: 2px;
     background: linear-gradient(90deg, var(--accent), var(--accent-ms), var(--accent));
     background-size: 300% 100%;
     animation: hero-bar 4.5s ease-in-out infinite alternate;
   }
 
-  /* Amorce (setup) : subordonnée — pose le contexte, poids + couleur atténués */
+  /* Amorce (setup) : subordonnée — pose le contexte au-dessus du mot-force */
   .header-text h1 {
-    font-size: clamp(22px, 6.2vw, 30px);
-    line-height: 1.16;
-    letter-spacing: -0.005em;
+    font-size: clamp(18px, 5vw, 21px);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
     font-weight: 700;
-    color: color-mix(in srgb, var(--text) 80%, transparent);
-    max-width: none;
+    color: color-mix(in srgb, var(--text) 74%, transparent);
+    max-width: 250px;
     margin-inline: auto;
   }
   .header-text h1 br { display: none; }
 
-  /* LE MOT-FORCE : « idées » GÉANT, dégradé rose→or, point focal (mot court → peut être énorme) */
+  /* LE MOT-FORCE : « idées » ÉNORME, dégradé rose→or, l'événement de l'écran */
   .header-text h1 span {
     display: block;
     font-weight: 900;
-    font-size: clamp(66px, 20vw, 98px);
-    line-height: 0.88;
-    letter-spacing: -0.025em;
-    margin-top: clamp(6px, 2vw, 14px);
+    font-size: clamp(64px, 22vw, 100px);
+    line-height: 0.84;
+    letter-spacing: -0.035em;
+    margin-top: 8px;
   }
 
-  /* Sous-titre : discret, blotti dessous */
+  /* Sous-titre : discret, blotti sous le mot */
   .header-sub {
-    margin-top: clamp(22px, 5.5vw, 34px);
-    font-size: 14.5px;
-    line-height: 1.55;
-    max-width: 32ch;
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 30ch;
     margin-inline: auto;
   }
 
-  /* Lueur : pool rose blotti derrière le mot-force (pas de fil de scroll :
-     la section suivante qui enchaîne EST l'appel au scroll) */
+  /* Lueur : halo rose (teinté or au cœur) derrière le mot-force = l'événement
+     visuel qui « remplit » le centre de l'écran */
   .header::before {
-    width: min(88vw, 430px);
-    top: 20%;
+    width: min(92vw, 440px);
+    top: 24%;
     left: 0;
     right: 0;
     margin-inline: auto;
+    background: radial-gradient(circle, var(--hero-glow) 0%, rgba(247, 201, 72, 0.05) 46%, transparent 70%);
   }
   [data-theme="dark"] .header {
-    --hero-glow: rgba(255, 0, 79, 0.2);
+    --hero-glow: rgba(255, 0, 79, 0.24);
+  }
+
+  /* Appel au scroll : filet animé ancré en bas (le hero possède l'écran, donc
+     rien ne dépasse pour signaler le scroll → ce filet le fait) */
+  .header::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 22px;
+    width: 2px;
+    height: 28px;
+    transform: translateX(-50%);
+    transform-origin: center bottom;
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
+    animation: hero-thread 2.4s ease-in-out infinite;
+  }
+  @keyframes hero-thread {
+    0%, 100% { opacity: 0.2; transform: translateX(-50%) scaleY(0.6); }
+    50% { opacity: 0.75; transform: translateX(-50%) scaleY(1); }
   }
 }
 @media (prefers-reduced-motion: reduce) and (max-width: 480px) {
+  .header::after,
   .hero-eyebrow::before,
   .hero-eyebrow::after { animation: none; }
+  .header::after { opacity: 0.5; }
 }
 
 @media only screen and (max-width: 600px) {
