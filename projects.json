@@ -620,7 +620,7 @@
   {
     "slug": "ticketing-it",
     "title": "Ticketing IT",
-    "image": "./images/placeholder.svg",
+    "image": "./images/projects/ticketing-it/cover.webp",
     "summary": {
       "fr": "Le produit Power Platform que j'ai construit : un système de ticketing IT intégré à Microsoft 365 (portail utilisateur, dashboard admin avec SLA, notifications Email + Teams, reporting Power BI). Sans nouvel outil à adopter.",
       "en": "The Power Platform product I built: an IT ticketing system integrated with Microsoft 365 (user portal, admin dashboard with SLAs, Email + Teams notifications, Power BI reporting). No new tool to adopt."
@@ -804,6 +804,71 @@
           "body": {
             "fr": "Le suivi et l'analyse intégrés.",
             "en": "Tracking and analysis built in."
+          }
+        }
+      ],
+      "gallery": [
+        {
+          "src": "./images/projects/ticketing-it/gallery-1.webp",
+          "caption": {
+            "fr": "Portail utilisateur",
+            "en": "User portal"
+          }
+        },
+        {
+          "src": "./images/projects/ticketing-it/gallery-2.webp",
+          "caption": {
+            "fr": "Création d un ticket",
+            "en": "Ticket creation"
+          }
+        },
+        {
+          "src": "./images/projects/ticketing-it/gallery-3.webp",
+          "caption": {
+            "fr": "Gestion d un ticket",
+            "en": "Ticket management"
+          }
+        },
+        {
+          "src": "./images/projects/ticketing-it/gallery-4.webp",
+          "caption": {
+            "fr": "Administration : SLA, catégories, équipes",
+            "en": "Admin: SLA, categories, teams"
+          }
+        },
+        {
+          "src": "./images/projects/ticketing-it/gallery-5.webp",
+          "caption": {
+            "fr": "Notification email",
+            "en": "Email notification"
+          }
+        },
+        {
+          "src": "./images/projects/ticketing-it/gallery-6.webp",
+          "caption": {
+            "fr": "Dashboard Power BI",
+            "en": "Power BI dashboard"
+          }
+        },
+        {
+          "src": "./images/projects/ticketing-it/gallery-7.webp",
+          "caption": {
+            "fr": "Analyse SLA (Power BI)",
+            "en": "SLA analysis (Power BI)"
+          }
+        },
+        {
+          "src": "./images/projects/ticketing-it/gallery-8.webp",
+          "caption": {
+            "fr": "Performance équipe (Power BI)",
+            "en": "Team performance (Power BI)"
+          }
+        },
+        {
+          "src": "./images/projects/ticketing-it/gallery-9.webp",
+          "caption": {
+            "fr": "Analyse par catégorie (Power BI)",
+            "en": "Category analysis (Power BI)"
           }
         }
       ]
