@@ -2718,9 +2718,14 @@ nav .fa-solid {
 }
 @media (max-width: 480px) {
   .header {
-    padding-top: 84px;
-    padding-bottom: 16px;
-    margin-bottom: 20px; /* resserre l'espace hero → À propos (fini le grand trou du bloc 768) */
+    min-height: 100vh;
+    min-height: 100dvh; /* le hero occupe TOUT le premier écran → À propos passe sous la ligne de flottaison */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* hero centré verticalement = il remplit l'écran et capte le regard */
+    padding-top: 84px; /* dégage la nav fixe */
+    padding-bottom: 40px;
+    margin-bottom: 40px;
   }
   .header-text {
     padding: 0 3% 0 10%; /* alignement gauche (10% comme about) ; droite réduite = place pour le grand titre */
@@ -2752,6 +2757,9 @@ nav .fa-solid {
   }
   .header::before {
     width: min(86vw, 420px); /* lueur plus large/présente pour l'ambiance */
+    top: 28%; /* derrière le titre centré (plus le coin haut-droit) */
+    left: 2%;
+    right: auto;
   }
   [data-theme="dark"] .header {
     --hero-glow: rgba(255, 0, 79, 0.18); /* rose un peu plus marqué en dark ; light reste transparent */
