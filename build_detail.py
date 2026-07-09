@@ -29,7 +29,7 @@ import os
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, "projects.json")
-DOMAIN = "https://YOUR-DOMAIN.com"
+DOMAIN = "https://portfolio-sbrt.com"
 LANGS = ("fr", "en")
 
 

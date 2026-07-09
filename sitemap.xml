@@ -1,64 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- TODO: replace YOUR-DOMAIN.com with the production URL -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://YOUR-DOMAIN.com/</loc>
+    <loc>https://portfolio-sbrt.com/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/projects/dump.html</loc>
+    <loc>https://portfolio-sbrt.com/projects/dump.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/en/projects/dump.html</loc>
+    <loc>https://portfolio-sbrt.com/en/projects/dump.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/projects/stow.html</loc>
+    <loc>https://portfolio-sbrt.com/projects/stow.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/en/projects/stow.html</loc>
+    <loc>https://portfolio-sbrt.com/en/projects/stow.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/projects/extralimo.html</loc>
+    <loc>https://portfolio-sbrt.com/projects/extralimo.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/en/projects/extralimo.html</loc>
+    <loc>https://portfolio-sbrt.com/en/projects/extralimo.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/projects/ticketing-it.html</loc>
+    <loc>https://portfolio-sbrt.com/projects/ticketing-it.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/en/projects/ticketing-it.html</loc>
+    <loc>https://portfolio-sbrt.com/en/projects/ticketing-it.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/projects/video-game-sales-powerbi.html</loc>
+    <loc>https://portfolio-sbrt.com/projects/video-game-sales-powerbi.html</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/en/projects/video-game-sales-powerbi.html</loc>
+    <loc>https://portfolio-sbrt.com/en/projects/video-game-sales-powerbi.html</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/projects/mscd-application.html</loc>
+    <loc>https://portfolio-sbrt.com/projects/mscd-application.html</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/en/projects/mscd-application.html</loc>
+    <loc>https://portfolio-sbrt.com/en/projects/mscd-application.html</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/projects/suez-dashboard.html</loc>
+    <loc>https://portfolio-sbrt.com/projects/suez-dashboard.html</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/en/projects/suez-dashboard.html</loc>
+    <loc>https://portfolio-sbrt.com/en/projects/suez-dashboard.html</loc>
     <priority>0.6</priority>
   </url>
 </urlset>

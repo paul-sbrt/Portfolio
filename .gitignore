@@ -11,3 +11,8 @@ Thumbs.db
 # Dependencies / build
 node_modules/
 dist/
+vendor/
+__pycache__/
+
+# Secrets — JAMAIS dans git (déposés/remplis sur le serveur au déploiement)
+contact.secret.php

@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# TODO: replace YOUR-DOMAIN.com with the production URL
-Sitemap: https://YOUR-DOMAIN.com/sitemap.xml
+Sitemap: https://portfolio-sbrt.com/sitemap.xml

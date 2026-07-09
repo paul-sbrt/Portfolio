@@ -15,19 +15,9 @@
  *   Testé au déploiement (SMTP/PHP ne tournent pas en local).
  */
 
-// ====================== CONFIG — À REMPLIR AU DÉPLOIEMENT ======================
-$CONFIG = [
-    'to'            => 'REMPLIR@ton-domaine.fr',   // destinataire = ta boîte pro
-    'to_name'       => 'Paul Sabourault',
-    'smtp_host'     => 'REMPLIR.o2switch.net',      // ex. mail.ton-domaine.fr / xxxxx.o2switch.net
-    'smtp_user'     => 'REMPLIR@ton-domaine.fr',    // login SMTP (souvent l'adresse complète)
-    'smtp_pass'     => 'REMPLIR_MOT_DE_PASSE',      // mot de passe de la boîte — serveur uniquement
-    'smtp_port'     => 465,                          // 465 (SSL) ou 587 (TLS)
-    'smtp_secure'   => 'ssl',                        // 'ssl' pour 465, 'tls' pour 587
-    'subject_prefix'=> '[Portfolio] ',
-    'min_seconds'   => 2,                            // time-trap : soumission plus rapide = bot
-];
-// =============================================================================
+// CONFIG : chargée depuis contact.secret.php (HORS git, déposé sur le serveur au
+// déploiement). Voir contact.secret.example.php pour le modèle. Chargement plus bas,
+// une fois respond() disponible, pour échouer proprement si le fichier manque.
 
 $isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH'])
     && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
@@ -47,6 +37,28 @@ function respond($ok, $message, $isAjax)
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respond(false, 'Méthode non autorisée.', $isAjax);
 }
+
+// ---- Config secrète (contact.secret.php, hors git, sur le serveur) ----
+$secretFile = __DIR__ . '/contact.secret.php';
+$CONFIG = is_file($secretFile) ? require $secretFile : null;
+if (
+    !is_array($CONFIG)
+    || empty($CONFIG['smtp_pass'])
+    || strpos((string) ($CONFIG['smtp_pass'] . $CONFIG['to']), 'REMPLIR') !== false
+) {
+    // Fichier absent ou identifiants non renseignés : on ne tente pas d'envoyer.
+    respond(false, "Le formulaire n'est pas encore configuré. Écris-moi directement par email.", $isAjax);
+}
+// Défauts non secrets (surchargeables par contact.secret.php).
+$CONFIG += [
+    'to_name'        => 'Paul Sabourault',
+    'from'           => 'contact@portfolio-sbrt.com',
+    'from_name'      => 'Portfolio Paul Sabourault',
+    'smtp_port'      => 465,
+    'smtp_secure'    => 'ssl',
+    'subject_prefix' => '[Portfolio] ',
+    'min_seconds'    => 2,
+];
 
 // ---- Anti-spam : honeypot (champ caché rempli = bot) ----
 if (!empty($_POST['website'])) {
@@ -96,9 +108,9 @@ try {
     $mail->Port       = (int) $CONFIG['smtp_port'];
     $mail->CharSet    = 'UTF-8';
 
-    // From = TA boîte (conformité SPF/DKIM O2switch — pas l'email du visiteur) ;
-    // Reply-To = le visiteur, pour lui répondre directement.
-    $mail->setFrom($CONFIG['smtp_user'], 'Portfolio — ' . $name);
+    // From = adresse DU DOMAINE (conformité SPF/DKIM O2switch, jamais l'email du
+    // visiteur) ; Reply-To = le visiteur, pour lui répondre directement.
+    $mail->setFrom($CONFIG['from'], $CONFIG['from_name'] . ' · ' . $name);
     $mail->addAddress($CONFIG['to'], $CONFIG['to_name']);
     $mail->addReplyTo($email, $name);
 
@@ -106,7 +118,7 @@ try {
     $mail->Body    = "Nom : {$name}\nEmail : {$email}\nSujet : {$subject}\n\n{$message}\n";
 
     $mail->send();
-    respond(true, 'Message envoyé — merci, je te réponds vite.', $isAjax);
+    respond(true, 'Message envoyé, merci. Je te réponds vite.', $isAjax);
 } catch (Exception $e) {
     // $mail->ErrorInfo dispo pour les logs serveur (ne pas exposer au client)
     respond(false, "L'envoi a échoué. Réessaie, ou écris-moi par email.", $isAjax);
