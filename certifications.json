@@ -72,6 +72,30 @@
     ]
   },
   {
+    "name": "Claude Code 101",
+    "issuer": "Anthropic",
+    "date": "2026",
+    "credentialUrl": "https://verify.skilljar.com/c/bpnxse2uyfpn",
+    "skills": [
+      {
+        "fr": "Développement agentique",
+        "en": "Agentic coding"
+      },
+      {
+        "fr": "Claude Code en terminal",
+        "en": "Claude Code in the terminal"
+      },
+      {
+        "fr": "Contexte & CLAUDE.md",
+        "en": "Context & CLAUDE.md"
+      },
+      {
+        "fr": "Workflows de dev assistés",
+        "en": "AI-assisted dev workflows"
+      }
+    ]
+  },
+  {
     "name": "PL-900 Power Platform Fundamentals",
     "issuer": "Microsoft",
     "date": "2025",
